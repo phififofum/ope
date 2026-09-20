@@ -1,0 +1,12 @@
+{
+  "id": "base:cat_bonded_tier_2",
+  "type": "achievement",
+  "name": "loc:achievement.cat_bonded_tier_2",
+  "description": "loc:achievement.cat_bonded_tier_2.description",
+  "hidden": false,
+  "condition": {
+    "event": "cat_fed",
+    "count": 100
+  },
+  "tags": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "base:chips_seasonal",
+  "type": "product",
+  "name": "loc:product.chips_seasonal",
+  "category": "confectionery",
+  "tags": [
+    "impulse",
+    "snack"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 8,
+  "base_cost": 0.57,
+  "market_price": 2.07,
+  "price_band": [
+    1.35,
+    3.93
+  ],
+  "shelf_life_days": 120,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "high"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "base:tortoiseshell",
+  "type": "cat",
+  "name_pool": "loc:catnames.common",
+  "model": "res://content/scenes/cats/tortie.tscn",
+  "coat": "tortie",
+  "trait_weights": {
+    "territorial": 0.8,
+    "hunter": 0.6,
+    "vigilant": 0.41,
+    "lazy": 0.25,
+    "skittish": 0.18,
+    "social": 0.38,
+    "thief": 0.19,
+    "vocal": 0.37,
+    "nocturnal": 0.11,
+    "escape_artist": 0.38
+  },
+  "base_hunting": 0.72,
+  "counter_sensitivity": 0.49,
+  "false_positive_rate": 0.11,
+  "customer_appeal": 0.53,
+  "vocalisations": "res://content/assets/audio/cats/tortie/"
+}

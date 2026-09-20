@@ -1,0 +1,12 @@
+{
+  "id": "base:hundred_checks",
+  "type": "achievement",
+  "name": "loc:achievement.hundred_checks",
+  "description": "loc:achievement.hundred_checks.description",
+  "hidden": false,
+  "condition": {
+    "event": "component_check_resolved",
+    "count": 100
+  },
+  "tags": []
+}

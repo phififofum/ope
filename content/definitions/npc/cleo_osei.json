@@ -1,0 +1,17 @@
+{
+  "id": "base:cleo_osei",
+  "type": "npc",
+  "name": "loc:npc.cleo_osei",
+  "role": "judge",
+  "age": 23,
+  "first_appears_day": 30,
+  "visit_weight": 2.15,
+  "trust_arc": "steady",
+  "tells": [
+    "quotes the policy number from memory"
+  ],
+  "notes": "loc:npc.cleo_osei.notes",
+  "tags": [
+    "judge"
+  ]
+}

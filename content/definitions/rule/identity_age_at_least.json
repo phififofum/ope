@@ -1,0 +1,22 @@
+{
+  "id": "base:identity_age_at_least",
+  "type": "rule",
+  "name": "loc:rule.identity_age_at_least",
+  "explanation": "loc:rule.identity_age_at_least.explanation",
+  "applies_to": {
+    "document_families": [
+      "identity"
+    ],
+    "transaction_tags": [
+      "id_required",
+      "age_restricted"
+    ]
+  },
+  "check": {
+    "op": "age_at_least",
+    "field": "dob",
+    "value": 21
+  },
+  "severity": "blocking",
+  "tier": 0
+}

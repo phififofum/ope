@@ -1,0 +1,26 @@
+{
+  "id": "base:sanctioned_event_organiser",
+  "type": "licence",
+  "name": "loc:licence.sanctioned_event_organiser",
+  "unlocks_categories": [
+    "board_games"
+  ],
+  "unlocks_activities": [
+    "tournaments",
+    "prize_payouts"
+  ],
+  "cost": 1600.0,
+  "renewal_days": 365,
+  "standing_required": 2,
+  "verification_burden": [
+    "Event legitimacy",
+    "Prize payout ceilings",
+    "Age divisions",
+    "Guardian consent"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

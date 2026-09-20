@@ -1,0 +1,25 @@
+{
+  "id": "base:identity_fields_match",
+  "type": "rule",
+  "name": "loc:rule.identity_fields_match",
+  "explanation": "loc:rule.identity_fields_match.explanation",
+  "applies_to": {
+    "document_families": [
+      "identity"
+    ],
+    "transaction_tags": [
+      "id_required",
+      "age_restricted"
+    ]
+  },
+  "check": {
+    "op": "fields_match",
+    "fields": [
+      "barcode.dob",
+      "dob"
+    ]
+  },
+  "severity": "blocking",
+  "tier": 2,
+  "requires_tool": "base:barcode_scanner"
+}

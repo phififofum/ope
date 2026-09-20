@@ -1,0 +1,22 @@
+{
+  "id": "base:counter_nicotine",
+  "type": "licence",
+  "name": "loc:licence.counter_nicotine",
+  "unlocks_categories": [
+    "nicotine"
+  ],
+  "unlocks_activities": [
+    "vape_counter"
+  ],
+  "cost": 700.0,
+  "renewal_days": 365,
+  "standing_required": 1,
+  "verification_burden": [
+    "ID checks on every sale"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "base:commercial_no_carbon_impression_blatant",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_feature": "carbon_impression"
+  },
+  "class": "physical_defect",
+  "tier": 1,
+  "difficulty": 1,
+  "detectable_by": [
+    "base:loupe"
+  ],
+  "transform": {
+    "op": "remove_feature",
+    "target": "carbon_impression"
+  },
+  "tell": {
+    "behaviour": "volunteers_information",
+    "weight": 0.6
+  }
+}

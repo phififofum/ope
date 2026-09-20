@@ -1,0 +1,21 @@
+{
+  "id": "base:collectible_physically_intact",
+  "type": "rule",
+  "name": "loc:rule.collectible_physically_intact",
+  "explanation": "loc:rule.collectible_physically_intact.explanation",
+  "applies_to": {
+    "document_families": [
+      "collectible"
+    ],
+    "transaction_tags": [
+      "authentication",
+      "trade_in"
+    ]
+  },
+  "check": {
+    "op": "physically_intact"
+  },
+  "severity": "blocking",
+  "tier": 1,
+  "requires_tool": "base:loupe"
+}

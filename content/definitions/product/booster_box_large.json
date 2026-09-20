@@ -1,0 +1,29 @@
+{
+  "id": "base:booster_box_large",
+  "type": "product",
+  "name": "loc:product.booster_box_large",
+  "category": "sealed_product",
+  "tags": [
+    "high_value",
+    "sealed",
+    "theft_exposed"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 24,
+  "base_cost": 132.0,
+  "market_price": 186.0,
+  "price_band": [
+    120.9,
+    353.4
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:sealed_distribution",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

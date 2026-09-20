@@ -1,0 +1,17 @@
+{
+  "id": "base:lev_rosales",
+  "type": "npc",
+  "name": "loc:npc.lev_rosales",
+  "role": "trade_partner",
+  "age": 23,
+  "first_appears_day": 1,
+  "visit_weight": 0.43,
+  "trust_arc": "long_con",
+  "tells": [
+    "twenty clean transactions, and then one that is not"
+  ],
+  "notes": "loc:npc.lev_rosales.notes",
+  "tags": [
+    "trade_partner"
+  ]
+}

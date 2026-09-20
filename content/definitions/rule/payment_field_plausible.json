@@ -1,0 +1,20 @@
+{
+  "id": "base:payment_field_plausible",
+  "type": "rule",
+  "name": "loc:rule.payment_field_plausible",
+  "explanation": "loc:rule.payment_field_plausible.explanation",
+  "applies_to": {
+    "document_families": [
+      "payment"
+    ],
+    "transaction_tags": [
+      "payment"
+    ]
+  },
+  "check": {
+    "op": "field_plausible",
+    "field": "signature"
+  },
+  "severity": "blocking",
+  "tier": 0
+}

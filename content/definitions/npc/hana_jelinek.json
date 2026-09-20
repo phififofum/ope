@@ -1,0 +1,17 @@
+{
+  "id": "base:hana_jelinek",
+  "type": "npc",
+  "name": "loc:npc.hana_jelinek",
+  "role": "repeat_offender",
+  "age": 19,
+  "first_appears_day": 1,
+  "visit_weight": 2.43,
+  "trust_arc": "cooling",
+  "tells": [
+    "counts their change twice"
+  ],
+  "notes": "loc:npc.hana_jelinek.notes",
+  "tags": [
+    "repeat_offender"
+  ]
+}

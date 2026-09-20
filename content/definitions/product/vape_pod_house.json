@@ -1,0 +1,28 @@
+{
+  "id": "base:vape_pod_house",
+  "type": "product",
+  "name": "loc:product.vape_pod_house",
+  "category": "nicotine",
+  "tags": [
+    "age_restricted",
+    "counter_adjacent"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 48,
+  "base_cost": 2.88,
+  "market_price": 8.55,
+  "price_band": [
+    5.56,
+    16.25
+  ],
+  "shelf_life_days": 400,
+  "licence": "base:counter_nicotine",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "base:rae_tsai",
+  "type": "npc",
+  "name": "loc:npc.rae_tsai",
+  "role": "regular",
+  "age": 21,
+  "first_appears_day": 1,
+  "visit_weight": 2.41,
+  "trust_arc": "warming",
+  "tells": [
+    "brings their own dice"
+  ],
+  "notes": "loc:npc.rae_tsai.notes",
+  "tags": [
+    "regular"
+  ]
+}

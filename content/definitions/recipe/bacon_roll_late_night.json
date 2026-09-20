@@ -1,0 +1,55 @@
+{
+  "id": "base:bacon_roll_late_night",
+  "type": "recipe",
+  "name": "loc:recipe.bacon_roll_late_night",
+  "price": 7.7,
+  "station_primary": "griddle",
+  "ingredients": [
+    {
+      "product": "base:sourdough",
+      "qty": 1.1,
+      "unit": "roll"
+    },
+    {
+      "product": "base:bacon",
+      "qty": 66.0,
+      "unit": "g"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 45,
+      "tolerance": 6
+    },
+    {
+      "station": "griddle",
+      "action": "cook",
+      "seconds": 45,
+      "tolerance": 14
+    },
+    {
+      "station": "griddle",
+      "action": "assemble",
+      "seconds": 45,
+      "tolerance": 3
+    },
+    {
+      "station": "griddle",
+      "action": "plate",
+      "seconds": 95,
+      "tolerance": 10
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": false,
+  "unlocked_by": "base:food_service"
+}

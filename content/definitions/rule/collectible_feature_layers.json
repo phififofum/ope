@@ -1,0 +1,22 @@
+{
+  "id": "base:collectible_feature_layers",
+  "type": "rule",
+  "name": "loc:rule.collectible_feature_layers",
+  "explanation": "loc:rule.collectible_feature_layers.explanation",
+  "applies_to": {
+    "document_families": [
+      "collectible"
+    ],
+    "transaction_tags": [
+      "authentication",
+      "trade_in"
+    ]
+  },
+  "check": {
+    "op": "feature_present",
+    "feature": "layer_core"
+  },
+  "severity": "blocking",
+  "tier": 1,
+  "requires_tool": "base:backlight_panel"
+}

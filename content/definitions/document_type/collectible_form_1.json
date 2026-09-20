@@ -1,0 +1,61 @@
+{
+  "id": "base:collectible_form_1",
+  "type": "document_type",
+  "name": "loc:doc.collectible_form_1",
+  "family": "collectible",
+  "layout": "res://content/layouts/form_a4_carbon.tres",
+  "fields": [
+    {
+      "key": "title",
+      "source": "card.title",
+      "face": "front"
+    },
+    {
+      "key": "set_symbol",
+      "source": "card.set",
+      "face": "front"
+    },
+    {
+      "key": "collector_number",
+      "source": "card.number",
+      "face": "front"
+    },
+    {
+      "key": "rarity",
+      "source": "card.rarity",
+      "face": "front"
+    },
+    {
+      "key": "copyright_line",
+      "source": "card.copyright",
+      "face": "front"
+    },
+    {
+      "key": "layer_structure",
+      "source": "physical.layers",
+      "face": "edge",
+      "revealed_by": "base:backlight_panel"
+    },
+    {
+      "key": "weight",
+      "source": "physical.mass",
+      "face": "edge",
+      "revealed_by": "base:precision_scale"
+    }
+  ],
+  "security_features": [
+    {
+      "id": "print_rosette",
+      "revealed_by": "base:loupe"
+    },
+    {
+      "id": "foil_response",
+      "revealed_by": "base:uv_torch"
+    },
+    {
+      "id": "layer_core",
+      "revealed_by": "base:backlight_panel"
+    }
+  ],
+  "typeface": "base:font_collectible_official"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "base:pax_fontaine",
+  "type": "npc",
+  "name": "loc:npc.pax_fontaine",
+  "role": "courier",
+  "age": 71,
+  "first_appears_day": 5,
+  "visit_weight": 1.79,
+  "trust_arc": "cooling",
+  "tells": [
+    "never has the same paperwork twice"
+  ],
+  "notes": "loc:npc.pax_fontaine.notes",
+  "tags": [
+    "courier"
+  ]
+}

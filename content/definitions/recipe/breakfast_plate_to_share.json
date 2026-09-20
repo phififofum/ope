@@ -1,0 +1,95 @@
+{
+  "id": "base:breakfast_plate_to_share",
+  "type": "recipe",
+  "name": "loc:recipe.breakfast_plate_to_share",
+  "price": 21.85,
+  "station_primary": "griddle",
+  "ingredients": [
+    {
+      "product": "base:eggs_dozen",
+      "qty": 3.8,
+      "unit": "each"
+    },
+    {
+      "product": "base:bacon",
+      "qty": 95.0,
+      "unit": "g"
+    },
+    {
+      "product": "base:sourdough",
+      "qty": 3.8,
+      "unit": "slice"
+    },
+    {
+      "product": "base:tomato",
+      "qty": 1.9,
+      "unit": "each"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 95,
+      "tolerance": 14
+    },
+    {
+      "station": "griddle",
+      "action": "cook",
+      "seconds": 45,
+      "tolerance": 6
+    },
+    {
+      "station": "griddle",
+      "action": "assemble",
+      "seconds": 8,
+      "tolerance": 10
+    },
+    {
+      "station": "griddle",
+      "action": "plate",
+      "seconds": 8,
+      "tolerance": 6
+    },
+    {
+      "station": "griddle",
+      "action": "melt",
+      "seconds": 60,
+      "tolerance": 3
+    },
+    {
+      "station": "griddle",
+      "action": "slice",
+      "seconds": 45,
+      "tolerance": 4
+    },
+    {
+      "station": "griddle",
+      "action": "prep",
+      "seconds": 6,
+      "tolerance": 6
+    },
+    {
+      "station": "griddle",
+      "action": "cook",
+      "seconds": 60,
+      "tolerance": 14
+    },
+    {
+      "station": "griddle",
+      "action": "assemble",
+      "seconds": 8,
+      "tolerance": 4
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": false,
+  "unlocked_by": "base:food_service"
+}

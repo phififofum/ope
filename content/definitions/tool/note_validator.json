@@ -1,0 +1,15 @@
+{
+  "id": "base:note_validator",
+  "type": "tool",
+  "name": "loc:tool.note_validator",
+  "tier": 2,
+  "reveals": [
+    "note_authenticity"
+  ],
+  "inspection_seconds": 3.5,
+  "unlocked_by": "cash handling upgrade",
+  "returns_verdict": false,
+  "failure_modes": [
+    "Fast, and fallible on a high-quality fake."
+  ]
+}

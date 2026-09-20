@@ -1,0 +1,24 @@
+{
+  "id": "base:three_legged",
+  "type": "cat",
+  "name_pool": "loc:catnames.common",
+  "model": "res://content/scenes/cats/patch.tscn",
+  "coat": "patch",
+  "trait_weights": {
+    "social": 0.85,
+    "lazy": 0.7,
+    "vigilant": 0.09,
+    "skittish": 0.49,
+    "territorial": 0.3,
+    "hunter": 0.11,
+    "thief": 0.11,
+    "vocal": 0.1,
+    "nocturnal": 0.22,
+    "escape_artist": 0.37
+  },
+  "base_hunting": 0.38,
+  "counter_sensitivity": 0.26,
+  "false_positive_rate": 0.22,
+  "customer_appeal": 0.81,
+  "vocalisations": "res://content/assets/audio/cats/patch/"
+}

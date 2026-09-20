@@ -1,0 +1,25 @@
+{
+  "id": "base:commercial_different_hand",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_field": "signature"
+  },
+  "class": "internal_inconsistency",
+  "tier": 0,
+  "difficulty": 1,
+  "detectable_by": [
+    "base:naked_eye"
+  ],
+  "transform": {
+    "op": "perturb_field",
+    "target": "signature",
+    "method": "different_hand"
+  },
+  "tell": {
+    "behaviour": "looks_at_door",
+    "weight": 0.3
+  }
+}

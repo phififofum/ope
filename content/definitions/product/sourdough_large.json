@@ -1,0 +1,28 @@
+{
+  "id": "base:sourdough_large",
+  "type": "product",
+  "name": "loc:product.sourdough_large",
+  "category": "bakery",
+  "tags": [
+    "ingredient",
+    "perishable"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 8,
+  "base_cost": 2.4,
+  "market_price": 6.0,
+  "price_band": [
+    3.9,
+    11.4
+  ],
+  "shelf_life_days": 3,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

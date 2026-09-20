@@ -1,0 +1,44 @@
+{
+  "id": "base:loaded_fries_to_share",
+  "type": "recipe",
+  "name": "loc:recipe.loaded_fries_to_share",
+  "price": 12.35,
+  "station_primary": "fryer",
+  "ingredients": [
+    {
+      "product": "base:cheddar",
+      "qty": 76.0,
+      "unit": "g"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 60,
+      "tolerance": 4
+    },
+    {
+      "station": "fryer",
+      "action": "cook",
+      "seconds": 45,
+      "tolerance": 3
+    },
+    {
+      "station": "fryer",
+      "action": "assemble",
+      "seconds": 60,
+      "tolerance": 6
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": false,
+  "unlocked_by": "base:food_service"
+}

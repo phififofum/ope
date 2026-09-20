@@ -1,0 +1,21 @@
+{
+  "id": "base:waste_and_recycling",
+  "type": "licence",
+  "name": "loc:licence.waste_and_recycling",
+  "unlocks_categories": [],
+  "unlocks_activities": [
+    "trade_waste"
+  ],
+  "cost": 380.0,
+  "renewal_days": 365,
+  "standing_required": 0,
+  "verification_burden": [
+    "Segregation",
+    "Collection records"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

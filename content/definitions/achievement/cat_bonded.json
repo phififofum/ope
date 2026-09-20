@@ -1,0 +1,12 @@
+{
+  "id": "base:cat_bonded",
+  "type": "achievement",
+  "name": "loc:achievement.cat_bonded",
+  "description": "loc:achievement.cat_bonded.description",
+  "hidden": false,
+  "condition": {
+    "event": "cat_fed",
+    "count": 20
+  },
+  "tags": []
+}

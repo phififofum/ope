@@ -1,0 +1,29 @@
+{
+  "id": "base:identity_dob_altered_blatant",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_field": "dob"
+  },
+  "class": "internal_inconsistency",
+  "tier": 0,
+  "difficulty": 1,
+  "detectable_by": [
+    "base:naked_eye"
+  ],
+  "transform": {
+    "op": "perturb_field",
+    "target": "dob",
+    "method": "shift_years",
+    "range": [
+      2,
+      6
+    ]
+  },
+  "tell": {
+    "behaviour": "presses_for_speed",
+    "weight": 0.6
+  }
+}

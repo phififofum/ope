@@ -1,0 +1,27 @@
+{
+  "id": "base:dice_set_house",
+  "type": "product",
+  "name": "loc:product.dice_set_house",
+  "category": "accessories",
+  "tags": [
+    "impulse"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 12,
+  "base_cost": 3.06,
+  "market_price": 9.9,
+  "price_band": [
+    6.44,
+    18.81
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "high"
+}

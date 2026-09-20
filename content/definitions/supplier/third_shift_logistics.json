@@ -1,0 +1,21 @@
+{
+  "id": "base:third_shift_logistics",
+  "type": "supplier",
+  "name": "loc:supplier.third_shift_logistics",
+  "catalogue": [
+    "sealed_product",
+    "accessories"
+  ],
+  "lead_time_days": [
+    2,
+    7
+  ],
+  "minimum_order": 60.0,
+  "price_tier": "discount",
+  "reliability": 0.62,
+  "legitimacy": {
+    "counterfeit_rate": 0.14,
+    "manifest_accuracy": 0.72,
+    "credentials_verifiable": true
+  }
+}

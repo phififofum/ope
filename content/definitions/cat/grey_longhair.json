@@ -1,0 +1,24 @@
+{
+  "id": "base:grey_longhair",
+  "type": "cat",
+  "name_pool": "loc:catnames.common",
+  "model": "res://content/scenes/cats/grey.tscn",
+  "coat": "grey",
+  "trait_weights": {
+    "lazy": 0.85,
+    "social": 0.7,
+    "vigilant": 0.14,
+    "skittish": 0.13,
+    "territorial": 0.47,
+    "hunter": 0.38,
+    "thief": 0.41,
+    "vocal": 0.35,
+    "nocturnal": 0.31,
+    "escape_artist": 0.31
+  },
+  "base_hunting": 0.57,
+  "counter_sensitivity": 0.3,
+  "false_positive_rate": 0.1,
+  "customer_appeal": 0.72,
+  "vocalisations": "res://content/assets/audio/cats/grey/"
+}

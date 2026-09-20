@@ -1,0 +1,29 @@
+{
+  "id": "base:house_lager_small",
+  "type": "product",
+  "name": "loc:product.house_lager_small",
+  "category": "alcohol",
+  "tags": [
+    "age_restricted",
+    "chilled",
+    "impulse"
+  ],
+  "storage": "chilled",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 48,
+  "base_cost": 0.84,
+  "market_price": 3.85,
+  "price_band": [
+    2.5,
+    7.31
+  ],
+  "shelf_life_days": 200,
+  "licence": "base:on_premise_alcohol",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "high"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "base:first_refusal_tier_3",
+  "type": "achievement",
+  "name": "loc:achievement.first_refusal_tier_3",
+  "description": "loc:achievement.first_refusal_tier_3.description",
+  "hidden": false,
+  "condition": {
+    "event": "customer_left",
+    "count": 9
+  },
+  "tags": []
+}

@@ -1,0 +1,17 @@
+{
+  "id": "base:jo_duarte",
+  "type": "npc",
+  "name": "loc:npc.jo_duarte",
+  "role": "difficult",
+  "age": 52,
+  "first_appears_day": 3,
+  "visit_weight": 0.41,
+  "trust_arc": "volatile",
+  "tells": [
+    "argues about the deposit"
+  ],
+  "notes": "loc:npc.jo_duarte.notes",
+  "tags": [
+    "difficult"
+  ]
+}

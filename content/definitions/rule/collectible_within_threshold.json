@@ -1,0 +1,23 @@
+{
+  "id": "base:collectible_within_threshold",
+  "type": "rule",
+  "name": "loc:rule.collectible_within_threshold",
+  "explanation": "loc:rule.collectible_within_threshold.explanation",
+  "applies_to": {
+    "document_families": [
+      "collectible"
+    ],
+    "transaction_tags": [
+      "authentication",
+      "trade_in"
+    ]
+  },
+  "check": {
+    "op": "within_threshold",
+    "field": "weight",
+    "threshold": 0.12
+  },
+  "severity": "blocking",
+  "tier": 2,
+  "requires_tool": "base:precision_scale"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "base:chocolate_bar_large",
+  "type": "product",
+  "name": "loc:product.chocolate_bar_large",
+  "category": "confectionery",
+  "tags": [
+    "impulse"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 12,
+  "base_cost": 0.9,
+  "market_price": 3.15,
+  "price_band": [
+    2.05,
+    5.98
+  ],
+  "shelf_life_days": 240,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "high"
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/npc.schema.json",
+  "title": "Named NPC",
+  "description": "Someone the shop knows by name. The ledger needs faces: 'wait, that's the guy from Tuesday' only happens with a persistent cast, never with pure random generation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "role",
+    "visit_weight",
+    "trust_arc"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+    },
+    "type": {
+      "const": "npc"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "archetype": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+    },
+    "role": {
+      "enum": [
+        "regular",
+        "repeat_offender",
+        "difficult",
+        "trade_partner",
+        "official",
+        "staff_candidate",
+        "judge",
+        "courier"
+      ]
+    },
+    "age": {
+      "type": "integer",
+      "minimum": 16,
+      "maximum": 95
+    },
+    "first_appears_day": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "visit_weight": {
+      "type": "number",
+      "minimum": 0
+    },
+    "trust_arc": {
+      "enum": [
+        "steady",
+        "warming",
+        "cooling",
+        "long_con",
+        "volatile"
+      ],
+      "description": "long_con is rare by design: if it were common the mechanic would curdle into a puzzle where the answer is always yes."
+    },
+    "tells": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

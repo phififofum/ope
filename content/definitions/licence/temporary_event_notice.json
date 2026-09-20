@@ -1,0 +1,21 @@
+{
+  "id": "base:temporary_event_notice",
+  "type": "licence",
+  "name": "loc:licence.temporary_event_notice",
+  "unlocks_categories": [],
+  "unlocks_activities": [
+    "pop_up_events"
+  ],
+  "cost": 260.0,
+  "renewal_days": 365,
+  "standing_required": 1,
+  "verification_burden": [
+    "Per-event notification",
+    "Attendance ceilings"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

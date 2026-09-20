@@ -1,0 +1,17 @@
+{
+  "id": "base:esme_ibori",
+  "type": "npc",
+  "name": "loc:npc.esme_ibori",
+  "role": "regular",
+  "age": 23,
+  "first_appears_day": 1,
+  "visit_weight": 2.03,
+  "trust_arc": "steady",
+  "tells": [
+    "asks after the cat"
+  ],
+  "notes": "loc:npc.esme_ibori.notes",
+  "tags": [
+    "regular"
+  ]
+}

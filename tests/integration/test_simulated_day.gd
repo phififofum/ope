@@ -67,11 +67,11 @@ func test_nobody_stands_idle_while_work_waits() -> void:
 
 
 func test_a_careless_player_misses_forgeries_a_careful_one_catches() -> void:
-	# Scrutiny has to pay for itself, or the whole thesis collapses. Measured directly
-	# as missed forgeries rather than as reputation, and aggregated across seeds: any
-	# single day can go well for a careless player.
-	var careless: Dictionary = _forgery_tally(BotPlayer.Policy.CARELESS, [21, 22, 23])
-	var careful: Dictionary = _forgery_tally(BotPlayer.Policy.PARANOID, [21, 22, 23])
+	# Scrutiny has to pay for itself, or the whole thesis collapses. Measured as missed
+	# forgeries rather than as reputation, and aggregated across seeds: any single day
+	# can go well for a careless player.
+	var careless: Dictionary = _policy_tally(BotPlayer.Policy.CARELESS, [21, 22, 23])
+	var careful: Dictionary = _policy_tally(BotPlayer.Policy.PARANOID, [21, 22, 23])
 
 	(
 		assert_int(int(careful["forged"]))
@@ -90,31 +90,91 @@ func test_a_careless_player_misses_forgeries_a_careful_one_catches() -> void:
 		)
 		. is_less(int(careless["missed"]))
 	)
+	assert_int(int(careless["strikes"])).is_greater(int(careful["strikes"]))
 	assert_float(float(careful["reputation"])).is_greater(float(careless["reputation"]))
 
 
-## Runs a policy across seeds and counts what it caught. The tally is a Dictionary
-## because GDScript lambdas capture locals by value.
-func _forgery_tally(policy: BotPlayer.Policy, seeds: Array) -> Dictionary:
-	var tally: Dictionary = {"forged": 0, "missed": 0, "reputation": 0.0}
+func test_scrutiny_costs_throughput() -> void:
+	# The load-bearing claim: a shift contains far more checkable material than checkable
+	# time. Checking everything has to cost customers, or "scrutiny is a budget" is a
+	# slogan rather than a mechanic.
+	var seeds: Array = [21, 22, 23]
+	var careless: Dictionary = _policy_tally(BotPlayer.Policy.CARELESS, seeds, 3)
+	var triage: Dictionary = _policy_tally(BotPlayer.Policy.BALANCED, seeds, 3)
+	var exhaustive: Dictionary = _policy_tally(BotPlayer.Policy.PARANOID, seeds, 3)
+
+	(
+		assert_int(int(exhaustive["walked_out"]))
+		. override_failure_message(
+			(
+				"walked out -- careless %d, triage %d, exhaustive %d: checking everything is free"
+				% [careless["walked_out"], triage["walked_out"], exhaustive["walked_out"]]
+			)
+		)
+		. is_greater(int(careless["walked_out"]))
+	)
+	assert_int(int(triage["walked_out"])).is_greater(int(careless["walked_out"]))
+	# And it has to buy something: fewer missed forgeries for the customers it cost.
+	assert_int(int(exhaustive["missed"])).is_less_equal(int(careless["missed"]))
+
+
+func test_triage_beats_carelessness_on_the_books() -> void:
+	var seeds: Array = [21, 22, 23]
+	var careless: Dictionary = _policy_tally(BotPlayer.Policy.CARELESS, seeds)
+	var triage: Dictionary = _policy_tally(BotPlayer.Policy.BALANCED, seeds)
+	(
+		assert_float(float(triage["net_worth"]))
+		. override_failure_message(
+			"careless %.0f, triage %.0f" % [careless["net_worth"], triage["net_worth"]]
+		)
+		. is_greater(float(careless["net_worth"]))
+	)
+	assert_float(float(triage["reputation"])).is_greater(float(careless["reputation"]))
+
+
+## Plays a policy across seeds and reports what it cost and what it caught. The tally is
+## a Dictionary because GDScript lambdas capture locals by value.
+func _policy_tally(policy: BotPlayer.Policy, seeds: Array, days: int = 5) -> Dictionary:
+	var totals: Dictionary = {
+		"forged": 0,
+		"missed": 0,
+		"strikes": 0,
+		"reputation": 0.0,
+		"net_worth": 0.0,
+		"served": 0,
+		"walked_out": 0,
+	}
 	for seed_value: int in seeds:
 		var bus := EventBus.new()
-		var rng := SeededRng.new(seed_value)
-		var shop := Shop.new(registry, bus, rng, Director.Profile.preset("standard"), 3)
+		var shop := Shop.new(
+			registry, bus, SeededRng.new(seed_value), Director.Profile.preset("standard"), 3
+		)
 		shop.open_for_business(600.0)
 		bus.subscribe(
 			EventCatalog.VERIFICATION_RESOLVED,
 			func(payload: Dictionary) -> void:
 				if not bool(payload.get("was_forged", false)):
 					return
-				tally["forged"] = int(tally["forged"]) + 1
+				totals["forged"] = int(totals["forged"]) + 1
 				if int(payload.get("outcome", 0)) == Encounter.Outcome.WRONG_APPROVED:
-					tally["missed"] = int(tally["missed"]) + 1,
+					totals["missed"] = int(totals["missed"]) + 1,
 			"test"
 		)
-		var report: Dictionary = BotPlayer.new(shop, policy).play(3)
-		tally["reputation"] = float(tally["reputation"]) + float(report["final_reputation"])
-	return tally
+		bus.subscribe(
+			EventCatalog.STRIKE_ISSUED,
+			func(_payload: Dictionary) -> void: totals["strikes"] = int(totals["strikes"]) + 1,
+			"test"
+		)
+		var report: Dictionary = BotPlayer.new(shop, policy).play(days)
+		totals["reputation"] = float(totals["reputation"]) + float(report["final_reputation"])
+		# Cash alone is misleading: money in cardboard is still money, and a shop that
+		# converted its till into stock has not lost anything yet.
+		totals["net_worth"] = (
+			float(totals["net_worth"]) + float(report["final_money"]) + shop.card_case.case_value()
+		)
+		totals["served"] = int(totals["served"]) + shop.served_today
+		totals["walked_out"] = int(totals["walked_out"]) + shop.walked_out
+	return totals
 
 
 func test_solo_play_is_viable() -> void:

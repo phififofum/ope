@@ -1,0 +1,21 @@
+{
+  "id": "base:late_night_food",
+  "type": "licence",
+  "name": "loc:licence.late_night_food",
+  "unlocks_categories": [],
+  "unlocks_activities": [
+    "late_kitchen"
+  ],
+  "cost": 1450.0,
+  "renewal_days": 365,
+  "standing_required": 2,
+  "verification_burden": [
+    "Hot food after the cutoff",
+    "Noise and queue management"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

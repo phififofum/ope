@@ -1,0 +1,28 @@
+{
+  "id": "base:booster_pack",
+  "type": "product",
+  "name": "loc:product.booster_pack",
+  "category": "sealed_product",
+  "tags": [
+    "impulse",
+    "sealed"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 8,
+  "base_cost": 3.1,
+  "market_price": 5.2,
+  "price_band": [
+    3.38,
+    9.88
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:sealed_distribution",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "high"
+}

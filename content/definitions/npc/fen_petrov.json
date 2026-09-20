@@ -1,0 +1,17 @@
+{
+  "id": "base:fen_petrov",
+  "type": "npc",
+  "name": "loc:npc.fen_petrov",
+  "role": "regular",
+  "age": 43,
+  "first_appears_day": 8,
+  "visit_weight": 0.9,
+  "trust_arc": "warming",
+  "tells": [
+    "brings their own dice"
+  ],
+  "notes": "loc:npc.fen_petrov.notes",
+  "tags": [
+    "regular"
+  ]
+}

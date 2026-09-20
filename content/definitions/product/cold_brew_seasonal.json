@@ -1,0 +1,28 @@
+{
+  "id": "base:cold_brew_seasonal",
+  "type": "product",
+  "name": "loc:product.cold_brew_seasonal",
+  "category": "cold_beverages",
+  "tags": [
+    "chilled",
+    "impulse"
+  ],
+  "storage": "chilled",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 12,
+  "base_cost": 1.03,
+  "market_price": 3.91,
+  "price_band": [
+    2.54,
+    7.43
+  ],
+  "shelf_life_days": 21,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "high"
+}

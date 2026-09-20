@@ -101,7 +101,7 @@ func _init(
 	staff = StaffSystem.new(registry, bus, rng)
 	director = Director.new(profile, rng)
 	verification = VerificationEngine.new(registry, bus, rng)
-	people = PersonFactory.new(rng, day)
+	people = PersonFactory.new(rng, day, registry)
 
 	for index: int in range(maxi(1, player_count)):
 		var slot := PlayerSlot.new()
@@ -229,6 +229,7 @@ func start_day(new_day: int) -> void:
 	verification.set_today(day)
 	economy.advance_day(day)
 	refresh_unlocked_tools()
+	people.admit_named_cast(day)
 	director.plan_shift(DAY_TICKS, players.size())
 	bus.publish(EventCatalog.SHIFT_STARTED, {"day": day, "shift": SHIFTS[0]})
 

@@ -1,0 +1,25 @@
+{
+  "id": "base:on_premise_alcohol",
+  "type": "licence",
+  "name": "loc:licence.on_premise_alcohol",
+  "unlocks_categories": [
+    "alcohol"
+  ],
+  "unlocks_activities": [
+    "bar_service"
+  ],
+  "cost": 2800.0,
+  "renewal_days": 365,
+  "standing_required": 2,
+  "verification_burden": [
+    "ID checks",
+    "Hour restrictions",
+    "Refusal of service",
+    "Intoxication judgement"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

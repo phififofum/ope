@@ -1,0 +1,21 @@
+{
+  "id": "base:table_service",
+  "type": "licence",
+  "name": "loc:licence.table_service",
+  "unlocks_categories": [],
+  "unlocks_activities": [
+    "table_service"
+  ],
+  "cost": 900.0,
+  "renewal_days": 365,
+  "standing_required": 1,
+  "verification_burden": [
+    "Allergen handling",
+    "Table hygiene"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

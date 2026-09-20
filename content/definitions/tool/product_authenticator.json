@@ -1,0 +1,14 @@
+{
+  "id": "base:product_authenticator",
+  "type": "tool",
+  "name": "loc:tool.product_authenticator",
+  "tier": 2,
+  "reveals": [
+    "batch_codes",
+    "tamper_seals",
+    "holograms"
+  ],
+  "inspection_seconds": 6.0,
+  "unlocked_by": "supplier trust tier 2",
+  "returns_verdict": false
+}

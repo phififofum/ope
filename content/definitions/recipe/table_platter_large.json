@@ -1,0 +1,78 @@
+{
+  "id": "base:table_platter_large",
+  "type": "recipe",
+  "name": "loc:recipe.table_platter_large",
+  "price": 25.2,
+  "station_primary": "prep",
+  "ingredients": [
+    {
+      "product": "base:cheddar",
+      "qty": 168.0,
+      "unit": "g"
+    },
+    {
+      "product": "base:sourdough",
+      "qty": 5.6,
+      "unit": "slice"
+    },
+    {
+      "product": "base:chips",
+      "qty": 2.8,
+      "unit": "bag"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 12,
+      "tolerance": 14
+    },
+    {
+      "station": "prep",
+      "action": "cook",
+      "seconds": 8,
+      "tolerance": 14
+    },
+    {
+      "station": "prep",
+      "action": "assemble",
+      "seconds": 45,
+      "tolerance": 6
+    },
+    {
+      "station": "prep",
+      "action": "plate",
+      "seconds": 12,
+      "tolerance": 10
+    },
+    {
+      "station": "prep",
+      "action": "melt",
+      "seconds": 6,
+      "tolerance": 6
+    },
+    {
+      "station": "prep",
+      "action": "slice",
+      "seconds": 8,
+      "tolerance": 6
+    },
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 95,
+      "tolerance": 6
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": false,
+  "unlocked_by": "base:food_service"
+}

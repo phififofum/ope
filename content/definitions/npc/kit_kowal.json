@@ -1,0 +1,17 @@
+{
+  "id": "base:kit_kowal",
+  "type": "npc",
+  "name": "loc:npc.kit_kowal",
+  "role": "trade_partner",
+  "age": 23,
+  "first_appears_day": 20,
+  "visit_weight": 1.0,
+  "trust_arc": "steady",
+  "tells": [
+    "sleeves everything before it hits the glass"
+  ],
+  "notes": "loc:npc.kit_kowal.notes",
+  "tags": [
+    "trade_partner"
+  ]
+}

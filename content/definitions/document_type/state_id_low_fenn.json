@@ -1,0 +1,71 @@
+{
+  "id": "base:state_id_low_fenn",
+  "type": "document_type",
+  "name": "loc:doc.state_id_low_fenn",
+  "family": "identity",
+  "layout": "res://content/layouts/id_landscape_a.tres",
+  "fields": [
+    {
+      "key": "surname",
+      "source": "person.surname",
+      "face": "front"
+    },
+    {
+      "key": "given_names",
+      "source": "person.given_names",
+      "face": "front"
+    },
+    {
+      "key": "dob",
+      "source": "person.dob",
+      "face": "front",
+      "format": "MM/DD/YYYY"
+    },
+    {
+      "key": "issued",
+      "source": "derived.issued",
+      "face": "front",
+      "format": "MM/DD/YYYY"
+    },
+    {
+      "key": "expiry",
+      "source": "derived.expiry",
+      "face": "front",
+      "format": "MM/DD/YYYY"
+    },
+    {
+      "key": "height",
+      "source": "person.height",
+      "face": "front"
+    },
+    {
+      "key": "photo",
+      "source": "person.portrait",
+      "face": "front"
+    },
+    {
+      "key": "barcode",
+      "source": "encoded.all_fields",
+      "face": "back",
+      "revealed_by": "base:barcode_scanner"
+    }
+  ],
+  "security_features": [
+    {
+      "id": "uv_seal",
+      "revealed_by": "base:uv_torch"
+    },
+    {
+      "id": "microprint_border",
+      "revealed_by": "base:loupe"
+    }
+  ],
+  "typeface": "base:font_low_fenn_official",
+  "jurisdiction": "low_fenn",
+  "variants": {
+    "under21": {
+      "orientation": "portrait",
+      "banner": "loc:doc.under21"
+    }
+  }
+}

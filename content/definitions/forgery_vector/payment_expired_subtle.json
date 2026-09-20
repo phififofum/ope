@@ -1,0 +1,26 @@
+{
+  "id": "base:payment_expired_subtle",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_field": "expiry"
+  },
+  "class": "internal_inconsistency",
+  "tier": 1,
+  "difficulty": 2,
+  "detectable_by": [
+    "base:naked_eye"
+  ],
+  "transform": {
+    "op": "set_field",
+    "target": "expiry",
+    "method": "before",
+    "reference": "issued"
+  },
+  "tell": {
+    "behaviour": "looks_at_door",
+    "weight": 0.15
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "base:first_refusal",
+  "type": "achievement",
+  "name": "loc:achievement.first_refusal",
+  "description": "loc:achievement.first_refusal.description",
+  "hidden": false,
+  "condition": {
+    "event": "customer_left",
+    "count": 1
+  },
+  "tags": []
+}

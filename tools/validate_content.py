@@ -343,15 +343,54 @@ def check_quality_gates(registry: dict[str, dict[str, Any]], report: Report) -> 
                 "`detectable_by` is a promise the checklist does not keep",
             )
 
+    # A rule that checks for a feature or field the documents it applies to do not have
+    # fails on every genuine one. That reads in play as "every customer is a forger",
+    # and it is much cheaper to catch here than in a simulation.
+    for rid, rule in rules.items():
+        check = rule.get("check", {})
+        wanted_feature = check.get("feature")
+        wanted_field = check.get("field")
+        families = set(rule.get("applies_to", {}).get("document_families", []))
+        if not families or not (wanted_feature or wanted_field):
+            continue
+        for did, document in documents.items():
+            if document.get("family") not in families:
+                continue
+            if wanted_feature and wanted_feature not in {
+                f.get("id") for f in document.get("security_features", [])
+            }:
+                report.error(
+                    rid,
+                    f"checks for feature `{wanted_feature}`, which {did} does not have -- "
+                    f"it would fail on every genuine one",
+                )
+            if (
+                wanted_field
+                and wanted_field not in {f.get("key") for f in document.get("fields", [])}
+                and wanted_field not in {"typeface", "amount"}
+            ):
+                report.warn(
+                    rid,
+                    f"checks field `{wanted_field}`, which {did} does not carry",
+                )
+
     for tid, tool in tools.items():
         if tool.get("returns_verdict"):
             report.error(tid, "returns a verdict. Tools reveal; players judge.")
 
-    licences = {k for k, v in registry.items() if v.get("type") == "licence"}
+    # Every licence must unlock something, but "something" is not always a product: a
+    # late-hours permit unlocks an activity, and the scrutiny that comes with it.
     used = {p.get("licence") for p in registry.values() if p.get("type") == "product"}
     used |= {r.get("unlocked_by") for r in registry.values() if r.get("type") == "recipe"}
-    for licence_id in sorted(licences - used):
-        report.warn(licence_id, "unlocks nothing -- no product or recipe references it")
+    for licence_id, licence in registry.items():
+        if licence.get("type") != "licence" or licence_id in used:
+            continue
+        if licence.get("unlocks_activities"):
+            continue
+        report.warn(
+            licence_id,
+            "unlocks nothing -- no product or recipe references it, and it permits no activity",
+        )
 
     for pid, product in registry.items():
         if product.get("type") != "product":

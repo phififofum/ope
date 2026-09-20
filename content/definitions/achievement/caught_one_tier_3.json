@@ -1,0 +1,12 @@
+{
+  "id": "base:caught_one_tier_3",
+  "type": "achievement",
+  "name": "loc:achievement.caught_one_tier_3",
+  "description": "loc:achievement.caught_one_tier_3.description",
+  "hidden": false,
+  "condition": {
+    "event": "verification_resolved",
+    "count": 9
+  },
+  "tags": []
+}

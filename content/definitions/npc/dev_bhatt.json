@@ -1,0 +1,17 @@
+{
+  "id": "base:dev_bhatt",
+  "type": "npc",
+  "name": "loc:npc.dev_bhatt",
+  "role": "courier",
+  "age": 54,
+  "first_appears_day": 12,
+  "visit_weight": 1.23,
+  "trust_arc": "cooling",
+  "tells": [
+    "never has the same paperwork twice"
+  ],
+  "notes": "loc:npc.dev_bhatt.notes",
+  "tags": [
+    "courier"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "base:collectible_number_out_of_range_subtle",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_field": "collector_number"
+  },
+  "class": "internal_inconsistency",
+  "tier": 2,
+  "difficulty": 3,
+  "detectable_by": [
+    "base:loupe"
+  ],
+  "transform": {
+    "op": "perturb_field",
+    "target": "collector_number",
+    "method": "exceed_print_run"
+  },
+  "tell": {
+    "behaviour": "volunteers_information",
+    "weight": 0.25
+  }
+}

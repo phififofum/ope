@@ -1,0 +1,20 @@
+{
+  "id": "base:backroom_singles",
+  "type": "supplier",
+  "name": "loc:supplier.backroom_singles",
+  "catalogue": [
+    "singles"
+  ],
+  "lead_time_days": [
+    1,
+    3
+  ],
+  "minimum_order": 60.0,
+  "price_tier": "grey",
+  "reliability": 0.49,
+  "legitimacy": {
+    "counterfeit_rate": 0.33,
+    "manifest_accuracy": 0.55,
+    "credentials_verifiable": false
+  }
+}

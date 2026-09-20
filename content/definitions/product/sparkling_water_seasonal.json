@@ -1,0 +1,28 @@
+{
+  "id": "base:sparkling_water_seasonal",
+  "type": "product",
+  "name": "loc:product.sparkling_water_seasonal",
+  "category": "cold_beverages",
+  "tags": [
+    "chilled",
+    "impulse"
+  ],
+  "storage": "chilled",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 6,
+  "base_cost": 0.52,
+  "market_price": 2.53,
+  "price_band": [
+    1.64,
+    4.81
+  ],
+  "shelf_life_days": 300,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "high"
+}

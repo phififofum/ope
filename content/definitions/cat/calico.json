@@ -1,0 +1,24 @@
+{
+  "id": "base:calico",
+  "type": "cat",
+  "name_pool": "loc:catnames.common",
+  "model": "res://content/scenes/cats/calico.tscn",
+  "coat": "calico",
+  "trait_weights": {
+    "vocal": 0.8,
+    "social": 0.6,
+    "territorial": 0.5,
+    "vigilant": 0.15,
+    "lazy": 0.43,
+    "skittish": 0.13,
+    "hunter": 0.19,
+    "thief": 0.45,
+    "nocturnal": 0.26,
+    "escape_artist": 0.42
+  },
+  "base_hunting": 0.43,
+  "counter_sensitivity": 0.3,
+  "false_positive_rate": 0.1,
+  "customer_appeal": 0.66,
+  "vocalisations": "res://content/assets/audio/cats/calico/"
+}

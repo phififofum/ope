@@ -1,0 +1,12 @@
+{
+  "id": "base:clean_week",
+  "type": "achievement",
+  "name": "loc:achievement.clean_week",
+  "description": "loc:achievement.clean_week.description",
+  "hidden": false,
+  "condition": {
+    "event": "day_ended",
+    "count": 7
+  },
+  "tags": []
+}

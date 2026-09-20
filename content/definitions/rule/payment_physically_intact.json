@@ -1,0 +1,20 @@
+{
+  "id": "base:payment_physically_intact",
+  "type": "rule",
+  "name": "loc:rule.payment_physically_intact",
+  "explanation": "loc:rule.payment_physically_intact.explanation",
+  "applies_to": {
+    "document_families": [
+      "payment"
+    ],
+    "transaction_tags": [
+      "payment"
+    ]
+  },
+  "check": {
+    "op": "physically_intact"
+  },
+  "severity": "blocking",
+  "tier": 1,
+  "requires_tool": "base:loupe"
+}

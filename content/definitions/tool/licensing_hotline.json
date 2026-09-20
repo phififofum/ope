@@ -1,0 +1,15 @@
+{
+  "id": "base:licensing_hotline",
+  "type": "tool",
+  "name": "loc:tool.licensing_hotline",
+  "tier": 4,
+  "reveals": [
+    "credential_verification"
+  ],
+  "inspection_seconds": 240.0,
+  "unlocked_by": "late_campaign",
+  "returns_verdict": false,
+  "failure_modes": [
+    "Ties up a player for four minutes while the queue builds."
+  ]
+}

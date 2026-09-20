@@ -1,0 +1,12 @@
+{
+  "id": "base:first_pack",
+  "type": "achievement",
+  "name": "loc:achievement.first_pack",
+  "description": "loc:achievement.first_pack.description",
+  "hidden": false,
+  "condition": {
+    "event": "pack_opened",
+    "count": 1
+  },
+  "tags": []
+}

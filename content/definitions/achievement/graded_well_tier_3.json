@@ -1,0 +1,12 @@
+{
+  "id": "base:graded_well_tier_3",
+  "type": "achievement",
+  "name": "loc:achievement.graded_well_tier_3",
+  "description": "loc:achievement.graded_well_tier_3.description",
+  "hidden": false,
+  "condition": {
+    "event": "card_graded",
+    "count": 9
+  },
+  "tags": []
+}

@@ -1,0 +1,55 @@
+{
+  "id": "base:flat_white_late_night",
+  "type": "recipe",
+  "name": "loc:recipe.flat_white_late_night",
+  "price": 4.18,
+  "station_primary": "coffee_bar",
+  "ingredients": [
+    {
+      "product": "base:flat_white_beans",
+      "qty": 19.8,
+      "unit": "g"
+    },
+    {
+      "product": "base:oat_milk",
+      "qty": 132.0,
+      "unit": "ml"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 6,
+      "tolerance": 14
+    },
+    {
+      "station": "coffee_bar",
+      "action": "cook",
+      "seconds": 8,
+      "tolerance": 3
+    },
+    {
+      "station": "coffee_bar",
+      "action": "assemble",
+      "seconds": 60,
+      "tolerance": 3
+    },
+    {
+      "station": "coffee_bar",
+      "action": "plate",
+      "seconds": 45,
+      "tolerance": 10
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": true,
+  "unlocked_by": "base:general_retail"
+}

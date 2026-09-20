@@ -1,0 +1,12 @@
+{
+  "id": "base:kitchen_rush",
+  "type": "achievement",
+  "name": "loc:achievement.kitchen_rush",
+  "description": "loc:achievement.kitchen_rush.description",
+  "hidden": false,
+  "condition": {
+    "event": "order_completed",
+    "count": 40
+  },
+  "tags": []
+}

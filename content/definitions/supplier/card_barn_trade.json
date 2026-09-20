@@ -1,0 +1,20 @@
+{
+  "id": "base:card_barn_trade",
+  "type": "supplier",
+  "name": "loc:supplier.card_barn_trade",
+  "catalogue": [
+    "singles"
+  ],
+  "lead_time_days": [
+    2,
+    7
+  ],
+  "minimum_order": 60.0,
+  "price_tier": "discount",
+  "reliability": 0.7,
+  "legitimacy": {
+    "counterfeit_rate": 0.18,
+    "manifest_accuracy": 0.74,
+    "credentials_verifiable": true
+  }
+}

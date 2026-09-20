@@ -1,0 +1,17 @@
+{
+  "id": "base:ines_quaye",
+  "type": "npc",
+  "name": "loc:npc.ines_quaye",
+  "role": "repeat_offender",
+  "age": 42,
+  "first_appears_day": 8,
+  "visit_weight": 0.8,
+  "trust_arc": "volatile",
+  "tells": [
+    "watches the case, not you"
+  ],
+  "notes": "loc:npc.ines_quaye.notes",
+  "tags": [
+    "repeat_offender"
+  ]
+}

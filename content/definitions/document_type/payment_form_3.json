@@ -1,0 +1,42 @@
+{
+  "id": "base:payment_form_3",
+  "type": "document_type",
+  "name": "loc:doc.payment_form_3",
+  "family": "payment",
+  "layout": "res://content/layouts/form_a4_carbon.tres",
+  "fields": [
+    {
+      "key": "cardholder",
+      "source": "person.full_name",
+      "face": "front"
+    },
+    {
+      "key": "pan_last_four",
+      "source": "person.id_number",
+      "face": "front"
+    },
+    {
+      "key": "expiry",
+      "source": "derived.expiry",
+      "face": "front",
+      "format": "MM/DD/YYYY"
+    },
+    {
+      "key": "issuer",
+      "source": "world.issuer",
+      "face": "front"
+    },
+    {
+      "key": "signature",
+      "source": "person.signature",
+      "face": "front"
+    }
+  ],
+  "security_features": [
+    {
+      "id": "uv_seal",
+      "revealed_by": "base:uv_torch"
+    }
+  ],
+  "typeface": "base:font_payment_official"
+}

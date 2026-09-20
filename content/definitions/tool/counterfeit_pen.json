@@ -1,0 +1,12 @@
+{
+  "id": "base:counterfeit_pen",
+  "type": "tool",
+  "name": "loc:tool.counterfeit_pen",
+  "tier": 1,
+  "reveals": [
+    "paper_composition"
+  ],
+  "inspection_seconds": 2.0,
+  "unlocked_by": "cash volume milestone",
+  "returns_verdict": false
+}

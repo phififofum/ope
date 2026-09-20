@@ -1,0 +1,13 @@
+{
+  "id": "base:buylist_terminal",
+  "type": "tool",
+  "name": "loc:tool.buylist_terminal",
+  "tier": 3,
+  "reveals": [
+    "market_price",
+    "recent_sales"
+  ],
+  "inspection_seconds": 12.0,
+  "unlocked_by": "licence_tier_3",
+  "returns_verdict": false
+}

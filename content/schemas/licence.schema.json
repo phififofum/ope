@@ -71,6 +71,13 @@
           "type": "string"
         }
       }
+    },
+    "unlocks_activities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Activities the licence permits that are not product categories -- late-hours trading, running sanctioned events, table service."
     }
   }
 }

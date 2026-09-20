@@ -1,0 +1,17 @@
+{
+  "id": "base:gus_calder",
+  "type": "npc",
+  "name": "loc:npc.gus_calder",
+  "role": "regular",
+  "age": 45,
+  "first_appears_day": 8,
+  "visit_weight": 0.46,
+  "trust_arc": "steady",
+  "tells": [
+    "always the same table"
+  ],
+  "notes": "loc:npc.gus_calder.notes",
+  "tags": [
+    "regular"
+  ]
+}

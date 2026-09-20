@@ -1,0 +1,20 @@
+{
+  "id": "base:meridian_direct",
+  "type": "supplier",
+  "name": "loc:supplier.meridian_direct",
+  "catalogue": [
+    "sealed_product"
+  ],
+  "lead_time_days": [
+    1,
+    3
+  ],
+  "minimum_order": 120.0,
+  "price_tier": "premium",
+  "reliability": 0.99,
+  "legitimacy": {
+    "counterfeit_rate": 0.0,
+    "manifest_accuracy": 1.0,
+    "credentials_verifiable": true
+  }
+}

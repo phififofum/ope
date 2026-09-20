@@ -53,11 +53,52 @@ var _rng: SeededRng
 var _today: int
 var _regulars: Array[Person] = []
 var _next_index: int = 1
+var _registry: ContentRegistry
 
 
-func _init(rng: SeededRng, today: int) -> void:
+func _init(rng: SeededRng, today: int, registry: ContentRegistry = null) -> void:
 	_rng = rng
 	_today = today
+	_registry = registry
+
+
+## Brings the named cast into the shop. They are not random: they have arcs, they turn up
+## on their own schedule, and the ledger remembers them -- which is the only way "wait,
+## that is the guy from Tuesday" ever happens.
+func admit_named_cast(day: int) -> Array[Person]:
+	var admitted: Array[Person] = []
+	if _registry == null:
+		return admitted
+	for npc: ContentDefinition in _registry.by_type(&"npc"):
+		if int(npc.get_number("first_appears_day", 1)) > day:
+			continue
+		if _find_named(npc.id) != null:
+			continue
+		var person := Person.new()
+		person.id = npc.id
+		person.display_name = npc.get_text("name").replace("loc:npc.", "").replace("_", " ")
+		var age: int = int(npc.get_number("age", 30))
+		person.dob_days = _today - int(age * 365.25)
+		person.portrait_id = "portrait_%s" % String(npc.id)
+		person.height_cm = 152 + int(npc.get_number("visit_weight", 1.0) * 20.0)
+		person.patience = clampf(npc.get_number("visit_weight", 1.0), 0.6, 1.8)
+		person.history_count = 1
+		person.clean_transactions = 1
+		# A long con is someone who has been honest twenty times. That history is the
+		# mechanic, so it is seeded rather than earned in an afternoon.
+		if npc.get_text("trust_arc") == "long_con":
+			person.history_count = 20
+			person.clean_transactions = 20
+		_regulars.append(person)
+		admitted.append(person)
+	return admitted
+
+
+func _find_named(id: StringName) -> Person:
+	for person: Person in _regulars:
+		if person.id == id:
+			return person
+	return null
 
 
 func set_today(day: int) -> void:

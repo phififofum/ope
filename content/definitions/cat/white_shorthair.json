@@ -1,0 +1,24 @@
+{
+  "id": "base:white_shorthair",
+  "type": "cat",
+  "name_pool": "loc:catnames.common",
+  "model": "res://content/scenes/cats/white.tscn",
+  "coat": "white",
+  "trait_weights": {
+    "skittish": 0.7,
+    "vigilant": 0.5,
+    "lazy": 0.36,
+    "social": 0.06,
+    "territorial": 0.31,
+    "hunter": 0.15,
+    "thief": 0.2,
+    "vocal": 0.26,
+    "nocturnal": 0.21,
+    "escape_artist": 0.37
+  },
+  "base_hunting": 0.4,
+  "counter_sensitivity": 0.55,
+  "false_positive_rate": 0.29,
+  "customer_appeal": 0.34,
+  "vocalisations": "res://content/assets/audio/cats/white/"
+}

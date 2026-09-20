@@ -1,0 +1,15 @@
+{
+  "id": "base:seal_inspector",
+  "type": "tool",
+  "name": "loc:tool.seal_inspector",
+  "tier": 2,
+  "reveals": [
+    "seal_geometry"
+  ],
+  "inspection_seconds": 9.0,
+  "unlocked_by": "base:sealed_distribution",
+  "returns_verdict": false,
+  "failure_modes": [
+    "A professional reseal is why you only find out after you open it."
+  ]
+}

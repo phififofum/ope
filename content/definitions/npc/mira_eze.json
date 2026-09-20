@@ -1,0 +1,17 @@
+{
+  "id": "base:mira_eze",
+  "type": "npc",
+  "name": "loc:npc.mira_eze",
+  "role": "official",
+  "age": 55,
+  "first_appears_day": 8,
+  "visit_weight": 1.23,
+  "trust_arc": "steady",
+  "tells": [
+    "asks for the temperature log first"
+  ],
+  "notes": "loc:npc.mira_eze.notes",
+  "tags": [
+    "official"
+  ]
+}

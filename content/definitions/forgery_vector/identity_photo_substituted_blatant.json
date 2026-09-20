@@ -1,0 +1,25 @@
+{
+  "id": "base:identity_photo_substituted_blatant",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_field": "photo"
+  },
+  "class": "physical_defect",
+  "tier": 0,
+  "difficulty": 1,
+  "detectable_by": [
+    "base:naked_eye"
+  ],
+  "transform": {
+    "op": "perturb_field",
+    "target": "photo",
+    "method": "swapped"
+  },
+  "tell": {
+    "behaviour": "watches_your_hands",
+    "weight": 0.5
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "base:complete_return",
+  "type": "achievement",
+  "name": "loc:achievement.complete_return",
+  "description": "loc:achievement.complete_return.description",
+  "hidden": false,
+  "condition": {
+    "event": "component_check_resolved",
+    "count": 1
+  },
+  "tags": []
+}

@@ -1,0 +1,27 @@
+{
+  "id": "base:toploaders_small",
+  "type": "product",
+  "name": "loc:product.toploaders_small",
+  "category": "accessories",
+  "tags": [
+    "counter_adjacent"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 6,
+  "base_cost": 1.54,
+  "market_price": 4.2,
+  "price_band": [
+    2.73,
+    7.98
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

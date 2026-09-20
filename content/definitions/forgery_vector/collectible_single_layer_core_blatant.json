@@ -1,0 +1,25 @@
+{
+  "id": "base:collectible_single_layer_core_blatant",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_feature": "layer_core"
+  },
+  "class": "physical_defect",
+  "tier": 1,
+  "difficulty": 1,
+  "detectable_by": [
+    "base:backlight_panel"
+  ],
+  "transform": {
+    "op": "substitute_stock",
+    "target": "layer_core",
+    "method": "single_layer"
+  },
+  "tell": {
+    "behaviour": "apologises_unprompted",
+    "weight": 0.55
+  }
+}

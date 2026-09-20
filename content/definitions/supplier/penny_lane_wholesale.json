@@ -1,0 +1,21 @@
+{
+  "id": "base:penny_lane_wholesale",
+  "type": "supplier",
+  "name": "loc:supplier.penny_lane_wholesale",
+  "catalogue": [
+    "confectionery",
+    "ambient"
+  ],
+  "lead_time_days": [
+    1,
+    3
+  ],
+  "minimum_order": 60.0,
+  "price_tier": "standard",
+  "reliability": 0.9,
+  "legitimacy": {
+    "counterfeit_rate": 0.01,
+    "manifest_accuracy": 0.95,
+    "credentials_verifiable": true
+  }
+}

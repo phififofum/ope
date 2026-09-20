@@ -1,0 +1,20 @@
+{
+  "id": "base:payment_not_expired",
+  "type": "rule",
+  "name": "loc:rule.payment_not_expired",
+  "explanation": "loc:rule.payment_not_expired.explanation",
+  "applies_to": {
+    "document_families": [
+      "payment"
+    ],
+    "transaction_tags": [
+      "payment"
+    ]
+  },
+  "check": {
+    "op": "not_expired",
+    "field": "expiry"
+  },
+  "severity": "blocking",
+  "tier": 0
+}

@@ -1,0 +1,22 @@
+{
+  "id": "base:entitlement_feature_microprint",
+  "type": "rule",
+  "name": "loc:rule.entitlement_feature_microprint",
+  "explanation": "loc:rule.entitlement_feature_microprint.explanation",
+  "applies_to": {
+    "document_families": [
+      "entitlement"
+    ],
+    "transaction_tags": [
+      "entitlement",
+      "reconciliation"
+    ]
+  },
+  "check": {
+    "op": "feature_present",
+    "feature": "microprint_border"
+  },
+  "severity": "blocking",
+  "tier": 1,
+  "requires_tool": "base:loupe"
+}

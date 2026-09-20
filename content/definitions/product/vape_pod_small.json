@@ -1,0 +1,28 @@
+{
+  "id": "base:vape_pod_small",
+  "type": "product",
+  "name": "loc:product.vape_pod_small",
+  "category": "nicotine",
+  "tags": [
+    "age_restricted",
+    "counter_adjacent"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 24,
+  "base_cost": 2.24,
+  "market_price": 6.65,
+  "price_band": [
+    4.32,
+    12.63
+  ],
+  "shelf_life_days": 400,
+  "licence": "base:counter_nicotine",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

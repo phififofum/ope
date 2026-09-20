@@ -1,0 +1,12 @@
+{
+  "id": "base:centering_gauge",
+  "type": "tool",
+  "name": "loc:tool.centering_gauge",
+  "tier": 2,
+  "reveals": [
+    "centering"
+  ],
+  "inspection_seconds": 8.0,
+  "unlocked_by": "store_level_3",
+  "returns_verdict": false
+}

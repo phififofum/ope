@@ -1,0 +1,12 @@
+{
+  "id": "base:first_pack_tier_3",
+  "type": "achievement",
+  "name": "loc:achievement.first_pack_tier_3",
+  "description": "loc:achievement.first_pack_tier_3.description",
+  "hidden": false,
+  "condition": {
+    "event": "pack_opened",
+    "count": 9
+  },
+  "tags": []
+}

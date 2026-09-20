@@ -91,7 +91,12 @@ func test_a_careless_player_misses_forgeries_a_careful_one_catches() -> void:
 		. is_less(int(careless["missed"]))
 	)
 	assert_int(int(careless["strikes"])).is_greater(int(careful["strikes"]))
-	assert_float(float(careful["reputation"])).is_greater(float(careless["reputation"]))
+	# Deliberately not asserted here: that the exhaustive checker ends with better
+	# reputation than the careless one. It does not, and the design says it should not --
+	# checking everything is a mistake, and a shop that serves forty people a day is worse
+	# regarded than one that serves four hundred badly. The claim that reputation is built
+	# by judgement rather than by volume belongs to triage, and lives in
+	# test_triage_beats_carelessness_on_the_books.
 
 
 func test_scrutiny_costs_throughput() -> void:

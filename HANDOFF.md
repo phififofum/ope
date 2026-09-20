@@ -92,9 +92,14 @@ needs installing first, and nothing is written outside the repository.
    scaling it with counter traffic, is a one-line experiment — but which way it should go
    is a question about how the game feels.
 
-   One more thing the bot revealed and nobody should rely on: the careless policy is
-   partly saved from itself by poverty. It declines the high-value trade-ins it cannot
-   fund, and those are exactly where the forgeries concentrate.
+   Two more things the bot revealed and nobody should rely on. The careless policy is
+   partly saved from itself by poverty: it declines the high-value trade-ins it cannot
+   fund, and those are exactly where the forgeries concentrate. And the *exhaustive*
+   policy — reach for every tool on every customer — ends with worse reputation than the
+   careless one (-0.3 against 4.4 over four days), because it serves a tenth as many
+   people. That is what the design asks for, so no test asserts otherwise, but it is
+   worth knowing that the punishment for over-checking is currently much larger than the
+   punishment for not checking at all.
 
 3. **Solo play trails three-player on reputation.** Licence pace is inside the design's 15%
    tolerance across player counts, which is the gate. Reputation is not: a lone player

@@ -860,12 +860,26 @@ def gen_rules(written: dict) -> None:
                     "transaction_tags": spec["tags"],
                 },
                 "check": _check_body(check_name),
-                "severity": "advisory" if check_name == "typeface_matches" else "blocking",
+                # Partial is meant to be the most-used verdict in skilled play: approve
+                # the basket minus the flagged items. That only works if some failures
+                # are item-scoped rather than refusing the whole transaction -- which is
+                # exactly what an entitlement or a holding period is.
+                "severity": _severity_for(family, check_name),
                 "tier": TOOL_TIERS.get(tool, 0),
             }
             if tool:
                 data["requires_tool"] = tool
             write("rule", slug, data, written)
+
+
+def _severity_for(family: str, check_name: str) -> str:
+    if check_name == "typeface_matches":
+        return "advisory"
+    if family == "entitlement":
+        return "item_scoped"
+    if family == "commercial" and check_name in {"not_expired", "field_plausible"}:
+        return "item_scoped"
+    return "blocking"
 
 
 def _check_body(check_name: str) -> dict:

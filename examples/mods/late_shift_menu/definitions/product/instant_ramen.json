@@ -1,0 +1,28 @@
+{
+  "id": "late_shift_menu:instant_ramen",
+  "type": "product",
+  "name": "loc:late_shift_menu.product.instant_ramen",
+  "category": "ambient",
+  "tags": [
+    "impulse",
+    "late_night"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 24,
+  "base_cost": 0.6,
+  "market_price": 3.5,
+  "price_band": [
+    2.45,
+    6.3
+  ],
+  "shelf_life_days": 300,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:nightfreight_discount"
+  ],
+  "urgency": "high"
+}

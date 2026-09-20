@@ -16,6 +16,6 @@
     "op": "field_plausible",
     "field": "signature"
   },
-  "severity": "blocking",
+  "severity": "item_scoped",
   "tier": 0
 }

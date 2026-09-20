@@ -7,13 +7,17 @@
 
 # Credits
 
-*Generated 2026-09-20 from 0 asset licence record(s).*
+*Generated 2026-09-20 from 1 asset licence record(s).*
 
 PoggyWoggy is built entirely from free software and freely licensed assets. Every asset below is shipped under the licence named beside it, and that record lives next to the file itself, so this page cannot drift from what is actually in the build. See [LICENSING.md](LICENSING.md).
 
 ## Assets
 
-No assets are bundled yet -- the project is in design stage. When the first one lands it appears here automatically, with its source, author and licence.
+### PoggyWoggy contributors
+
+| File | Licence | Source | Modifications |
+| --- | --- | --- | --- |
+| `examples/mods/corner_booth/assets/booth_decal.svg` | CC-BY-4.0 | [source](https://github.com/phififofum/ope) | drawn for this example |
 
 ## Engine and tooling
 

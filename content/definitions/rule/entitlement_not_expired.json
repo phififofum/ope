@@ -16,6 +16,6 @@
     "op": "not_expired",
     "field": "expiry"
   },
-  "severity": "blocking",
+  "severity": "item_scoped",
   "tier": 0
 }

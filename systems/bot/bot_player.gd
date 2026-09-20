@@ -197,7 +197,13 @@ func _serve(slot: Shop.PlayerSlot, now: int) -> bool:
 		shop.verification.rules, tools, shop.verification.today(), shop.owned_tools
 	)
 	var verdict: Encounter.Verdict = Encounter.Verdict.APPROVE
-	if encounter.has_blocking_failure():
+	var reason: String = ""
+	# A buy-in you cannot cover is not a judgement call. Declining costs a little
+	# reputation; taking it costs the rent.
+	if encounter.value < 0.0 and shop.economy.money < absf(encounter.value) + 400.0:
+		verdict = Encounter.Verdict.DECLINE
+		reason = "cannot_fund"
+	elif encounter.has_blocking_failure():
 		verdict = Encounter.Verdict.DECLINE
 	elif encounter.has_item_scoped_failure():
 		verdict = Encounter.Verdict.PARTIAL
@@ -211,4 +217,4 @@ func _serve(slot: Shop.PlayerSlot, now: int) -> bool:
 	var name: String = Encounter.verdict_name(verdict)
 	verdict_counts[name] = int(verdict_counts.get(name, 0)) + 1
 	tools_used_counts[str(tools.size())] = int(tools_used_counts.get(str(tools.size()), 0)) + 1
-	return not shop.serve_counter(slot, verdict, tools, now).is_empty()
+	return not shop.serve_counter(slot, verdict, tools, now, reason).is_empty()

@@ -16,7 +16,7 @@
     "op": "feature_present",
     "feature": "microprint_border"
   },
-  "severity": "blocking",
+  "severity": "item_scoped",
   "tier": 1,
   "requires_tool": "base:loupe"
 }

@@ -10,6 +10,9 @@ extends RefCounted
 const CORRECT_REFUSAL_REPUTATION: float = 0.0
 const WRONG_REFUSAL_REPUTATION: float = -0.4
 const OVERCAUTIOUS_REPUTATION: float = -0.15
+## Saying "I cannot take that today" is a cash-management failure, not a judgement one.
+## The economy already punishes it through the margin you did not make.
+const CANNOT_FUND_REPUTATION: float = -0.05
 const APPROVED_FORGERY_REPUTATION: float = -1.0
 
 var registry: ContentRegistry
@@ -115,7 +118,8 @@ func resolve(
 	verdict: Encounter.Verdict,
 	used_tools: PackedStringArray,
 	tick: int,
-	owned_tools: PackedStringArray = PackedStringArray()
+	owned_tools: PackedStringArray = PackedStringArray(),
+	reason: String = ""
 ) -> Dictionary:
 	encounter.verdict = verdict
 	encounter.resolved_tick = tick
@@ -125,10 +129,26 @@ func resolve(
 	var truly_bad: bool = (
 		encounter.is_forged() or encounter.should_be_refused(rules, all_tools, _today)
 	)
+	# Part of the basket is ineligible and the rest is fine. Approving the rest is not a
+	# refusal and it is not a mistake -- it is the skill-expressing play, and it should be
+	# the most-used verdict at the counter.
+	var partly_bad: bool = encounter.has_item_scoped_truth(rules, all_tools, _today)
 	var refused: bool = verdict != Encounter.Verdict.APPROVE
 
 	var reputation_delta: float = 0.0
-	if truly_bad and refused:
+	if partly_bad and not truly_bad:
+		# Handled correctly: flag the items, serve the rest. Approving the lot means the
+		# ineligible items went out, and refusing the lot means an honest customer was
+		# turned away over one line.
+		if verdict == Encounter.Verdict.PARTIAL:
+			encounter.outcome = Encounter.Outcome.CORRECT
+		elif verdict == Encounter.Verdict.APPROVE:
+			encounter.outcome = Encounter.Outcome.WRONG_APPROVED
+			reputation_delta = APPROVED_FORGERY_REPUTATION * 0.35
+		else:
+			encounter.outcome = Encounter.Outcome.WRONG_DECLINED
+			reputation_delta = WRONG_REFUSAL_REPUTATION * 0.5
+	elif truly_bad and refused:
 		encounter.outcome = Encounter.Outcome.CORRECT
 		reputation_delta = CORRECT_REFUSAL_REPUTATION
 	elif truly_bad and not refused:
@@ -137,16 +157,15 @@ func resolve(
 	elif not truly_bad and refused:
 		# An honest customer turned away. Cheaper when the player genuinely could not
 		# check — a tool gap is the game's fault, not theirs.
-		encounter.outcome = (
-			Encounter.Outcome.OVERCAUTIOUS
-			if encounter.has_unchecked_rule()
-			else Encounter.Outcome.WRONG_DECLINED
-		)
-		reputation_delta = (
-			OVERCAUTIOUS_REPUTATION
-			if encounter.outcome == Encounter.Outcome.OVERCAUTIOUS
-			else WRONG_REFUSAL_REPUTATION
-		)
+		if reason == "cannot_fund":
+			encounter.outcome = Encounter.Outcome.OVERCAUTIOUS
+			reputation_delta = CANNOT_FUND_REPUTATION
+		elif encounter.has_unchecked_rule():
+			encounter.outcome = Encounter.Outcome.OVERCAUTIOUS
+			reputation_delta = OVERCAUTIOUS_REPUTATION
+		else:
+			encounter.outcome = Encounter.Outcome.WRONG_DECLINED
+			reputation_delta = WRONG_REFUSAL_REPUTATION
 	else:
 		encounter.outcome = Encounter.Outcome.CORRECT
 
@@ -155,11 +174,16 @@ func resolve(
 		"verdict": Encounter.verdict_name(verdict),
 		"was_forged": encounter.is_forged(),
 		"should_refuse": truly_bad,
+		"partly_refusable": partly_bad,
 		"outcome": encounter.outcome,
 		"reputation_delta": reputation_delta,
 		"value": encounter.value,
 		"detectable": detectable_vectors(encounter, used_tools),
 		"person": String(encounter.person.id),
+		"reason": reason,
+		# What the player acted on. The telemetry needs this to answer "which rule is
+		# turning honest customers away" without anybody guessing.
+		"failed_rules": _failed_rule_ids(encounter),
 	}
 	bus.publish(EventCatalog.VERIFICATION_RESOLVED, result)
 	return result
@@ -174,6 +198,14 @@ func inspection_cost(tool_ids: PackedStringArray) -> float:
 		if tool != null:
 			seconds += tool.get_number("inspection_seconds", 0.0)
 	return bus.query(EventCatalog.INSPECTION_TIME_REQUESTED, {"tools": tool_ids}, seconds)
+
+
+func _failed_rule_ids(encounter: Encounter) -> PackedStringArray:
+	var ids: PackedStringArray = []
+	for finding: RuleEngine.Finding in encounter.findings:
+		if finding.failed():
+			ids.append(String(finding.rule_id))
+	return ids
 
 
 func _all_tool_ids() -> PackedStringArray:

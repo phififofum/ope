@@ -72,7 +72,7 @@ ALLOWED_LICENCES = {
 
 REQUIRED_FIELDS = ("file", "source", "author", "license", "retrieved")
 
-ASSET_ROOTS = ("content/assets", "ui/assets", "mods")
+ASSET_ROOTS = ("content/assets", "ui/assets", "mods", "examples")
 
 
 def rel(path: Path) -> str:

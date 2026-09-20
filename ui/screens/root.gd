@@ -13,6 +13,10 @@ const SMOKE_TEST_FLAG: String = "--smoke-test"
 ## baseline means a render changed rather than a shift went differently.
 const SCREENSHOT_FLAG: String = "--screenshot"
 const SCREENSHOT_FRAMES: int = 60
+## Run the bot across player counts, presets and seeds, and print the result as JSON.
+## This is the nightly probe: it answers whether a campaign can be completed, whether
+## anything soft-locks, and whether the economy reaches a dead end.
+const BOT_FLAG: String = "--bot"
 
 var settings: GameSettings
 var menu: MainMenu
@@ -28,6 +32,9 @@ func _ready() -> void:
 
 	if OS.get_cmdline_user_args().has(SMOKE_TEST_FLAG):
 		get_tree().quit(1 if not _report.errors().is_empty() else 0)
+		return
+	if OS.get_cmdline_user_args().has(BOT_FLAG):
+		get_tree().quit(_run_bot_sweep())
 		return
 	if DisplayServer.get_name() == "headless":
 		return
@@ -101,6 +108,96 @@ func _argument_after(flag: String) -> String:
 	if index < 0 or index + 1 >= arguments.size():
 		return ""
 	return arguments[index + 1]
+
+
+## The nightly sweep. Deliberately unglamorous: it is a liveness and progression probe,
+## not a demonstration of skill.
+func _run_bot_sweep() -> int:
+	var days: int = (
+		int(_argument_after("--days")) if not _argument_after("--days").is_empty() else 10
+	)
+	var seed_count: int = (
+		int(_argument_after("--seeds")) if not _argument_after("--seeds").is_empty() else 3
+	)
+	var presets: PackedStringArray = (
+		PackedStringArray([_argument_after("--preset")])
+		if not _argument_after("--preset").is_empty()
+		else PackedStringArray(["relaxed", "standard", "tight", "brutal"])
+	)
+	var counts: PackedStringArray = (
+		PackedStringArray([_argument_after("--players")])
+		if not _argument_after("--players").is_empty()
+		else PackedStringArray(["1", "2", "3", "4", "5"])
+	)
+
+	var runs: Array[Dictionary] = []
+	var failures: int = 0
+	for preset: String in presets:
+		for players_text: String in counts:
+			for seed_index: int in range(seed_count):
+				var seed_value: int = 1000 + seed_index * 97
+				var players: int = int(players_text)
+				var bus := EventBus.new()
+				var shop := Shop.new(
+					Game.registry,
+					bus,
+					SeededRng.new(seed_value),
+					Director.Profile.preset(preset),
+					players
+				)
+				var telemetry := RunLog.new(bus, seed_value, preset, players)
+				shop.open_for_business(600.0)
+				var report: Dictionary = (
+					BotPlayer.new(shop, BotPlayer.Policy.BALANCED, telemetry).play(days)
+				)
+
+				var run: Dictionary = {
+					"preset": preset,
+					"players": players,
+					"seed": seed_value,
+					"days": report["days"],
+					"soft_lock_ticks": report["soft_lock_ticks"],
+					"insolvent": report["insolvent"],
+					"money": report["final_money"],
+					"case_value": shop.card_case.case_value(),
+					"reputation": report["final_reputation"],
+					"licences": shop.economy.licences.size(),
+					"staff": shop.staff.employees.size(),
+					"act": shop.act(),
+					"verdicts": report["verdicts"],
+					# Where the reputation went, by reason: the question "why is the shop
+					# hated" should be answerable from the log, not from a hunch.
+					"reputation_by_reason": _reputation_breakdown(shop),
+					"counters": telemetry.summary()["counters"],
+					"outcomes": telemetry.summary()["outcomes"],
+				}
+				# A soft lock or an insolvency is the thing this exists to find.
+				if int(run["soft_lock_ticks"]) > 0 or bool(run["insolvent"]):
+					failures += 1
+				runs.append(run)
+
+	var output: Dictionary = {"runs": runs, "failures": failures}
+	var path: String = _argument_after("--out")
+	if not path.is_empty():
+		DirAccess.make_dir_recursive_absolute(path.get_base_dir())
+		var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
+		if file != null:
+			file.store_string(JSON.stringify(output, "  "))
+			file.close()
+	print(JSON.stringify(output))
+	return 1 if failures > 0 else 0
+
+
+func _reputation_breakdown(shop: Shop) -> Dictionary:
+	var by_reason: Dictionary = {}
+	for entry: Dictionary in shop.economy.ledger():
+		if str(entry.get("kind", "")) != "reputation":
+			continue
+		var reason: String = str(entry.get("reason", "?"))
+		by_reason[reason] = snappedf(
+			float(by_reason.get(reason, 0.0)) + float(entry["amount"]), 0.01
+		)
+	return by_reason
 
 
 func _open_menu() -> void:

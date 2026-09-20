@@ -1,0 +1,17 @@
+{
+  "id": "corner_booth",
+  "name": "Corner Booth",
+  "version": "1.0.0",
+  "authors": [
+    "PoggyWoggy contributors"
+  ],
+  "game_api": ">=0.1.0 <1.0.0",
+  "dependencies": {},
+  "load_order": 110,
+  "capabilities": [
+    "definitions",
+    "assets"
+  ],
+  "affects_gameplay": false,
+  "description": "Tier 2 example: a fixture with its own asset and licence record. Cosmetic-only, so a multiplayer mismatch warns rather than blocks."
+}

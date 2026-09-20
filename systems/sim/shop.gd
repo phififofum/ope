@@ -367,7 +367,11 @@ func free_players(now: int) -> Array[PlayerSlot]:
 ## Serve the next person at the counter. [param tools_used] is what the player actually
 ## reached for, and it costs the seconds it costs.
 func serve_counter(
-	slot: PlayerSlot, verdict: Encounter.Verdict, tools_used: PackedStringArray, now: int
+	slot: PlayerSlot,
+	verdict: Encounter.Verdict,
+	tools_used: PackedStringArray,
+	now: int,
+	reason: String = ""
 ) -> Dictionary:
 	if waiting_encounters.is_empty():
 		return {}
@@ -375,7 +379,9 @@ func serve_counter(
 	var seconds: float = 4.0 + verification.inspection_cost(tools_used)
 	slot.occupy(now, seconds, Task.SERVE_COUNTER)
 
-	var result: Dictionary = verification.resolve(encounter, verdict, tools_used, now, owned_tools)
+	var result: Dictionary = verification.resolve(
+		encounter, verdict, tools_used, now, owned_tools, reason
+	)
 	director.record_outcome(int(result["outcome"]) == Encounter.Outcome.CORRECT)
 	economy.adjust_reputation(float(result["reputation_delta"]), "verdict")
 	people.record_transaction(encounter.person, int(result["outcome"]) == Encounter.Outcome.CORRECT)
@@ -586,23 +592,53 @@ func _spawn_customer(now: int) -> void:
 			economy.earn(4.5, "table time")
 			return
 
-	var document_id: StringName = &"base:state_id_northvale"
+	# Which artifact lands on the counter is a registry query, not a list of ids in
+	# code: every document type the content ships -- and every one a mod adds -- turns
+	# up here without this function knowing about it.
+	var family: String = "identity"
 	var tags := PackedStringArray(["id_required", "age_restricted"])
 	var value: float = rng.stream(SeededRng.SPAWN).randf_range(4.0, 26.0)
-	if roll > 0.82:
-		document_id = &"base:trade_in_record"
-		tags = PackedStringArray(["trade_in", "id_required"])
-		value = -rng.stream(SeededRng.SPAWN).randf_range(20.0, 180.0)
-	elif roll > 0.72:
-		document_id = &"base:collectible_card_meridian"
+	if roll > 0.9:
+		family = "collectible"
 		tags = PackedStringArray(["authentication", "trade_in"])
 		value = -rng.stream(SeededRng.SPAWN).randf_range(15.0, 240.0)
+	elif roll > 0.82:
+		family = "commercial"
+		# A trade-in is a purchase, not a resale: the holding period restricts when you
+		# may sell the thing on, and applying it at the buy counter refuses every honest
+		# seller who walks in.
+		tags = PackedStringArray(["trade_in", "id_required"])
+		value = -rng.stream(SeededRng.SPAWN).randf_range(20.0, 180.0)
+	elif roll > 0.74:
+		# The basket-against-a-list case: store credit, a tax-exempt certificate, an
+		# organised-play kit. This is where the partial verdict lives.
+		family = "entitlement"
+		tags = PackedStringArray(["entitlement", "reconciliation"])
+		value = rng.stream(SeededRng.SPAWN).randf_range(8.0, 60.0)
+	elif roll > 0.68:
+		family = "payment"
+		tags = PackedStringArray(["payment"])
+		value = rng.stream(SeededRng.SPAWN).randf_range(10.0, 90.0)
+
+	var candidates: Array = registry.by_field(&"document_type", "family", family)
+	if candidates.is_empty():
+		candidates = registry.by_type(&"document_type")
+	if candidates.is_empty():
+		return
+	var document_id: StringName = (rng.pick(SeededRng.SPAWN, candidates) as ContentDefinition).id
 
 	# The director is consulted only now, once someone is actually arriving at the
 	# counter. Asking earlier spent the shift's suspicious budget on people who only
 	# wanted a table, and the forgeries never reached anybody's hands.
 	var suspicious: bool = director.should_be_suspicious(now)
 	var tier: int = director.tier_for_next(toolkit_tier())
+
+	# Most regulars are exactly who they appear to be. If a familiar face were as likely
+	# to be running something as a stranger, trust would be a trap and the ledger would
+	# be pointless -- so a scheduled suspicious encounter goes to a stranger unless this
+	# is one of the rare long cons, where the twenty honest transactions are the point.
+	if suspicious and person.trust_score() > 0.25 and not _is_long_con(person):
+		person = people.create_stranger()
 	var encounter: Encounter = verification.create(
 		document_id, person, tags, suspicious, tier, value, owned_tools
 	)
@@ -614,6 +650,12 @@ func _spawn_customer(now: int) -> void:
 ## Buying a single from the public: the money becomes an asset in the case, valued
 ## against a buylist that moves. Over-grade and you overpay; the ledger finds out later.
 func _take_trade_in(encounter: Encounter, offer: float) -> void:
+	if economy.money < offer:
+		bus.publish(
+			EventCatalog.CUSTOMER_LEFT,
+			{"person": String(encounter.person.id), "reason": "no cash for the buy-in"}
+		)
+		return
 	var sets: Array = registry.by_type(&"card_set")
 	if sets.is_empty():
 		economy.spend(offer, "trade-in")
@@ -632,6 +674,14 @@ func _take_trade_in(encounter: Encounter, offer: float) -> void:
 	if not single.authentic:
 		single.market_value = 0.0  # a fake is worth nothing, and you paid for it
 	card_case.buy_single(single, offer, economy)
+
+
+## A long con is someone whose history is the mechanism: honest twenty times, and then
+## once not. They are rare on purpose -- if they were common, the answer would always be
+## "trust nobody" and the person layer would collapse into a checklist.
+func _is_long_con(person: Person) -> bool:
+	var npc: ContentDefinition = registry.get_definition(person.id)
+	return npc != null and npc.get_text("trust_arc") == "long_con"
 
 
 func kitchen_closed() -> bool:

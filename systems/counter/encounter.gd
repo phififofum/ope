@@ -33,6 +33,19 @@ func is_forged() -> bool:
 	return false
 
 
+## True when part of the transaction should be refused but the rest is fine -- an
+## entitlement that does not cover everything in the basket, an item still inside its
+## holding period. This is what the partial verdict is for.
+func has_item_scoped_truth(engine: RuleEngine, all_tools: PackedStringArray, today: int) -> bool:
+	for artifact: Artifact in artifacts:
+		for finding: RuleEngine.Finding in engine.evaluate(
+			artifact, person, transaction_tags, all_tools, today
+		):
+			if finding.item_scoped():
+				return true
+	return false
+
+
 ## True when the transaction genuinely should not go through — a forged artifact, or a
 ## rule that fails on a genuine one (an honest customer who is simply too young).
 func should_be_refused(engine: RuleEngine, all_tools: PackedStringArray, today: int) -> bool:

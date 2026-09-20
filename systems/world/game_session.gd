@@ -17,6 +17,7 @@ var hud: Hud
 var inspection: InspectionView
 var log: RunLog
 
+var console: DevConsole
 var current_encounter: Encounter
 var _clock := TickScheduler.new()
 var _free_slot: Shop.PlayerSlot
@@ -57,6 +58,10 @@ func start(p_settings: GameSettings, session_seed: int = 0, player_count: int = 
 	inspection.setup(settings, registry)
 	inspection.verdict_chosen.connect(_on_verdict_chosen)
 
+	console = DevConsole.new()
+	add_child(console)
+	console.setup(registry, bus)
+
 	_free_slot = shop.players[0]
 	_connect_cues(bus)
 	shop.start_day(1)
@@ -88,6 +93,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		_reach_for_nearest_tool()
 	elif event.is_action("open_binder"):
 		_show_binder()
+	elif event is InputEventKey and (event as InputEventKey).keycode == KEY_F1:
+		console.toggle()
 
 
 ## One interaction verb, and what it does depends entirely on what you are standing in

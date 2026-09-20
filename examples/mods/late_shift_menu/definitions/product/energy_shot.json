@@ -1,0 +1,28 @@
+{
+  "id": "late_shift_menu:energy_shot",
+  "type": "product",
+  "name": "loc:late_shift_menu.product.energy_shot",
+  "category": "cold_beverages",
+  "tags": [
+    "impulse",
+    "late_night"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 24,
+  "base_cost": 1.4,
+  "market_price": 4.0,
+  "price_band": [
+    2.8,
+    7.2
+  ],
+  "shelf_life_days": 400,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:nightfreight_discount"
+  ],
+  "urgency": "high"
+}

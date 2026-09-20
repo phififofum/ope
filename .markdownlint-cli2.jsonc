@@ -16,6 +16,7 @@
   },
   "globs": ["**/*.md"],
   "ignores": [
+    "addons/**",
     "node_modules/**",
     "build/**",
     ".godot/**",

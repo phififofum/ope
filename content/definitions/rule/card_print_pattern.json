@@ -1,0 +1,21 @@
+{
+  "id": "base:card_print_pattern",
+  "type": "rule",
+  "name": "loc:rule.card_print_pattern",
+  "explanation": "loc:rule.card_print_pattern.explanation",
+  "applies_to": {
+    "document_families": [
+      "collectible"
+    ],
+    "transaction_tags": [
+      "authentication"
+    ]
+  },
+  "check": {
+    "op": "feature_present",
+    "feature": "print_rosette"
+  },
+  "severity": "blocking",
+  "tier": 1,
+  "requires_tool": "base:loupe"
+}

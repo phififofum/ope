@@ -22,7 +22,17 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SKIP_DIRS = {".git", ".godot", "build", "export", "__pycache__", ".venv", "venv", "LICENSES"}
+SKIP_DIRS = {
+    ".git",
+    ".godot",
+    "addons",
+    "build",
+    "export",
+    "__pycache__",
+    ".venv",
+    "venv",
+    "LICENSES",
+}
 
 LINK = re.compile(r"\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
 HEADING = re.compile(r"^#{1,6}\s+(.*?)\s*$", re.MULTILINE)

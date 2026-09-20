@@ -23,7 +23,8 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TEXT_SCENE_SUFFIXES = {".tscn", ".tres", ".godot"}
-SKIP_DIRS = {".git", ".godot", "build", "export", "__pycache__", ".venv", "venv"}
+# addons/ is vendored third-party code; it is checked by its upstream, not by us.
+SKIP_DIRS = {".git", ".godot", "addons", "build", "export", "__pycache__", ".venv", "venv"}
 
 
 def walk() -> list[Path]:

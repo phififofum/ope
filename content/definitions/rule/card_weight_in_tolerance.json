@@ -1,0 +1,22 @@
+{
+  "id": "base:card_weight_in_tolerance",
+  "type": "rule",
+  "name": "loc:rule.card_weight_in_tolerance",
+  "explanation": "loc:rule.card_weight_in_tolerance.explanation",
+  "applies_to": {
+    "document_families": [
+      "collectible"
+    ],
+    "transaction_tags": [
+      "authentication"
+    ]
+  },
+  "check": {
+    "op": "within_threshold",
+    "field": "weight",
+    "threshold": 0.12
+  },
+  "severity": "blocking",
+  "tier": 2,
+  "requires_tool": "base:precision_scale"
+}

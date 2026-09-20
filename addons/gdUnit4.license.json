@@ -1,0 +1,8 @@
+{
+  "file": "addons/gdUnit4",
+  "source": "https://github.com/MikeSchulze/gdUnit4/releases/tag/v6.2.1",
+  "author": "Mike Schulze and contributors",
+  "license": "MIT",
+  "retrieved": "2026-09-20",
+  "modifications": "vendored at v6.2.1; the addon's own test/ suite removed"
+}

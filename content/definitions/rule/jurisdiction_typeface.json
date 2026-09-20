@@ -1,0 +1,21 @@
+{
+  "id": "base:jurisdiction_typeface",
+  "type": "rule",
+  "name": "loc:rule.jurisdiction_typeface",
+  "explanation": "loc:rule.jurisdiction_typeface.explanation",
+  "applies_to": {
+    "document_families": [
+      "identity"
+    ],
+    "transaction_tags": [
+      "id_required"
+    ]
+  },
+  "check": {
+    "op": "typeface_matches",
+    "field": "typeface"
+  },
+  "severity": "blocking",
+  "tier": 3,
+  "requires_tool": "base:reference_binder"
+}

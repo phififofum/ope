@@ -120,6 +120,14 @@ jobs:
       - name: Boot headless
         run: $HOME/godot/godot --headless --path . -- --smoke-test
 
+      # gdUnit4, vendored in addons/, so the suite runs with only the pinned binary and
+      # this repository -- no network, no plugin install step.
+      - name: Unit and integration tests
+        run: |
+          $HOME/godot/godot --headless --path . \
+            -s addons/gdUnit4/bin/GdUnitCmdTool.gd --ignoreHeadlessMode \
+            -a tests/unit -a tests/integration
+
       - name: Export Linux and Windows
         run: |
           set -euo pipefail

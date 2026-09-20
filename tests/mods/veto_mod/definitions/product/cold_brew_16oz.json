@@ -1,0 +1,28 @@
+{
+  "id": "base:cold_brew_16oz",
+  "type": "product",
+  "name": "loc:product.cold_brew_16oz",
+  "category": "cold_beverages",
+  "tags": [
+    "chilled",
+    "impulse",
+    "overridden"
+  ],
+  "storage": "chilled",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 12,
+  "base_cost": 0.88,
+  "market_price": 9.99,
+  "price_band": [
+    2.2,
+    12.0
+  ],
+  "shelf_life_days": 21,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ]
+}

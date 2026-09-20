@@ -1,0 +1,20 @@
+{
+  "id": "base:provenance_plausible",
+  "type": "rule",
+  "name": "loc:rule.provenance_plausible",
+  "explanation": "loc:rule.provenance_plausible.explanation",
+  "applies_to": {
+    "document_families": [
+      "commercial"
+    ],
+    "transaction_tags": [
+      "trade_in"
+    ]
+  },
+  "check": {
+    "op": "physically_intact"
+  },
+  "severity": "item_scoped",
+  "tier": 3,
+  "requires_tool": "base:ledger"
+}

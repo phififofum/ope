@@ -1,0 +1,22 @@
+{
+  "id": "base:card_set_legal",
+  "type": "rule",
+  "name": "loc:rule.card_set_legal",
+  "explanation": "loc:rule.card_set_legal.explanation",
+  "applies_to": {
+    "document_families": [
+      "collectible"
+    ],
+    "transaction_tags": [
+      "event_legality"
+    ]
+  },
+  "check": {
+    "op": "field_equals",
+    "field": "set_symbol",
+    "value": "__legal_set__"
+  },
+  "severity": "advisory",
+  "tier": 3,
+  "requires_tool": "base:reference_binder"
+}

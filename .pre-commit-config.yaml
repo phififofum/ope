@@ -13,7 +13,9 @@
 # hides a behaviour change.
 
 default_install_hook_types: [pre-commit]
-exclude: '^(build/|\.godot/|LICENSES/|CREDITS\.md$)'
+# addons/ is vendored third-party code: we do not reformat other people's work,
+# and their style is their business. Its licence record is addons/gdUnit4.license.json.
+exclude: '^(addons/|build/|\.godot/|LICENSES/|CREDITS\.md$)'
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks

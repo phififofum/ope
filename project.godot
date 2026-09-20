@@ -19,6 +19,14 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 boot_splash/show_image=false
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
+
+[autoload]
+
+Game="*res://core/game.gd"
+
 [display]
 
 window/size/viewport_width=1920

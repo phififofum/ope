@@ -176,11 +176,15 @@ def validate(sources: list[Path], report: Report) -> dict[str, dict[str, Any]]:
             definition_id = definition.get("id")
             if not isinstance(definition_id, str):
                 continue
-            if not definition_id.startswith(f"{namespace}:"):
+            # A new id must live in this source's namespace. An id in another namespace
+            # is an override -- legitimate, and the point of the mechanism -- but only of
+            # something that already exists, or a typo squats on a name its real owner
+            # may add later.
+            if not definition_id.startswith(f"{namespace}:") and definition_id not in registry:
                 report.error(
                     where,
-                    f"id `{definition_id}` is not namespaced to this source "
-                    f"(expected `{namespace}:`)",
+                    f"id `{definition_id}` is neither namespaced to this source "
+                    f"(`{namespace}:`) nor an override of an existing definition",
                 )
             if definition_id in registry:
                 previous = origin[definition_id]

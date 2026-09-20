@@ -1,0 +1,20 @@
+{
+  "id": "base:photo_matches_bearer",
+  "type": "rule",
+  "name": "loc:rule.photo_matches_bearer",
+  "explanation": "loc:rule.photo_matches_bearer.explanation",
+  "applies_to": {
+    "document_families": [
+      "identity"
+    ],
+    "transaction_tags": [
+      "id_required"
+    ]
+  },
+  "check": {
+    "op": "matches_person",
+    "field": "photo"
+  },
+  "severity": "blocking",
+  "tier": 0
+}

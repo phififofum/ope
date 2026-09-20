@@ -1,0 +1,27 @@
+{
+  "id": "dependent_mod:house_blend",
+  "type": "product",
+  "name": "loc:dependent_mod.product.house_blend",
+  "category": "hot_beverages",
+  "tags": [
+    "ambient",
+    "ingredient"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 6,
+  "base_cost": 12.0,
+  "market_price": 0.0,
+  "price_band": [
+    0.0,
+    0.0
+  ],
+  "shelf_life_days": 180,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ]
+}

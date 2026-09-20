@@ -1,0 +1,20 @@
+{
+  "id": "base:id_not_expired",
+  "type": "rule",
+  "name": "loc:rule.id_not_expired",
+  "explanation": "loc:rule.id_not_expired.explanation",
+  "applies_to": {
+    "document_families": [
+      "identity"
+    ],
+    "transaction_tags": [
+      "id_required"
+    ]
+  },
+  "check": {
+    "op": "not_expired",
+    "field": "expiry"
+  },
+  "severity": "blocking",
+  "tier": 0
+}

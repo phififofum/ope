@@ -72,7 +72,9 @@
             "within_threshold",
             "holding_period",
             "typeface_matches",
-            "physically_intact"
+            "physically_intact",
+            "field_plausible",
+            "value_at_most"
           ]
         },
         "field": {

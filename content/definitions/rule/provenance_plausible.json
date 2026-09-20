@@ -12,9 +12,10 @@
     ]
   },
   "check": {
-    "op": "physically_intact"
+    "op": "field_plausible",
+    "field": "declared_provenance"
   },
-  "severity": "item_scoped",
+  "severity": "blocking",
   "tier": 3,
   "requires_tool": "base:ledger"
 }

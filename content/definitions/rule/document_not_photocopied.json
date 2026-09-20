@@ -1,0 +1,20 @@
+{
+  "id": "base:document_not_photocopied",
+  "type": "rule",
+  "name": "loc:rule.document_not_photocopied",
+  "explanation": "loc:rule.document_not_photocopied.explanation",
+  "applies_to": {
+    "document_families": [
+      "commercial"
+    ],
+    "transaction_tags": [
+      "trade_in"
+    ]
+  },
+  "check": {
+    "op": "physically_intact"
+  },
+  "severity": "blocking",
+  "tier": 1,
+  "requires_tool": "base:loupe"
+}

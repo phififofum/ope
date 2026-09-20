@@ -320,6 +320,29 @@ def check_quality_gates(registry: dict[str, dict[str, Any]], report: Report) -> 
                 + " -- a single habit of looking would catch everything it has",
             )
 
+    # A vector is only catchable if some rule checks for it, and that rule's tool is one
+    # the vector says reveals it. Without this, "detectable_by" is a claim nobody
+    # enforces and the player is asked to spot something no check looks at.
+    rules = {k: v for k, v in registry.items() if v.get("type") == "rule"}
+    for vid, vector in vectors.items():
+        detectable_by = set(vector.get("detectable_by", []))
+        families = {documents[d].get("family") for d in applicable_documents(vector, documents)}
+        covered = False
+        for rule in rules.values():
+            rule_families = set(rule.get("applies_to", {}).get("document_families", []))
+            if rule_families and not (rule_families & families):
+                continue
+            required = rule.get("requires_tool")
+            if required is None or required in detectable_by:
+                covered = True
+                break
+        if not covered and families:
+            report.error(
+                vid,
+                "no rule checks for it with a tool it claims reveals it -- "
+                "`detectable_by` is a promise the checklist does not keep",
+            )
+
     for tid, tool in tools.items():
         if tool.get("returns_verdict"):
             report.error(tid, "returns a verdict. Tools reveal; players judge.")

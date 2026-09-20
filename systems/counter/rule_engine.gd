@@ -153,6 +153,16 @@ func _check(check: Dictionary, artifact: Artifact, person: Person, today: int) -
 			return int(artifact.field(field_key, today - 1)) <= today
 		"typeface_matches":
 			return not artifact.typeface.ends_with("_near_miss")
+		"field_plausible":
+			# A field that came back "unverifiable", "altered" or in a different hand.
+			# What the artifact says is not the same as what it is.
+			var value: String = str(artifact.field(field_key, ""))
+			return not value in ["unverifiable", "altered", "signature_mismatch", "invalid"]
+		"value_at_most":
+			var number: Variant = artifact.field(field_key)
+			if not (number is float or number is int):
+				return true
+			return float(number) <= float(check.get("value", 0.0))
 		"physically_intact":
 			return (
 				not artifact.fields.has("_process")

@@ -18,6 +18,10 @@ var policy: Policy
 var log: RunLog
 
 var days_played: int = 0
+## What the bot decided, so a nightly run can say how a policy behaved rather than only
+## what it scored.
+var verdict_counts: Dictionary = {}
+var tools_used_counts: Dictionary = {}
 var actions_taken: int = 0
 var soft_lock_ticks: int = 0
 
@@ -62,6 +66,8 @@ func play(days: int, sample_every_ticks: int = 600) -> Dictionary:
 		"final_money": shop.economy.money,
 		"final_reputation": shop.economy.reputation,
 		"insolvent": shop.economy.is_insolvent(),
+		"verdicts": verdict_counts.duplicate(),
+		"tool_use": tools_used_counts.duplicate(),
 		"summaries": day_summaries,
 	}
 
@@ -170,4 +176,7 @@ func _serve(slot: Shop.PlayerSlot, now: int) -> bool:
 		if policy == Policy.PARANOID:
 			verdict = Encounter.Verdict.DECLINE
 
+	var name: String = Encounter.verdict_name(verdict)
+	verdict_counts[name] = int(verdict_counts.get(name, 0)) + 1
+	tools_used_counts[str(tools.size())] = int(tools_used_counts.get(str(tools.size()), 0)) + 1
 	return not shop.serve_counter(slot, verdict, tools, now).is_empty()

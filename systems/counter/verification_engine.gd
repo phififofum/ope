@@ -46,7 +46,8 @@ func create(
 	transaction_tags: PackedStringArray,
 	forged: bool,
 	max_tier: int,
-	value: float = 0.0
+	value: float = 0.0,
+	owned_tools: PackedStringArray = PackedStringArray()
 ) -> Encounter:
 	var document_type: ContentDefinition = registry.get_definition(document_type_id)
 	if document_type == null:
@@ -60,7 +61,7 @@ func create(
 	encounter.value = value
 	encounter.artifacts.append(
 		(
-			forgeries.generate_forged(document_type, person, _today, max_tier)
+			forgeries.generate_forged(document_type, person, _today, max_tier, 1, owned_tools)
 			if forged
 			else forgeries.generate_genuine(document_type, person, _today)
 		)

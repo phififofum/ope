@@ -1,0 +1,20 @@
+{
+  "id": "base:signature_matches_bearer",
+  "type": "rule",
+  "name": "loc:rule.signature_matches_bearer",
+  "explanation": "loc:rule.signature_matches_bearer.explanation",
+  "applies_to": {
+    "document_families": [
+      "commercial"
+    ],
+    "transaction_tags": [
+      "trade_in"
+    ]
+  },
+  "check": {
+    "op": "field_plausible",
+    "field": "signature"
+  },
+  "severity": "blocking",
+  "tier": 0
+}

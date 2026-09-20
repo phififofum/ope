@@ -41,15 +41,20 @@ func generate_genuine(document_type: ContentDefinition, person: Person, today: i
 
 ## A forged artifact, using vectors that appear at or below [param max_tier].
 ## Returns a genuine artifact when no vector applies, rather than inventing one.
+## The second filter is the fairness rule, and it is not optional: a forgery nobody in
+## the building has the instrument to detect is not difficulty, it is a coin flip. Tier
+## controls how subtle a catchable forgery is; the toolkit controls which are catchable
+## at all.
 func generate_forged(
 	document_type: ContentDefinition,
 	person: Person,
 	today: int,
 	max_tier: int,
-	vector_count: int = 1
+	vector_count: int = 1,
+	owned_tools: PackedStringArray = PackedStringArray()
 ) -> Artifact:
 	var artifact: Artifact = generate_genuine(document_type, person, today)
-	var candidates: Array = applicable_vectors(document_type, max_tier)
+	var candidates: Array = applicable_vectors(document_type, max_tier, owned_tools)
 	if candidates.is_empty():
 		return artifact
 	var chosen: Array = []
@@ -65,7 +70,13 @@ func generate_forged(
 ## Every vector that can be applied to [param document_type] at or below [param max_tier].
 ## Wildcard targeting plus a field or feature requirement is what makes one definition
 ## cover many document types.
-func applicable_vectors(document_type: ContentDefinition, max_tier: int = 4) -> Array:
+##
+## When [param owned_tools] is given, vectors nothing in that set can detect are excluded.
+func applicable_vectors(
+	document_type: ContentDefinition,
+	max_tier: int = 4,
+	owned_tools: PackedStringArray = PackedStringArray()
+) -> Array:
 	var field_keys: PackedStringArray = []
 	for field_spec: Dictionary in document_type.get_value("fields", []):
 		field_keys.append(str(field_spec.get("key", "")))
@@ -87,8 +98,17 @@ func applicable_vectors(document_type: ContentDefinition, max_tier: int = 4) -> 
 		var needs_feature: String = str(applies.get("requires_feature", ""))
 		if not needs_feature.is_empty() and not feature_ids.has(needs_feature):
 			continue
+		if not owned_tools.is_empty() and not _detectable_with(vector, owned_tools):
+			continue
 		out.append(vector)
 	return out
+
+
+func _detectable_with(vector: ContentDefinition, owned_tools: PackedStringArray) -> bool:
+	for tool_id: String in vector.get_value("detectable_by", []):
+		if owned_tools.has(tool_id):
+			return true
+	return false
 
 
 ## Applies one vector's transform. Unknown ops are ignored and recorded rather than

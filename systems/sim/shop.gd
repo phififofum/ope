@@ -523,8 +523,6 @@ func _spawn_customer(now: int) -> void:
 	var person: Person = people.next_customer()
 	customers_in_room = mini(customers_in_room + 1, 40)
 
-	var suspicious: bool = director.should_be_suspicious(now)
-	var tier: int = director.tier_for_next(toolkit_tier())
 	var roll: float = rng.stream(SeededRng.SPAWN).randf()
 
 	if roll < 0.34 and not kitchen_closed():
@@ -554,8 +552,13 @@ func _spawn_customer(now: int) -> void:
 		tags = PackedStringArray(["authentication", "trade_in"])
 		value = -rng.stream(SeededRng.SPAWN).randf_range(15.0, 240.0)
 
+	# The director is consulted only now, once someone is actually arriving at the
+	# counter. Asking earlier spent the shift's suspicious budget on people who only
+	# wanted a table, and the forgeries never reached anybody's hands.
+	var suspicious: bool = director.should_be_suspicious(now)
+	var tier: int = director.tier_for_next(toolkit_tier())
 	var encounter: Encounter = verification.create(
-		document_id, person, tags, suspicious, tier, value
+		document_id, person, tags, suspicious, tier, value, owned_tools
 	)
 	if encounter != null:
 		encounter.opened_tick = now

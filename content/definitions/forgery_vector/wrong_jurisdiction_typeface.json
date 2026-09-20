@@ -7,10 +7,9 @@
     ]
   },
   "class": "external_inconsistency",
-  "tier": 1,
+  "tier": 3,
   "difficulty": 3,
   "detectable_by": [
-    "base:loupe",
     "base:reference_binder"
   ],
   "transform": {

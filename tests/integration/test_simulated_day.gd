@@ -66,20 +66,55 @@ func test_nobody_stands_idle_while_work_waits() -> void:
 		)
 
 
-func test_a_careless_player_loses_more_than_a_careful_one() -> void:
-	# Scrutiny has to pay for itself, or the whole thesis collapses.
-	var careless: Dictionary = BotPlayer.new(_shop(21), BotPlayer.Policy.CARELESS).play(3)
-	var careful: Dictionary = BotPlayer.new(_shop(21), BotPlayer.Policy.PARANOID).play(3)
+func test_a_careless_player_misses_forgeries_a_careful_one_catches() -> void:
+	# Scrutiny has to pay for itself, or the whole thesis collapses. Measured directly
+	# as missed forgeries rather than as reputation, and aggregated across seeds: any
+	# single day can go well for a careless player.
+	var careless: Dictionary = _forgery_tally(BotPlayer.Policy.CARELESS, [21, 22, 23])
+	var careful: Dictionary = _forgery_tally(BotPlayer.Policy.PARANOID, [21, 22, 23])
+
 	(
-		assert_float(float(careful["final_reputation"]))
+		assert_int(int(careful["forged"]))
+		. override_failure_message(
+			"no forgeries reached the counter at all; the director is not sending any"
+		)
+		. is_greater(0)
+	)
+	(
+		assert_int(int(careful["missed"]))
 		. override_failure_message(
 			(
-				"careless reputation %.2f, careful %.2f"
-				% [careless["final_reputation"], careful["final_reputation"]]
+				"careful missed %d of %d, careless missed %d of %d"
+				% [careful["missed"], careful["forged"], careless["missed"], careless["forged"]]
 			)
 		)
-		. is_greater(float(careless["final_reputation"]))
+		. is_less(int(careless["missed"]))
 	)
+	assert_float(float(careful["reputation"])).is_greater(float(careless["reputation"]))
+
+
+## Runs a policy across seeds and counts what it caught. The tally is a Dictionary
+## because GDScript lambdas capture locals by value.
+func _forgery_tally(policy: BotPlayer.Policy, seeds: Array) -> Dictionary:
+	var tally: Dictionary = {"forged": 0, "missed": 0, "reputation": 0.0}
+	for seed_value: int in seeds:
+		var bus := EventBus.new()
+		var rng := SeededRng.new(seed_value)
+		var shop := Shop.new(registry, bus, rng, Director.Profile.preset("standard"), 3)
+		shop.open_for_business(600.0)
+		bus.subscribe(
+			EventCatalog.VERIFICATION_RESOLVED,
+			func(payload: Dictionary) -> void:
+				if not bool(payload.get("was_forged", false)):
+					return
+				tally["forged"] = int(tally["forged"]) + 1
+				if int(payload.get("outcome", 0)) == Encounter.Outcome.WRONG_APPROVED:
+					tally["missed"] = int(tally["missed"]) + 1,
+			"test"
+		)
+		var report: Dictionary = BotPlayer.new(shop, policy).play(3)
+		tally["reputation"] = float(tally["reputation"]) + float(report["final_reputation"])
+	return tally
 
 
 func test_solo_play_is_viable() -> void:

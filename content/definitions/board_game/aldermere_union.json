@@ -1,0 +1,48 @@
+{
+  "id": "base:aldermere_union",
+  "type": "board_game",
+  "name": "loc:board_game.aldermere_union",
+  "designer": "Tannery Vance",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    74,
+    96
+  ],
+  "weight": 2.9,
+  "teach_minutes": 17,
+  "retail_price": 51.39,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "die",
+      "count": 120,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

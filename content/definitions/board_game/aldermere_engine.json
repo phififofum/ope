@@ -1,0 +1,53 @@
+{
+  "id": "base:aldermere_engine",
+  "type": "board_game",
+  "name": "loc:board_game.aldermere_engine",
+  "designer": "Kestrel Vance",
+  "player_count": [
+    3,
+    5
+  ],
+  "play_minutes": [
+    70,
+    136
+  ],
+  "weight": 4.2,
+  "teach_minutes": 23,
+  "retail_price": 53.23,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 104,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "cardboard token",
+      "count": 40,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "resource tile",
+      "count": 8,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "first-player marker",
+      "count": 60,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "die",
+      "count": 120,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

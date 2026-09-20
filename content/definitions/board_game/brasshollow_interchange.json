@@ -1,0 +1,63 @@
+{
+  "id": "base:brasshollow_interchange",
+  "type": "board_game",
+  "name": "loc:board_game.brasshollow_interchange",
+  "designer": "Vesper Vance",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    69,
+    118
+  ],
+  "weight": 2.7,
+  "teach_minutes": 21,
+  "retail_price": 45.03,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "die",
+      "count": 12,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "card",
+      "count": 24,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "resource tile",
+      "count": 8,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "linen bag",
+      "count": 120,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

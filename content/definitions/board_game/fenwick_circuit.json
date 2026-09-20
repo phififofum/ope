@@ -1,0 +1,53 @@
+{
+  "id": "base:fenwick_circuit",
+  "type": "board_game",
+  "name": "loc:board_game.fenwick_circuit",
+  "designer": "Redfen Vance",
+  "player_count": [
+    3,
+    4
+  ],
+  "play_minutes": [
+    78,
+    141
+  ],
+  "weight": 3.2,
+  "teach_minutes": 22,
+  "retail_price": 50.48,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "die",
+      "count": 40,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "meeple",
+      "count": 120,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "plastic stand",
+      "count": 60,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

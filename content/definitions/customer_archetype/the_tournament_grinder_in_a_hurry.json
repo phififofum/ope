@@ -1,0 +1,29 @@
+{
+  "id": "base:the_tournament_grinder_in_a_hurry",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_tournament_grinder_in_a_hurry",
+  "budget": [
+    23.5,
+    195.69
+  ],
+  "patience": 1.48,
+  "wants": [
+    "event",
+    "singles"
+  ],
+  "spawn_weight": 1.01,
+  "shifts": [
+    "event_night",
+    "late_night",
+    "midday",
+    "morning"
+  ],
+  "fraud_propensity": 0.036,
+  "age_range": [
+    30,
+    55
+  ],
+  "tags": [
+    "watchlist_candidate"
+  ]
+}

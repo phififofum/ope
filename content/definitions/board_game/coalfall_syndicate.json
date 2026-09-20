@@ -1,0 +1,42 @@
+{
+  "id": "base:coalfall_syndicate",
+  "type": "board_game",
+  "name": "loc:board_game.coalfall_syndicate",
+  "designer": "Mossgard Baptiste",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    96,
+    176
+  ],
+  "weight": 3.9,
+  "teach_minutes": 29,
+  "retail_price": 42.97,
+  "library_eligible": false,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 24,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "plastic stand",
+      "count": 4,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "scoring marker",
+      "count": 24,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

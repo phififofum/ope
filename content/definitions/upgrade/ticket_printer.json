@@ -1,0 +1,14 @@
+{
+  "id": "base:ticket_printer",
+  "type": "upgrade",
+  "name": "loc:upgrade.ticket_printer",
+  "description": "loc:upgrade.ticket_printer.description",
+  "cost": 900.0,
+  "prerequisites": [],
+  "unlocks": [
+    "ticket_printer"
+  ],
+  "category": "automation",
+  "costs_space": 1,
+  "removes_step": "memorising orders"
+}

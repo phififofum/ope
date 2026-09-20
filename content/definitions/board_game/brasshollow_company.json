@@ -1,0 +1,64 @@
+{
+  "id": "base:brasshollow_company",
+  "type": "board_game",
+  "name": "loc:board_game.brasshollow_company",
+  "designer": "Redfen Baptiste",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    57,
+    146
+  ],
+  "weight": 2.4,
+  "teach_minutes": 13,
+  "retail_price": 44.29,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "player board",
+      "count": 4,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "resource tile",
+      "count": 104,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "die",
+      "count": 24,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

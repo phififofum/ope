@@ -1,0 +1,29 @@
+{
+  "id": "base:the_birthday_group",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_birthday_group",
+  "budget": [
+    17.95,
+    127.93
+  ],
+  "patience": 1.21,
+  "wants": [
+    "table",
+    "food",
+    "drink"
+  ],
+  "spawn_weight": 1.01,
+  "shifts": [
+    "evening",
+    "late_night",
+    "morning"
+  ],
+  "fraud_propensity": 0.011,
+  "age_range": [
+    16,
+    45
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

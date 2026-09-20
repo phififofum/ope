@@ -1,0 +1,43 @@
+{
+  "id": "base:gallowmere_almanac",
+  "type": "board_game",
+  "name": "loc:board_game.gallowmere_almanac",
+  "designer": "Northreach Lindqvist",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    93,
+    109
+  ],
+  "weight": 4.3,
+  "teach_minutes": 19,
+  "retail_price": 54.07,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 40,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "resource tile",
+      "count": 120,
+      "loss_weight": 0.5
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

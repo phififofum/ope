@@ -1,0 +1,43 @@
+{
+  "id": "base:redfen_exchange",
+  "type": "board_game",
+  "name": "loc:board_game.redfen_exchange",
+  "designer": "Fenwick Lindqvist",
+  "player_count": [
+    3,
+    5
+  ],
+  "play_minutes": [
+    47,
+    71
+  ],
+  "weight": 1.9,
+  "teach_minutes": 12,
+  "retail_price": 31.17,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "wooden cube",
+      "count": 24,
+      "loss_weight": 0.9
+    }
+  ],
+  "tags": [
+    "filler",
+    "teaching_friendly"
+  ]
+}

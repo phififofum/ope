@@ -1,0 +1,53 @@
+{
+  "id": "base:pinehaven_interchange",
+  "type": "board_game",
+  "name": "loc:board_game.pinehaven_interchange",
+  "designer": "Brasshollow Lindqvist",
+  "player_count": [
+    3,
+    7
+  ],
+  "play_minutes": [
+    49,
+    109
+  ],
+  "weight": 3.3,
+  "teach_minutes": 18,
+  "retail_price": 51.71,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "player board",
+      "count": 8,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "meeple",
+      "count": 60,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "first-player marker",
+      "count": 120,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "linen bag",
+      "count": 8,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

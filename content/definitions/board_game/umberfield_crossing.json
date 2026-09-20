@@ -1,0 +1,42 @@
+{
+  "id": "base:umberfield_crossing",
+  "type": "board_game",
+  "name": "loc:board_game.umberfield_crossing",
+  "designer": "Redfen Lindqvist",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    82,
+    119
+  ],
+  "weight": 4.3,
+  "teach_minutes": 23,
+  "retail_price": 45.42,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

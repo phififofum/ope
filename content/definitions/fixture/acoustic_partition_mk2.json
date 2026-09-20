@@ -1,0 +1,19 @@
+{
+  "id": "base:acoustic_partition_mk2",
+  "type": "fixture",
+  "name": "loc:fixture.acoustic_partition_mk2",
+  "category": "decor",
+  "footprint": [
+    2,
+    1
+  ],
+  "cost": 351.0,
+  "capacity": 0,
+  "noise": -0.6,
+  "upkeep_hours": 0.54,
+  "zone": "any",
+  "tags": [
+    "decor",
+    "quiet"
+  ]
+}

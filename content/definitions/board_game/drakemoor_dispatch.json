@@ -1,0 +1,59 @@
+{
+  "id": "base:drakemoor_dispatch",
+  "type": "board_game",
+  "name": "loc:board_game.drakemoor_dispatch",
+  "designer": "Lanternwick Vance",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    37,
+    71
+  ],
+  "weight": 2.0,
+  "teach_minutes": 10,
+  "retail_price": 34.31,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "meeple",
+      "count": 120,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "resource tile",
+      "count": 104,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

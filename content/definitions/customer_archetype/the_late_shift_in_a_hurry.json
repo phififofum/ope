@@ -1,0 +1,27 @@
+{
+  "id": "base:the_late_shift_in_a_hurry",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_late_shift_in_a_hurry",
+  "budget": [
+    20.31,
+    126.46
+  ],
+  "patience": 0.8,
+  "wants": [
+    "drink",
+    "food"
+  ],
+  "spawn_weight": 0.92,
+  "shifts": [
+    "evening",
+    "midday"
+  ],
+  "fraud_propensity": 0.119,
+  "age_range": [
+    21,
+    70
+  ],
+  "tags": [
+    "watchlist_candidate"
+  ]
+}

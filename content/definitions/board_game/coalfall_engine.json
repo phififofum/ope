@@ -1,0 +1,43 @@
+{
+  "id": "base:coalfall_engine",
+  "type": "board_game",
+  "name": "loc:board_game.coalfall_engine",
+  "designer": "Tannery Lindqvist",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    48,
+    81
+  ],
+  "weight": 2.0,
+  "teach_minutes": 12,
+  "retail_price": 33.89,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "cardboard token",
+      "count": 40,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "die",
+      "count": 104,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

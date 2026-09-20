@@ -1,0 +1,18 @@
+{
+  "id": "base:prep_bench_mk5",
+  "type": "fixture",
+  "name": "loc:fixture.prep_bench_mk5",
+  "category": "kitchen",
+  "footprint": [
+    2,
+    1
+  ],
+  "cost": 1536.0,
+  "capacity": 0,
+  "noise": 0.1,
+  "upkeep_hours": 0.55,
+  "zone": "kitchen",
+  "tags": [
+    "kitchen"
+  ]
+}

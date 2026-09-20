@@ -1,0 +1,43 @@
+{
+  "id": "base:cindervale_syndicate",
+  "type": "board_game",
+  "name": "loc:board_game.cindervale_syndicate",
+  "designer": "Harbourline Lindqvist",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    40,
+    60
+  ],
+  "weight": 2.0,
+  "teach_minutes": 12,
+  "retail_price": 37.6,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "die",
+      "count": 24,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "plastic stand",
+      "count": 104,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

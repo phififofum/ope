@@ -1,0 +1,43 @@
+{
+  "id": "base:verdance_provision",
+  "type": "board_game",
+  "name": "loc:board_game.verdance_provision",
+  "designer": "Oxbow Reyes",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    38,
+    81
+  ],
+  "weight": 2.0,
+  "teach_minutes": 11,
+  "retail_price": 34.2,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "linen bag",
+      "count": 40,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "first-player marker",
+      "count": 12,
+      "loss_weight": 0.8
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

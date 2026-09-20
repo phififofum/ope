@@ -1,0 +1,14 @@
+{
+  "id": "base:auto_slicer_tier_3",
+  "type": "upgrade",
+  "name": "loc:upgrade.auto_slicer_tier_3",
+  "description": "loc:upgrade.auto_slicer_tier_3.description",
+  "cost": 4160.0,
+  "prerequisites": [],
+  "unlocks": [
+    "auto_slicer"
+  ],
+  "category": "automation",
+  "costs_space": 1,
+  "removes_step": "manual slicing"
+}

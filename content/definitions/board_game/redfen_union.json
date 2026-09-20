@@ -1,0 +1,49 @@
+{
+  "id": "base:redfen_union",
+  "type": "board_game",
+  "name": "loc:board_game.redfen_union",
+  "designer": "Quarrystone Okoro",
+  "player_count": [
+    3,
+    7
+  ],
+  "play_minutes": [
+    45,
+    121
+  ],
+  "weight": 1.8,
+  "teach_minutes": 8,
+  "retail_price": 42.22,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 40,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "cardboard token",
+      "count": 60,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "plastic stand",
+      "count": 60,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

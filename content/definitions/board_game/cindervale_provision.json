@@ -1,0 +1,63 @@
+{
+  "id": "base:cindervale_provision",
+  "type": "board_game",
+  "name": "loc:board_game.cindervale_provision",
+  "designer": "Mossgard Reyes",
+  "player_count": [
+    3,
+    5
+  ],
+  "play_minutes": [
+    47,
+    134
+  ],
+  "weight": 3.5,
+  "teach_minutes": 24,
+  "retail_price": 52.48,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 12,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "card",
+      "count": 104,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "player board",
+      "count": 60,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "linen bag",
+      "count": 120,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "base:longshore_ferry",
+  "type": "board_game",
+  "name": "loc:board_game.longshore_ferry",
+  "designer": "Ironwright Reyes",
+  "player_count": [
+    3,
+    7
+  ],
+  "play_minutes": [
+    57,
+    91
+  ],
+  "weight": 2.1,
+  "teach_minutes": 15,
+  "retail_price": 39.29,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 24,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "meeple",
+      "count": 120,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "player board",
+      "count": 4,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

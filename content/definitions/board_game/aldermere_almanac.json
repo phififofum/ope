@@ -1,0 +1,42 @@
+{
+  "id": "base:aldermere_almanac",
+  "type": "board_game",
+  "name": "loc:board_game.aldermere_almanac",
+  "designer": "Gallowmere Lindqvist",
+  "player_count": [
+    3,
+    6
+  ],
+  "play_minutes": [
+    56,
+    107
+  ],
+  "weight": 4.8,
+  "teach_minutes": 14,
+  "retail_price": 80.87,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 24,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "die",
+      "count": 40,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "plastic stand",
+      "count": 104,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

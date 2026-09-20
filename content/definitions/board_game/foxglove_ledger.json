@@ -1,0 +1,53 @@
+{
+  "id": "base:foxglove_ledger",
+  "type": "board_game",
+  "name": "loc:board_game.foxglove_ledger",
+  "designer": "Brasshollow Lindqvist",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    55,
+    131
+  ],
+  "weight": 2.3,
+  "teach_minutes": 17,
+  "retail_price": 33.35,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "first-player marker",
+      "count": 60,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "scoring marker",
+      "count": 24,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "card",
+      "count": 24,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "base:street_closure",
+  "type": "event",
+  "name": "loc:event.street_closure",
+  "description": "loc:event.street_closure.description",
+  "trigger": {
+    "kind": "random",
+    "weight": 1.14,
+    "earliest_day": 5,
+    "act": 1
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "footfall",
+      "amount": -0.29
+    }
+  ],
+  "announced": false,
+  "tags": [
+    "footfall"
+  ]
+}

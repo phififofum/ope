@@ -1,0 +1,28 @@
+{
+  "id": "base:the_parent",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_parent",
+  "budget": [
+    15.33,
+    136.86
+  ],
+  "patience": 1.33,
+  "wants": [
+    "retail",
+    "table"
+  ],
+  "spawn_weight": 1.81,
+  "shifts": [
+    "evening",
+    "event_night",
+    "morning"
+  ],
+  "fraud_propensity": 0.025,
+  "age_range": [
+    21,
+    38
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

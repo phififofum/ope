@@ -1,0 +1,52 @@
+{
+  "id": "base:emberdown_network",
+  "type": "board_game",
+  "name": "loc:board_game.emberdown_network",
+  "designer": "Verdance Okoro",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    77,
+    156
+  ],
+  "weight": 3.1,
+  "teach_minutes": 13,
+  "retail_price": 48.37,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "meeple",
+      "count": 60,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "card",
+      "count": 8,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "plastic stand",
+      "count": 4,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "resource tile",
+      "count": 4,
+      "loss_weight": 0.5
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

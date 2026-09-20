@@ -1,0 +1,63 @@
+{
+  "id": "base:umberfield_exchange",
+  "type": "board_game",
+  "name": "loc:board_game.umberfield_exchange",
+  "designer": "Emberdown Vance",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    63,
+    109
+  ],
+  "weight": 3.0,
+  "teach_minutes": 22,
+  "retail_price": 59.35,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "scoring marker",
+      "count": 40,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "meeple",
+      "count": 12,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

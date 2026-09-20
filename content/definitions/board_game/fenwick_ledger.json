@@ -1,0 +1,48 @@
+{
+  "id": "base:fenwick_ledger",
+  "type": "board_game",
+  "name": "loc:board_game.fenwick_ledger",
+  "designer": "Hollowbrook Baptiste",
+  "player_count": [
+    3,
+    5
+  ],
+  "play_minutes": [
+    40,
+    107
+  ],
+  "weight": 2.2,
+  "teach_minutes": 8,
+  "retail_price": 36.89,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 40,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

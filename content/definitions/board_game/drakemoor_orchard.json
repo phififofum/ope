@@ -1,0 +1,48 @@
+{
+  "id": "base:drakemoor_orchard",
+  "type": "board_game",
+  "name": "loc:board_game.drakemoor_orchard",
+  "designer": "Umberfield Vance",
+  "player_count": [
+    3,
+    7
+  ],
+  "play_minutes": [
+    82,
+    123
+  ],
+  "weight": 3.2,
+  "teach_minutes": 14,
+  "retail_price": 40.8,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "card",
+      "count": 120,
+      "loss_weight": 0.3
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "base:harbourline_crossing",
+  "type": "board_game",
+  "name": "loc:board_game.harbourline_crossing",
+  "designer": "Fenwick Lindqvist",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    67,
+    134
+  ],
+  "weight": 3.5,
+  "teach_minutes": 22,
+  "retail_price": 51.66,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "die",
+      "count": 40,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "meeple",
+      "count": 104,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

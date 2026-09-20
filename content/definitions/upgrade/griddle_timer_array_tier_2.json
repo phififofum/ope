@@ -1,0 +1,14 @@
+{
+  "id": "base:griddle_timer_array_tier_2",
+  "type": "upgrade",
+  "name": "loc:upgrade.griddle_timer_array_tier_2",
+  "description": "loc:upgrade.griddle_timer_array_tier_2.description",
+  "cost": 2250.0,
+  "prerequisites": [],
+  "unlocks": [
+    "griddle_timer_array"
+  ],
+  "category": "automation",
+  "costs_space": 1,
+  "removes_step": "tracking timings by eye"
+}

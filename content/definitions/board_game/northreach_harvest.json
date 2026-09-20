@@ -1,0 +1,44 @@
+{
+  "id": "base:northreach_harvest",
+  "type": "board_game",
+  "name": "loc:board_game.northreach_harvest",
+  "designer": "Gallowmere Vance",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    51,
+    125
+  ],
+  "weight": 2.0,
+  "teach_minutes": 11,
+  "retail_price": 43.56,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 120,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "first-player marker",
+      "count": 60,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "die",
+      "count": 60,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

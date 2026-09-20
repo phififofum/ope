@@ -1,0 +1,24 @@
+{
+  "id": "base:promo_policy_change",
+  "type": "event",
+  "name": "loc:event.promo_policy_change",
+  "description": "loc:event.promo_policy_change.description",
+  "trigger": {
+    "kind": "scheduled",
+    "weight": 0.97,
+    "earliest_day": 12,
+    "act": 1
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "rules_change",
+      "amount": 0.08
+    }
+  ],
+  "announced": true,
+  "tags": [
+    "rules_change",
+    "case"
+  ]
+}

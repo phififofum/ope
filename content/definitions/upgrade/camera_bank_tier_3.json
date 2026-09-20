@@ -1,0 +1,13 @@
+{
+  "id": "base:camera_bank_tier_3",
+  "type": "upgrade",
+  "name": "loc:upgrade.camera_bank_tier_3",
+  "description": "loc:upgrade.camera_bank_tier_3.description",
+  "cost": 7280.0,
+  "prerequisites": [],
+  "unlocks": [
+    "camera_bank"
+  ],
+  "category": "security",
+  "costs_space": 2
+}

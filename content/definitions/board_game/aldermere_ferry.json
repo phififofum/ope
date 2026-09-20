@@ -1,0 +1,59 @@
+{
+  "id": "base:aldermere_ferry",
+  "type": "board_game",
+  "name": "loc:board_game.aldermere_ferry",
+  "designer": "Vesper Reyes",
+  "player_count": [
+    3,
+    6
+  ],
+  "play_minutes": [
+    29,
+    91
+  ],
+  "weight": 1.5,
+  "teach_minutes": 9,
+  "retail_price": 38.44,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 4,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "linen bag",
+      "count": 60,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "meeple",
+      "count": 60,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

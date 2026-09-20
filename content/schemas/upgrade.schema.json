@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/upgrade.schema.json",
+  "title": "Upgrade",
+  "description": "A node in the progression tree: what it costs, what it needs first, and what it changes.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "cost",
+    "category"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+    },
+    "type": {
+      "const": "upgrade"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "description": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "cost": {
+      "type": "number",
+      "minimum": 0
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+      }
+    },
+    "unlocks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "category": {
+      "enum": [
+        "space",
+        "equipment",
+        "security",
+        "quality_of_life",
+        "automation"
+      ]
+    },
+    "removes_step": {
+      "type": "string",
+      "description": "Automation removes exactly one manual step. Never the whole job."
+    },
+    "costs_space": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

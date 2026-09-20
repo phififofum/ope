@@ -1,0 +1,29 @@
+{
+  "id": "base:the_collector_again",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_collector_again",
+  "budget": [
+    4.72,
+    38.36
+  ],
+  "patience": 0.71,
+  "wants": [
+    "singles",
+    "sealed"
+  ],
+  "spawn_weight": 1.13,
+  "shifts": [
+    "afternoon",
+    "evening",
+    "event_night",
+    "morning"
+  ],
+  "fraud_propensity": 0.141,
+  "age_range": [
+    18,
+    45
+  ],
+  "tags": [
+    "watchlist_candidate"
+  ]
+}

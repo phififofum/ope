@@ -1,0 +1,26 @@
+{
+  "id": "base:the_judge",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_judge",
+  "budget": [
+    11.94,
+    29.19
+  ],
+  "patience": 1.29,
+  "wants": [
+    "event"
+  ],
+  "spawn_weight": 1.79,
+  "shifts": [
+    "event_night",
+    "morning"
+  ],
+  "fraud_propensity": 0.011,
+  "age_range": [
+    21,
+    70
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

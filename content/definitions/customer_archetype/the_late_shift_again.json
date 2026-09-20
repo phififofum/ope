@@ -1,0 +1,29 @@
+{
+  "id": "base:the_late_shift_again",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_late_shift_again",
+  "budget": [
+    19.3,
+    132.88
+  ],
+  "patience": 1.38,
+  "wants": [
+    "drink",
+    "food"
+  ],
+  "spawn_weight": 1.3,
+  "shifts": [
+    "afternoon",
+    "evening",
+    "late_night",
+    "morning"
+  ],
+  "fraud_propensity": 0.112,
+  "age_range": [
+    21,
+    70
+  ],
+  "tags": [
+    "watchlist_candidate"
+  ]
+}

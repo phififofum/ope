@@ -1,0 +1,53 @@
+{
+  "id": "base:thistlewood_circuit",
+  "type": "board_game",
+  "name": "loc:board_game.thistlewood_circuit",
+  "designer": "Cindervale Vance",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    42,
+    104
+  ],
+  "weight": 1.7,
+  "teach_minutes": 7,
+  "retail_price": 31.36,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 60,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "scoring marker",
+      "count": 24,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "filler",
+    "teaching_friendly"
+  ]
+}

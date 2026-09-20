@@ -1,0 +1,28 @@
+{
+  "id": "base:the_parent_again",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_parent_again",
+  "budget": [
+    22.39,
+    79.9
+  ],
+  "patience": 1.15,
+  "wants": [
+    "retail",
+    "table"
+  ],
+  "spawn_weight": 2.68,
+  "shifts": [
+    "evening",
+    "event_night",
+    "late_night"
+  ],
+  "fraud_propensity": 0.025,
+  "age_range": [
+    24,
+    38
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

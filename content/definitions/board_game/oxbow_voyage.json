@@ -1,0 +1,42 @@
+{
+  "id": "base:oxbow_voyage",
+  "type": "board_game",
+  "name": "loc:board_game.oxbow_voyage",
+  "designer": "Stillwater Reyes",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    56,
+    72
+  ],
+  "weight": 3.9,
+  "teach_minutes": 25,
+  "retail_price": 48.57,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "die",
+      "count": 12,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

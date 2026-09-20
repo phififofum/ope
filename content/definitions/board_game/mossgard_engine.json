@@ -1,0 +1,63 @@
+{
+  "id": "base:mossgard_engine",
+  "type": "board_game",
+  "name": "loc:board_game.mossgard_engine",
+  "designer": "Hollowbrook Vance",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    92,
+    124
+  ],
+  "weight": 4.6,
+  "teach_minutes": 12,
+  "retail_price": 58.26,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "card",
+      "count": 8,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "meeple",
+      "count": 24,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "die",
+      "count": 40,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "resource tile",
+      "count": 120,
+      "loss_weight": 0.5
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

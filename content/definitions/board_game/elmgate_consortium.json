@@ -1,0 +1,49 @@
+{
+  "id": "base:elmgate_consortium",
+  "type": "board_game",
+  "name": "loc:board_game.elmgate_consortium",
+  "designer": "Umberfield Okoro",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    61,
+    123
+  ],
+  "weight": 2.2,
+  "teach_minutes": 9,
+  "retail_price": 47.19,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "wooden cube",
+      "count": 120,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "resource tile",
+      "count": 60,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

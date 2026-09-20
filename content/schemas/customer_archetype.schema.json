@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/customer_archetype.schema.json",
+  "title": "Customer archetype",
+  "description": "Who walks in, how they behave, and what they are here for.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "budget",
+    "patience",
+    "wants",
+    "spawn_weight"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+    },
+    "type": {
+      "const": "customer_archetype"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "budget": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": 0
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "patience": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 3.0
+    },
+    "wants": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "table",
+          "food",
+          "drink",
+          "retail",
+          "library",
+          "singles",
+          "sealed",
+          "event",
+          "trade_in"
+        ]
+      }
+    },
+    "spawn_weight": {
+      "type": "number",
+      "minimum": 0
+    },
+    "shifts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fraud_propensity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "A weighting the director consults. It never decides an encounter on its own -- suspicious encounters are scheduled, not rolled."
+    },
+    "age_range": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "base:verdance_waybill",
+  "type": "board_game",
+  "name": "loc:board_game.verdance_waybill",
+  "designer": "Quickstone Lindqvist",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    73,
+    158
+  ],
+  "weight": 3.9,
+  "teach_minutes": 16,
+  "retail_price": 60.51,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "scoring marker",
+      "count": 40,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "die",
+      "count": 120,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

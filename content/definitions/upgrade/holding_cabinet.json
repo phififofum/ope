@@ -1,0 +1,14 @@
+{
+  "id": "base:holding_cabinet",
+  "type": "upgrade",
+  "name": "loc:upgrade.holding_cabinet",
+  "description": "loc:upgrade.holding_cabinet.description",
+  "cost": 2100.0,
+  "prerequisites": [],
+  "unlocks": [
+    "holding_cabinet"
+  ],
+  "category": "automation",
+  "costs_space": 0,
+  "removes_step": "cooking staples to order"
+}

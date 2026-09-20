@@ -1,0 +1,43 @@
+{
+  "id": "base:foxglove_company",
+  "type": "board_game",
+  "name": "loc:board_game.foxglove_company",
+  "designer": "Redfen Okoro",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    91,
+    118
+  ],
+  "weight": 4.6,
+  "teach_minutes": 24,
+  "retail_price": 80.35,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "plastic stand",
+      "count": 60,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "resource tile",
+      "count": 104,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "meeple",
+      "count": 60,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

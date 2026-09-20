@@ -1,0 +1,42 @@
+{
+  "id": "base:gallowmere_voyage",
+  "type": "board_game",
+  "name": "loc:board_game.gallowmere_voyage",
+  "designer": "Cindervale Lindqvist",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    81,
+    150
+  ],
+  "weight": 3.9,
+  "teach_minutes": 27,
+  "retail_price": 71.37,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "meeple",
+      "count": 60,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

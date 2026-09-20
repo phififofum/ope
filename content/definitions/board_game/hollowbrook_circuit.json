@@ -1,0 +1,58 @@
+{
+  "id": "base:hollowbrook_circuit",
+  "type": "board_game",
+  "name": "loc:board_game.hollowbrook_circuit",
+  "designer": "Verdance Vance",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    53,
+    119
+  ],
+  "weight": 2.4,
+  "teach_minutes": 16,
+  "retail_price": 46.6,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "meeple",
+      "count": 8,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "scoring marker",
+      "count": 24,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "die",
+      "count": 12,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

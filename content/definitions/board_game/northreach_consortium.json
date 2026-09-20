@@ -1,0 +1,53 @@
+{
+  "id": "base:northreach_consortium",
+  "type": "board_game",
+  "name": "loc:board_game.northreach_consortium",
+  "designer": "Brasshollow Okoro",
+  "player_count": [
+    3,
+    7
+  ],
+  "play_minutes": [
+    96,
+    185
+  ],
+  "weight": 4.0,
+  "teach_minutes": 13,
+  "retail_price": 65.3,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "player board",
+      "count": 4,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "plastic stand",
+      "count": 104,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "wooden cube",
+      "count": 120,
+      "loss_weight": 0.9
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

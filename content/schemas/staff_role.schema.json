@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/staff_role.schema.json",
+  "title": "Staff role",
+  "description": "What a hire takes over, how often they get it wrong, and what that leaves you to supervise.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "tasks",
+    "wage_per_shift",
+    "base_error_rate"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+    },
+    "type": {
+      "const": "staff_role"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "tasks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "wage_per_shift": {
+      "type": "number",
+      "minimum": 0
+    },
+    "base_error_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "training_shifts": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "audit_surface": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "How their mistakes surface -- camera review, register reconciliation, inventory variance, a fine three days later."
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "coverage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Fraction of its tasks it can absorb. Never 1: oversight cannot be delegated."
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "base:ironwright_circuit",
+  "type": "board_game",
+  "name": "loc:board_game.ironwright_circuit",
+  "designer": "Northreach Baptiste",
+  "player_count": [
+    1,
+    5
+  ],
+  "play_minutes": [
+    55,
+    127
+  ],
+  "weight": 3.3,
+  "teach_minutes": 11,
+  "retail_price": 51.9,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

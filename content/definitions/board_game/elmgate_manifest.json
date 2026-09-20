@@ -1,0 +1,42 @@
+{
+  "id": "base:elmgate_manifest",
+  "type": "board_game",
+  "name": "loc:board_game.elmgate_manifest",
+  "designer": "Hollowbrook Lindqvist",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    39,
+    60
+  ],
+  "weight": 2.8,
+  "teach_minutes": 10,
+  "retail_price": 45.23,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "die",
+      "count": 4,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "card",
+      "count": 24,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

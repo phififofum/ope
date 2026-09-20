@@ -1,0 +1,63 @@
+{
+  "id": "base:vesper_tramway",
+  "type": "board_game",
+  "name": "loc:board_game.vesper_tramway",
+  "designer": "Stillwater Okoro",
+  "player_count": [
+    1,
+    5
+  ],
+  "play_minutes": [
+    84,
+    167
+  ],
+  "weight": 4.2,
+  "teach_minutes": 13,
+  "retail_price": 46.55,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 8,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "card",
+      "count": 8,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "scoring marker",
+      "count": 40,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "die",
+      "count": 24,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "meeple",
+      "count": 60,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "resource tile",
+      "count": 120,
+      "loss_weight": 0.5
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "base:thistlewood_harvest",
+  "type": "board_game",
+  "name": "loc:board_game.thistlewood_harvest",
+  "designer": "Oxbow Okoro",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    46,
+    62
+  ],
+  "weight": 1.7,
+  "teach_minutes": 7,
+  "retail_price": 32.67,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "resource tile",
+      "count": 24,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "meeple",
+      "count": 120,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    }
+  ],
+  "tags": [
+    "filler",
+    "teaching_friendly"
+  ]
+}

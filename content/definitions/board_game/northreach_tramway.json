@@ -1,0 +1,64 @@
+{
+  "id": "base:northreach_tramway",
+  "type": "board_game",
+  "name": "loc:board_game.northreach_tramway",
+  "designer": "Oxbow Baptiste",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    44,
+    72
+  ],
+  "weight": 1.5,
+  "teach_minutes": 6,
+  "retail_price": 37.7,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 120,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "linen bag",
+      "count": 40,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "die",
+      "count": 4,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "plastic stand",
+      "count": 12,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "cardboard token",
+      "count": 4,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "base:the_lapsed_player_again",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_lapsed_player_again",
+  "budget": [
+    14.74,
+    97.71
+  ],
+  "patience": 0.69,
+  "wants": [
+    "library",
+    "retail"
+  ],
+  "spawn_weight": 1.95,
+  "shifts": [
+    "late_night",
+    "midday"
+  ],
+  "fraud_propensity": 0.025,
+  "age_range": [
+    16,
+    45
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

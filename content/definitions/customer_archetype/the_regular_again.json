@@ -1,0 +1,28 @@
+{
+  "id": "base:the_regular_again",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_regular_again",
+  "budget": [
+    12.24,
+    83.97
+  ],
+  "patience": 1.35,
+  "wants": [
+    "table",
+    "drink",
+    "library"
+  ],
+  "spawn_weight": 0.97,
+  "shifts": [
+    "event_night",
+    "late_night"
+  ],
+  "fraud_propensity": 0.013,
+  "age_range": [
+    18,
+    55
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "base:cindervale_ledger",
+  "type": "board_game",
+  "name": "loc:board_game.cindervale_ledger",
+  "designer": "Emberdown Okoro",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    57,
+    142
+  ],
+  "weight": 2.5,
+  "teach_minutes": 19,
+  "retail_price": 42.79,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "cardboard token",
+      "count": 40,
+      "loss_weight": 0.6
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

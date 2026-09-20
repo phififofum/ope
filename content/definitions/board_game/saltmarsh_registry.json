@@ -1,0 +1,43 @@
+{
+  "id": "base:saltmarsh_registry",
+  "type": "board_game",
+  "name": "loc:board_game.saltmarsh_registry",
+  "designer": "Hollowbrook Baptiste",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    41,
+    57
+  ],
+  "weight": 1.8,
+  "teach_minutes": 13,
+  "retail_price": 35.72,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "cardboard token",
+      "count": 40,
+      "loss_weight": 0.6
+    }
+  ],
+  "tags": [
+    "filler",
+    "teaching_friendly"
+  ]
+}

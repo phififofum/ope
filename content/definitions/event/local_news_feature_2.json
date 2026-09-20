@@ -1,0 +1,23 @@
+{
+  "id": "base:local_news_feature_2",
+  "type": "event",
+  "name": "loc:event.local_news_feature_2",
+  "description": "loc:event.local_news_feature_2.description",
+  "trigger": {
+    "kind": "random",
+    "weight": 1.94,
+    "earliest_day": 60,
+    "act": 2
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "reputation",
+      "amount": -0.37
+    }
+  ],
+  "announced": false,
+  "tags": [
+    "reputation"
+  ]
+}

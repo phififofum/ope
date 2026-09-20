@@ -8,10 +8,13 @@ extends RefCounted
 ## out of date, and why mod-added rules appear in it with no extra work.
 ##
 ## Three outcomes per rule, and the third one is the interesting one:
-##   PASS       — checked, and fine.
-##   FAIL       — checked, and wrong.
-##   UNCHECKED  — you do not own the tool. Not a pass. The correct play is to decline,
-##                and the game never punishes that beyond a small reputation cost.
+##   PASS            — checked, and fine.
+##   FAIL            — checked, and wrong.
+##   UNCHECKED       — you own the tool and did not reach for it. Not a pass: this is
+##                     scrutiny you chose not to spend, and it is where misses come from.
+##   NOT_APPLICABLE  — you do not own the tool at all. Not your failing: the director
+##                     only sends forgeries the current toolkit can catch, so a rule you
+##                     have no instrument for is not a gap you can be blamed for.
 
 enum Status { PASS, FAIL, UNCHECKED, NOT_APPLICABLE }
 
@@ -64,16 +67,20 @@ func applicable_rules(artifact: Artifact, transaction_tags: PackedStringArray) -
 	return out
 
 
+## [param used_tools] is what the player actually reached for. [param owned_tools] is
+## everything they could have reached for; when omitted it is the same set.
 func evaluate(
 	artifact: Artifact,
 	person: Person,
 	transaction_tags: PackedStringArray,
-	owned_tools: PackedStringArray,
-	today: int
+	used_tools: PackedStringArray,
+	today: int,
+	owned_tools: PackedStringArray = PackedStringArray()
 ) -> Array:
+	var owned: PackedStringArray = owned_tools if not owned_tools.is_empty() else used_tools
 	var findings: Array = []
 	for rule: ContentDefinition in applicable_rules(artifact, transaction_tags):
-		findings.append(_evaluate_one(rule, artifact, person, owned_tools, today))
+		findings.append(_evaluate_one(rule, artifact, person, used_tools, owned, today))
 	return findings
 
 
@@ -81,6 +88,7 @@ func _evaluate_one(
 	rule: ContentDefinition,
 	artifact: Artifact,
 	person: Person,
+	used_tools: PackedStringArray,
 	owned_tools: PackedStringArray,
 	today: int
 ) -> Finding:
@@ -90,9 +98,13 @@ func _evaluate_one(
 	finding.requires_tool = rule.get_text("requires_tool", "")
 	finding.message = rule.get_text("name")
 
-	if not finding.requires_tool.is_empty() and not owned_tools.has(finding.requires_tool):
-		finding.status = Status.UNCHECKED
-		return finding
+	if not finding.requires_tool.is_empty():
+		if not owned_tools.has(finding.requires_tool):
+			finding.status = Status.NOT_APPLICABLE
+			return finding
+		if not used_tools.has(finding.requires_tool):
+			finding.status = Status.UNCHECKED
+			return finding
 
 	var check: Dictionary = rule.get_value("check", {})
 	finding.status = Status.PASS if _check(check, artifact, person, today) else Status.FAIL

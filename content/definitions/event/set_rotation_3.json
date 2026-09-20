@@ -1,0 +1,24 @@
+{
+  "id": "base:set_rotation_3",
+  "type": "event",
+  "name": "loc:event.set_rotation_3",
+  "description": "loc:event.set_rotation_3.description",
+  "trigger": {
+    "kind": "scheduled",
+    "weight": 0.34,
+    "earliest_day": 12,
+    "act": 3
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "rules_change",
+      "amount": -0.22
+    }
+  ],
+  "announced": true,
+  "tags": [
+    "rules_change",
+    "case"
+  ]
+}

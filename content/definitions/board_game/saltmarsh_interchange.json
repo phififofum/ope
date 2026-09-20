@@ -1,0 +1,42 @@
+{
+  "id": "base:saltmarsh_interchange",
+  "type": "board_game",
+  "name": "loc:board_game.saltmarsh_interchange",
+  "designer": "Hollowbrook Lindqvist",
+  "player_count": [
+    3,
+    4
+  ],
+  "play_minutes": [
+    75,
+    95
+  ],
+  "weight": 3.2,
+  "teach_minutes": 18,
+  "retail_price": 50.15,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

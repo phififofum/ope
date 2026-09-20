@@ -1,0 +1,63 @@
+{
+  "id": "base:drakemoor_circuit",
+  "type": "board_game",
+  "name": "loc:board_game.drakemoor_circuit",
+  "designer": "Quarrystone Vance",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    61,
+    146
+  ],
+  "weight": 2.7,
+  "teach_minutes": 10,
+  "retail_price": 41.88,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 40,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "meeple",
+      "count": 104,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "resource tile",
+      "count": 12,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "cardboard token",
+      "count": 8,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "die",
+      "count": 40,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/fixture.schema.json",
+  "title": "Fixture",
+  "description": "Something you place on the floor: a table, a shelf, a fridge, a station.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "category",
+    "footprint",
+    "cost"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+    },
+    "type": {
+      "const": "fixture"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "category": {
+      "enum": [
+        "table",
+        "shelf",
+        "cooler",
+        "kitchen",
+        "counter",
+        "case",
+        "decor",
+        "utility"
+      ]
+    },
+    "footprint": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "cost": {
+      "type": "number",
+      "minimum": 0
+    },
+    "capacity": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "noise": {
+      "type": "number",
+      "minimum": -1,
+      "maximum": 1,
+      "description": "Positive emits noise, negative attenuates it. Noise is a simulated field, not a per-zone flag."
+    },
+    "upkeep_hours": {
+      "type": "number",
+      "minimum": 0
+    },
+    "zone": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

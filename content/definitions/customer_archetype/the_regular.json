@@ -1,0 +1,29 @@
+{
+  "id": "base:the_regular",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_regular",
+  "budget": [
+    13.16,
+    109.9
+  ],
+  "patience": 1.17,
+  "wants": [
+    "table",
+    "drink",
+    "library"
+  ],
+  "spawn_weight": 2.26,
+  "shifts": [
+    "afternoon",
+    "event_night",
+    "late_night"
+  ],
+  "fraud_propensity": 0.023,
+  "age_range": [
+    24,
+    45
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

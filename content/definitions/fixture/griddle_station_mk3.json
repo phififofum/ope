@@ -1,0 +1,18 @@
+{
+  "id": "base:griddle_station_mk3",
+  "type": "fixture",
+  "name": "loc:fixture.griddle_station_mk3",
+  "category": "kitchen",
+  "footprint": [
+    2,
+    1
+  ],
+  "cost": 3060.0,
+  "capacity": 0,
+  "noise": 0.5,
+  "upkeep_hours": 0.18,
+  "zone": "kitchen",
+  "tags": [
+    "kitchen"
+  ]
+}

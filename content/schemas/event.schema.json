@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/event.schema.json",
+  "title": "Event",
+  "description": "Something that happens to you: weather, a release, an inspection, a rules change.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "trigger"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+    },
+    "type": {
+      "const": "event"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "description": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "trigger": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "random",
+            "scheduled",
+            "conditional"
+          ]
+        },
+        "weight": {
+          "type": "number",
+          "minimum": 0
+        },
+        "earliest_day": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "act": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "requires_tag": {
+          "type": "string"
+        }
+      }
+    },
+    "effects": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "announced": {
+      "type": "boolean",
+      "description": "Rule changes are always announced and never retroactive. The failure mode is forgetting, not being ambushed."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

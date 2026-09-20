@@ -1,0 +1,18 @@
+{
+  "id": "base:six_player_table_mk4",
+  "type": "fixture",
+  "name": "loc:fixture.six_player_table_mk4",
+  "category": "table",
+  "footprint": [
+    4,
+    2
+  ],
+  "cost": 1066.0,
+  "capacity": 12,
+  "noise": 0.45,
+  "upkeep_hours": 0.39,
+  "zone": "play",
+  "tags": [
+    "table"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "base:the_flipper_in_a_hurry",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_flipper_in_a_hurry",
+  "budget": [
+    24.56,
+    149.26
+  ],
+  "patience": 1.15,
+  "wants": [
+    "sealed",
+    "trade_in"
+  ],
+  "spawn_weight": 0.83,
+  "shifts": [
+    "evening",
+    "event_night",
+    "midday",
+    "morning"
+  ],
+  "fraud_propensity": 0.371,
+  "age_range": [
+    24,
+    45
+  ],
+  "tags": [
+    "watchlist_candidate"
+  ]
+}

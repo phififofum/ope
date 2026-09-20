@@ -1,0 +1,24 @@
+{
+  "id": "base:set_rotation_4",
+  "type": "event",
+  "name": "loc:event.set_rotation_4",
+  "description": "loc:event.set_rotation_4.description",
+  "trigger": {
+    "kind": "scheduled",
+    "weight": 1.64,
+    "earliest_day": 1,
+    "act": 4
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "rules_change",
+      "amount": -0.11
+    }
+  ],
+  "announced": true,
+  "tags": [
+    "rules_change",
+    "case"
+  ]
+}

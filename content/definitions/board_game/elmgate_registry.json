@@ -1,0 +1,43 @@
+{
+  "id": "base:elmgate_registry",
+  "type": "board_game",
+  "name": "loc:board_game.elmgate_registry",
+  "designer": "Lanternwick Vance",
+  "player_count": [
+    1,
+    3
+  ],
+  "play_minutes": [
+    78,
+    152
+  ],
+  "weight": 4.0,
+  "teach_minutes": 12,
+  "retail_price": 49.15,
+  "library_eligible": false,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 120,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "first-player marker",
+      "count": 120,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "meeple",
+      "count": 24,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

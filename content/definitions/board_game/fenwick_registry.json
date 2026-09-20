@@ -1,0 +1,59 @@
+{
+  "id": "base:fenwick_registry",
+  "type": "board_game",
+  "name": "loc:board_game.fenwick_registry",
+  "designer": "Gallowmere Lindqvist",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    52,
+    96
+  ],
+  "weight": 2.4,
+  "teach_minutes": 9,
+  "retail_price": 51.0,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "die",
+      "count": 120,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "resource tile",
+      "count": 24,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "meeple",
+      "count": 60,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

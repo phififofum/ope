@@ -1,0 +1,43 @@
+{
+  "id": "base:umberfield_dispatch",
+  "type": "board_game",
+  "name": "loc:board_game.umberfield_dispatch",
+  "designer": "Harbourline Okoro",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    41,
+    97
+  ],
+  "weight": 2.0,
+  "teach_minutes": 16,
+  "retail_price": 32.25,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "linen bag",
+      "count": 8,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "resource tile",
+      "count": 12,
+      "loss_weight": 0.5
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

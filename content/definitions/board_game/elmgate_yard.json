@@ -1,0 +1,43 @@
+{
+  "id": "base:elmgate_yard",
+  "type": "board_game",
+  "name": "loc:board_game.elmgate_yard",
+  "designer": "Fenwick Lindqvist",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    52,
+    87
+  ],
+  "weight": 2.4,
+  "teach_minutes": 10,
+  "retail_price": 40.04,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "player board",
+      "count": 60,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

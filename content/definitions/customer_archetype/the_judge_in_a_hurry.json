@@ -1,0 +1,27 @@
+{
+  "id": "base:the_judge_in_a_hurry",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_judge_in_a_hurry",
+  "budget": [
+    14.63,
+    100.84
+  ],
+  "patience": 0.62,
+  "wants": [
+    "event"
+  ],
+  "spawn_weight": 1.65,
+  "shifts": [
+    "event_night",
+    "late_night",
+    "midday"
+  ],
+  "fraud_propensity": 0.012,
+  "age_range": [
+    30,
+    55
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

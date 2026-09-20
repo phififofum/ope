@@ -1,0 +1,24 @@
+{
+  "id": "base:set_release_2",
+  "type": "event",
+  "name": "loc:event.set_release_2",
+  "description": "loc:event.set_release_2.description",
+  "trigger": {
+    "kind": "scheduled",
+    "weight": 1.05,
+    "earliest_day": 1,
+    "act": 2
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "case",
+      "amount": -0.21
+    }
+  ],
+  "announced": false,
+  "tags": [
+    "case",
+    "crowd"
+  ]
+}

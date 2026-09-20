@@ -1,0 +1,13 @@
+{
+  "id": "base:mezzanine_tier_2",
+  "type": "upgrade",
+  "name": "loc:upgrade.mezzanine_tier_2",
+  "description": "loc:upgrade.mezzanine_tier_2.description",
+  "cost": 27720.0,
+  "prerequisites": [],
+  "unlocks": [
+    "mezzanine"
+  ],
+  "category": "space",
+  "costs_space": 1
+}

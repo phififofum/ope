@@ -1,0 +1,18 @@
+{
+  "id": "base:register_counter",
+  "type": "fixture",
+  "name": "loc:fixture.register_counter",
+  "category": "counter",
+  "footprint": [
+    3,
+    1
+  ],
+  "cost": 1100.0,
+  "capacity": 0,
+  "noise": 0.1,
+  "upkeep_hours": 0.14,
+  "zone": "counter",
+  "tags": [
+    "counter"
+  ]
+}

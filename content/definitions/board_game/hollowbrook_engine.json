@@ -1,0 +1,42 @@
+{
+  "id": "base:hollowbrook_engine",
+  "type": "board_game",
+  "name": "loc:board_game.hollowbrook_engine",
+  "designer": "Oxbow Vance",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    74,
+    117
+  ],
+  "weight": 3.6,
+  "teach_minutes": 21,
+  "retail_price": 56.62,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "die",
+      "count": 24,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

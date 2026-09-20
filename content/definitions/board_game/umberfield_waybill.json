@@ -1,0 +1,44 @@
+{
+  "id": "base:umberfield_waybill",
+  "type": "board_game",
+  "name": "loc:board_game.umberfield_waybill",
+  "designer": "Longshore Okoro",
+  "player_count": [
+    1,
+    5
+  ],
+  "play_minutes": [
+    47,
+    120
+  ],
+  "weight": 2.2,
+  "teach_minutes": 13,
+  "retail_price": 32.54,
+  "library_eligible": false,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "plastic stand",
+      "count": 120,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "meeple",
+      "count": 120,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

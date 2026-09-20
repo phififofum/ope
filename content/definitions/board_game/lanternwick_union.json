@@ -1,0 +1,47 @@
+{
+  "id": "base:lanternwick_union",
+  "type": "board_game",
+  "name": "loc:board_game.lanternwick_union",
+  "designer": "Emberdown Lindqvist",
+  "player_count": [
+    1,
+    4
+  ],
+  "play_minutes": [
+    73,
+    134
+  ],
+  "weight": 4.3,
+  "teach_minutes": 14,
+  "retail_price": 43.83,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

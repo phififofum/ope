@@ -1,0 +1,43 @@
+{
+  "id": "base:stillwater_manifest",
+  "type": "board_game",
+  "name": "loc:board_game.stillwater_manifest",
+  "designer": "Stillwater Okoro",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    36,
+    111
+  ],
+  "weight": 2.3,
+  "teach_minutes": 10,
+  "retail_price": 45.75,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "meeple",
+      "count": 12,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "resource tile",
+      "count": 60,
+      "loss_weight": 0.5
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

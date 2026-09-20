@@ -1,0 +1,42 @@
+{
+  "id": "base:harbourline_company",
+  "type": "board_game",
+  "name": "loc:board_game.harbourline_company",
+  "designer": "Lanternwick Lindqvist",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    78,
+    140
+  ],
+  "weight": 3.8,
+  "teach_minutes": 24,
+  "retail_price": 64.5,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "meeple",
+      "count": 24,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "base:elmgate_provision",
+  "type": "board_game",
+  "name": "loc:board_game.elmgate_provision",
+  "designer": "Redfen Baptiste",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    53,
+    101
+  ],
+  "weight": 2.5,
+  "teach_minutes": 11,
+  "retail_price": 42.93,
+  "library_eligible": false,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 40,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "resource tile",
+      "count": 104,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "rulebook",
+      "count": 8,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "wooden cube",
+      "count": 120,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

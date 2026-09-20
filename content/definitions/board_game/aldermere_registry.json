@@ -1,0 +1,57 @@
+{
+  "id": "base:aldermere_registry",
+  "type": "board_game",
+  "name": "loc:board_game.aldermere_registry",
+  "designer": "Brasshollow Baptiste",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    51,
+    102
+  ],
+  "weight": 3.0,
+  "teach_minutes": 9,
+  "retail_price": 53.23,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 24,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "scoring marker",
+      "count": 4,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "player board",
+      "count": 8,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "card",
+      "count": 120,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "meeple",
+      "count": 4,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "base:heat_wave_3",
+  "type": "event",
+  "name": "loc:event.heat_wave_3",
+  "description": "loc:event.heat_wave_3.description",
+  "trigger": {
+    "kind": "random",
+    "weight": 0.74,
+    "earliest_day": 12,
+    "act": 3
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "equipment",
+      "amount": -0.06
+    }
+  ],
+  "announced": false,
+  "tags": [
+    "equipment",
+    "cooler"
+  ]
+}

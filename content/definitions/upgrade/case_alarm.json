@@ -1,0 +1,13 @@
+{
+  "id": "base:case_alarm",
+  "type": "upgrade",
+  "name": "loc:upgrade.case_alarm",
+  "description": "loc:upgrade.case_alarm.description",
+  "cost": 1400.0,
+  "prerequisites": [],
+  "unlocks": [
+    "case_alarm"
+  ],
+  "category": "security",
+  "costs_space": 1
+}

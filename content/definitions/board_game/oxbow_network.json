@@ -1,0 +1,53 @@
+{
+  "id": "base:oxbow_network",
+  "type": "board_game",
+  "name": "loc:board_game.oxbow_network",
+  "designer": "Lanternwick Baptiste",
+  "player_count": [
+    3,
+    4
+  ],
+  "play_minutes": [
+    58,
+    135
+  ],
+  "weight": 2.1,
+  "teach_minutes": 16,
+  "retail_price": 37.34,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 24,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

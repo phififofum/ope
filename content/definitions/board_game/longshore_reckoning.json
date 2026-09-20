@@ -1,0 +1,63 @@
+{
+  "id": "base:longshore_reckoning",
+  "type": "board_game",
+  "name": "loc:board_game.longshore_reckoning",
+  "designer": "Drakemoor Vance",
+  "player_count": [
+    1,
+    4
+  ],
+  "play_minutes": [
+    64,
+    92
+  ],
+  "weight": 3.1,
+  "teach_minutes": 18,
+  "retail_price": 48.67,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "resource tile",
+      "count": 24,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "player board",
+      "count": 4,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "meeple",
+      "count": 24,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

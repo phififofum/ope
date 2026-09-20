@@ -1,0 +1,63 @@
+{
+  "id": "base:gallowmere_crossing",
+  "type": "board_game",
+  "name": "loc:board_game.gallowmere_crossing",
+  "designer": "Umberfield Okoro",
+  "player_count": [
+    1,
+    2
+  ],
+  "play_minutes": [
+    56,
+    85
+  ],
+  "weight": 3.2,
+  "teach_minutes": 20,
+  "retail_price": 62.78,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "meeple",
+      "count": 24,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "resource tile",
+      "count": 24,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "die",
+      "count": 104,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "first-player marker",
+      "count": 60,
+      "loss_weight": 0.8
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "base:the_browser_in_a_hurry",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_browser_in_a_hurry",
+  "budget": [
+    19.39,
+    72.55
+  ],
+  "patience": 1.52,
+  "wants": [
+    "retail"
+  ],
+  "spawn_weight": 1.63,
+  "shifts": [
+    "midday",
+    "morning"
+  ],
+  "fraud_propensity": 0.04,
+  "age_range": [
+    16,
+    55
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

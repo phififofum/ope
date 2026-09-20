@@ -1,0 +1,44 @@
+{
+  "id": "base:elmgate_network",
+  "type": "board_game",
+  "name": "loc:board_game.elmgate_network",
+  "designer": "Vesper Lindqvist",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    45,
+    93
+  ],
+  "weight": 1.6,
+  "teach_minutes": 11,
+  "retail_price": 28.64,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "wooden cube",
+      "count": 104,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "die",
+      "count": 104,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

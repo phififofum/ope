@@ -1,0 +1,43 @@
+{
+  "id": "base:drakemoor_almanac",
+  "type": "board_game",
+  "name": "loc:board_game.drakemoor_almanac",
+  "designer": "Stillwater Okoro",
+  "player_count": [
+    1,
+    4
+  ],
+  "play_minutes": [
+    53,
+    85
+  ],
+  "weight": 2.4,
+  "teach_minutes": 17,
+  "retail_price": 45.74,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "first-player marker",
+      "count": 60,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "rulebook",
+      "count": 8,
+      "loss_weight": 0.15
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

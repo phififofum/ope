@@ -1,0 +1,42 @@
+{
+  "id": "base:pinehaven_registry",
+  "type": "board_game",
+  "name": "loc:board_game.pinehaven_registry",
+  "designer": "Elmgate Vance",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    43,
+    121
+  ],
+  "weight": 2.7,
+  "teach_minutes": 12,
+  "retail_price": 49.43,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 24,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "scoring marker",
+      "count": 24,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "base:verdance_ledger",
+  "type": "board_game",
+  "name": "loc:board_game.verdance_ledger",
+  "designer": "Elmgate Lindqvist",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    43,
+    103
+  ],
+  "weight": 2.1,
+  "teach_minutes": 12,
+  "retail_price": 41.88,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "cardboard token",
+      "count": 12,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "scoring marker",
+      "count": 24,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "die",
+      "count": 104,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "card",
+      "count": 8,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "meeple",
+      "count": 24,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

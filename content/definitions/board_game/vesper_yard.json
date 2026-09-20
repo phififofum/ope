@@ -1,0 +1,53 @@
+{
+  "id": "base:vesper_yard",
+  "type": "board_game",
+  "name": "loc:board_game.vesper_yard",
+  "designer": "Foxglove Baptiste",
+  "player_count": [
+    3,
+    6
+  ],
+  "play_minutes": [
+    70,
+    142
+  ],
+  "weight": 2.9,
+  "teach_minutes": 20,
+  "retail_price": 46.58,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 8,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "plastic stand",
+      "count": 120,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "resource tile",
+      "count": 60,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

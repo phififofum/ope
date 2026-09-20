@@ -1,0 +1,59 @@
+{
+  "id": "base:quickstone_exchange",
+  "type": "board_game",
+  "name": "loc:board_game.quickstone_exchange",
+  "designer": "Saltmarsh Baptiste",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    34,
+    108
+  ],
+  "weight": 2.3,
+  "teach_minutes": 16,
+  "retail_price": 49.65,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "player board",
+      "count": 40,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "first-player marker",
+      "count": 120,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "resource tile",
+      "count": 4,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "base:stillwater_engine",
+  "type": "board_game",
+  "name": "loc:board_game.stillwater_engine",
+  "designer": "Pinehaven Baptiste",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    49,
+    100
+  ],
+  "weight": 1.8,
+  "teach_minutes": 6,
+  "retail_price": 30.7,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "plastic stand",
+      "count": 60,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "die",
+      "count": 104,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "wooden cube",
+      "count": 40,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "player board",
+      "count": 8,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

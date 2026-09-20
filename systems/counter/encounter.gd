@@ -48,11 +48,16 @@ func should_be_refused(engine: RuleEngine, all_tools: PackedStringArray, today: 
 ## What a player holding [param owned_tools] can actually establish. This is the fairness
 ## contract in code: if nothing here fails but the artifact is forged, the correct play
 ## must still be available — declining — and the encounter must not punish it.
-func evaluate_with(engine: RuleEngine, owned_tools: PackedStringArray, today: int) -> Array:
+func evaluate_with(
+	engine: RuleEngine,
+	used_tools: PackedStringArray,
+	today: int,
+	owned_tools: PackedStringArray = PackedStringArray()
+) -> Array:
 	findings = []
 	for artifact: Artifact in artifacts:
 		findings.append_array(
-			engine.evaluate(artifact, person, transaction_tags, owned_tools, today)
+			engine.evaluate(artifact, person, transaction_tags, used_tools, today, owned_tools)
 		)
 	return findings
 

@@ -1,0 +1,48 @@
+{
+  "id": "base:pinehaven_yard",
+  "type": "board_game",
+  "name": "loc:board_game.pinehaven_yard",
+  "designer": "Gallowmere Lindqvist",
+  "player_count": [
+    1,
+    5
+  ],
+  "play_minutes": [
+    39,
+    87
+  ],
+  "weight": 2.9,
+  "teach_minutes": 16,
+  "retail_price": 36.08,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "wooden cube",
+      "count": 104,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "cardboard token",
+      "count": 60,
+      "loss_weight": 0.6
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

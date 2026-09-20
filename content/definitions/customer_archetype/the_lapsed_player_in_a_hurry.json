@@ -1,0 +1,29 @@
+{
+  "id": "base:the_lapsed_player_in_a_hurry",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_lapsed_player_in_a_hurry",
+  "budget": [
+    24.67,
+    87.12
+  ],
+  "patience": 1.23,
+  "wants": [
+    "library",
+    "retail"
+  ],
+  "spawn_weight": 1.65,
+  "shifts": [
+    "afternoon",
+    "event_night",
+    "midday",
+    "morning"
+  ],
+  "fraud_propensity": 0.045,
+  "age_range": [
+    21,
+    45
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "base:quickstone_circuit",
+  "type": "board_game",
+  "name": "loc:board_game.quickstone_circuit",
+  "designer": "Oxbow Vance",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    39,
+    110
+  ],
+  "weight": 2.1,
+  "teach_minutes": 13,
+  "retail_price": 44.48,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "wooden cube",
+      "count": 40,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "resource tile",
+      "count": 60,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

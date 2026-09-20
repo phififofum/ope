@@ -1,0 +1,19 @@
+{
+  "id": "base:library_wall_section",
+  "type": "fixture",
+  "name": "loc:fixture.library_wall_section",
+  "category": "shelf",
+  "footprint": [
+    3,
+    1
+  ],
+  "cost": 310.0,
+  "capacity": 40,
+  "noise": -0.2,
+  "upkeep_hours": 0.13,
+  "zone": "library",
+  "tags": [
+    "shelf",
+    "quiet"
+  ]
+}

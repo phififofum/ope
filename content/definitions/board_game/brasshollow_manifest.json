@@ -1,0 +1,58 @@
+{
+  "id": "base:brasshollow_manifest",
+  "type": "board_game",
+  "name": "loc:board_game.brasshollow_manifest",
+  "designer": "Pinehaven Vance",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    68,
+    110
+  ],
+  "weight": 2.5,
+  "teach_minutes": 14,
+  "retail_price": 45.73,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 24,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "plastic stand",
+      "count": 12,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "linen bag",
+      "count": 8,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "rulebook",
+      "count": 120,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "player board",
+      "count": 40,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

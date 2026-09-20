@@ -1,0 +1,42 @@
+{
+  "id": "base:emberdown_orchard",
+  "type": "board_game",
+  "name": "loc:board_game.emberdown_orchard",
+  "designer": "Verdance Okoro",
+  "player_count": [
+    1,
+    4
+  ],
+  "play_minutes": [
+    104,
+    163
+  ],
+  "weight": 4.3,
+  "teach_minutes": 21,
+  "retail_price": 55.72,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "meeple",
+      "count": 4,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "card",
+      "count": 24,
+      "loss_weight": 0.3
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "base:harbourline_syndicate",
+  "type": "board_game",
+  "name": "loc:board_game.harbourline_syndicate",
+  "designer": "Drakemoor Vance",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    47,
+    112
+  ],
+  "weight": 2.5,
+  "teach_minutes": 12,
+  "retail_price": 39.88,
+  "library_eligible": false,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "wooden cube",
+      "count": 104,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "die",
+      "count": 60,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "cardboard token",
+      "count": 24,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "player board",
+      "count": 4,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "meeple",
+      "count": 120,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

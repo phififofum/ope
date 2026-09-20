@@ -1,0 +1,44 @@
+{
+  "id": "base:pinehaven_manifest",
+  "type": "board_game",
+  "name": "loc:board_game.pinehaven_manifest",
+  "designer": "Mossgard Lindqvist",
+  "player_count": [
+    1,
+    5
+  ],
+  "play_minutes": [
+    60,
+    78
+  ],
+  "weight": 2.2,
+  "teach_minutes": 12,
+  "retail_price": 42.94,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "meeple",
+      "count": 60,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

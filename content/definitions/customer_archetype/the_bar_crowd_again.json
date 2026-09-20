@@ -1,0 +1,28 @@
+{
+  "id": "base:the_bar_crowd_again",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_bar_crowd_again",
+  "budget": [
+    16.48,
+    127.27
+  ],
+  "patience": 1.77,
+  "wants": [
+    "drink"
+  ],
+  "spawn_weight": 1.83,
+  "shifts": [
+    "afternoon",
+    "evening",
+    "event_night",
+    "midday"
+  ],
+  "fraud_propensity": 0.089,
+  "age_range": [
+    18,
+    38
+  ],
+  "tags": [
+    "watchlist_candidate"
+  ]
+}

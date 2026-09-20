@@ -1,0 +1,47 @@
+{
+  "id": "base:kestrel_manifest",
+  "type": "board_game",
+  "name": "loc:board_game.kestrel_manifest",
+  "designer": "Fenwick Baptiste",
+  "player_count": [
+    3,
+    7
+  ],
+  "play_minutes": [
+    80,
+    95
+  ],
+  "weight": 3.2,
+  "teach_minutes": 13,
+  "retail_price": 53.76,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "player board",
+      "count": 8,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "cardboard token",
+      "count": 24,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "linen bag",
+      "count": 8,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

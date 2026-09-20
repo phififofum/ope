@@ -1,0 +1,18 @@
+{
+  "id": "base:bin_station_mk2",
+  "type": "fixture",
+  "name": "loc:fixture.bin_station_mk2",
+  "category": "utility",
+  "footprint": [
+    1,
+    1
+  ],
+  "cost": 121.5,
+  "capacity": 0,
+  "noise": 0.05,
+  "upkeep_hours": 0.29,
+  "zone": "back",
+  "tags": [
+    "utility"
+  ]
+}

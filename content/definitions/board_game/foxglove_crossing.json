@@ -1,0 +1,42 @@
+{
+  "id": "base:foxglove_crossing",
+  "type": "board_game",
+  "name": "loc:board_game.foxglove_crossing",
+  "designer": "Elmgate Okoro",
+  "player_count": [
+    1,
+    3
+  ],
+  "play_minutes": [
+    54,
+    132
+  ],
+  "weight": 3.8,
+  "teach_minutes": 15,
+  "retail_price": 64.83,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 60,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "player board",
+      "count": 4,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

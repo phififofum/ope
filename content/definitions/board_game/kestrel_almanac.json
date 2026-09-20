@@ -1,0 +1,43 @@
+{
+  "id": "base:kestrel_almanac",
+  "type": "board_game",
+  "name": "loc:board_game.kestrel_almanac",
+  "designer": "Quarrystone Vance",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    43,
+    103
+  ],
+  "weight": 1.9,
+  "teach_minutes": 12,
+  "retail_price": 32.11,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "meeple",
+      "count": 24,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "rulebook",
+      "count": 8,
+      "loss_weight": 0.15
+    }
+  ],
+  "tags": [
+    "filler",
+    "teaching_friendly"
+  ]
+}

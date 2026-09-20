@@ -1,0 +1,14 @@
+{
+  "id": "base:condiment_dispenser_tier_2",
+  "type": "upgrade",
+  "name": "loc:upgrade.condiment_dispenser_tier_2",
+  "description": "loc:upgrade.condiment_dispenser_tier_2.description",
+  "cost": 810.0,
+  "prerequisites": [],
+  "unlocks": [
+    "condiment_dispenser"
+  ],
+  "category": "automation",
+  "costs_space": 1,
+  "removes_step": "manual portioning"
+}

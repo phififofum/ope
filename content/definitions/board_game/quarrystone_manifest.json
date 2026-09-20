@@ -1,0 +1,53 @@
+{
+  "id": "base:quarrystone_manifest",
+  "type": "board_game",
+  "name": "loc:board_game.quarrystone_manifest",
+  "designer": "Harbourline Reyes",
+  "player_count": [
+    3,
+    5
+  ],
+  "play_minutes": [
+    111,
+    135
+  ],
+  "weight": 4.5,
+  "teach_minutes": 17,
+  "retail_price": 63.69,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 12,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "die",
+      "count": 60,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "plastic stand",
+      "count": 104,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "rulebook",
+      "count": 104,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "meeple",
+      "count": 24,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

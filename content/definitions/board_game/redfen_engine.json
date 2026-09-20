@@ -1,0 +1,63 @@
+{
+  "id": "base:redfen_engine",
+  "type": "board_game",
+  "name": "loc:board_game.redfen_engine",
+  "designer": "Brasshollow Vance",
+  "player_count": [
+    1,
+    3
+  ],
+  "play_minutes": [
+    39,
+    77
+  ],
+  "weight": 2.6,
+  "teach_minutes": 8,
+  "retail_price": 48.98,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "die",
+      "count": 120,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "scoring marker",
+      "count": 40,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "player board",
+      "count": 4,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "resource tile",
+      "count": 120,
+      "loss_weight": 0.5
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "base:the_parent_in_a_hurry",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_parent_in_a_hurry",
+  "budget": [
+    12.79,
+    87.12
+  ],
+  "patience": 1.6,
+  "wants": [
+    "retail",
+    "table"
+  ],
+  "spawn_weight": 0.97,
+  "shifts": [
+    "evening",
+    "event_night",
+    "midday",
+    "morning"
+  ],
+  "fraud_propensity": 0.016,
+  "age_range": [
+    21,
+    70
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

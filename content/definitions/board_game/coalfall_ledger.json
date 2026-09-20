@@ -1,0 +1,48 @@
+{
+  "id": "base:coalfall_ledger",
+  "type": "board_game",
+  "name": "loc:board_game.coalfall_ledger",
+  "designer": "Stillwater Vance",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    56,
+    84
+  ],
+  "weight": 2.2,
+  "teach_minutes": 14,
+  "retail_price": 39.76,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 8,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "meeple",
+      "count": 4,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

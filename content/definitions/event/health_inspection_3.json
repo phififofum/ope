@@ -1,0 +1,24 @@
+{
+  "id": "base:health_inspection_3",
+  "type": "event",
+  "name": "loc:event.health_inspection_3",
+  "description": "loc:event.health_inspection_3.description",
+  "trigger": {
+    "kind": "conditional",
+    "weight": 1.76,
+    "earliest_day": 1,
+    "act": 3
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "compliance",
+      "amount": 0.18
+    }
+  ],
+  "announced": false,
+  "tags": [
+    "compliance",
+    "kitchen"
+  ]
+}

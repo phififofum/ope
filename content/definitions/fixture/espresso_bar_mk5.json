@@ -1,0 +1,18 @@
+{
+  "id": "base:espresso_bar_mk5",
+  "type": "fixture",
+  "name": "loc:fixture.espresso_bar_mk5",
+  "category": "kitchen",
+  "footprint": [
+    3,
+    1
+  ],
+  "cost": 7680.0,
+  "capacity": 0,
+  "noise": 0.4,
+  "upkeep_hours": 0.37,
+  "zone": "kitchen",
+  "tags": [
+    "kitchen"
+  ]
+}

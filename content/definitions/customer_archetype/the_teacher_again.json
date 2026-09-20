@@ -1,0 +1,29 @@
+{
+  "id": "base:the_teacher_again",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_teacher_again",
+  "budget": [
+    11.68,
+    65.09
+  ],
+  "patience": 1.11,
+  "wants": [
+    "table",
+    "library"
+  ],
+  "spawn_weight": 0.78,
+  "shifts": [
+    "evening",
+    "event_night",
+    "midday",
+    "morning"
+  ],
+  "fraud_propensity": 0.014,
+  "age_range": [
+    21,
+    45
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

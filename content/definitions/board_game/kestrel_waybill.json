@@ -1,0 +1,64 @@
+{
+  "id": "base:kestrel_waybill",
+  "type": "board_game",
+  "name": "loc:board_game.kestrel_waybill",
+  "designer": "Quarrystone Reyes",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    53,
+    91
+  ],
+  "weight": 1.9,
+  "teach_minutes": 10,
+  "retail_price": 31.35,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "cardboard token",
+      "count": 40,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "card",
+      "count": 8,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

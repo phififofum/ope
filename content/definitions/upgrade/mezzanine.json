@@ -1,0 +1,13 @@
+{
+  "id": "base:mezzanine",
+  "type": "upgrade",
+  "name": "loc:upgrade.mezzanine",
+  "description": "loc:upgrade.mezzanine.description",
+  "cost": 15400.0,
+  "prerequisites": [],
+  "unlocks": [
+    "mezzanine"
+  ],
+  "category": "space",
+  "costs_space": 0
+}

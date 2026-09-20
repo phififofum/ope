@@ -1,0 +1,53 @@
+{
+  "id": "base:stillwater_union",
+  "type": "board_game",
+  "name": "loc:board_game.stillwater_union",
+  "designer": "Fenwick Reyes",
+  "player_count": [
+    3,
+    5
+  ],
+  "play_minutes": [
+    40,
+    116
+  ],
+  "weight": 2.9,
+  "teach_minutes": 12,
+  "retail_price": 47.77,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "meeple",
+      "count": 120,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "die",
+      "count": 40,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "base:kestrel_tramway",
+  "type": "board_game",
+  "name": "loc:board_game.kestrel_tramway",
+  "designer": "Brasshollow Reyes",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    74,
+    96
+  ],
+  "weight": 2.9,
+  "teach_minutes": 10,
+  "retail_price": 41.32,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "player board",
+      "count": 4,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

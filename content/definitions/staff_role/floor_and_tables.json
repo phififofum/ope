@@ -1,0 +1,20 @@
+{
+  "id": "base:floor_and_tables",
+  "type": "staff_role",
+  "name": "loc:staff_role.floor_and_tables",
+  "tasks": [
+    "resets",
+    "spills",
+    "bins",
+    "litter_tray"
+  ],
+  "wage_per_shift": 88.0,
+  "base_error_rate": 0.07,
+  "training_shifts": 6,
+  "audit_surface": [
+    "tables left dirty",
+    "spills not reported"
+  ],
+  "permissions": [],
+  "coverage": 0.7
+}

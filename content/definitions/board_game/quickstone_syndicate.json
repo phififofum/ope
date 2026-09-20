@@ -1,0 +1,43 @@
+{
+  "id": "base:quickstone_syndicate",
+  "type": "board_game",
+  "name": "loc:board_game.quickstone_syndicate",
+  "designer": "Emberdown Reyes",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    36,
+    78
+  ],
+  "weight": 2.3,
+  "teach_minutes": 16,
+  "retail_price": 36.48,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 8,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "die",
+      "count": 40,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

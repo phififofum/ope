@@ -1,0 +1,58 @@
+{
+  "id": "base:foxglove_syndicate",
+  "type": "board_game",
+  "name": "loc:board_game.foxglove_syndicate",
+  "designer": "Coalfall Reyes",
+  "player_count": [
+    1,
+    4
+  ],
+  "play_minutes": [
+    110,
+    189
+  ],
+  "weight": 4.9,
+  "teach_minutes": 33,
+  "retail_price": 72.7,
+  "library_eligible": false,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "resource tile",
+      "count": 120,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "first-player marker",
+      "count": 60,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "plastic stand",
+      "count": 104,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "die",
+      "count": 60,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

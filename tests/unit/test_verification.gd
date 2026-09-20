@@ -84,10 +84,21 @@ func test_a_forged_document_is_catchable_with_the_right_tool_and_invisible_witho
 	encounter.evaluate_with(engine.rules, PackedStringArray(["base:uv_torch"]), TODAY)
 	assert_bool(encounter.has_blocking_failure()).is_true()
 
-	# Without it: not a pass, an unchecked rule. The correct play is to decline.
-	encounter.evaluate_with(engine.rules, PackedStringArray(["base:naked_eye"]), TODAY)
+	# Owning the torch and not reaching for it: unchecked, not a pass. That is scrutiny
+	# the player chose not to spend, and it is where misses come from.
+	encounter.evaluate_with(
+		engine.rules,
+		PackedStringArray(["base:naked_eye"]),
+		TODAY,
+		PackedStringArray(["base:naked_eye", "base:uv_torch"])
+	)
 	assert_bool(encounter.has_blocking_failure()).is_false()
 	assert_bool(encounter.has_unchecked_rule()).is_true()
+
+	# Not owning it at all: not applicable. The director only sends forgeries the
+	# current toolkit can catch, so this is not a gap the player can be blamed for.
+	encounter.evaluate_with(engine.rules, PackedStringArray(["base:naked_eye"]), TODAY)
+	assert_bool(encounter.has_unchecked_rule()).is_false()
 
 
 func test_every_forged_encounter_is_either_catchable_or_refusable() -> void:
@@ -153,11 +164,17 @@ func test_declining_when_you_could_not_check_is_cheaper_than_declining_carelessl
 	var careless_result: Dictionary = engine.resolve(
 		careless, Encounter.Verdict.DECLINE, _all_tools(), 100
 	)
+	# Owned the tools, did not spend the seconds: the decline is cheap, because the
+	# player knew what they did not check.
 	var tool_gap: Encounter = engine.create(
 		&"base:state_id_northvale", _adult(), PackedStringArray(["id_required"]), false, 4
 	)
 	var gap_result: Dictionary = engine.resolve(
-		tool_gap, Encounter.Verdict.DECLINE, PackedStringArray(["base:naked_eye"]), 100
+		tool_gap,
+		Encounter.Verdict.DECLINE,
+		PackedStringArray(["base:naked_eye"]),
+		100,
+		_all_tools()
 	)
 	assert_float(float(gap_result["reputation_delta"])).is_greater(
 		float(careless_result["reputation_delta"])

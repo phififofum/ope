@@ -1,0 +1,63 @@
+{
+  "id": "base:fenwick_syndicate",
+  "type": "board_game",
+  "name": "loc:board_game.fenwick_syndicate",
+  "designer": "Lanternwick Baptiste",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    54,
+    133
+  ],
+  "weight": 3.8,
+  "teach_minutes": 13,
+  "retail_price": 64.87,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 24,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "plastic stand",
+      "count": 60,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

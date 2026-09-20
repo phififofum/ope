@@ -1,0 +1,43 @@
+{
+  "id": "base:gallowmere_gazette",
+  "type": "board_game",
+  "name": "loc:board_game.gallowmere_gazette",
+  "designer": "Kestrel Lindqvist",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    28,
+    45
+  ],
+  "weight": 1.7,
+  "teach_minutes": 8,
+  "retail_price": 38.85,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 40,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "resource tile",
+      "count": 60,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "card",
+      "count": 24,
+      "loss_weight": 0.3
+    }
+  ],
+  "tags": [
+    "filler",
+    "teaching_friendly"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "base:vesper_almanac",
+  "type": "board_game",
+  "name": "loc:board_game.vesper_almanac",
+  "designer": "Verdance Okoro",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    58,
+    132
+  ],
+  "weight": 2.5,
+  "teach_minutes": 15,
+  "retail_price": 35.74,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 24,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "rulebook",
+      "count": 104,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "linen bag",
+      "count": 8,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "base:the_tournament_grinder_again",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_tournament_grinder_again",
+  "budget": [
+    22.09,
+    91.31
+  ],
+  "patience": 1.15,
+  "wants": [
+    "event",
+    "singles"
+  ],
+  "spawn_weight": 1.8,
+  "shifts": [
+    "afternoon",
+    "late_night"
+  ],
+  "fraud_propensity": 0.061,
+  "age_range": [
+    24,
+    45
+  ],
+  "tags": [
+    "watchlist_candidate"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "base:redfen_yard",
+  "type": "board_game",
+  "name": "loc:board_game.redfen_yard",
+  "designer": "Saltmarsh Okoro",
+  "player_count": [
+    3,
+    5
+  ],
+  "play_minutes": [
+    55,
+    108
+  ],
+  "weight": 2.9,
+  "teach_minutes": 10,
+  "retail_price": 42.4,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 8,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "die",
+      "count": 120,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "resource tile",
+      "count": 24,
+      "loss_weight": 0.5
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

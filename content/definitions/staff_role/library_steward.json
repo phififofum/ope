@@ -1,0 +1,20 @@
+{
+  "id": "base:library_steward",
+  "type": "staff_role",
+  "name": "loc:staff_role.library_steward",
+  "tasks": [
+    "shelving",
+    "sorting",
+    "component_checks"
+  ],
+  "wage_per_shift": 96.0,
+  "base_error_rate": 0.08,
+  "training_shifts": 6,
+  "audit_surface": [
+    "misshelved games",
+    "skipped component checks",
+    "damage not logged"
+  ],
+  "permissions": [],
+  "coverage": 0.62
+}

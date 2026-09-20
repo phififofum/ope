@@ -1,0 +1,47 @@
+{
+  "id": "base:tannery_waybill",
+  "type": "board_game",
+  "name": "loc:board_game.tannery_waybill",
+  "designer": "Gallowmere Reyes",
+  "player_count": [
+    1,
+    2
+  ],
+  "play_minutes": [
+    80,
+    97
+  ],
+  "weight": 3.9,
+  "teach_minutes": 11,
+  "retail_price": 49.87,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "meeple",
+      "count": 12,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "die",
+      "count": 12,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "scoring marker",
+      "count": 8,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "player board",
+      "count": 8,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

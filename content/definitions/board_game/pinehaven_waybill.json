@@ -1,0 +1,44 @@
+{
+  "id": "base:pinehaven_waybill",
+  "type": "board_game",
+  "name": "loc:board_game.pinehaven_waybill",
+  "designer": "Drakemoor Okoro",
+  "player_count": [
+    3,
+    7
+  ],
+  "play_minutes": [
+    60,
+    143
+  ],
+  "weight": 2.1,
+  "teach_minutes": 9,
+  "retail_price": 42.77,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

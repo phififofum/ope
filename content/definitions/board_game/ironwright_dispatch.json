@@ -1,0 +1,48 @@
+{
+  "id": "base:ironwright_dispatch",
+  "type": "board_game",
+  "name": "loc:board_game.ironwright_dispatch",
+  "designer": "Quickstone Baptiste",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    32,
+    71
+  ],
+  "weight": 1.6,
+  "teach_minutes": 13,
+  "retail_price": 40.06,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "meeple",
+      "count": 120,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "wooden cube",
+      "count": 24,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "filler",
+    "teaching_friendly"
+  ]
+}

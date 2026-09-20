@@ -1,0 +1,63 @@
+{
+  "id": "base:foxglove_waybill",
+  "type": "board_game",
+  "name": "loc:board_game.foxglove_waybill",
+  "designer": "Lanternwick Lindqvist",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    46,
+    69
+  ],
+  "weight": 3.1,
+  "teach_minutes": 15,
+  "retail_price": 56.04,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "player board",
+      "count": 104,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "plastic stand",
+      "count": 4,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "wooden cube",
+      "count": 40,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "rulebook",
+      "count": 60,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "cardboard token",
+      "count": 12,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

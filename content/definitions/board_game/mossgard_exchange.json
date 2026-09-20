@@ -1,0 +1,59 @@
+{
+  "id": "base:mossgard_exchange",
+  "type": "board_game",
+  "name": "loc:board_game.mossgard_exchange",
+  "designer": "Northreach Okoro",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    31,
+    65
+  ],
+  "weight": 1.9,
+  "teach_minutes": 6,
+  "retail_price": 40.61,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "meeple",
+      "count": 120,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "plastic stand",
+      "count": 104,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "wooden cube",
+      "count": 12,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

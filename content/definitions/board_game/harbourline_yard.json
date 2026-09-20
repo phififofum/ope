@@ -1,0 +1,52 @@
+{
+  "id": "base:harbourline_yard",
+  "type": "board_game",
+  "name": "loc:board_game.harbourline_yard",
+  "designer": "Mossgard Reyes",
+  "player_count": [
+    3,
+    7
+  ],
+  "play_minutes": [
+    62,
+    121
+  ],
+  "weight": 3.5,
+  "teach_minutes": 14,
+  "retail_price": 46.22,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 24,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "player board",
+      "count": 8,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "wooden cube",
+      "count": 12,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "die",
+      "count": 24,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

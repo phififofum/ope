@@ -1,0 +1,64 @@
+{
+  "id": "base:cindervale_network",
+  "type": "board_game",
+  "name": "loc:board_game.cindervale_network",
+  "designer": "Brasshollow Baptiste",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    41,
+    127
+  ],
+  "weight": 2.1,
+  "teach_minutes": 16,
+  "retail_price": 40.85,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "wooden cube",
+      "count": 104,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "card",
+      "count": 40,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "linen bag",
+      "count": 60,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

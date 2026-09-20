@@ -1,0 +1,42 @@
+{
+  "id": "base:longshore_quorum",
+  "type": "board_game",
+  "name": "loc:board_game.longshore_quorum",
+  "designer": "Lanternwick Vance",
+  "player_count": [
+    1,
+    4
+  ],
+  "play_minutes": [
+    97,
+    120
+  ],
+  "weight": 3.9,
+  "teach_minutes": 28,
+  "retail_price": 72.24,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "die",
+      "count": 40,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

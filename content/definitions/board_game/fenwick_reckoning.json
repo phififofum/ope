@@ -1,0 +1,64 @@
+{
+  "id": "base:fenwick_reckoning",
+  "type": "board_game",
+  "name": "loc:board_game.fenwick_reckoning",
+  "designer": "Cindervale Vance",
+  "player_count": [
+    1,
+    5
+  ],
+  "play_minutes": [
+    53,
+    116
+  ],
+  "weight": 1.8,
+  "teach_minutes": 6,
+  "retail_price": 36.2,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "wooden cube",
+      "count": 40,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "scoring marker",
+      "count": 24,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "cardboard token",
+      "count": 104,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "linen bag",
+      "count": 8,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

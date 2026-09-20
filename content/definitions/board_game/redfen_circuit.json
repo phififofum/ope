@@ -1,0 +1,59 @@
+{
+  "id": "base:redfen_circuit",
+  "type": "board_game",
+  "name": "loc:board_game.redfen_circuit",
+  "designer": "Quickstone Reyes",
+  "player_count": [
+    3,
+    4
+  ],
+  "play_minutes": [
+    44,
+    81
+  ],
+  "weight": 1.8,
+  "teach_minutes": 11,
+  "retail_price": 34.9,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 40,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "wooden cube",
+      "count": 40,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "first-player marker",
+      "count": 120,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

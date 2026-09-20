@@ -1,0 +1,59 @@
+{
+  "id": "base:saltmarsh_waybill",
+  "type": "board_game",
+  "name": "loc:board_game.saltmarsh_waybill",
+  "designer": "Saltmarsh Lindqvist",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    38,
+    123
+  ],
+  "weight": 2.3,
+  "teach_minutes": 14,
+  "retail_price": 35.72,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 24,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "player board",
+      "count": 4,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "meeple",
+      "count": 60,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "scoring marker",
+      "count": 24,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "plastic stand",
+      "count": 60,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

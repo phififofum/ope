@@ -1,0 +1,29 @@
+{
+  "id": "base:the_dealer_in_a_hurry",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_dealer_in_a_hurry",
+  "budget": [
+    22.11,
+    62.21
+  ],
+  "patience": 0.9,
+  "wants": [
+    "trade_in",
+    "singles"
+  ],
+  "spawn_weight": 1.7,
+  "shifts": [
+    "afternoon",
+    "event_night",
+    "late_night",
+    "midday"
+  ],
+  "fraud_propensity": 0.191,
+  "age_range": [
+    18,
+    55
+  ],
+  "tags": [
+    "watchlist_candidate"
+  ]
+}

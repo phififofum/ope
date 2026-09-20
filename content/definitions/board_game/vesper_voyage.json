@@ -1,0 +1,42 @@
+{
+  "id": "base:vesper_voyage",
+  "type": "board_game",
+  "name": "loc:board_game.vesper_voyage",
+  "designer": "Mossgard Okoro",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    65,
+    112
+  ],
+  "weight": 3.5,
+  "teach_minutes": 25,
+  "retail_price": 52.95,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "first-player marker",
+      "count": 60,
+      "loss_weight": 0.8
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

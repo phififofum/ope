@@ -1,0 +1,27 @@
+{
+  "id": "base:the_reviewer_in_a_hurry",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_reviewer_in_a_hurry",
+  "budget": [
+    4.0,
+    12.37
+  ],
+  "patience": 1.5,
+  "wants": [
+    "library",
+    "drink"
+  ],
+  "spawn_weight": 0.87,
+  "shifts": [
+    "late_night",
+    "morning"
+  ],
+  "fraud_propensity": 0.023,
+  "age_range": [
+    30,
+    38
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

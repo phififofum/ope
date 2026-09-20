@@ -1,0 +1,42 @@
+{
+  "id": "base:longshore_tramway",
+  "type": "board_game",
+  "name": "loc:board_game.longshore_tramway",
+  "designer": "Redfen Vance",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    73,
+    111
+  ],
+  "weight": 3.1,
+  "teach_minutes": 21,
+  "retail_price": 42.05,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 8,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "rulebook",
+      "count": 8,
+      "loss_weight": 0.15
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

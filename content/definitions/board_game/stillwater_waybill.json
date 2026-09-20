@@ -1,0 +1,58 @@
+{
+  "id": "base:stillwater_waybill",
+  "type": "board_game",
+  "name": "loc:board_game.stillwater_waybill",
+  "designer": "Umberfield Reyes",
+  "player_count": [
+    3,
+    7
+  ],
+  "play_minutes": [
+    62,
+    98
+  ],
+  "weight": 4.6,
+  "teach_minutes": 15,
+  "retail_price": 45.6,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 120,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

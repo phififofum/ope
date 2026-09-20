@@ -1,0 +1,47 @@
+{
+  "id": "base:cindervale_yard",
+  "type": "board_game",
+  "name": "loc:board_game.cindervale_yard",
+  "designer": "Saltmarsh Vance",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    43,
+    103
+  ],
+  "weight": 2.8,
+  "teach_minutes": 16,
+  "retail_price": 45.07,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 24,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "cardboard token",
+      "count": 40,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

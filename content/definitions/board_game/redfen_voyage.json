@@ -1,0 +1,58 @@
+{
+  "id": "base:redfen_voyage",
+  "type": "board_game",
+  "name": "loc:board_game.redfen_voyage",
+  "designer": "Mossgard Okoro",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    58,
+    99
+  ],
+  "weight": 2.9,
+  "teach_minutes": 17,
+  "retail_price": 48.92,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "first-player marker",
+      "count": 120,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

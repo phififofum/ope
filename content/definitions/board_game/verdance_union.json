@@ -1,0 +1,58 @@
+{
+  "id": "base:verdance_union",
+  "type": "board_game",
+  "name": "loc:board_game.verdance_union",
+  "designer": "Tannery Reyes",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    43,
+    80
+  ],
+  "weight": 2.8,
+  "teach_minutes": 16,
+  "retail_price": 43.75,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 4,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "wooden cube",
+      "count": 12,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "plastic stand",
+      "count": 4,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "linen bag",
+      "count": 60,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "die",
+      "count": 24,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

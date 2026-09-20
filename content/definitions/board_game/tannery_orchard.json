@@ -1,0 +1,43 @@
+{
+  "id": "base:tannery_orchard",
+  "type": "board_game",
+  "name": "loc:board_game.tannery_orchard",
+  "designer": "Emberdown Okoro",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    38,
+    61
+  ],
+  "weight": 1.8,
+  "teach_minutes": 7,
+  "retail_price": 32.03,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "die",
+      "count": 60,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "scoring marker",
+      "count": 40,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    }
+  ],
+  "tags": [
+    "filler",
+    "teaching_friendly"
+  ]
+}

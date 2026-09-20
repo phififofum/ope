@@ -1,0 +1,59 @@
+{
+  "id": "base:tannery_junction",
+  "type": "board_game",
+  "name": "loc:board_game.tannery_junction",
+  "designer": "Stillwater Okoro",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    35,
+    90
+  ],
+  "weight": 1.9,
+  "teach_minutes": 11,
+  "retail_price": 40.25,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "die",
+      "count": 24,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "wooden cube",
+      "count": 104,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

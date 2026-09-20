@@ -1,0 +1,43 @@
+{
+  "id": "base:fenwick_tramway",
+  "type": "board_game",
+  "name": "loc:board_game.fenwick_tramway",
+  "designer": "Cindervale Reyes",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    94,
+    131
+  ],
+  "weight": 3.7,
+  "teach_minutes": 12,
+  "retail_price": 51.02,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "resource tile",
+      "count": 104,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "first-player marker",
+      "count": 120,
+      "loss_weight": 0.8
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

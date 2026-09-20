@@ -1,0 +1,24 @@
+{
+  "id": "base:espresso_machine_failure_3",
+  "type": "event",
+  "name": "loc:event.espresso_machine_failure_3",
+  "description": "loc:event.espresso_machine_failure_3.description",
+  "trigger": {
+    "kind": "conditional",
+    "weight": 1.69,
+    "earliest_day": 25,
+    "act": 3
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "equipment",
+      "amount": 0.19
+    }
+  ],
+  "announced": false,
+  "tags": [
+    "equipment",
+    "kitchen"
+  ]
+}

@@ -110,11 +110,15 @@ func detectable_vectors(encounter: Encounter, owned_tools: PackedStringArray) ->
 ## available and only mildly expensive — uncertainty should feel like a tool gap, never
 ## like unfairness.
 func resolve(
-	encounter: Encounter, verdict: Encounter.Verdict, owned_tools: PackedStringArray, tick: int
+	encounter: Encounter,
+	verdict: Encounter.Verdict,
+	used_tools: PackedStringArray,
+	tick: int,
+	owned_tools: PackedStringArray = PackedStringArray()
 ) -> Dictionary:
 	encounter.verdict = verdict
 	encounter.resolved_tick = tick
-	encounter.evaluate_with(rules, owned_tools, _today)
+	encounter.evaluate_with(rules, used_tools, _today, owned_tools)
 
 	var all_tools: PackedStringArray = _all_tool_ids()
 	var truly_bad: bool = (
@@ -153,7 +157,7 @@ func resolve(
 		"outcome": encounter.outcome,
 		"reputation_delta": reputation_delta,
 		"value": encounter.value,
-		"detectable": detectable_vectors(encounter, owned_tools),
+		"detectable": detectable_vectors(encounter, used_tools),
 		"person": String(encounter.person.id),
 	}
 	bus.publish(EventCatalog.VERIFICATION_RESOLVED, result)

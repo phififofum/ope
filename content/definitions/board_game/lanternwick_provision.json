@@ -1,0 +1,42 @@
+{
+  "id": "base:lanternwick_provision",
+  "type": "board_game",
+  "name": "loc:board_game.lanternwick_provision",
+  "designer": "Umberfield Lindqvist",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    64,
+    131
+  ],
+  "weight": 2.6,
+  "teach_minutes": 18,
+  "retail_price": 34.94,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 24,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "first-player marker",
+      "count": 4,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "card",
+      "count": 40,
+      "loss_weight": 0.3
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "base:the_teacher_in_a_hurry",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_teacher_in_a_hurry",
+  "budget": [
+    6.25,
+    32.01
+  ],
+  "patience": 1.67,
+  "wants": [
+    "table",
+    "library"
+  ],
+  "spawn_weight": 0.97,
+  "shifts": [
+    "evening",
+    "event_night",
+    "late_night",
+    "midday"
+  ],
+  "fraud_propensity": 0.01,
+  "age_range": [
+    30,
+    55
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

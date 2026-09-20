@@ -1,0 +1,48 @@
+{
+  "id": "base:elmgate_circuit",
+  "type": "board_game",
+  "name": "loc:board_game.elmgate_circuit",
+  "designer": "Foxglove Okoro",
+  "player_count": [
+    1,
+    5
+  ],
+  "play_minutes": [
+    70,
+    109
+  ],
+  "weight": 3.7,
+  "teach_minutes": 18,
+  "retail_price": 65.71,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 8,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "linen bag",
+      "count": 120,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "meeple",
+      "count": 12,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "plastic stand",
+      "count": 60,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

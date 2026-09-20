@@ -1,0 +1,58 @@
+{
+  "id": "base:harbourline_circuit",
+  "type": "board_game",
+  "name": "loc:board_game.harbourline_circuit",
+  "designer": "Fenwick Okoro",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    71,
+    128
+  ],
+  "weight": 3.1,
+  "teach_minutes": 22,
+  "retail_price": 46.94,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 120,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "die",
+      "count": 104,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "scoring marker",
+      "count": 24,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "base:two_player_table_mk2",
+  "type": "fixture",
+  "name": "loc:fixture.two_player_table_mk2",
+  "category": "table",
+  "footprint": [
+    2,
+    2
+  ],
+  "cost": 324.0,
+  "capacity": 4,
+  "noise": 0.2,
+  "upkeep_hours": 0.57,
+  "zone": "play",
+  "tags": [
+    "table"
+  ]
+}

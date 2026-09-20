@@ -144,6 +144,22 @@ jobs:
           chmod +x build/linux/poggywoggy.x86_64
           ./build/linux/poggywoggy.x86_64 --headless -- --smoke-test
 
+      # The layer nothing else covers: a missing material, a black model, a UI element
+      # that drifted off screen. Needs a display, so it runs under xvfb.
+      - name: Visual regression
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb >/dev/null
+          GODOT="$HOME/godot/godot" python3 tools/visual_regression.py
+
+      - uses: actions/upload-artifact@v7.0.1
+        if: always()
+        with:
+          name: poggywoggy-visual-captures
+          path: reports/visual/
+          retention-days: 7
+          if-no-files-found: warn
+
       - uses: actions/upload-artifact@v7.0.1
         with:
           name: poggywoggy-ci-linux

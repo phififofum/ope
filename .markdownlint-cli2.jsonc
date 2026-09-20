@@ -1,0 +1,25 @@
+// Markdown style. The rules that are off are off on purpose:
+// the documentation uses HTML for layout in a few places, long prose lines because
+// diffs read better than hard wraps at 80, and repeated sibling headings across
+// sections that are deliberately parallel.
+{
+  "config": {
+    "default": true,
+    "MD013": false,   // line length -- prose wraps at ~100 by hand, tables do not wrap
+    "MD033": false,   // inline HTML -- the README banner and GitHub alert callouts
+    "MD041": false,   // first line in file must be a heading -- the README opens with a banner
+    "MD024": { "siblings_only": true },
+    "MD029": { "style": "ordered" },
+    "MD046": { "style": "fenced" },
+    "MD049": { "style": "asterisk" },
+    "MD050": { "style": "asterisk" }
+  },
+  "globs": ["**/*.md"],
+  "ignores": [
+    "node_modules/**",
+    "build/**",
+    ".godot/**",
+    "LICENSES/**",
+    "CODE_OF_CONDUCT.md"
+  ]
+}

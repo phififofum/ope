@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/document_type.schema.json",
+  "title": "Document type",
+  "description": "Any inspectable artifact: an ID, a manifest, a trade-in record, a trading card.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "family",
+    "fields"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$",
+      "description": "Namespaced id. Base content uses `base:`."
+    },
+    "type": {
+      "const": "document_type"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "family": {
+      "enum": [
+        "identity",
+        "payment",
+        "entitlement",
+        "commercial",
+        "credential",
+        "collectible"
+      ]
+    },
+    "jurisdiction": {
+      "type": "string"
+    },
+    "layout": {
+      "type": "string",
+      "pattern": "^res://"
+    },
+    "fields": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "source",
+          "face"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "source": {
+            "type": "string"
+          },
+          "face": {
+            "enum": [
+              "front",
+              "back",
+              "edge"
+            ]
+          },
+          "format": {
+            "type": "string"
+          },
+          "revealed_by": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+:[a-z0-9_]+$",
+            "description": "Tool required to read this field at all."
+          }
+        }
+      }
+    },
+    "security_features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "revealed_by"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "revealed_by": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+          }
+        }
+      }
+    },
+    "typeface": {
+      "type": "string"
+    },
+    "variants": {
+      "type": "object"
+    }
+  }
+}

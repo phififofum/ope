@@ -1,0 +1,34 @@
+{
+  "id": "base:card_sleeves_100",
+  "type": "product",
+  "name": "loc:product.card_sleeves_100",
+  "category": "accessories",
+  "tags": [
+    "impulse",
+    "counter_adjacent",
+    "high_margin"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 50,
+  "base_cost": 1.05,
+  "market_price": 4.5,
+  "price_band": [
+    3.0,
+    8.0
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:harrowgate_distribution",
+    "base:nightfreight_discount"
+  ],
+  "adjacency_affinity": [
+    "singles",
+    "sealed_product"
+  ],
+  "urgency": "high"
+}

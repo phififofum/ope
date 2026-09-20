@@ -1,0 +1,101 @@
+name: 🎯 Design proposal
+description: Argue with the specification — a mechanic that will not work, a gap, or something better.
+title: "design: "
+labels: ["design", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The specification is **a starting position, not a cage**. It is wrong somewhere, and
+        finding out now is much cheaper than finding out in Phase 6. Argue with it.
+
+        Proposals are judged against the [design pillars](https://github.com/phififofum/ope#design-pillars),
+        in order. A proposal that names the pillar it serves is a proposal that gets read twice.
+
+  - type: dropdown
+    id: loop
+    attributes:
+      label: Which loop or system
+      multiple: true
+      options:
+        - "Loop A — the floor (library, cafe inventory, zone design)"
+        - "Loop B — the counter (verification, documents, people)"
+        - "Loop C — the kitchen"
+        - "Loop D — the case (cards, grading, the gamble)"
+        - "Cats"
+        - "Progression, economy, licences and strikes"
+        - "Staff and the late game"
+        - "Multiplayer and scaling"
+        - "Onboarding, interface, accessibility"
+        - "Architecture, content registry, modding API"
+        - "Art, audio, asset sourcing"
+        - "Cross-cutting / something else"
+    validations:
+      required: true
+
+  - type: input
+    id: spec-section
+    attributes:
+      label: Which spec document does this touch
+      description: File name and heading, so a reviewer can read the same words you did.
+      placeholder: "docs/design/04-loop-b-counter.md — 'The verdict surface'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What is wrong, unclear, contradictory or unbuildable as written. Be specific — "feels off" is a starting point, not a proposal.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: The proposal
+      description: What should happen instead, concretely enough to implement.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: pillar
+    attributes:
+      label: Which pillar does this serve
+      description: Ties are broken by pillar order, so this matters.
+      options:
+        - "1 — Scrutiny is the verb"
+        - "2 — Never idle, never overwhelmed"
+        - "3 — The skeleton outranks the content"
+        - "4 — Co-op is the default reading"
+        - "5 — Free as in freedom, all the way down"
+        - "None directly — it serves something else, explained below"
+    validations:
+      required: true
+
+  - type: textarea
+    id: cost
+    attributes:
+      label: What it costs
+      description: |
+        What gets worse if we do this. Every design change trades something away — content
+        volume, scope, a player fantasy, implementation time, mod compatibility. A proposal
+        with no stated cost has not been thought through yet.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+      description: Including "leave it alone", and why that loses.
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This does not require the player to guess. (Every forgery must be detectable with the tools the player owns, or resolvable by refusing.)
+        - label: This does not add a tool that returns a verdict. (Tools reveal; players judge.)
+        - label: This can be expressed as data, not engine code.
+        - label: This does not assume a solo player, and does not require five.

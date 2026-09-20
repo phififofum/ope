@@ -1,0 +1,14 @@
+{
+  "id": "base:digital_microscope",
+  "type": "tool",
+  "name": "loc:tool.digital_microscope",
+  "tier": 3,
+  "reveals": [
+    "ink_layering",
+    "surface_texture",
+    "trim_edges"
+  ],
+  "inspection_seconds": 20.0,
+  "unlocked_by": "late_campaign",
+  "returns_verdict": false
+}

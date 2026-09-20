@@ -1,0 +1,47 @@
+{
+  "id": "base:flat_white",
+  "type": "recipe",
+  "name": "loc:recipe.flat_white",
+  "price": 3.8,
+  "station_primary": "coffee_bar",
+  "ingredients": [
+    {
+      "product": "base:espresso_beans_1kg",
+      "qty": 18,
+      "unit": "g"
+    }
+  ],
+  "steps": [
+    {
+      "station": "coffee_bar",
+      "action": "grind",
+      "seconds": 6,
+      "tolerance": 2
+    },
+    {
+      "station": "coffee_bar",
+      "action": "extract",
+      "seconds": 27,
+      "tolerance": 3,
+      "skill_window": true
+    },
+    {
+      "station": "coffee_bar",
+      "action": "steam",
+      "seconds": 18,
+      "tolerance": 5
+    },
+    {
+      "station": "coffee_bar",
+      "action": "pour",
+      "seconds": 5
+    }
+  ],
+  "modifiers_allowed": [
+    "substitution",
+    "preparation",
+    "quantity"
+  ],
+  "store_credit_eligible": true,
+  "unlocked_by": "base:general_retail"
+}

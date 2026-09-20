@@ -1,0 +1,95 @@
+---
+# Local hooks, identical to what CI runs. Install once:
+#
+#     python3 -m pip install --user pre-commit
+#     pre-commit install
+#
+# Run over everything without committing:
+#
+#     pre-commit run --all-files
+#
+# Every hook here is open source and pinned to a release. `pre-commit autoupdate`
+# bumps them; do that in its own pull request so a formatting churn commit never
+# hides a behaviour change.
+
+default_install_hook_types: [pre-commit]
+exclude: '^(build/|\.godot/|LICENSES/|CREDITS\.md$)'
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: check-json
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: check-added-large-files
+        args: [--maxkb=2048]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.8
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+      - id: ruff-format
+        types_or: [python, pyi]
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.38.0
+    hooks:
+      - id: yamllint
+        args: [--strict]
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.23.3
+    hooks:
+      - id: markdownlint-cli2
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.3
+    hooks:
+      - id: codespell
+        additional_dependencies: [tomli]
+
+  # GDScript linting and formatting. No .gd files exist before Phase 1 beyond the boot
+  # scene; the hooks are here from the start so the first real script lands formatted.
+  - repo: https://github.com/Scony/godot-gdscript-toolkit
+    rev: 4.5.0
+    hooks:
+      - id: gdlint
+      - id: gdformat
+
+  # The project's own gates. Same commands as .github/workflows/ci.yml.
+  - repo: local
+    hooks:
+      - id: content-validation
+        name: validate content definitions
+        entry: python3 tools/validate_content.py --strict
+        language: python
+        additional_dependencies: [jsonschema]
+        pass_filenames: false
+        files: '^(content/|mods/|tools/validate_content\.py)'
+
+      - id: licence-audit
+        name: audit asset licences
+        entry: python3 tools/licence_audit.py --check
+        language: system
+        pass_filenames: false
+
+      - id: repo-hygiene
+        name: repository hygiene
+        entry: python3 tools/check_repo_hygiene.py
+        language: system
+        pass_filenames: false
+
+      - id: doc-links
+        name: documentation links resolve
+        entry: python3 tools/check_doc_links.py
+        language: system
+        pass_filenames: false
+        files: '\.md$'

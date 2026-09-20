@@ -1,0 +1,34 @@
+{
+  "id": "base:graded_single_meridian",
+  "type": "product",
+  "name": "loc:product.graded_single_meridian",
+  "category": "singles",
+  "tags": [
+    "high_value",
+    "theft_exposed",
+    "case_only",
+    "buylist_tracked"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 1,
+  "base_cost": 140.0,
+  "market_price": 310.0,
+  "price_band": [
+    180.0,
+    900.0
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:secondhand_dealer",
+  "suppliers": [
+    "base:harrowgate_distribution"
+  ],
+  "adjacency_affinity": [
+    "accessories",
+    "sealed_product"
+  ],
+  "urgency": "low"
+}

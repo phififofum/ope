@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="PoggyWoggy">
+  <rect width="128" height="128" rx="20" fill="#1b1720"/>
+  <rect x="20" y="30" width="46" height="64" rx="4" fill="#e8c46a"/>
+  <rect x="28" y="38" width="30" height="48" rx="2" fill="#1b1720"/>
+  <rect x="62" y="44" width="46" height="50" rx="4" fill="#6ec5a8" transform="rotate(8 62 44)"/>
+  <circle cx="92" cy="34" r="9" fill="#e87a5a"/>
+</svg>

@@ -1,0 +1,19 @@
+{
+  "id": "base:tabby_orange",
+  "type": "cat",
+  "name_pool": "loc:catnames.common",
+  "model": "res://content/scenes/cats/tabby.tscn",
+  "coat": "orange_tabby",
+  "trait_weights": {
+    "social": 0.8,
+    "lazy": 0.6,
+    "hunter": 0.4,
+    "vocal": 0.5,
+    "escape_artist": 0.2
+  },
+  "base_hunting": 0.5,
+  "counter_sensitivity": 0.4,
+  "false_positive_rate": 0.15,
+  "customer_appeal": 0.7,
+  "vocalisations": "res://content/assets/audio/cats/tabby/"
+}

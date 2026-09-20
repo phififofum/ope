@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/recipe.schema.json",
+  "title": "Recipe",
+  "description": "A kitchen item: components, steps, timing, tolerance.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "price",
+    "ingredients",
+    "steps"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$",
+      "description": "Namespaced id. Base content uses `base:`."
+    },
+    "type": {
+      "const": "recipe"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "price": {
+      "type": "number",
+      "minimum": 0
+    },
+    "station_primary": {
+      "type": "string"
+    },
+    "ingredients": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "product",
+          "qty"
+        ],
+        "properties": {
+          "product": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+          },
+          "qty": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "unit": {
+            "type": "string"
+          },
+          "optional": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "station",
+          "action"
+        ],
+        "properties": {
+          "station": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "seconds": {
+            "type": "number",
+            "minimum": 0
+          },
+          "tolerance": {
+            "type": "number",
+            "minimum": 0
+          },
+          "skill_window": {
+            "type": "boolean"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "modifiers_allowed": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "omission",
+          "addition",
+          "substitution",
+          "preparation",
+          "portioning",
+          "quantity"
+        ]
+      }
+    },
+    "store_credit_eligible": {
+      "type": "boolean",
+      "description": "Trade-in credit excludes hot prepared food — which turns a sandwich into a verification encounter."
+    },
+    "unlocked_by": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+    }
+  }
+}

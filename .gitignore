@@ -1,0 +1,57 @@
+# ---------------------------------------------------------------------------
+# Godot 4
+# ---------------------------------------------------------------------------
+.godot/
+/android/
+*.translation
+
+# Exported builds
+/build/
+/export/
+*.pck
+*.zip
+*.exe
+*.x86_64
+*.dmg
+
+# Godot import caches (regenerated on import; never reviewable)
+*.import.bak
+
+# ---------------------------------------------------------------------------
+# Test, telemetry and tooling output
+# ---------------------------------------------------------------------------
+/reports/
+/telemetry/
+/.coverage
+/tests/**/baseline_diff/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ---------------------------------------------------------------------------
+# Editors and operating systems
+# ---------------------------------------------------------------------------
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+.DS_Store
+Thumbs.db
+
+# ---------------------------------------------------------------------------
+# Steam. A leaked config.vdf is a logged-in session; steam_appid.txt is local.
+# ---------------------------------------------------------------------------
+steam_appid.txt
+config.vdf
+/steam/sdk/
+/steam/*.log
+/build/steam_output/
+
+# ---------------------------------------------------------------------------
+# Local overrides — never committed
+# ---------------------------------------------------------------------------
+override.cfg
+/mods/*
+!/mods/.gitkeep
+*.local

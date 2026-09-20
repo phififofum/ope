@@ -1,0 +1,180 @@
+name: Release
+
+# Builds Linux and Windows from a clean checkout, attaches them to a GitHub release,
+# and uploads them to a Steam branch when the Steam secrets exist.
+#
+# Steam upload is skipped — not failed — when secrets are absent, so forks and
+# contributor tags can never publish anything. See docs/release/steam.md.
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      steam_branch:
+        description: "Steam branch to upload to (never set live automatically)"
+        required: false
+        default: "playtest"
+      upload_to_steam:
+        description: "Upload to Steam (requires secrets)"
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+
+env:
+  GODOT_VERSION: 4.7.2
+
+jobs:
+  export:
+    name: Export Linux and Windows
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Verify the pinned engine version matches the workflow
+        run: |
+          pinned="$(tr -d '[:space:]' < .godot-version)"
+          if [ "$pinned" != "${GODOT_VERSION}" ]; then
+            echo "::error::.godot-version says ${pinned}, workflow says ${GODOT_VERSION}"
+            exit 1
+          fi
+
+      # The engine is pinned, so it is fetched directly rather than through a
+      # wrapper action: these are exactly the commands a contributor runs locally,
+      # which is what makes a CI failure reproducible on a laptop.
+      - name: Cache the engine and export templates
+        uses: actions/cache@v6.1.0
+        with:
+          path: |
+            ~/godot
+            ~/.local/share/godot/export_templates
+          key: godot-${{ env.GODOT_VERSION }}
+
+      - name: Install Godot ${{ env.GODOT_VERSION }}
+        run: |
+          set -euo pipefail
+          base="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable"
+          if [ ! -x "$HOME/godot/godot" ]; then
+            mkdir -p "$HOME/godot"
+            curl -sSL -o /tmp/godot.zip "${base}/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+            unzip -q -o /tmp/godot.zip -d "$HOME/godot"
+            mv "$HOME/godot/Godot_v${GODOT_VERSION}-stable_linux.x86_64" "$HOME/godot/godot"
+            chmod +x "$HOME/godot/godot"
+          fi
+          templates="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          if [ ! -d "$templates" ]; then
+            mkdir -p "$(dirname "$templates")"
+            curl -sSL -o /tmp/templates.tpz "${base}/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+            unzip -q -o /tmp/templates.tpz -d /tmp/templates
+            mv /tmp/templates/templates "$templates"
+          fi
+          "$HOME/godot/godot" --version
+
+      - name: Import the project
+        run: $HOME/godot/godot --headless --path . --import
+
+      - name: Boot the project headless
+        run: $HOME/godot/godot --headless --path . -- --smoke-test
+
+      - name: Export
+        run: |
+          set -euo pipefail
+          mkdir -p build/linux build/windows
+          $HOME/godot/godot --headless --path . --export-release "Linux" build/linux/poggywoggy.x86_64
+          $HOME/godot/godot --headless --path . --export-release "Windows Desktop" build/windows/poggywoggy.exe
+          test -f build/linux/poggywoggy.pck
+          test -f build/windows/poggywoggy.pck
+
+      # The failure this catches is the one that matters: a build that runs from the
+      # project and dies when exported, because a file read at runtime is missing from
+      # include_filter in export_presets.cfg.
+      - name: Smoke-test the exported Linux build
+        run: |
+          chmod +x build/linux/poggywoggy.x86_64
+          ./build/linux/poggywoggy.x86_64 --headless -- --smoke-test
+
+      - uses: actions/upload-artifact@v7.0.1
+        with:
+          name: poggywoggy-linux
+          path: build/linux/
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v7.0.1
+        with:
+          name: poggywoggy-windows
+          path: build/windows/
+          if-no-files-found: error
+
+      - name: Package for the GitHub release
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          cd build
+          zip -r "poggywoggy-${GITHUB_REF_NAME}-linux.zip" linux
+          zip -r "poggywoggy-${GITHUB_REF_NAME}-windows.zip" windows
+
+      - name: Publish the GitHub release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v3.0.3
+        with:
+          draft: true
+          generate_release_notes: true
+          files: |
+            build/poggywoggy-*-linux.zip
+            build/poggywoggy-*-windows.zip
+
+  steam:
+    name: Upload to Steam
+    needs: export
+    runs-on: ubuntu-latest
+    # Never runs without credentials, so a fork cannot publish. A tag push uploads;
+    # a manual run uploads only when asked.
+    if: |
+      (startsWith(github.ref, 'refs/tags/v') || inputs.upload_to_steam) &&
+      github.repository_owner == 'phififofum'
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - uses: actions/download-artifact@v8.0.1
+        with:
+          name: poggywoggy-linux
+          path: build/linux
+
+      - uses: actions/download-artifact@v8.0.1
+        with:
+          name: poggywoggy-windows
+          path: build/windows
+
+      - name: Check that the Steam secrets are configured
+        id: secrets
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_CONFIG_VDF: ${{ secrets.STEAM_CONFIG_VDF }}
+          STEAM_APP_ID: ${{ secrets.STEAM_APP_ID }}
+        run: |
+          if [ -z "$STEAM_USERNAME" ] || [ -z "$STEAM_CONFIG_VDF" ] || [ -z "$STEAM_APP_ID" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Steam secrets are not set; skipping upload. See docs/release/steam.md"
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Open-source SteamPipe wrapper. It uploads the build; it does NOT set it live on
+      # the default branch — that stays a human decision in the Steamworks web UI.
+      - name: Upload to Steam
+        if: steps.secrets.outputs.configured == 'true'
+        uses: game-ci/steam-deploy@v3.2.1
+        with:
+          username: ${{ secrets.STEAM_USERNAME }}
+          configVdf: ${{ secrets.STEAM_CONFIG_VDF }}
+          appId: ${{ secrets.STEAM_APP_ID }}
+          buildDescription: ${{ github.ref_name }} (${{ github.sha }})
+          rootPath: build
+          depot1Path: linux
+          depot2Path: windows
+          releaseBranch: ${{ inputs.steam_branch || 'playtest' }}

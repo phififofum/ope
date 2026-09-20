@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/product.schema.json",
+  "title": "Product",
+  "description": "Anything with a SKU: cafe stock, kitchen ingredients, retail goods, sealed product.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "category",
+    "storage",
+    "base_cost",
+    "market_price",
+    "price_band",
+    "shelf_life_days",
+    "licence",
+    "suppliers"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$",
+      "description": "Namespaced id. Base content uses `base:`."
+    },
+    "type": {
+      "const": "product"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "category": {
+      "enum": [
+        "hot_beverages",
+        "cold_beverages",
+        "bakery",
+        "chilled",
+        "frozen",
+        "ambient",
+        "confectionery",
+        "alcohol",
+        "nicotine",
+        "household",
+        "accessories",
+        "board_games",
+        "sealed_product",
+        "singles"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$"
+      },
+      "uniqueItems": true
+    },
+    "storage": {
+      "enum": [
+        "ambient",
+        "chilled",
+        "frozen"
+      ]
+    },
+    "shelf_footprint": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "units_per_case": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "base_cost": {
+      "type": "number",
+      "minimum": 0
+    },
+    "market_price": {
+      "type": "number",
+      "minimum": 0
+    },
+    "price_band": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": 0
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "shelf_life_days": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "0 means non-perishable."
+    },
+    "licence": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$",
+      "description": "The licence that permits selling it. Every product must be reachable."
+    },
+    "suppliers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+      },
+      "minItems": 1
+    },
+    "model": {
+      "type": "string",
+      "pattern": "^res://"
+    },
+    "adjacency_affinity": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "urgency": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "description": "Raises the markup customers tolerate."
+    }
+  }
+}

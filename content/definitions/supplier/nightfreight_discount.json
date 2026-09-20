@@ -1,0 +1,23 @@
+{
+  "id": "base:nightfreight_discount",
+  "type": "supplier",
+  "name": "loc:supplier.nightfreight_discount",
+  "catalogue": [
+    "ambient",
+    "confectionery",
+    "accessories",
+    "sealed_product"
+  ],
+  "lead_time_days": [
+    2,
+    6
+  ],
+  "minimum_order": 80.0,
+  "price_tier": "discount",
+  "reliability": 0.71,
+  "legitimacy": {
+    "counterfeit_rate": 0.09,
+    "manifest_accuracy": 0.83,
+    "credentials_verifiable": true
+  }
+}

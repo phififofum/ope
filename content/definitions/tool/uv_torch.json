@@ -1,0 +1,17 @@
+{
+  "id": "base:uv_torch",
+  "type": "tool",
+  "name": "loc:tool.uv_torch",
+  "tier": 1,
+  "reveals": [
+    "uv_seal",
+    "uv_overlay",
+    "coating_response"
+  ],
+  "inspection_seconds": 3.0,
+  "unlocked_by": "base:food_service",
+  "returns_verdict": false,
+  "failure_modes": [
+    "Useless in direct sunlight through the front window."
+  ]
+}

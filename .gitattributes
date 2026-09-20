@@ -1,0 +1,40 @@
+# Normalise line endings everywhere unless overridden below.
+* text=auto eol=lf
+
+# ---------------------------------------------------------------------------
+# Godot project files are TEXT. This is load-bearing: every scene, resource
+# and project change must be reviewable as a diff. See docs/design/02-architecture.md.
+# ---------------------------------------------------------------------------
+*.tscn      text eol=lf
+*.tres      text eol=lf
+*.godot     text eol=lf
+*.gd        text eol=lf
+*.gdshader  text eol=lf
+*.cfg       text eol=lf
+*.import    text eol=lf
+
+# Data and docs
+*.json      text eol=lf
+*.md        text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.py        text eol=lf
+*.sh        text eol=lf
+
+# ---------------------------------------------------------------------------
+# Binary assets. Marked explicitly so Git never tries to merge or normalise them.
+# ---------------------------------------------------------------------------
+*.png       binary
+*.jpg       binary
+*.webp      binary
+*.glb       binary
+*.gltf      binary
+*.ogg       binary
+*.wav       binary
+*.ttf       binary
+*.otf       binary
+*.hdr       binary
+*.exr       binary
+
+# Keep generated credits out of diff noise reviews, but still versioned.
+CREDITS.md  linguist-generated=true

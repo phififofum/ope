@@ -1,0 +1,25 @@
+{
+  "id": "base:signature_mismatch",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "base:trade_in_record"
+    ]
+  },
+  "class": "internal_inconsistency",
+  "tier": 1,
+  "difficulty": 2,
+  "detectable_by": [
+    "base:naked_eye",
+    "base:ledger"
+  ],
+  "transform": {
+    "op": "perturb_field",
+    "target": "signature",
+    "method": "different_hand"
+  },
+  "tell": {
+    "behaviour": "response_latency_high",
+    "weight": 0.45
+  }
+}

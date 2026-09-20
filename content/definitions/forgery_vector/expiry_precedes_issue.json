@@ -1,0 +1,27 @@
+{
+  "id": "base:expiry_precedes_issue",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_field": "expiry"
+  },
+  "class": "internal_inconsistency",
+  "tier": 0,
+  "difficulty": 1,
+  "detectable_by": [
+    "base:naked_eye",
+    "base:date_wheel"
+  ],
+  "transform": {
+    "op": "set_field",
+    "target": "expiry",
+    "method": "before",
+    "reference": "issued"
+  },
+  "tell": {
+    "behaviour": "rehearsed_line",
+    "weight": 0.3
+  }
+}

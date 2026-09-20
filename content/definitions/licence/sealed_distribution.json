@@ -1,0 +1,22 @@
+{
+  "id": "base:sealed_distribution",
+  "type": "licence",
+  "name": "loc:licence.sealed_distribution",
+  "unlocks_categories": [
+    "sealed_product"
+  ],
+  "cost": 3200,
+  "renewal_days": 365,
+  "standing_required": 4,
+  "verification_burden": [
+    "Distributor account audits",
+    "Counterfeit and grey-import detection",
+    "Organised-play allocation rules",
+    "Minimum advertised pricing"
+  ],
+  "strike_consequences": {
+    "first": "Allocation cut for one release cycle.",
+    "second": "Promo product withheld; your event loses its draw.",
+    "third": "Distributor account pulled. Sealed product only through the grey market."
+  }
+}

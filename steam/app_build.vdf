@@ -1,0 +1,34 @@
+// SteamPipe app build script for PoggyWoggy.
+//
+// Usage (from the repository root, with builds in build/linux and build/windows):
+//
+//   steamcmd +login <builder_account> \
+//            +run_app_build "$(pwd)/steam/app_build.vdf" \
+//            +quit
+//
+// Replace APPID and the two depot ids with the values from your Steamworks app.
+// Everything else is deliberate:
+//
+//   · setlive is EMPTY. A build is uploaded, then set live on a branch from the
+//     Steamworks web UI, on purpose. Automating "set live on default" is how a
+//     broken build reaches players at 2am.
+//   · preview 0 means a real upload. Set it to 1 for a dry run that validates the
+//     script and prints what would be sent without touching the content servers.
+//
+// See docs/release/steam.md for the whole path, including Playtest setup.
+"appbuild"
+{
+	"appid"    "480"              // ← your Steamworks app id
+	"desc"     "PoggyWoggy build" // overwritten by CI with the tag and commit
+	"buildoutput" "../build/steam_output"
+	"contentroot" "../build"
+	"setlive"  ""                 // set live from the web UI, never from here
+	"preview"  "0"
+	"local"    ""
+
+	"depots"
+	{
+		"481" "depot_linux.vdf"   // ← your Linux depot id
+		"482" "depot_windows.vdf" // ← your Windows depot id
+	}
+}

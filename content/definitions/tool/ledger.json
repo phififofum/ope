@@ -1,0 +1,14 @@
+{
+  "id": "base:ledger",
+  "type": "tool",
+  "name": "loc:tool.ledger",
+  "tier": 3,
+  "reveals": [
+    "person_history",
+    "prior_flags",
+    "transaction_record"
+  ],
+  "inspection_seconds": 8.0,
+  "unlocked_by": "back_office",
+  "returns_verdict": false
+}

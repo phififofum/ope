@@ -1,0 +1,19 @@
+{
+  "id": "base:tuxedo_shorthair",
+  "type": "cat",
+  "name_pool": "loc:catnames.common",
+  "model": "res://content/scenes/cats/shorthair.tscn",
+  "coat": "tuxedo",
+  "trait_weights": {
+    "vigilant": 0.85,
+    "territorial": 0.5,
+    "hunter": 0.7,
+    "skittish": 0.3,
+    "nocturnal": 0.6
+  },
+  "base_hunting": 0.72,
+  "counter_sensitivity": 0.75,
+  "false_positive_rate": 0.08,
+  "customer_appeal": 0.45,
+  "vocalisations": "res://content/assets/audio/cats/shorthair/"
+}

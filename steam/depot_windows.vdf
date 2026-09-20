@@ -1,0 +1,18 @@
+// Windows depot for PoggyWoggy.
+"DepotBuild"
+{
+	"DepotID" "482"               // ← your Windows depot id
+	"contentroot" "../build/windows"
+
+	"FileMapping"
+	{
+		"LocalPath" "*"
+		"DepotPath" "."
+		"recursive" "1"
+	}
+
+	"FileExclusion" "*.pdb"
+	"FileExclusion" "*.exp"
+	"FileExclusion" "*.lib"
+	"FileExclusion" "**/*.log"
+}

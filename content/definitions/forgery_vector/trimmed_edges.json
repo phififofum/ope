@@ -1,0 +1,29 @@
+{
+  "id": "base:trimmed_edges",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "base:collectible_card_meridian"
+    ]
+  },
+  "class": "physical_defect",
+  "tier": 3,
+  "difficulty": 5,
+  "detectable_by": [
+    "base:digital_microscope",
+    "base:precision_scale"
+  ],
+  "transform": {
+    "op": "resize",
+    "target": "card_edges",
+    "method": "trim_mm",
+    "range": [
+      0.2,
+      0.6
+    ]
+  },
+  "tell": {
+    "behaviour": "grades_it_for_you",
+    "weight": 0.55
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "base:reference_binder",
+  "type": "tool",
+  "name": "loc:tool.reference_binder",
+  "tier": 3,
+  "reveals": [
+    "jurisdiction_layouts",
+    "set_legality",
+    "print_run_records",
+    "known_fake_variants"
+  ],
+  "inspection_seconds": 25.0,
+  "unlocked_by": "licence_tier_3",
+  "failure_modes": [
+    "Visibly slow to the person waiting. Everyone can see you looking it up."
+  ],
+  "returns_verdict": false
+}

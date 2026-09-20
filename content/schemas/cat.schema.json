@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/cat.schema.json",
+  "title": "Cat",
+  "description": "A resident animal with three jobs: pest control, counter assistance, and being a cat.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name_pool",
+    "coat",
+    "trait_weights",
+    "base_hunting",
+    "counter_sensitivity",
+    "false_positive_rate",
+    "customer_appeal"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$",
+      "description": "Namespaced id. Base content uses `base:`."
+    },
+    "type": {
+      "const": "cat"
+    },
+    "name_pool": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "model": {
+      "type": "string",
+      "pattern": "^res://"
+    },
+    "coat": {
+      "type": "string"
+    },
+    "trait_weights": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "propertyNames": {
+        "enum": [
+          "vigilant",
+          "lazy",
+          "skittish",
+          "social",
+          "territorial",
+          "hunter",
+          "thief",
+          "vocal",
+          "nocturnal",
+          "escape_artist"
+        ]
+      }
+    },
+    "base_hunting": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "counter_sensitivity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "false_positive_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "The cat points attention. It never resolves anything."
+    },
+    "customer_appeal": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "vocalisations": {
+      "type": "string",
+      "pattern": "^res://"
+    }
+  }
+}

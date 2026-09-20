@@ -1,0 +1,25 @@
+{
+  "id": "base:set_out_of_legality_window",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "base:collectible_card_meridian"
+    ],
+    "requires_field": "set_symbol"
+  },
+  "class": "external_inconsistency",
+  "tier": 3,
+  "difficulty": 4,
+  "detectable_by": [
+    "base:reference_binder"
+  ],
+  "transform": {
+    "op": "set_field",
+    "target": "set_symbol",
+    "method": "rotated_set"
+  },
+  "tell": {
+    "behaviour": "presses_for_speed",
+    "weight": 0.4
+  }
+}

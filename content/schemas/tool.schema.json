@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/tool.schema.json",
+  "title": "Tool",
+  "description": "An instrument of inspection. A tool reveals; it never judges.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "tier",
+    "reveals",
+    "inspection_seconds",
+    "unlocked_by"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$",
+      "description": "Namespaced id. Base content uses `base:`."
+    },
+    "type": {
+      "const": "tool"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "tier": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4
+    },
+    "reveals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "description": "Field keys and security-feature ids this tool makes visible."
+    },
+    "inspection_seconds": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Every tool costs time. That price is the whole tension."
+    },
+    "unlocked_by": {
+      "type": "string"
+    },
+    "failure_modes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "destructive": {
+      "type": "boolean"
+    },
+    "returns_verdict": {
+      "const": false,
+      "description": "Always false. A tool that returns a verdict ends the game's central verb."
+    }
+  }
+}

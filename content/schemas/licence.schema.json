@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/licence.schema.json",
+  "title": "Licence",
+  "description": "What you are permitted to sell or do, what it costs, and the scrutiny it drags in with it.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "unlocks_categories",
+    "cost",
+    "renewal_days",
+    "strike_consequences"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$",
+      "description": "Namespaced id. Base content uses `base:`."
+    },
+    "type": {
+      "const": "licence"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "unlocks_categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cost": {
+      "type": "number",
+      "minimum": 0
+    },
+    "renewal_days": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "standing_required": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "verification_burden": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Human-readable summary of the checks this licence obliges."
+    },
+    "strike_consequences": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "first",
+        "second",
+        "third"
+      ],
+      "properties": {
+        "first": {
+          "type": "string"
+        },
+        "second": {
+          "type": "string"
+        },
+        "third": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "base:unverifiable_provenance",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "base:trade_in_record"
+    ]
+  },
+  "class": "external_inconsistency",
+  "tier": 3,
+  "difficulty": 4,
+  "detectable_by": [
+    "base:ledger",
+    "base:reference_binder"
+  ],
+  "transform": {
+    "op": "fabricate_field",
+    "target": "declared_provenance",
+    "method": "nonexistent_estate_sale"
+  },
+  "tell": {
+    "behaviour": "over_explains",
+    "weight": 0.5
+  }
+}

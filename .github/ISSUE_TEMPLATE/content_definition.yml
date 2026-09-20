@@ -1,0 +1,85 @@
+name: 🧾 Content definition
+description: Propose a product, recipe, document type, forgery vector, cat, customer or any other definition.
+title: "content: "
+labels: ["content", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Content is JSON, validated against a schema, and adding it needs no engine code —
+        that is the whole promise of the architecture. If you can write the definition
+        yourself, a pull request is more welcome than an issue:
+        see [the modding guide](https://github.com/phififofum/ope/blob/main/docs/modding/README.md).
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Definition type
+      options:
+        - product
+        - recipe
+        - document_type
+        - forgery_vector
+        - rule
+        - tool
+        - customer_archetype
+        - supplier
+        - fixture
+        - cat
+        - staff_role
+        - licence
+        - event
+        - upgrade
+        - board_game (library / retail title)
+        - card_set
+        - a type that does not exist yet
+    validations:
+      required: true
+
+  - type: input
+    id: id
+    attributes:
+      label: Proposed id
+      description: Namespaced and snake_case. Base content uses `base:`.
+      placeholder: "base:cold_brew_16oz"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What it is
+      description: One paragraph. What a player encounters, and when.
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: What it adds that we do not already have
+      description: |
+        Volume without coherence is worthless. A product that is strictly dominated by an
+        existing one at the same tier, or a forgery vector that no tool at its tier can
+        catch, will be declined — with reasons.
+    validations:
+      required: true
+
+  - type: textarea
+    id: draft
+    attributes:
+      label: Draft definition
+      description: JSON, if you have it. Even a rough one settles most of the discussion.
+      render: json
+
+  - type: checkboxes
+    id: gates
+    attributes:
+      label: Content quality gates
+      description: Tick what applies. Anything untickable is worth saying why in the box above.
+      options:
+        - label: Every player-visible string is a `loc:` key, not a literal.
+        - label: It is reachable — some licence, tier or unlock leads to it.
+        - label: (document types) It has at least three forgery vectors, spanning internal inconsistency, external inconsistency and physical defect.
+        - label: (forgery vectors) It is detectable by at least one tool available at the tier it appears.
+        - label: (recipes) It is completable with ingredients purchasable at that stage.
+        - label: It needs no new engine code.

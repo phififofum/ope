@@ -1,0 +1,37 @@
+{
+  "id": "base:ashen_verdict_bundle",
+  "type": "product",
+  "name": "loc:product.ashen_verdict_bundle",
+  "category": "sealed_product",
+  "tags": [
+    "high_value",
+    "resealable",
+    "sealed"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 24,
+  "sealed": {
+    "card_set": "base:ashen_verdict",
+    "form": "bundle",
+    "packs": 8
+  },
+  "base_cost": 35.54,
+  "market_price": 50.05,
+  "price_band": [
+    42.54,
+    80.08
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:sealed_distribution",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "adjacency_affinity": [
+    "accessories"
+  ],
+  "urgency": "low"
+}

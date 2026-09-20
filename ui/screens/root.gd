@@ -129,6 +129,7 @@ func _run_bot_sweep() -> int:
 		if not _argument_after("--players").is_empty()
 		else PackedStringArray(["1", "2", "3", "4", "5"])
 	)
+	var policy: BotPlayer.Policy = _policy_named(_argument_after("--policy"))
 
 	var runs: Array[Dictionary] = []
 	var failures: int = 0
@@ -147,9 +148,7 @@ func _run_bot_sweep() -> int:
 				)
 				var telemetry := RunLog.new(bus, seed_value, preset, players)
 				shop.open_for_business(600.0)
-				var report: Dictionary = (
-					BotPlayer.new(shop, BotPlayer.Policy.BALANCED, telemetry).play(days)
-				)
+				var report: Dictionary = BotPlayer.new(shop, policy, telemetry).play(days)
 
 				var run: Dictionary = {
 					"preset": preset,
@@ -160,6 +159,10 @@ func _run_bot_sweep() -> int:
 					"insolvent": report["insolvent"],
 					"money": report["final_money"],
 					"case_value": shop.card_case.case_value(),
+					"stock_value": report["stock_value"],
+					# The honest sealed number, per run: a sweep is the only place the
+					# long-run return on cardboard can be looked at without playing it.
+					"sealed": report["sealed"],
 					"reputation": report["final_reputation"],
 					"licences": shop.economy.licences.size(),
 					"staff": shop.staff.employees.size(),
@@ -176,7 +179,7 @@ func _run_bot_sweep() -> int:
 					failures += 1
 				runs.append(run)
 
-	var output: Dictionary = {"runs": runs, "failures": failures}
+	var output: Dictionary = {"runs": runs, "failures": failures, "policy": _policy_name(policy)}
 	var path: String = _argument_after("--out")
 	if not path.is_empty():
 		DirAccess.make_dir_recursive_absolute(path.get_base_dir())
@@ -186,6 +189,26 @@ func _run_bot_sweep() -> int:
 			file.close()
 	print(JSON.stringify(output))
 	return 1 if failures > 0 else 0
+
+
+func _policy_name(policy: BotPlayer.Policy) -> String:
+	return ["balanced", "counter_first", "kitchen_first", "careless", "paranoid", "gambler"][policy]
+
+
+func _policy_named(name: String) -> BotPlayer.Policy:
+	match name:
+		"careless":
+			return BotPlayer.Policy.CARELESS
+		"paranoid":
+			return BotPlayer.Policy.PARANOID
+		"counter_first":
+			return BotPlayer.Policy.COUNTER_FIRST
+		"kitchen_first":
+			return BotPlayer.Policy.KITCHEN_FIRST
+		"gambler":
+			return BotPlayer.Policy.GAMBLER
+		_:
+			return BotPlayer.Policy.BALANCED
 
 
 func _reputation_breakdown(shop: Shop) -> Dictionary:

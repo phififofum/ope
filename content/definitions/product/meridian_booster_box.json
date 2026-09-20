@@ -15,6 +15,11 @@
     1
   ],
   "units_per_case": 6,
+  "sealed": {
+    "card_set": "base:meridian_core",
+    "form": "booster_box",
+    "packs": 30
+  },
   "base_cost": 88.0,
   "market_price": 124.0,
   "price_band": [

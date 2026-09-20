@@ -51,6 +51,7 @@ var rng: SeededRng
 
 var _scheduled: Array[int] = []
 var _last_hard_tick: int = -10000
+var _hard_tick_before_last: int = -10000
 var _last_arrival_tick: int = 0
 var _correct_streak: int = 0
 var _error_streak: int = 0
@@ -80,9 +81,15 @@ func plan_shift(shift_length_ticks: int, _player_count: int) -> Array[int]:
 
 ## Should someone arrive this tick? Sub-linear in player count: more players should mean
 ## more comfort as well as more work.
-func should_spawn(current_tick: int, player_count: int, active_load: int) -> bool:
+## [param draw] is everything the shop has done to be worth visiting -- a wall of cards
+## people want to look at, mostly. It shortens the gap between arrivals, which is the only
+## honest way for a display case to pay for itself.
+func should_spawn(
+	current_tick: int, player_count: int, active_load: int, draw: float = 0.0
+) -> bool:
 	var interval: float = (
-		float(profile.arrival_interval_ticks) / (1.0 + 0.55 * float(player_count - 1))
+		float(profile.arrival_interval_ticks)
+		/ ((1.0 + 0.55 * float(player_count - 1)) * (1.0 + clampf(draw, 0.0, 1.5)))
 	)
 	if active_load > player_count * 2:
 		interval *= 1.6  # load-aware: if everyone is buried, hold off
@@ -100,9 +107,21 @@ func should_be_suspicious(current_tick: int) -> bool:
 			if current_tick - _last_hard_tick < profile.min_gap_between_hard_ticks:
 				continue
 			_scheduled.erase(scheduled_tick)
+			_hard_tick_before_last = _last_hard_tick
 			_last_hard_tick = current_tick
 			return true
 	return false
+
+
+## Hands a scheduled encounter back, unspent.
+##
+## A suspicious slot that could not be filled -- nothing wrong with the document that
+## turned up would have been catchable -- must not be consumed, or a shift quietly loses
+## most of its content and carelessness stops costing anything.
+func return_slot(current_tick: int) -> void:
+	_scheduled.append(current_tick + 40)
+	_scheduled.sort()
+	_last_hard_tick = _hard_tick_before_last
 
 
 ## The room has been quiet for too long: send something. A player with nothing to do is

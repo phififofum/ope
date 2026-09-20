@@ -28,10 +28,12 @@ python3 tools/validate_content.py --strict # warnings fail too
 | [`forgery_vector`](#forgery_vector) | One way an artifact can be wrong | [forgery_vector.schema.json](../../content/schemas/forgery_vector.schema.json) |
 | [`recipe`](#recipe) | Kitchen items | [recipe.schema.json](../../content/schemas/recipe.schema.json) |
 | [`cat`](#cat) | Residents | [cat.schema.json](../../content/schemas/cat.schema.json) |
+| `card_set` | A release, its pull table and its legality window | [card_set.schema.json](../../content/schemas/card_set.schema.json) |
 
-Planned for later phases, specified in
-[02 Architecture](../design/02-architecture.md#definition-types-in-v1): `customer_archetype`,
-`rule`, `fixture`, `staff_role`, `event`, `upgrade`, `board_game`, `card_set`, `loc_string`.
+Loaded and validated on the same terms, each with a schema beside the ones above:
+`customer_archetype`, `rule`, `fixture`, `staff_role`, `event`, `upgrade`, `board_game`,
+`npc`, `achievement`. The sections below document the ones a first mod usually touches;
+the schema is authoritative for all of them.
 
 ## Rules that apply to every type
 
@@ -58,6 +60,7 @@ Cafe stock, kitchen ingredients, retail goods, sealed product, singles.
 | `storage` | enum | ✅ | `ambient`, `chilled`, `frozen`. Drives degradation outside its class. |
 | `shelf_footprint` | [int, int] | | Tiles occupied |
 | `units_per_case` | int | | Delivery granularity |
+| `sealed` | object | | Present on sealed product: `card_set` (must exist), `form` (`pack`, `blister`, `bundle`, `booster_box`, `case`), `packs`. **This is what makes a unit openable as well as sellable** — see below. |
 | `base_cost` | number | ✅ | What you pay |
 | `market_price` | number | ✅ | Drifts daily within a band. `0` means not sold directly (an ingredient). |
 | `price_band` | [number, number] | ✅ | Bounds of the market drift |
@@ -67,6 +70,28 @@ Cafe stock, kitchen ingredients, retail goods, sealed product, singles.
 | `model` | `res://` path | | |
 | `adjacency_affinity` | string[] | | Categories that lift each other's basket attachment |
 | `urgency` | enum | | `low`, `medium`, `high` — raises tolerable markup |
+
+### Sealed product
+
+A product whose `category` is `sealed_product` must carry a `sealed` block, and the
+validator enforces one rule about it that is a design promise rather than a schema
+constraint: **opening a unit has to return less, on average, than selling it would.**
+The expected contents are computed from the named set's pull table the same way the game
+computes them, and a set or a product that pays better opened than sold fails validation.
+
+```json
+{
+  "id": "yourmod:harbourline_box",
+  "type": "product",
+  "category": "sealed_product",
+  "sealed": { "card_set": "yourmod:harbourline", "form": "booster_box", "packs": 30 },
+  "market_price": 152.08
+}
+```
+
+Nothing in the engine knows your set's name. The rack, the rip, the ledger and the
+customer who buys it sealed all read the `sealed` block, so a set a mod adds is playable
+the moment it validates.
 
 ## `supplier`
 

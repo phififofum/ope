@@ -58,6 +58,10 @@ const DELIVERY_ACCEPTED: StringName = &"delivery_accepted"
 const HIRE_ATTEMPTED: StringName = &"hire_attempted"
 const LOAN_ATTEMPTED: StringName = &"loan_attempted"
 const PURCHASE_ATTEMPTED: StringName = &"purchase_attempted"
+## About to open sealed stock. Cancellable because "we do not rip our own inventory on a
+## tournament night" is exactly the kind of house rule a shop has and a mod should be able
+## to enforce.
+const SEALED_OPEN_ATTEMPTED: StringName = &"sealed_open_attempted"
 
 ## name -> { kind, aggregate }. Everything the bus will accept.
 const EVENTS: Dictionary = {
@@ -95,6 +99,7 @@ const EVENTS: Dictionary = {
 	HIRE_ATTEMPTED: {"kind": Kind.CANCELLABLE},
 	LOAN_ATTEMPTED: {"kind": Kind.CANCELLABLE},
 	PURCHASE_ATTEMPTED: {"kind": Kind.CANCELLABLE},
+	SEALED_OPEN_ATTEMPTED: {"kind": Kind.CANCELLABLE},
 }
 
 

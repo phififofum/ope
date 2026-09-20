@@ -77,6 +77,36 @@
       "type": "integer",
       "minimum": 1
     },
+    "sealed": {
+      "type": "object",
+      "description": "Present on sealed product only: what is inside, so the shop can open it instead of selling it. Every `sealed_product` carries one.",
+      "additionalProperties": false,
+      "required": [
+        "card_set",
+        "form",
+        "packs"
+      ],
+      "properties": {
+        "card_set": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+        },
+        "form": {
+          "enum": [
+            "pack",
+            "blister",
+            "bundle",
+            "booster_box",
+            "case"
+          ]
+        },
+        "packs": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Packs opened when one unit is ripped."
+        }
+      }
+    },
     "base_cost": {
       "type": "number",
       "minimum": 0

@@ -56,6 +56,11 @@ func generate_forged(
 	var artifact: Artifact = generate_genuine(document_type, person, today)
 	var candidates: Array = applicable_vectors(document_type, max_tier, owned_tools)
 	if candidates.is_empty():
+		# Nothing at this tier is catchable with the instruments the player owns. Sending
+		# an honest customer instead is how a scheduled encounter quietly evaporates, so
+		# drop to something gross enough to see without any instrument at all.
+		candidates = applicable_vectors(document_type, 0, owned_tools)
+	if candidates.is_empty():
 		return artifact
 	var chosen: Array = []
 	for _index: int in range(maxi(1, vector_count)):
@@ -200,6 +205,8 @@ func _range_value(transform: Dictionary, fallback_low: float, fallback_high: flo
 
 
 func _value_for(key: String, source: String, person: Person, today: int) -> Variant:
+	if source.begins_with("world.") or source.begins_with("transaction."):
+		return _printed_on_it(source, person, today)
 	match source:
 		"person.dob":
 			return person.dob_days
@@ -223,8 +230,6 @@ func _value_for(key: String, source: String, person: Person, today: int) -> Vari
 			return today - 365 * 2
 		"derived.holding_end":
 			return today + 14
-		"world.date":
-			return today
 		"encoded.all_fields":
 			return person.dob_days
 		"store.stamp":
@@ -245,3 +250,52 @@ func _value_for(key: String, source: String, person: Person, today: int) -> Vari
 			return 1.75
 		_:
 			return "%s_value" % key
+
+
+## The parts of a document that describe the world rather than the bearer: who issued it,
+## what scheme it belongs to, what it covers. No rule reads any of these -- they are there
+## so that a document reads like a document instead of like a form with the labels filled
+## in by a machine.
+func _printed_on_it(source: String, person: Person, today: int) -> Variant:
+	match source:
+		"world.date":
+			return today
+		"world.issuer":
+			return _issuer_for(person)
+		"world.agency":
+			return "Northvale Trading Standards"
+		"world.programme":
+			return "Organised Play, season %d" % (1 + today / 90)
+		"world.categories":
+			return "accessories, sealed product, singles"
+		"world.balance":
+			# A date of birth is days before today, so it is negative: a store credit
+			# balance is not.
+			return snappedf(12.0 + float(absi(person.dob_days) % 240), 0.01)
+		"transaction.items":
+			return _basket_line()
+		_:
+			return "%s_value" % source
+
+
+## The office that issued the thing. Deterministic from the bearer, because a document
+## that names a different clerk every time it is looked at is not a document.
+func _issuer_for(person: Person) -> String:
+	const OFFICES: PackedStringArray = [
+		"Northvale County Clerk",
+		"Harbourline Registry",
+		"Saltmarsh District Office",
+		"Fenwick Civic Centre",
+	]
+	return OFFICES[absi(String(person.id).hash()) % OFFICES.size()]
+
+
+## What is actually on the counter, named from the catalogue rather than invented, so the
+## line on the certificate is a line the shop could really have sold.
+func _basket_line() -> String:
+	var names: PackedStringArray = []
+	var products: Array = _registry.by_type(&"product")
+	for _index: int in range(mini(3, products.size())):
+		var product: ContentDefinition = _rng.pick(SeededRng.FORGERY, products)
+		names.append(product.get_text("name").replace("loc:product.", "").replace("_", " "))
+	return ", ".join(names)

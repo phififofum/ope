@@ -1,0 +1,37 @@
+{
+  "id": "base:meridian_core_pack",
+  "type": "product",
+  "name": "loc:product.meridian_core_pack",
+  "category": "sealed_product",
+  "tags": [
+    "impulse",
+    "resealable",
+    "sealed"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 24,
+  "sealed": {
+    "card_set": "base:meridian_core",
+    "form": "pack",
+    "packs": 1
+  },
+  "base_cost": 3.56,
+  "market_price": 5.01,
+  "price_band": [
+    4.26,
+    8.02
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "adjacency_affinity": [
+    "accessories"
+  ],
+  "urgency": "high"
+}

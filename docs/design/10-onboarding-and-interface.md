@@ -97,6 +97,9 @@ form-filling. *A UI panel listing an ID's fields has already destroyed the game.
 | Camera feeds | A monitor bank in the office |
 | House rules | A board the group writes on |
 | Cat status | The cat. Look at it. |
+| Sealed stock | The rack it sits on. Standing in front of it is where you decide whether to sell it or open it. |
+| What you pulled | The case, and the wall behind the counter |
+| Deliveries and reordering | The back door |
 
 Permitted non-diegetic HUD, kept minimal: an interaction prompt, held-item indicator, player
 nameplates in co-op, and subtitles. Nothing else by default.

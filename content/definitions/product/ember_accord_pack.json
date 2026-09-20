@@ -1,0 +1,37 @@
+{
+  "id": "base:ember_accord_pack",
+  "type": "product",
+  "name": "loc:product.ember_accord_pack",
+  "category": "sealed_product",
+  "tags": [
+    "impulse",
+    "resealable",
+    "sealed"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 24,
+  "sealed": {
+    "card_set": "base:ember_accord",
+    "form": "pack",
+    "packs": 1
+  },
+  "base_cost": 3.07,
+  "market_price": 4.32,
+  "price_band": [
+    3.67,
+    6.91
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "adjacency_affinity": [
+    "accessories"
+  ],
+  "urgency": "high"
+}

@@ -46,6 +46,15 @@ jobs:
       - name: Validate every definition against its schema
         run: python3 tools/validate_content.py --strict
 
+      - name: The generated content is what the generator says it is
+        run: python3 tools/generate_content.py --check
+
+      - name: Every example mod validates the way a contributor's would
+        run: |
+          for mod in examples/mods/*/; do
+            tools/validate_mod.sh "$mod"
+          done
+
       - name: Every asset carries a shippable licence record
         run: python3 tools/licence_audit.py --check
 

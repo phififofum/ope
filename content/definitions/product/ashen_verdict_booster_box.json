@@ -1,0 +1,38 @@
+{
+  "id": "base:ashen_verdict_booster_box",
+  "type": "product",
+  "name": "loc:product.ashen_verdict_booster_box",
+  "category": "sealed_product",
+  "tags": [
+    "high_value",
+    "resealable",
+    "sealed",
+    "theft_exposed"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 6,
+  "sealed": {
+    "card_set": "base:ashen_verdict",
+    "form": "booster_box",
+    "packs": 30
+  },
+  "base_cost": 126.39,
+  "market_price": 178.02,
+  "price_band": [
+    151.32,
+    284.83
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:sealed_distribution",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "adjacency_affinity": [
+    "accessories"
+  ],
+  "urgency": "low"
+}

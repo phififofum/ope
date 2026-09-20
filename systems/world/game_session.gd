@@ -80,8 +80,34 @@ func _process(delta: float) -> void:
 		log.sample(shop.day, shop.clock.current_tick(), shop.state_sample())
 	if shop.clock.current_tick() - shop.day * Shop.DAY_TICKS > Shop.DAY_TICKS:
 		var summary: Dictionary = shop.end_day()
+		_report_the_night(summary)
 		day_ended.emit(summary)
 		shop.start_day(shop.day + 1)
+
+
+## Closing time. The only thing said out loud is the number a shop owner would know and
+## a gambler would rather not: what everything you opened was worth on the shelf, against
+## what it actually gave back. It is bookkeeping, not a lecture, and it is never hidden.
+func _report_the_night(summary: Dictionary) -> void:
+	var ledger: Dictionary = summary.get("sealed", {})
+	if int(ledger.get("units_ripped", 0)) <= 0:
+		return
+	var ratio: float = float(ledger.get("return_ratio", 0.0))
+	(
+		hud
+		. cue(
+			(
+				"sealed, lifetime: %d opened, %.0f of stock, %.0f back (%d%%)"
+				% [
+					int(ledger["units_ripped"]),
+					float(ledger["retail_forgone"]),
+					float(ledger["realised"]) + float(ledger["unsold_value"]),
+					int(round(ratio * 100.0)),
+				]
+			),
+			"good" if ratio >= 1.0 else "warning"
+		)
+	)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -121,13 +147,110 @@ func _interact() -> void:
 				)
 		Interactable.Kind.RETAIL_SHELF:
 			shop.restock_shelves(_free_slot, now)
+		Interactable.Kind.SEALED_RACK:
+			_open_something(now)
+		Interactable.Kind.DOOR:
+			_work_the_back_door(now)
 		Interactable.Kind.CASE:
-			var case_result: Dictionary = shop.work_the_case(_free_slot, now, 20.0)
-			hud.cue("case: %d sold" % int(case_result.get("sold", 0)), "info")
+			var case_result: Dictionary = shop.work_the_case(_free_slot, now, 20.0, 90.0)
+			hud.cue(
+				(
+					"case: %d sold, %d on the wall"
+					% [int(case_result.get("sold", 0)), int(case_result.get("displayed", 0))]
+				),
+				"info"
+			)
 		Interactable.Kind.TABLE:
 			shop.clean_up(_free_slot, now, interactable.seconds)
 		_:
 			shop.clean_up(_free_slot, now, interactable.seconds)
+
+
+## The back door, which is two jobs wearing one coat: take in what has arrived, and order
+## what is running out. Checking a delivery properly costs most of a minute, which is why
+## a trio waves them through and a fourth player changes the game.
+func _work_the_back_door(now: int) -> void:
+	var received: Array[Dictionary] = shop.receive_deliveries(_free_slot, now, true)
+	if not received.is_empty():
+		for delivery: Dictionary in received:
+			if bool(delivery.get("caught", false)):
+				hud.cue("refused a delivery: %s" % delivery.get("problem", ""), "warning")
+			else:
+				hud.cue("took in a delivery from %s" % delivery.get("supplier", ""), "info")
+		return
+	_order_what_is_running_out()
+
+
+## One order, for whatever is thinnest. Sealed product is ordered like anything else --
+## it is stock, and it competes for the same money as the coffee.
+func _order_what_is_running_out() -> void:
+	var thinnest: ContentDefinition = null
+	for product: ContentDefinition in shop.registry.by_type(&"product"):
+		if product.get_number("market_price") <= 0.0:
+			continue
+		if not shop.economy.holds(StringName(product.get_text("licence"))):
+			continue
+		if (
+			thinnest == null
+			or shop.inventory.total_units(product.id) < shop.inventory.total_units(thinnest.id)
+		):
+			thinnest = product
+	if thinnest == null:
+		hud.cue("nothing to order", "info")
+		return
+	var suppliers: Array = thinnest.get_value("suppliers", [])
+	if suppliers.is_empty():
+		return
+	var delivery: Inventory.Delivery = shop.inventory.order(
+		StringName(str(suppliers[0])), {thinnest.id: 6}, shop.economy, shop.rng
+	)
+	if delivery == null:
+		hud.cue("the till will not cover that order", "warning")
+		return
+	hud.cue("ordered 6 of %s, here on day %d" % [thinnest.id, delivery.arrives_day], "info")
+
+
+## The gamble, from in front of the rack. What it costs is on the shelf where anybody
+## could have bought it, and the cue says what came out -- including the bad news, which
+## is the whole reason the ledger exists.
+func _open_something(now: int) -> void:
+	var sealed: Array = shop.sellable_sealed()
+	if sealed.is_empty():
+		hud.set_prompt("nothing sealed in stock")
+		return
+	# The rack is where the packs are. Reaching for the cheapest thing on it is the small
+	# version of the decision; the boxes behind the counter are the large one.
+	var product: ContentDefinition = sealed[0]
+	for candidate: ContentDefinition in sealed:
+		if candidate.get_number("market_price") < product.get_number("market_price"):
+			product = candidate
+	var result: Dictionary = shop.rip_sealed(_free_slot, now, product.id)
+	if not bool(result.get("opened", false)):
+		hud.cue("nothing to open: %s" % result.get("reason", ""), "warning")
+		return
+
+	var value: float = float(result.get("value", 0.0))
+	var forgone: float = float(result.get("forgone", 0.0))
+	if bool(result.get("resealed", false)):
+		hud.cue("somebody opened this box before you did", "bad")
+	elif value >= forgone:
+		(
+			hud
+			. cue(
+				(
+					"%s: %s, %.2f against %.2f"
+					% [
+						result.get("best_rarity", ""),
+						"paid for itself",
+						value,
+						forgone,
+					]
+				),
+				"good"
+			)
+		)
+	else:
+		hud.cue("pulled %.2f out of a %.2f box" % [value, forgone], "info")
 
 
 func _serve_next() -> void:

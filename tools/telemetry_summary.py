@@ -29,13 +29,50 @@ def latest_report() -> Path | None:
     return reports[-1] if reports else None
 
 
+def net_worth(run: dict) -> float:
+    """Cash plus both kinds of cardboard.
+
+    Leaving stock out would make opening a box look like it created value, when what it
+    did was move value from the shelf into the case and lose some of it in the process.
+    """
+    return float(run["money"]) + float(run["case_value"]) + float(run.get("stock_value", 0.0))
+
+
+def report_sealed(runs: list[dict]) -> None:
+    """The one number the design promises to print whether or not it flatters anyone.
+
+    A return ratio above 1.0 across a sweep does not mean the bot got lucky; it means the
+    pull tables pay more than the shelf does, and the gamble has become the correct way
+    to run a card shop.
+    """
+    ledgers = [run.get("sealed") or {} for run in runs]
+    ripped = sum(int(ledger.get("units_ripped", 0)) for ledger in ledgers)
+    if ripped == 0:
+        return
+    forgone = sum(float(ledger.get("retail_forgone", 0.0)) for ledger in ledgers)
+    realised = sum(float(ledger.get("realised", 0.0)) for ledger in ledgers)
+    unsold = sum(float(ledger.get("unsold_value", 0.0)) for ledger in ledgers)
+    sold_sealed = sum(int(ledger.get("units_sold_sealed", 0)) for ledger in ledgers)
+    ratio = (realised + unsold) / forgone if forgone else 0.0
+
+    print("\nsealed product")
+    print(f"  opened          {ripped:>6} unit(s) worth {forgone:>9.0f} on the shelf")
+    print(f"  sold sealed     {sold_sealed:>6} unit(s)")
+    print(
+        f"  came back       {realised + unsold:>9.0f}  ({ratio:.0%} of what they would have sold for)"
+    )
+    if ratio >= 1.0:
+        print("  note: opening stock is paying better than selling it -- the pull tables are wrong")
+
+
 def summarise(data: dict) -> int:
     runs: list[dict] = data.get("runs", [])
     if not runs:
         print("no runs in this report", file=sys.stderr)
         return 2
 
-    print(f"{len(runs)} run(s), {data.get('failures', 0)} needing attention\n")
+    policy = data.get("policy", "balanced")
+    print(f"{len(runs)} run(s) as `{policy}`, {data.get('failures', 0)} needing attention\n")
 
     print("by player count")
     by_players: dict[int, list[dict]] = {}
@@ -44,7 +81,7 @@ def summarise(data: dict) -> int:
     paces: dict[int, float] = {}
     for players in sorted(by_players):
         group = by_players[players]
-        net = statistics.mean(float(r["money"]) + float(r["case_value"]) for r in group)
+        net = statistics.mean(net_worth(r) for r in group)
         reputation = statistics.mean(float(r["reputation"]) for r in group)
         licences = statistics.mean(float(r["licences"]) for r in group)
         paces[players] = licences
@@ -59,7 +96,7 @@ def summarise(data: dict) -> int:
         by_preset.setdefault(str(run["preset"]), []).append(run)
     for preset in sorted(by_preset):
         group = by_preset[preset]
-        net = statistics.mean(float(r["money"]) + float(r["case_value"]) for r in group)
+        net = statistics.mean(net_worth(r) for r in group)
         insolvent = sum(1 for r in group if r["insolvent"])
         print(f"  {preset:<9} net {net:>9.0f}   insolvent {insolvent}/{len(group)}")
 
@@ -95,6 +132,8 @@ def summarise(data: dict) -> int:
         for code, count in sorted(outcomes.items(), key=lambda pair: -pair[1]):
             label = outcome_names.get(code, f"outcome {code}")
             print(f"  {label:<32} {count:>6}  ({count / total_outcomes:.0%})")
+
+    report_sealed(runs)
 
     reasons: dict[str, float] = {}
     for run in runs:

@@ -118,6 +118,13 @@ its own clock, so a player is never without something to do.
 7. **Break down the box.** Flatten it, take it to the back. Boxes left out block aisles and tank
    the cleanliness score.
 
+The payoff for all of that is the ordinary customer who walks in, takes something off a
+shelf and pays for it. They are most of the day and they ask nothing of the player except
+that the thing they wanted was in stock and faced — which is what makes an empty shelf a
+cost rather than a cosmetic problem. It is also what makes the
+[sealed decision](06-loop-d-case.md) real: the pack you opened was a pack somebody would
+have bought.
+
 ## Pricing and demand
 
 Each product has a `market_price` that drifts daily within a band. Player price relative to

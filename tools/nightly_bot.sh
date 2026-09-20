@@ -4,6 +4,7 @@
 #
 #     tools/nightly_bot.sh              # 10 days, 3 seeds, every count and preset
 #     tools/nightly_bot.sh 30 10        # 30 days, 10 seeds -- the weekly campaign run
+#     tools/nightly_bot.sh 10 3 gambler # a policy other than `balanced`
 #
 # It is not a test of skill. It answers: can a campaign be completed, does anything
 # soft-lock, does the economy reach a dead end, is any objective unreachable.
@@ -17,6 +18,7 @@ cd "$ROOT"
 
 DAYS="${1:-10}"
 SEEDS="${2:-3}"
+POLICY="${3:-balanced}"
 GODOT="${GODOT:-}"
 if [ -z "$GODOT" ]; then
   GODOT_VERSION="$(tr -d '[:space:]' < .godot-version)"
@@ -28,11 +30,12 @@ if [ -z "$GODOT" ]; then
 fi
 
 STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
-OUT="reports/bot/${STAMP}.json"
+OUT="reports/bot/${STAMP}-${POLICY}.json"
 
-echo "bot sweep: ${DAYS} days x ${SEEDS} seeds, every player count and preset"
+echo "bot sweep as ${POLICY}: ${DAYS} days x ${SEEDS} seeds, every player count and preset"
 set +e
-"$GODOT" --headless --path . -- --bot --days "$DAYS" --seeds "$SEEDS" --out "$OUT" >/dev/null 2>&1
+"$GODOT" --headless --path . -- \
+  --bot --days "$DAYS" --seeds "$SEEDS" --policy "$POLICY" --out "$OUT" >/dev/null 2>&1
 STATUS=$?
 set -e
 

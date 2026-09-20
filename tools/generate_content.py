@@ -111,6 +111,11 @@ HAND_AUTHORED = {
     "licence/secondhand_dealer.json",
     "licence/sealed_distribution.json",
     "supplier/metro_wholesale.json",
+    # The two pieces of furniture the sealed loop is played on, and the door the stock
+    # arrives through.
+    "fixture/pack_rack.json",
+    "fixture/singles_wall.json",
+    "fixture/back_door.json",
     "supplier/nightfreight_discount.json",
     "supplier/harrowgate_distribution.json",
     "document_type/trade_in_record.json",
@@ -309,12 +314,82 @@ def gen_board_games(written: dict) -> None:
         )
 
 
+# rarity, pull rate, relative share of a pack's expected value
+#
+# The shape is the mechanic: nearly all of a pack's worth sits in cards you almost never
+# pull, so the median pack is a disappointment and the rare one is a story. The absolute
+# numbers are then scaled per set so that a pack returns less than it sells for -- see
+# EV_FRACTION.
+RARITY_SHAPE = [
+    ("common", 0.7200, 0.06),
+    ("uncommon", 0.2000, 0.10),
+    ("rare", 0.0720, 0.24),
+    ("mythic", 0.0076, 0.33),
+    ("serialised", 0.0004, 0.27),
+]
+
+# What a pack's contents are worth, as a fraction of what the pack sells for. Below 1.0
+# for every set, because the design says so out loud: opening your own stock is a worse
+# deal than selling it, and the ledger is allowed to say that to the player's face.
+#
+# It varies by set because "which set is worth ripping" should be a real, learnable
+# question with a real answer, not a coin toss.
+EV_FRACTION = [0.52, 0.58, 0.64, 0.61, 0.55, 0.68, 0.59, 0.63]
+
+# form, packs per unit, retail markup on the packs it contains, footprint, tags, licence
+#
+# Packs and blisters are ordinary retail: a shop can sell and open those from the first
+# morning, because the gamble is a hook and a hook you cannot reach for a fortnight is
+# not one. Buying by the box means buying direct from a distributor, which is a licence
+# and a standing requirement -- so the loop opens small and grows.
+SEALED_FORMS = [
+    ("pack", 1, 1.0, [1, 1], ["sealed", "impulse"], "base:general_retail"),
+    ("blister", 3, 1.08, [1, 1], ["sealed", "impulse"], "base:general_retail"),
+    ("bundle", 8, 0.97, [2, 1], ["sealed", "high_value"], "base:sealed_distribution"),
+    (
+        "booster_box",
+        0,
+        0.92,
+        [2, 1],
+        ["sealed", "high_value", "theft_exposed"],
+        "base:sealed_distribution",
+    ),
+]
+
+
+def rarity_table(pack_price: float, cards_per_pack: int, ev_fraction: float) -> list[dict]:
+    """Values scaled so the pack's expected contents come to `ev_fraction` of its price.
+
+    A pull is worth `base_value + value_spread / 2` on average, which is what this
+    inverts. Keeping the arithmetic here rather than in the JSON is what lets the
+    validator assert the honest-odds rule against every set the generator emits.
+    """
+    target = pack_price * ev_fraction
+    table = []
+    for rarity, pull_rate, value_share in RARITY_SHAPE:
+        mean_value = (target * value_share) / (pull_rate * cards_per_pack)
+        # Spread is widest at the top: two mythics from the same set are not the same
+        # card, and the gap between them is most of what makes a pull worth watching.
+        spread = mean_value * (0.5 if rarity in ("common", "uncommon") else 1.6)
+        table.append(
+            {
+                "rarity": rarity,
+                "pull_rate": pull_rate,
+                "base_value": round(max(0.02, mean_value - spread / 2.0), 3),
+                "value_spread": round(spread, 3),
+            }
+        )
+    return table
+
+
 def gen_card_sets(written: dict) -> None:
     rng = rng_for("card_set")
     for index in range(COUNTS["card_set"]):
         name = SET_NAMES[index % len(SET_NAMES)]
         slug = name.lower().replace(" ", "_")
         released = 30 + index * 84
+        pack_price = round(rng.uniform(3.8, 6.5), 2)
+        cards_per_pack = rng.choice([9, 10, 12, 15])
         write(
             "card_set",
             slug,
@@ -324,41 +399,32 @@ def gen_card_sets(written: dict) -> None:
                 "name": f"loc:card_set.{slug}",
                 "released_day": released,
                 "rotates_out_day": released + 730,
-                "pack_price": round(rng.uniform(3.8, 6.5), 2),
-                "cards_per_pack": rng.choice([9, 10, 12, 15]),
+                "pack_price": pack_price,
+                "cards_per_pack": cards_per_pack,
                 "packs_per_box": rng.choice([24, 30, 36]),
-                "rarities": [
-                    {
-                        "rarity": "common",
-                        "pull_rate": 0.7,
-                        "base_value": 0.08,
-                        "value_spread": 0.05,
-                    },
-                    {
-                        "rarity": "uncommon",
-                        "pull_rate": 0.2,
-                        "base_value": 0.55,
-                        "value_spread": 0.4,
-                    },
-                    {"rarity": "rare", "pull_rate": 0.083, "base_value": 4.2, "value_spread": 6.0},
-                    {
-                        "rarity": "mythic",
-                        "pull_rate": 0.015,
-                        "base_value": 38.0,
-                        "value_spread": 90.0,
-                    },
-                    {
-                        "rarity": "serialised",
-                        "pull_rate": 0.002,
-                        "base_value": 420.0,
-                        "value_spread": 900.0,
-                    },
-                ],
+                "rarities": rarity_table(
+                    pack_price, cards_per_pack, EV_FRACTION[index % len(EV_FRACTION)]
+                ),
                 "security_features": ["print_rosette", "foil_response", "layer_core"],
                 "tags": ["sealed_product", "authenticated"],
             },
             written,
         )
+
+
+def card_set_specs() -> list[dict]:
+    """The sets this generator produces, for the generators that build on them.
+
+    Regenerated rather than read off disk so that `generate_content.py product` is the
+    same as a full run: a sealed box has to describe a set that actually exists.
+    """
+    scratch: dict[str, str] = {}
+    gen_card_sets(scratch)
+    specs = [json.loads(text) for name, text in sorted(scratch.items())]
+    for path in sorted((DEFINITIONS / "card_set").glob("*.json")):
+        if f"card_set/{path.name}" in HAND_AUTHORED:
+            specs.append(json.loads(path.read_text(encoding="utf-8")))
+    return specs
 
 
 def gen_customer_archetypes(written: dict) -> None:
@@ -1088,17 +1154,6 @@ CAFE_ITEMS = [
     ("dice_set", "accessories", "ambient", 3.4, 11.0, 0, ["impulse"]),
     ("toploaders", "accessories", "ambient", 2.2, 6.0, 0, ["counter_adjacent"]),
     (
-        "booster_box",
-        "sealed_product",
-        "ambient",
-        88.0,
-        124.0,
-        0,
-        ["sealed", "high_value", "theft_exposed"],
-    ),
-    ("booster_pack", "sealed_product", "ambient", 3.1, 5.2, 0, ["sealed", "impulse"]),
-    ("collector_box", "sealed_product", "ambient", 180.0, 240.0, 0, ["sealed", "high_value"]),
-    (
         "graded_single",
         "singles",
         "ambient",
@@ -1372,6 +1427,53 @@ SUPPLIER_SEEDS = [
 ]
 
 
+def gen_sealed_products(written: dict) -> int:
+    """One product per (set, form): the thing on the rack that can be sold or opened.
+
+    Deriving these from the sets rather than hand-listing them is what makes the rip
+    decision real for every set in the game, including one a mod adds -- the loop reads
+    the `sealed` block, never a list of ids.
+    """
+    made = 0
+    for spec in card_set_specs():
+        set_slug = spec["id"].split(":", 1)[1]
+        pack_price = float(spec["pack_price"])
+        for form, packs, markup, footprint, tags, licence in SEALED_FORMS:
+            count = int(spec["packs_per_box"]) if packs == 0 else packs
+            market = round(pack_price * count * markup, 2)
+            slug = f"{set_slug}_{form}"
+            write(
+                "product",
+                slug,
+                {
+                    "id": f"base:{slug}",
+                    "type": "product",
+                    "name": f"loc:product.{slug}",
+                    "category": "sealed_product",
+                    "tags": sorted({*tags, "resealable"}),
+                    "storage": "ambient",
+                    "shelf_footprint": footprint,
+                    "units_per_case": 6 if count > 8 else 24,
+                    "sealed": {
+                        "card_set": spec["id"],
+                        "form": form,
+                        "packs": count,
+                    },
+                    "base_cost": round(market * 0.71, 2),
+                    "market_price": market,
+                    "price_band": [round(market * 0.85, 2), round(market * 1.6, 2)],
+                    "shelf_life_days": 0,
+                    "licence": licence,
+                    "suppliers": ["base:metro_wholesale"],
+                    "adjacency_affinity": ["accessories"],
+                    "urgency": "high" if count == 1 else "low",
+                },
+                written,
+            )
+            made += 1
+    return made
+
+
 def gen_products(written: dict) -> None:
     rng = rng_for("product")
     licence_for = {
@@ -1381,7 +1483,7 @@ def gen_products(written: dict) -> None:
         "singles": "base:secondhand_dealer",
     }
     variants = ["", "large", "small", "house", "seasonal", "premium"]
-    made: int = 0
+    made: int = gen_sealed_products(written)
     for variant in variants:
         for base_name, category, storage, cost, price, shelf_life, tags in CAFE_ITEMS:
             if made >= COUNTS["product"]:

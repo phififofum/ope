@@ -80,6 +80,17 @@ func test_tier_three_adds_a_mechanic_with_no_engine_code() -> void:
 	)
 	assert_bool(sale.allowed).is_false()
 
+	# And a policy about the shop's own stock: packs may be opened, boxes are for selling.
+	var pack: EventOutcome = bus.attempt(
+		EventCatalog.SEALED_OPEN_ATTEMPTED, {"shelf_price": 5.5, "packs": 1}
+	)
+	assert_bool(pack.allowed).is_true()
+	var box: EventOutcome = bus.attempt(
+		EventCatalog.SEALED_OPEN_ATTEMPTED, {"shelf_price": 152.0, "packs": 30}
+	)
+	assert_bool(box.allowed).is_false()
+	assert_str(box.reason).contains("for selling")
+
 	# Query contributions aggregate deterministically.
 	assert_float(bus.query(EventCatalog.PATIENCE_MODIFIER_REQUESTED, {}, 1.0)).is_equal_approx(
 		1.08, 0.001

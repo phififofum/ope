@@ -1,0 +1,38 @@
+{
+  "id": "base:lantern_rite_booster_box",
+  "type": "product",
+  "name": "loc:product.lantern_rite_booster_box",
+  "category": "sealed_product",
+  "tags": [
+    "high_value",
+    "resealable",
+    "sealed",
+    "theft_exposed"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 6,
+  "sealed": {
+    "card_set": "base:lantern_rite",
+    "form": "booster_box",
+    "packs": 24
+  },
+  "base_cost": 74.78,
+  "market_price": 105.32,
+  "price_band": [
+    89.52,
+    168.51
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:sealed_distribution",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "adjacency_affinity": [
+    "accessories"
+  ],
+  "urgency": "low"
+}

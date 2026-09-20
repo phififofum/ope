@@ -1,0 +1,38 @@
+{
+  "id": "base:hollow_crown_booster_box",
+  "type": "product",
+  "name": "loc:product.hollow_crown_booster_box",
+  "category": "sealed_product",
+  "tags": [
+    "high_value",
+    "resealable",
+    "sealed",
+    "theft_exposed"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 6,
+  "sealed": {
+    "card_set": "base:hollow_crown",
+    "form": "booster_box",
+    "packs": 24
+  },
+  "base_cost": 63.64,
+  "market_price": 89.64,
+  "price_band": [
+    76.19,
+    143.42
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:sealed_distribution",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "adjacency_affinity": [
+    "accessories"
+  ],
+  "urgency": "low"
+}

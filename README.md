@@ -45,6 +45,13 @@ The signature encounter, and the reason the setting works: **to buy a card, you 
 card and card the person, in the same transaction** — while the grill is going and table six wants
 a rules ruling. Both meanings of *card checking*, in one moment, with real money on it.
 
+And the decision that runs underneath all of it: every sealed pack, bundle and booster box
+on the rack is stock a customer could walk in and buy. **You can sell it, or you can open
+it.** What you pull goes in the case to sell or on the wall to show, and the game tells you
+at closing time exactly what opening things has returned you against what selling them
+would have. It is never the winning play — the content validator enforces that — and some
+nights you will do it anyway.
+
 | | |
 | --- | --- |
 | **Players** | 1–5 online co-op, host-authoritative. Tuned for **three**. |

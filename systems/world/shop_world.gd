@@ -121,7 +121,7 @@ func _place_fixtures() -> void:
 	}
 
 	var placed: int = 0
-	for fixture: ContentDefinition in shop.registry.by_type(&"fixture"):
+	for fixture: ContentDefinition in _room_furniture():
 		if placed >= 28:
 			break  # the starting room, not the whole catalogue
 		var zone: String = fixture.get_text("zone", "any")
@@ -143,8 +143,50 @@ func _place_fixtures() -> void:
 		placed += 1
 
 
+## What goes in the room, in the order it matters. A shop with no back door and no rack of
+## packs is missing verbs, so one of each category and everything the loops are played on
+## is placed before the catalogue is allowed to fill the remaining space.
+##
+## The rule is still data-driven: a mod's fixture gets a place here without touching this
+## file, and a mod's pack rack is a pack rack because of its tags.
+func _room_furniture() -> Array:
+	var essential: Array = []
+	var rest: Array = []
+	var categories_seen: Dictionary = {}
+	for fixture: ContentDefinition in shop.registry.by_type(&"fixture"):
+		var tags: Array = fixture.get_value("tags", [])
+		var category: String = fixture.get_text("category")
+		var first_of_category: bool = not categories_seen.has(category)
+		categories_seen[category] = true
+		if first_of_category or tags.has("back_door") or tags.has("sealed") or tags.has("display"):
+			essential.append(fixture)
+		else:
+			rest.append(fixture)
+	return essential + rest
+
+
 func _attach_interactable(node: Node3D, fixture: ContentDefinition, size: Vector3) -> void:
 	var interactable := Interactable.new()
+	# The rack of packs is a shelf that does something a shelf does not: what is on it can
+	# be sold or opened, and standing in front of it is where you decide which.
+	if fixture.get_value("tags", []).has("back_door"):
+		interactable.kind = Interactable.Kind.DOOR
+		interactable.prompt = "Take the delivery in"
+		interactable.seconds = 45.0
+		interactable.position = node.position + Vector3(0.0, size.y * 0.5, 0.0)
+		interactable.scale = size
+		add_child(interactable)
+		interactables.append(interactable)
+		return
+	if fixture.get_value("tags", []).has("sealed"):
+		interactable.kind = Interactable.Kind.SEALED_RACK
+		interactable.prompt = "Open something"
+		interactable.seconds = 12.0
+		interactable.position = node.position + Vector3(0.0, size.y * 0.5, 0.0)
+		interactable.scale = size
+		add_child(interactable)
+		interactables.append(interactable)
+		return
 	match fixture.get_text("category"):
 		"counter":
 			interactable.kind = Interactable.Kind.COUNTER
@@ -222,7 +264,14 @@ func counter_sightline() -> float:
 	var watched: int = 0
 	var total: int = 0
 	for interactable: Interactable in interactables:
-		if interactable.kind not in [Interactable.Kind.CASE, Interactable.Kind.RETAIL_SHELF]:
+		if (
+			interactable.kind
+			not in [
+				Interactable.Kind.CASE,
+				Interactable.Kind.RETAIL_SHELF,
+				Interactable.Kind.SEALED_RACK,
+			]
+		):
 			continue
 		total += 1
 		if interactable.position.distance_to(counter_position) < 6.0:

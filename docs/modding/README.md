@@ -3,11 +3,12 @@
 [← Docs](../README.md) · [Definition type reference](definition-types.md)
 
 > [!IMPORTANT]
-> **Status.** The content pipeline described here is real and runs today: schemas,
-> definitions, namespaced ids and the validator all work, and the base game already ships
-> through them. The *runtime* — mounting a mod, hot reload, the event bus, the in-game
-> manager — arrives in [Phase 1 and Phase 7](../design/14-work-order.md). Sections that
-> describe unbuilt runtime behaviour are marked **(planned)**.
+> **Status.** Everything here runs today except where a section is marked **(planned)**:
+> schemas, the validator, mounting a mod, load order with declared dependencies, guarded
+> mod scripts on the event bus, hot reload and the in-game console. Three worked examples
+> covering the three tiers live in [`examples/mods/`](../../examples/mods/), and CI
+> validates them the same way it validates the base game. The one thing still unbuilt is
+> **declarative patches**.
 
 ---
 
@@ -103,11 +104,12 @@ the file, the JSON path and the violated constraint when something is wrong. Try
 it on purpose — delete the `licence` line and run it again. The message should be enough to
 fix it without reading any source.
 
-### 5. What happens next (planned)
+### 5. What happens next
 
-Once the runtime lands, dropping that folder in `mods/` is all that is required: the loader
-mounts it with `ProjectSettings.load_resource_pack()`, the registry indexes it, and the
-fridge, pricing, restock and inspection systems treat your drink like any other.
+Dropping that folder in `mods/` is all that is required: the loader mounts it, the registry
+indexes it, and the fridge, pricing, restock and inspection systems treat your drink like
+any other. `tools/new_mod.sh` scaffolds the folder for you and `tools/validate_mod.sh`
+checks it the way CI does.
 
 ## Four ways to change the game
 
@@ -119,8 +121,10 @@ fridge, pricing, restock and inspection systems treat your drink like any other.
    expressed as JSON paths and operations. **Two mods patching different fields of the same
    product must both apply cleanly.** This is what prevents the override-conflict hell that
    kills most modded games.
-4. **Extend** *(planned)* — a script subscribing to the event bus, contributing to query
-   events, or vetoing cancellable ones.
+4. **Extend** — a script subscribing to the event bus, contributing to query events, or
+   vetoing cancellable ones. See
+   [`examples/mods/house_rules`](../../examples/mods/house_rules), which adds a mechanic
+   the engine has never heard of without touching a line of engine code.
 
 ## Mod package format
 
@@ -173,21 +177,22 @@ The game reports its API version. A manifest declares the range it supports via 
 Every such change goes through [an ADR](../decisions/README.md) and appears in
 [CHANGELOG.md](../../CHANGELOG.md).
 
-## Load order and dependencies *(planned)*
+## Load order and dependencies
 
 Declared dependencies with semver ranges, plus `load_before` and `load_after` hints.
 Topological sort **with a stable tiebreak, so the order is reproducible run to run**. Circular
 dependencies fail at load with the cycle printed. The manager exposes the resolved order
 and lets users pin it manually.
 
-## Error handling *(planned)*
+## Error handling
 
 **A mod must never take the game down.** Every mod operation runs guarded: a failure
 disables that mod, logs a message naming the mod, the file, the line and the violated
 expectation, and the game continues without it.
 
-A dedicated mod-error screen lists what failed and why, written for a modder to act on and
-for a player to report. Mod authors get a `--mod-strict` flag that turns warnings into hard
+The load report lists what failed and why, written for a modder to act on and for a player
+to report, and the in-game console (F1) shows it alongside the resolved load order and the
+overrides that won. Mod authors get a `--mod-strict` flag that turns warnings into hard
 failures during development — the same idea as `tools/validate_content.py --strict`, which
 works today.
 

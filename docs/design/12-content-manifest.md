@@ -73,6 +73,8 @@ the mechanical ones run in CI via
 | Vectors on a document type span all three [kinds of wrong](04-loop-b-counter.md#the-three-kinds-of-wrong) | CI |
 | **Every forgery vector is detectable with at least one tool available at the tier it appears** | CI |
 | No tool returns a verdict | CI |
+| **Sealed product always returns less opened than sold**, per set and per product | CI |
+| Every sealed product names a card set that exists, and every set's pull rates sum to 1 | CI |
 | Every asset has a valid `.license.json` | CI |
 | Every string is externalised — no literals in scripts or definitions | CI (partial today) |
 | No product is strictly dominated by another at the same tier | Review, then balance simulation |

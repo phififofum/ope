@@ -222,6 +222,9 @@ def check_references(registry: dict[str, dict[str, Any]], report: Report) -> Non
         require(product.get("licence"), "licence", pid, "licence")
         for supplier in product.get("suppliers", []):
             require(supplier, "supplier", pid, "suppliers")
+        sealed = product.get("sealed")
+        if isinstance(sealed, dict):
+            require(sealed.get("card_set"), "card_set", pid, "sealed.card_set")
 
     for rid, recipe in by_type("recipe").items():
         for index, ingredient in enumerate(recipe.get("ingredients", [])):
@@ -392,6 +395,8 @@ def check_quality_gates(registry: dict[str, dict[str, Any]], report: Report) -> 
             "unlocks nothing -- no product or recipe references it, and it permits no activity",
         )
 
+    check_sealed_odds(registry, report)
+
     for pid, product in registry.items():
         if product.get("type") != "product":
             continue
@@ -399,6 +404,77 @@ def check_quality_gates(registry: dict[str, dict[str, Any]], report: Report) -> 
             value = product.get(string_field)
             if isinstance(value, str) and not value.startswith("loc:"):
                 report.error(pid, f"{string_field} is a literal, not a loc: key")
+
+
+def pack_expected_value(card_set: dict[str, Any]) -> float:
+    """What one pack of a set is worth on average, by the same arithmetic the game uses.
+
+    A pull is `base_value + randf() * value_spread`, so its mean is
+    `base_value + value_spread / 2`. Keeping this in step with `CardCase._make_single` is
+    the point of the gate below.
+    """
+    per_card = sum(
+        float(rarity.get("pull_rate", 0.0))
+        * (float(rarity.get("base_value", 0.0)) + float(rarity.get("value_spread", 0.0)) / 2.0)
+        for rarity in card_set.get("rarities", [])
+    )
+    return per_card * float(card_set.get("cards_per_pack", 0))
+
+
+def check_sealed_odds(registry: dict[str, dict[str, Any]], report: Report) -> None:
+    """The honest-odds gate.
+
+    The design commits to one thing about the gamble in writing: opening sealed product
+    returns less than selling it. That is a promise about content, not about code, so it
+    is checked here against every set and every sealed product in the game -- including a
+    mod's. A set whose packs pay more than they cost turns the shop into a money printer
+    and the decision into an obvious one.
+    """
+    card_sets = {k: v for k, v in registry.items() if v.get("type") == "card_set"}
+
+    for set_id, card_set in card_sets.items():
+        rates = sum(float(r.get("pull_rate", 0.0)) for r in card_set.get("rarities", []))
+        if abs(rates - 1.0) > 0.005:
+            report.error(set_id, f"pull rates sum to {rates:.4f}, not 1.0 -- pulls will be dropped")
+        expected = pack_expected_value(card_set)
+        price = float(card_set.get("pack_price", 0.0))
+        if price > 0.0 and expected >= price:
+            report.error(
+                set_id,
+                f"a pack is worth {expected:.2f} and sells for {price:.2f}: "
+                "ripping is free money, which the design says it must never be",
+            )
+
+    for pid, product in registry.items():
+        if product.get("type") != "product":
+            continue
+        sealed = product.get("sealed")
+        if product.get("category") == "sealed_product" and not isinstance(sealed, dict):
+            report.error(
+                pid,
+                "is sealed_product but has no `sealed` block, so it can be sold and never "
+                "opened -- half of the loop is missing for it",
+            )
+            continue
+        if not isinstance(sealed, dict):
+            continue
+        card_set = card_sets.get(sealed.get("card_set"))
+        if card_set is None:
+            continue
+        expected = pack_expected_value(card_set) * int(sealed.get("packs", 1))
+        market = float(product.get("market_price", 0.0))
+        if market > 0.0 and expected >= market:
+            report.error(
+                pid,
+                f"opening it returns {expected:.2f} against a shelf price of {market:.2f}: "
+                "the rip has to cost the player something on average",
+            )
+        elif market > 0.0 and expected < market * 0.4:
+            report.warn(
+                pid,
+                f"opening it returns only {expected / market:.0%} of the shelf price -- "
+                "at that rate nobody would ever rip one, and the gamble is dead content",
+            )
 
 
 def main() -> int:

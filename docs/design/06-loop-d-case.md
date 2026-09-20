@@ -29,9 +29,32 @@ and they share every system.
 Sealed product opened by the player. Real tactile ceremony — wrapper, weight, the slow
 reveal, one card at a time. Pull rates are data-driven per `card_set` definition.
 
-A box has expected value below its cost, which is the point, and **which the game never
-hides**: the ledger tells you exactly how far underwater you are on sealed, and some players
-will keep going anyway. That is the honest version of this mechanic.
+**The decision, not the odds, is the mechanic.** Every sealed unit in the building is
+ordinary stock: it sits on the pack rack, a customer may walk in and buy it, and the
+margin on that sale is known. Opening it takes that sale off the table. So a rip is never
+priced at what you paid the distributor — it is priced at *what you gave up by not selling
+it*, and that is the number [`CardCase.sealed_ledger()`](../../systems/case/card_case.gd)
+reports back.
+
+| Form | Packs | Sold under |
+| --- | --- | --- |
+| Pack | 1 | `base:general_retail` |
+| Blister | 3 | `base:general_retail` |
+| Bundle | 8 | `base:sealed_distribution` |
+| Booster box | a full box | `base:sealed_distribution` |
+
+Packs are ordinary retail, so the gamble is reachable on the first morning. Buying by the
+box means buying direct, which is a licence and a standing requirement — the loop opens
+small and grows.
+
+A pack is worth less than it sells for, which is the point, and **which the game never
+hides**: the ledger tells you exactly how far underwater you are on sealed, and some
+players will keep going anyway. That is the honest version of this mechanic.
+
+This is a promise about content rather than about code, so
+[`tools/validate_content.py`](../../tools/validate_content.py) enforces it on every set and
+every sealed product in the game — a mod's included. A set whose packs pay more than they
+cost fails the build.
 
 ### 2. Buying singles from the public
 
@@ -50,6 +73,13 @@ in the design.
 
 Pricing singles, arranging the display, deciding what to hold and what to move. A market
 that drifts on its own, plus set rotations and hype spikes driven by the `event` system.
+
+The case has two halves and the split is the decision. **Stock** is priced and for sale.
+The **wall** — the singles case, the lit shelf behind the counter — is not: a card on
+display earns nothing until it comes down, and in exchange it shortens the gap between
+arrivals for as long as it is up there. Glass holds what glass holds, so showing the
+serialised card you just pulled means not showing something else, and selling it means
+the wall goes quiet.
 
 ## Authentication as a verification family
 
@@ -93,7 +123,11 @@ This domain has the best rogues' gallery in the game:
 - **The person who does not know their card is fake**, and who will be upset
 - **The resealer** — a box professionally resealed after the hits were pulled, detectable by
   weight and seal geometry. The nastiest vector in the game, because you only find out after
-  you open it.
+  you open it. Implemented through the back door rather than as a special case: a delivery
+  from a supplier with a counterfeit rate marks its lot, a marked unit opens with every
+  common present and nothing worth having, and selling one on instead of opening it means
+  the customer finds out at home and tells everyone. Verifying deliveries properly is what
+  keeps them out of the building.
 - **Someone selling a collection that is not theirs**, where the tell is behavioural and
   documentary rather than physical
 - **The shill** who inflates local demand for something they are about to dump

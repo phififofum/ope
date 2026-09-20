@@ -1,0 +1,37 @@
+{
+  "id": "base:saltwind_cycle_bundle",
+  "type": "product",
+  "name": "loc:product.saltwind_cycle_bundle",
+  "category": "sealed_product",
+  "tags": [
+    "high_value",
+    "resealable",
+    "sealed"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 24,
+  "sealed": {
+    "card_set": "base:saltwind_cycle",
+    "form": "bundle",
+    "packs": 8
+  },
+  "base_cost": 22.48,
+  "market_price": 31.66,
+  "price_band": [
+    26.91,
+    50.66
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:sealed_distribution",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "adjacency_affinity": [
+    "accessories"
+  ],
+  "urgency": "low"
+}

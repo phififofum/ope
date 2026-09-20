@@ -21,6 +21,7 @@ enum Task {
 	RECEIVE_DELIVERY,
 	CAT_CARE,
 	CASE_WORK,
+	RIP_SEALED,
 	AUDIT,
 }
 
@@ -69,15 +70,22 @@ var players: Array[PlayerSlot] = []
 var day: int = 1
 var shift_index: int = 0
 var owned_tools: PackedStringArray = ["base:naked_eye", "base:date_wheel"]
+## The glass you inherited. Everything past it is bought.
+var owned_fixtures: PackedStringArray = ["base:display_case"]
 
 ## Work waiting for a pair of hands. The queue is the game.
 var waiting_encounters: Array[Encounter] = []
 var served_today: int = 0
 var walked_out: int = 0
 var customers_in_room: int = 0
+## Sealed units that went out of the door with the hits already missing. The customer
+## finds out at home, and it comes back as reputation a day or two later.
+var pending_sealed_complaints: Array[int] = []
 
 var _day_start_tick: int = 0
 var _last_sample_tick: int = 0
+## The range the shop may legally sell, rebuilt each morning.
+var _sellable: Array = []
 
 
 func _init(
@@ -120,11 +128,14 @@ func open_for_business(starting_float: float = 0.0) -> void:
 	if starting_float > 0.0:
 		economy.earn(starting_float, "opening float")
 	for product: ContentDefinition in registry.by_type(&"product"):
-		if product.get_number("market_price") > 0.0:
-			inventory.back_room.append(Inventory.Lot.new(product.id, 12, day + 30))
-			inventory.restock(product.id, 6)
-		else:
+		if product.get_number("market_price") <= 0.0:
 			inventory.back_room.append(Inventory.Lot.new(product.id, 20, day + 60))
+			continue
+		# Sealed product is capital tied up in cardboard, so the opening shop gets a
+		# thin rack of it and has to decide what to do with each unit.
+		var units: int = 3 if _is_sealed_product(product) else 12
+		inventory.back_room.append(Inventory.Lot.new(product.id, units, day + 30))
+		inventory.restock(product.id, maxi(1, units / 2))
 	var games: Array = registry.by_type(&"board_game")
 	for index: int in range(mini(40, games.size())):
 		library.acquire((games[index] as ContentDefinition).id, 1)
@@ -238,6 +249,7 @@ func buy_licence(licence_id: StringName) -> bool:
 	if not economy.spend(licence.get_number("cost"), "licence: %s" % licence_id):
 		return false
 	economy.grant_licence(licence_id)
+	_refresh_sellable_range()
 	return true
 
 
@@ -275,6 +287,7 @@ func start_day(new_day: int) -> void:
 	economy.advance_day(day)
 	refresh_unlocked_tools()
 	people.admit_named_cast(day)
+	_refresh_sellable_range()
 	director.plan_shift(DAY_TICKS, players.size())
 	bus.publish(EventCatalog.SHIFT_STARTED, {"day": day, "shift": SHIFTS[0]})
 
@@ -289,7 +302,10 @@ func tick() -> void:
 	)
 
 	if director.should_spawn(
-		now, players.size(), waiting_encounters.size() + kitchen.pending_orders().size()
+		now,
+		players.size(),
+		waiting_encounters.size() + kitchen.pending_orders().size(),
+		card_case.display_draw()
 	):
 		_spawn_customer(now)
 	elif director.should_prod(now):
@@ -330,6 +346,16 @@ func end_day() -> Dictionary:
 	if int(spoilage["spoiled"]) > 0:
 		economy.adjust_reputation(-0.05 * float(spoilage["spoiled"]) * 0.1, "spoilage")
 	economy.adjust_reputation(cats.customer_appeal() * 0.02, "the cat")
+	# The wall pays in footfall, and only while there is something on it worth the walk.
+	card_case.showcase_capacity = _showcase_capacity()
+	economy.adjust_reputation(card_case.display_draw() * 0.03, "the display case")
+	var complaints: int = 0
+	for due_day: int in pending_sealed_complaints.duplicate():
+		if due_day > day:
+			continue
+		pending_sealed_complaints.erase(due_day)
+		complaints += 1
+		economy.adjust_reputation(-0.25, "sold a box somebody had already opened")
 	economy.adjust_reputation((maintenance.cleanliness - 0.6) * 0.1, "cleanliness")
 
 	var stolen: Array = card_case.apply_shrink(_counter_sightline())
@@ -343,7 +369,11 @@ func end_day() -> Dictionary:
 		"kitchen": kitchen.stats(),
 		"library": library.stats(),
 		"case_value": card_case.case_value(),
+		"stock_value": inventory.stock_value(),
 		"stolen_singles": stolen.size(),
+		"sealed": card_case.sealed_ledger(),
+		"display_draw": card_case.display_draw(),
+		"sealed_complaints": complaints,
 		"staff": staff_result,
 		"cleanliness": maintenance.cleanliness,
 		"pests": maintenance.pest_pressure,
@@ -401,7 +431,12 @@ func serve_counter(
 		if sale.allowed:
 			# Reputation is built by ordinary competence, a little at a time, and lost
 			# in single expensive moments. That asymmetry is the whole feel of it.
-			economy.adjust_reputation(0.012, "served well")
+			#
+			# Competence, though -- not luck. Waving somebody through without looking at
+			# the thing they put on the counter is not the ordinary good work this pays
+			# for, and paying for it would make volume beat judgement.
+			if not encounter.has_unchecked_rule():
+				economy.adjust_reputation(0.012, "served well")
 			if encounter.value < 0.0:
 				# A trade-in: cash leaves the till and a card enters the case. Whether
 				# that was a good trade depends on an assessment the player already made.
@@ -515,15 +550,31 @@ func tend_cats(slot: PlayerSlot, now: int) -> void:
 		cats.feed_stray()
 
 
-## Pricing the case, collecting grading, and moving stock. Money in cardboard is money
-## not in coffee, so the case has to be worked rather than admired.
-func work_the_case(slot: PlayerSlot, now: int, sell_above: float = 0.0) -> Dictionary:
+## Pricing the case, collecting grading, and deciding what goes on the wall. Money in
+## cardboard is money not in coffee, so the case has to be worked rather than admired.
+##
+## The two thresholds are the whole decision. A single worth more than [param
+## display_above] goes behind glass, where it earns footfall instead of cash; one worth
+## more than [param sell_above] goes out of the door for money. Display is checked first,
+## because the card you would most like to sell is the card people came in to see.
+func work_the_case(
+	slot: PlayerSlot, now: int, sell_above: float = 0.0, display_above: float = 0.0
+) -> Dictionary:
 	slot.occupy(now, 25.0, Task.CASE_WORK)
 	var graded: Array[Dictionary] = card_case.collect_grading(economy)
+	card_case.showcase_capacity = _showcase_capacity()
+	var displayed: int = 0
+	if display_above > 0.0:
+		for single: CardCase.Single in _by_value_descending(card_case.stock):
+			if card_case.current_value(single) < display_above:
+				break
+			if not card_case.put_on_display(single):
+				break
+			displayed += 1
 	var sold: int = 0
 	var takings: float = 0.0
 	if sell_above > 0.0:
-		for single: CardCase.Single in card_case.display.duplicate():
+		for single: CardCase.Single in card_case.stock.duplicate():
 			if card_case.current_value(single) >= sell_above:
 				takings += card_case.sell_single(single, economy)
 				sold += 1
@@ -532,9 +583,74 @@ func work_the_case(slot: PlayerSlot, now: int, sell_above: float = 0.0) -> Dicti
 	return {
 		"graded": graded.size(),
 		"sold": sold,
+		"displayed": displayed,
 		"takings": takings,
 		"case_value": card_case.case_value(),
+		"draw": card_case.display_draw(),
 	}
+
+
+## Opens a sealed unit the shop owns. The ceremony is the point and it costs the seconds
+## it costs: a box is most of a minute you were not spending on the queue.
+##
+## This is the only action in the game whose payoff is a distribution rather than a
+## consequence of judgement, and it is deliberately measured against the sale you gave up
+## -- see [method CardCase.sealed_ledger].
+func rip_sealed(slot: PlayerSlot, now: int, product_id: StringName) -> Dictionary:
+	var product: ContentDefinition = registry.get_definition(product_id)
+	if product == null or not _is_sealed_product(product):
+		return {"opened": false, "reason": "not sealed product"}
+	var packs: int = maxi(1, int(product.get_value("sealed", {}).get("packs", 1)))
+	slot.occupy(now, clampf(5.0 + float(packs) * 1.6, 5.0, 70.0), Task.RIP_SEALED)
+
+	var result: Dictionary = card_case.rip(product_id, inventory, economy)
+	if not bool(result.get("opened", false)):
+		return result
+	# A card worth looking at is a reason to come back, and word travels. A box somebody
+	# else already opened is a quiet, expensive lesson about where you buy your stock.
+	if float(result.get("best_value", 0.0)) >= 60.0:
+		economy.adjust_reputation(0.03, "a hit pulled in the shop")
+	elif bool(result.get("resealed", false)):
+		economy.adjust_reputation(-0.02, "a resealed box")
+	return result
+
+
+## Sealed units the shop is licensed to sell and has in the building. The rip-or-sell
+## decision needs a list, and the list is a registry query so a mod's set turns up in it.
+func sellable_sealed() -> Array:
+	var out: Array = []
+	for product: ContentDefinition in _sellable:
+		if _is_sealed_product(product) and inventory.total_units(product.id) > 0:
+			out.append(product)
+	return out
+
+
+func _is_sealed_product(product: ContentDefinition) -> bool:
+	return not product.get_value("sealed", {}).is_empty()
+
+
+## How many cards the wall can hold, which is a fixture decision rather than a number in
+## code: buy a bigger case and you can show more of what you pulled.
+func _showcase_capacity() -> int:
+	var slots: int = 2
+	for fixture_id: String in owned_fixtures:
+		var fixture: ContentDefinition = registry.get_definition(StringName(fixture_id))
+		if fixture != null and fixture.get_text("category") == "case":
+			slots += int(fixture.get_number("capacity", 0)) / 16
+	return clampi(slots, 2, 24)
+
+
+## Buys a fixture outright. Glass is capital like anything else: a bigger case shows more
+## and is one more thing that was not stock.
+func buy_fixture(fixture_id: StringName) -> bool:
+	var fixture: ContentDefinition = registry.get_definition(fixture_id)
+	if fixture == null or owned_fixtures.has(String(fixture_id)):
+		return false
+	if not economy.spend(fixture.get_number("cost"), "fixture: %s" % fixture_id):
+		return false
+	owned_fixtures.append(String(fixture_id))
+	card_case.showcase_capacity = _showcase_capacity()
+	return true
 
 
 func audit_staff(slot: PlayerSlot, now: int, thoroughness: float = 0.6) -> Array:
@@ -566,6 +682,56 @@ func state_sample() -> Dictionary:
 	}
 
 
+## One walk-up retail sale. Nothing to verify unless the licence says so -- this is Loop
+## A, where the only question is whether the thing they wanted was faced and in stock.
+func _sell_from_shelf(person: Person) -> bool:
+	if _sellable.is_empty():
+		return false
+	# Faced stock changes all day; the licensed range does not. So the range is cached
+	# and the shelf is checked at the moment somebody reaches for it.
+	var product: ContentDefinition = rng.pick(SeededRng.SPAWN, _sellable)
+	var sale: Dictionary = inventory.sell_one(product.id)
+	if int(sale["sold"]) <= 0:
+		return false
+
+	var price: float = bus.query(
+		EventCatalog.PRICE_REQUESTED,
+		{"product": String(product.id), "person": String(person.id)},
+		product.get_number("market_price")
+	)
+	economy.earn(price, "shelf sale: %s" % product.id)
+	served_today += 1
+	if _is_sealed_product(product):
+		card_case.record_sealed_sale(price)
+		if bool(sale["suspect"]):
+			# They will open it tonight. What comes back is not a refund request, it is
+			# a story about your shop told to everyone who plays here.
+			pending_sealed_complaints.append(day + 2)
+	bus.publish(EventCatalog.CUSTOMER_SERVED, {"person": String(person.id), "value": price})
+	return true
+
+
+## What the licences in the safe allow the shop to put a price on. Rebuilt each morning
+## and whenever a licence is bought, because the range changes about once a week and the
+## shelf changes several times a minute.
+func _refresh_sellable_range() -> void:
+	_sellable = []
+	for product: ContentDefinition in registry.by_type(&"product"):
+		if product.get_number("market_price") <= 0.0:
+			continue
+		if economy.holds(StringName(product.get_text("licence"))):
+			_sellable.append(product)
+
+
+func _by_value_descending(singles: Array[CardCase.Single]) -> Array:
+	var sorted_singles: Array = singles.duplicate()
+	sorted_singles.sort_custom(
+		func(a: CardCase.Single, b: CardCase.Single) -> bool:
+			return card_case.current_value(a) > card_case.current_value(b)
+	)
+	return sorted_singles
+
+
 func _counter_sightline() -> float:
 	# What the counter cannot see is shrink exposure. A busier room sees less.
 	return clampf(0.85 - float(customers_in_room) * 0.02, 0.2, 0.95)
@@ -577,13 +743,18 @@ func _spawn_customer(now: int) -> void:
 
 	var roll: float = rng.stream(SeededRng.SPAWN).randf()
 
-	if roll < 0.34 and not kitchen_closed():
+	if roll < 0.28 and not kitchen_closed():
 		var recipes: Array = kitchen.available_recipes(economy.licences.keys())
 		if not recipes.is_empty():
 			var recipe: ContentDefinition = rng.pick(SeededRng.SPAWN, recipes)
 			kitchen.take_order(recipe, customers_in_room % 12, now, int(900.0 * person.patience))
 			return
-	if roll < 0.5:
+	# Somebody who just wants to buy something off the shelf. Most of a shop's day is
+	# this, and it is the other half of the sealed decision: every pack on the rack is a
+	# pack a customer could have bought, which is what makes opening one cost something.
+	if roll < 0.5 and _sell_from_shelf(person):
+		return
+	if roll < 0.62:
 		var lendable: Array = library.lendable()
 		if not lendable.is_empty():
 			var copy: GameLibrary.Copy = rng.pick(SeededRng.SPAWN, lendable)
@@ -645,6 +816,10 @@ func _spawn_customer(now: int) -> void:
 	if encounter != null:
 		encounter.opened_tick = now
 		waiting_encounters.append(encounter)
+		if suspicious and not encounter.is_forged():
+			# The document that turned up had nothing catchable on it. Put the slot back:
+			# the shift is owed this encounter and somebody else will carry it.
+			director.return_slot(now)
 
 
 ## Buying a single from the public: the money becomes an asset in the case, valued

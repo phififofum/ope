@@ -1,0 +1,20 @@
+{
+  "id": "base:singles_wall",
+  "type": "fixture",
+  "name": "loc:fixture.singles_wall",
+  "category": "case",
+  "footprint": [
+    3,
+    1
+  ],
+  "cost": 1450.0,
+  "capacity": 96,
+  "noise": 0.0,
+  "upkeep_hours": 0.62,
+  "zone": "counter",
+  "tags": [
+    "case",
+    "display",
+    "lit"
+  ]
+}

@@ -14,11 +14,18 @@ class Lot:
 	var product_id: StringName
 	var units: int
 	var expires_day: int
+	## Came in on a delivery the supplier got wrong. Sealed product that is wrong in this
+	## way is wrong in a specific way -- the hits are already gone -- and you find out
+	## either by opening it or by the customer who does.
+	var suspect: bool = false
 
-	func _init(p_product: StringName, p_units: int, p_expires: int) -> void:
+	func _init(
+		p_product: StringName, p_units: int, p_expires: int, p_suspect: bool = false
+	) -> void:
 		product_id = p_product
 		units = p_units
 		expires_day = p_expires
+		suspect = p_suspect
 
 
 class Delivery:
@@ -35,6 +42,9 @@ var registry: ContentRegistry
 var bus: EventBus
 
 var shelf: Dictionary = {}  ## product id -> units faced and sellable
+## How many of the faced units came out of a bad lot. Which physical box you pick up is
+## not a thing the player can see, so it is not a thing the simulation rolls for.
+var shelf_suspect: Dictionary = {}  ## product id -> units of the above that are suspect
 var back_room: Array[Lot] = []
 var incoming: Array[Delivery] = []
 var spoiled_units: int = 0
@@ -134,7 +144,9 @@ func accept(delivery: Delivery) -> EventOutcome:
 			units = int(float(units) * 0.7)
 		var shelf_life: int = int(product.get_number("shelf_life_days", 0))
 		var expires: int = _day + shelf_life if shelf_life > 0 else 1_000_000
-		back_room.append(Lot.new(product_id, units, expires))
+		back_room.append(
+			Lot.new(product_id, units, expires, delivery.problem == "counterfeit_product")
+		)
 	delivery.verified = true
 	incoming.erase(delivery)
 	return outcome
@@ -144,6 +156,7 @@ func accept(delivery: Delivery) -> EventOutcome:
 ## should reward without nagging about it.
 func restock(product_id: StringName, units: int) -> int:
 	var moved: int = 0
+	var suspect_moved: int = 0
 	back_room.sort_custom(func(a: Lot, b: Lot) -> bool: return a.expires_day < b.expires_day)
 	for lot: Lot in back_room:
 		if moved >= units:
@@ -153,12 +166,19 @@ func restock(product_id: StringName, units: int) -> int:
 		var take: int = mini(lot.units, units - moved)
 		lot.units -= take
 		moved += take
+		if lot.suspect:
+			suspect_moved += take
 	_prune_empty_lots()
 	if moved > 0:
 		shelf[product_id] = units_on_shelf(product_id) + moved
+		if suspect_moved > 0:
+			shelf_suspect[product_id] = suspect_units_on_shelf(product_id) + suspect_moved
 	return moved
 
 
+## Sells from the shelf, good stock first. A customer reaching past the front of the
+## facing is not a simulation this game needs; what it does need is for the bad units to
+## still be in the building afterwards, where they remain the player's problem.
 func sell(product_id: StringName, units: int) -> int:
 	var available: int = units_on_shelf(product_id)
 	if available <= 0:
@@ -166,9 +186,39 @@ func sell(product_id: StringName, units: int) -> int:
 		return 0
 	var sold: int = mini(available, units)
 	shelf[product_id] = available - sold
+	var genuine: int = available - suspect_units_on_shelf(product_id)
+	if sold > genuine:
+		shelf_suspect[product_id] = suspect_units_on_shelf(product_id) - (sold - genuine)
 	if sold < units:
 		lost_sales += units - sold
 	return sold
+
+
+## Sells one unit and says whether it was one of the bad ones -- what the till knows and
+## the customer does not, yet.
+func sell_one(product_id: StringName) -> Dictionary:
+	var available: int = units_on_shelf(product_id)
+	var suspect: bool = available > 0 and suspect_units_on_shelf(product_id) >= available
+	var sold: int = sell(product_id, 1)
+	return {"sold": sold, "suspect": suspect}
+
+
+## Takes one unit off the shelf for the shop's own use rather than a sale -- the one a
+## player is about to open. Bad units come off first, because a resealed box is only ever
+## discovered by somebody opening it, and the player opening it themselves is the good
+## ending of that story.
+func take_unit(product_id: StringName) -> Dictionary:
+	if units_on_shelf(product_id) <= 0 and restock(product_id, 1) <= 0:
+		return {"ok": false, "suspect": false}
+	var suspect: bool = suspect_units_on_shelf(product_id) > 0
+	shelf[product_id] = units_on_shelf(product_id) - 1
+	if suspect:
+		shelf_suspect[product_id] = suspect_units_on_shelf(product_id) - 1
+	return {"ok": true, "suspect": suspect}
+
+
+func suspect_units_on_shelf(product_id: StringName) -> int:
+	return mini(int(shelf_suspect.get(product_id, 0)), units_on_shelf(product_id))
 
 
 ## Daily decay. Expired stock is destroyed and counted: spoilage is a reputation and
@@ -197,11 +247,32 @@ func low_stock(threshold: int = 4) -> Array:
 	return low
 
 
+## What the stock in the building would fetch at shelf prices. Unsold stock is still
+## worth something, and a comparison between two ways of running a shop is only honest if
+## it counts it -- opening a box does not create value, it moves it from the shelf into
+## the case.
+func stock_value() -> float:
+	var total: float = 0.0
+	for product: ContentDefinition in registry.by_type(&"product"):
+		var price: float = product.get_number("market_price")
+		if price > 0.0:
+			total += price * float(total_units(product.id))
+	return total
+
+
 func snapshot() -> Dictionary:
 	var lots: Array = []
 	for lot: Lot in back_room:
-		lots.append(
-			{"product": String(lot.product_id), "units": lot.units, "expires": lot.expires_day}
+		(
+			lots
+			. append(
+				{
+					"product": String(lot.product_id),
+					"units": lot.units,
+					"expires": lot.expires_day,
+					"suspect": lot.suspect,
+				}
+			)
 		)
 	var shelf_out: Dictionary = {}
 	for product_id: StringName in shelf.keys():

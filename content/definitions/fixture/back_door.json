@@ -1,0 +1,19 @@
+{
+  "id": "base:back_door",
+  "type": "fixture",
+  "name": "loc:fixture.back_door",
+  "category": "utility",
+  "footprint": [
+    1,
+    2
+  ],
+  "cost": 0.0,
+  "capacity": 0,
+  "noise": 0.2,
+  "upkeep_hours": 0.0,
+  "zone": "back",
+  "tags": [
+    "back_door",
+    "delivery"
+  ]
+}

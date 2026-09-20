@@ -1,0 +1,17 @@
+{
+  "id": "base:ada_bhatt",
+  "type": "npc",
+  "name": "loc:npc.ada_bhatt",
+  "role": "official",
+  "age": 28,
+  "first_appears_day": 12,
+  "visit_weight": 0.74,
+  "trust_arc": "steady",
+  "tells": [
+    "asks for the temperature log first"
+  ],
+  "notes": "loc:npc.ada_bhatt.notes",
+  "tags": [
+    "official"
+  ]
+}

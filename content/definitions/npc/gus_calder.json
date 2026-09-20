@@ -2,16 +2,16 @@
   "id": "base:gus_calder",
   "type": "npc",
   "name": "loc:npc.gus_calder",
-  "role": "regular",
-  "age": 45,
-  "first_appears_day": 8,
-  "visit_weight": 0.46,
+  "role": "trade_partner",
+  "age": 36,
+  "first_appears_day": 3,
+  "visit_weight": 2.47,
   "trust_arc": "steady",
   "tells": [
-    "always the same table"
+    "sleeves everything before it hits the glass"
   ],
   "notes": "loc:npc.gus_calder.notes",
   "tags": [
-    "regular"
+    "trade_partner"
   ]
 }

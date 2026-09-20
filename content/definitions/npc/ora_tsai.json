@@ -1,16 +1,16 @@
 {
-  "id": "base:kit_kowal",
+  "id": "base:ora_tsai",
   "type": "npc",
-  "name": "loc:npc.kit_kowal",
+  "name": "loc:npc.ora_tsai",
   "role": "judge",
-  "age": 69,
+  "age": 29,
   "first_appears_day": 1,
-  "visit_weight": 1.26,
+  "visit_weight": 0.6,
   "trust_arc": "steady",
   "tells": [
     "quotes the policy number from memory"
   ],
-  "notes": "loc:npc.kit_kowal.notes",
+  "notes": "loc:npc.ora_tsai.notes",
   "tags": [
     "judge"
   ]

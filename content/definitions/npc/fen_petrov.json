@@ -2,16 +2,16 @@
   "id": "base:fen_petrov",
   "type": "npc",
   "name": "loc:npc.fen_petrov",
-  "role": "regular",
-  "age": 43,
-  "first_appears_day": 8,
-  "visit_weight": 0.9,
-  "trust_arc": "warming",
+  "role": "difficult",
+  "age": 21,
+  "first_appears_day": 5,
+  "visit_weight": 2.03,
+  "trust_arc": "volatile",
   "tells": [
-    "brings their own dice"
+    "argues about the deposit"
   ],
   "notes": "loc:npc.fen_petrov.notes",
   "tags": [
-    "regular"
+    "difficult"
   ]
 }

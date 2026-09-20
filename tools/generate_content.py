@@ -1621,7 +1621,9 @@ def gen_npcs(written: dict) -> None:
     for index in range(40):
         role, arc, tells = NPC_SEEDS[index % len(NPC_SEEDS)]
         given = GIVEN_NAMES[index % len(GIVEN_NAMES)]
-        surname = NPC_SURNAMES[(index * 7) % len(NPC_SURNAMES)]
+        # The second lap through the given names needs different surnames, or the
+        # slugs collide and the cast is half the size it claims to be.
+        surname = NPC_SURNAMES[(index * 7 + index // len(GIVEN_NAMES)) % len(NPC_SURNAMES)]
         slug = f"{given}_{surname}".lower()
         write(
             "npc",

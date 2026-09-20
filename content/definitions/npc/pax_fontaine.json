@@ -2,16 +2,16 @@
   "id": "base:pax_fontaine",
   "type": "npc",
   "name": "loc:npc.pax_fontaine",
-  "role": "courier",
-  "age": 71,
-  "first_appears_day": 5,
-  "visit_weight": 1.79,
+  "role": "repeat_offender",
+  "age": 65,
+  "first_appears_day": 8,
+  "visit_weight": 1.66,
   "trust_arc": "cooling",
   "tells": [
-    "never has the same paperwork twice"
+    "counts their change twice"
   ],
   "notes": "loc:npc.pax_fontaine.notes",
   "tags": [
-    "courier"
+    "repeat_offender"
   ]
 }

@@ -23,14 +23,10 @@ where the hard part is knowing what to check.**
 ---
 
 > [!IMPORTANT]
-> **This repository is at Phase 0 of [the work order](docs/design/14-work-order.md) — the
-> pipeline, before the game.** What builds today is a boot screen that loads the content
-> registry and reports what it found; it exports to Linux and Windows and uploads to a Steam
-> branch, which is [deliberate](docs/decisions/0006-steam-as-the-test-distribution-channel.md):
-> a distribution pipeline that has never run is a pipeline that does not work.
->
-> **There is no gameplay yet.** Everything written in the present tense in `docs/design/` is
-> **specified**, not **shipped**. [ROADMAP.md](ROADMAP.md) is the honest status.
+> **This is an early build, not a finished game.** All four loops run, a shift can be
+> played first-person, and a bot plays whole campaigns headlessly — but the art is
+> placeholder geometry, there is no audio, and the content is broad rather than deep.
+> [ROADMAP.md](ROADMAP.md) is the honest status, phase by phase.
 
 ## What it is
 
@@ -93,29 +89,38 @@ in form to any community mod, loads through the same loader, and holds no privil
 
 ## Quick start
 
+**Nothing to install first.** Clone it and run one command:
+
 ```bash
 git clone https://github.com/phififofum/ope.git poggywoggy
 cd poggywoggy
 
-python3 -m pip install --user jsonschema pre-commit
-pre-commit install                         # same lint and format checks CI runs
-
-python3 tools/validate_content.py          # every definition against its schema
-python3 tools/licence_audit.py --check     # every asset has a licence sidecar
+./build.sh run      # Linux/macOS — fetches the engine, builds, and plays it
+.\build.ps1 run     # Windows — the same
 ```
 
-**To run the project** you need [Godot 4.7.2](https://godotengine.org/download) — the
-version pinned in [`.godot-version`](.godot-version):
+The script downloads the pinned engine and its export templates into `.tooling/` inside
+the repository — no system packages, no sudo, nothing outside this directory — then
+produces **one self-contained executable**:
+
+```text
+build/linux/poggywoggy.x86_64      74 MB, everything inside it
+build/windows/poggywoggy.exe      108 MB, everything inside it
+```
+
+`./build.sh` builds for this machine, `./build.sh all` builds both, `./build.sh run`
+builds and plays. To hand the build to a tester over Steam instead, see
+[docs/release/steam.md](docs/release/steam.md).
+
+### Working on it
 
 ```bash
-godot --headless --path . --import         # first run only
-godot --headless --path . -- --smoke-test  # loads all content, exits non-zero if anything is missing
-godot --path .                             # opens the boot screen in a window
-```
+python3 -m pip install --user jsonschema pre-commit
+pre-commit install                         # the same lint and format checks CI runs
 
-**To build and ship a test build**, see [docs/release/steam.md](docs/release/steam.md) —
-exports for Linux and Windows, depot scripts, and a tagged release that uploads to a Steam
-playtest branch.
+python3 tools/validate_content.py          # every definition against its schema
+tools/run_tests.sh                         # the full suite, headless
+```
 
 Add a product in `content/definitions/product/`, re-run the validator, and you have done the
 thing the whole architecture exists to make easy — see
@@ -146,10 +151,13 @@ which three are load-bearing.
 ## Repository layout
 
 ```text
+build.sh            one command, no prerequisites: fetch the engine, build, run
 project.godot       pinned to Godot 4.7.2 (.godot-version)
-export_presets.cfg  Linux and Windows export targets
+export_presets.cfg  Linux and Windows, each a single self-contained executable
 core/               engine-facing code. no game content.
-  boot/             the Phase 0 boot scene: load the registry, report, exit
+  registry/  events/  modding/  net/  save/  sim/  util/
+systems/            the game: counter, kitchen, floor, case, cats, staff, director, world
+ui/                 screens, HUD, and the runtime document renderer
 content/            THE BASE GAME, AS A MOD — manifest, schemas, JSON definitions
   schemas/          one JSON Schema per definition type
   definitions/      one folder per definition type
@@ -165,9 +173,9 @@ mods/               local mods are dropped here (gitignored)
 .github/            issue forms, PR template, CI, release, CODEOWNERS
 ```
 
-Additions as the build progresses — `systems/`, `ui/`, `tests/`, `addons/` — are specified in
-[the architecture doc](docs/design/02-architecture.md#repository-layout) and land in Phase 1
-onward.
+`addons/` holds the vendored test framework, so the suite runs with only the pinned
+engine and this repository. The layout follows
+[the architecture doc](docs/design/02-architecture.md#repository-layout).
 
 ## Contributing
 

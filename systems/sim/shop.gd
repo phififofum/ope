@@ -130,6 +130,51 @@ func open_for_business(starting_float: float = 0.0) -> void:
 		library.acquire((games[index] as ContentDefinition).id, 1)
 
 
+## Which act the campaign is in. Each one asks a different question, and the director
+## and the content both read it: Act IV is when adversaries start probing the tools you
+## do not have.
+func act() -> int:
+	if day <= 14:
+		return 1
+	if day <= 42:
+		return 2
+	if day <= 84:
+		return 3
+	if day <= 140:
+		return 4
+	return 5
+
+
+func act_question() -> String:
+	match act():
+		1:
+			return "Can you keep the lights on?"
+		2:
+			return "Can you grow without losing control of quality?"
+		3:
+			return "Can you run four loops at once?"
+		4:
+			return "Adaptive adversaries, organised fraud, and the grey-market offer."
+		_:
+			return "Seeded runs, leaderboards, and the shop you built."
+
+
+## Interviews and hires. Hiring is itself a verification encounter: a work history you
+## can check, references you can call, and credentials that may be fabricated.
+func interview(role_id: StringName) -> StaffSystem.Employee:
+	return staff.generate_applicant(role_id)
+
+
+func hire(employee: StaffSystem.Employee, slot: PlayerSlot, now: int) -> Dictionary:
+	slot.occupy(now, 90.0, Task.AUDIT)
+	var outcome: EventOutcome = staff.hire(employee, economy)
+	return {
+		"hired": outcome.allowed,
+		"reason": outcome.reason,
+		"lied": employee.lied_on_application(),
+	}
+
+
 ## Buys a licence. Each one unlocks categories and adds verification burden -- the more
 ## you are permitted to sell, the more there is to get wrong.
 ## The best tier of tool in the player's hands. It is the ceiling on forgery difficulty,

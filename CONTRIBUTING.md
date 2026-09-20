@@ -76,9 +76,11 @@ Three things, in this order:
 
 ## Development setup
 
-Python 3.11+ for the tooling, and [Godot 4.7.2](https://godotengine.org/download) — the exact
-version pinned in [`.godot-version`](.godot-version) — for the project. Do not develop
-against a different one, and do not track dev snapshots.
+**To build and play, you need nothing but the repository:** `./build.sh run` fetches the
+pinned engine into `.tooling/` and produces a self-contained executable. To work on the
+code you want Python 3.11+ for the tooling, and the same pinned engine on your PATH is
+convenient but not required — `.tooling/godot-4.7.2/godot` works for every command below.
+Do not develop against a different engine version, and do not track dev snapshots.
 
 ```bash
 git clone https://github.com/phififofum/ope.git poggywoggy
@@ -93,12 +95,15 @@ python3 tools/check_repo_hygiene.py     # text formats, LF, parseable JSON
 python3 tools/check_doc_links.py        # every relative link resolves
 ```
 
-With Godot installed:
+Building and running:
 
 ```bash
-godot --headless --path . --import         # first run only
-godot --headless --path . -- --smoke-test  # boots, loads all content, exits non-zero on error
-godot --path .                             # opens the boot screen
+./build.sh                                 # build for this machine
+./build.sh all                             # Linux and Windows
+./build.sh run                             # build and play
+
+GODOT=.tooling/godot-4.7.2/godot tools/run_tests.sh          # the full suite
+GODOT=.tooling/godot-4.7.2/godot python3 tools/visual_regression.py
 ```
 
 These are exactly what CI runs. If they pass locally, that part of CI will pass.

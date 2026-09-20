@@ -99,9 +99,9 @@ func test_scrutiny_costs_throughput() -> void:
 	# time. Checking everything has to cost customers, or "scrutiny is a budget" is a
 	# slogan rather than a mechanic.
 	var seeds: Array = [21, 22, 23]
-	var careless: Dictionary = _policy_tally(BotPlayer.Policy.CARELESS, seeds, 3)
-	var triage: Dictionary = _policy_tally(BotPlayer.Policy.BALANCED, seeds, 3)
-	var exhaustive: Dictionary = _policy_tally(BotPlayer.Policy.PARANOID, seeds, 3)
+	var careless: Dictionary = _policy_tally(BotPlayer.Policy.CARELESS, seeds, 4)
+	var triage: Dictionary = _policy_tally(BotPlayer.Policy.BALANCED, seeds, 4)
+	var exhaustive: Dictionary = _policy_tally(BotPlayer.Policy.PARANOID, seeds, 4)
 
 	(
 		assert_int(int(exhaustive["walked_out"]))
@@ -114,8 +114,32 @@ func test_scrutiny_costs_throughput() -> void:
 		. is_greater(int(careless["walked_out"]))
 	)
 	assert_int(int(triage["walked_out"])).is_greater(int(careless["walked_out"]))
-	# And it has to buy something: fewer missed forgeries for the customers it cost.
-	assert_int(int(exhaustive["missed"])).is_less_equal(int(careless["missed"]))
+	# And it has to buy something. The measure is the rate, not the count: a careless
+	# player serves more people and therefore sees more forgeries, so comparing totals
+	# would flatter them for being fast.
+	(
+		assert_float(_miss_rate(exhaustive))
+		. override_failure_message(
+			(
+				"miss rate -- careless %.2f (%d/%d), exhaustive %.2f (%d/%d)"
+				% [
+					_miss_rate(careless),
+					careless["missed"],
+					careless["forged"],
+					_miss_rate(exhaustive),
+					exhaustive["missed"],
+					exhaustive["forged"],
+				]
+			)
+		)
+		. is_less(_miss_rate(careless))
+	)
+
+
+## Missed forgeries as a fraction of the forgeries that reached the counter.
+func _miss_rate(tally: Dictionary) -> float:
+	var seen: int = int(tally["forged"])
+	return 0.0 if seen == 0 else float(tally["missed"]) / float(seen)
 
 
 func test_triage_beats_carelessness_on_the_books() -> void:

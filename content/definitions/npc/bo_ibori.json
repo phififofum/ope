@@ -1,16 +1,16 @@
 {
-  "id": "base:jo_duarte",
+  "id": "base:bo_ibori",
   "type": "npc",
-  "name": "loc:npc.jo_duarte",
+  "name": "loc:npc.bo_ibori",
   "role": "staff_candidate",
-  "age": 39,
-  "first_appears_day": 12,
-  "visit_weight": 1.77,
+  "age": 30,
+  "first_appears_day": 3,
+  "visit_weight": 1.14,
   "trust_arc": "warming",
   "tells": [
     "arrives ten minutes early"
   ],
-  "notes": "loc:npc.jo_duarte.notes",
+  "notes": "loc:npc.bo_ibori.notes",
   "tags": [
     "staff_candidate"
   ]

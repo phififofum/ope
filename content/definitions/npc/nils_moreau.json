@@ -1,16 +1,16 @@
 {
-  "id": "base:jo_duarte",
+  "id": "base:nils_moreau",
   "type": "npc",
-  "name": "loc:npc.jo_duarte",
+  "name": "loc:npc.nils_moreau",
   "role": "staff_candidate",
-  "age": 39,
-  "first_appears_day": 12,
-  "visit_weight": 1.77,
+  "age": 24,
+  "first_appears_day": 1,
+  "visit_weight": 1.19,
   "trust_arc": "warming",
   "tells": [
     "arrives ten minutes early"
   ],
-  "notes": "loc:npc.jo_duarte.notes",
+  "notes": "loc:npc.nils_moreau.notes",
   "tags": [
     "staff_candidate"
   ]

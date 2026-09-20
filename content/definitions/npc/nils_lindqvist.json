@@ -2,16 +2,16 @@
   "id": "base:nils_lindqvist",
   "type": "npc",
   "name": "loc:npc.nils_lindqvist",
-  "role": "staff_candidate",
-  "age": 24,
-  "first_appears_day": 1,
-  "visit_weight": 1.19,
+  "role": "regular",
+  "age": 32,
+  "first_appears_day": 5,
+  "visit_weight": 0.52,
   "trust_arc": "warming",
   "tells": [
-    "arrives ten minutes early"
+    "brings their own dice"
   ],
   "notes": "loc:npc.nils_lindqvist.notes",
   "tags": [
-    "staff_candidate"
+    "regular"
   ]
 }

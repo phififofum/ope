@@ -5,6 +5,9 @@
 /android/
 *.translation
 
+# The build script's own toolchain: engine and export templates, fetched on demand.
+/.tooling/
+
 # Exported builds
 /build/
 /export/

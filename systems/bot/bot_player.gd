@@ -66,6 +66,9 @@ func play(days: int, sample_every_ticks: int = 600) -> Dictionary:
 		"final_money": shop.economy.money,
 		"final_reputation": shop.economy.reputation,
 		"insolvent": shop.economy.is_insolvent(),
+		"act": shop.act(),
+		"staff": shop.staff.employees.size(),
+		"unsurfaced_staff_cost": shop.staff.unsurfaced_cost(),
 		"verdicts": verdict_counts.duplicate(),
 		"tool_use": tools_used_counts.duplicate(),
 		"summaries": day_summaries,
@@ -81,6 +84,23 @@ func _buy_what_we_can_afford() -> void:
 	var affordable: Array = shop.affordable_licences()
 	if not affordable.is_empty():
 		shop.buy_licence((affordable[0] as ContentDefinition).id)
+	_hire_if_it_helps()
+
+
+## Delegation, played badly on purpose. The bot hires the cheapest role it can cover and
+## never checks the references -- which is exactly how the audit loop gets exercised.
+func _hire_if_it_helps() -> void:
+	if shop.economy.money < 1200.0 or shop.staff.employees.size() >= 4:
+		return
+	var roles: Array = shop.registry.by_type(&"staff_role")
+	if roles.is_empty():
+		return
+	var cheapest: ContentDefinition = roles[0]
+	for role: ContentDefinition in roles:
+		if role.get_number("wage_per_shift") < cheapest.get_number("wage_per_shift"):
+			cheapest = role
+	var applicant: StaffSystem.Employee = shop.interview(cheapest.id)
+	shop.hire(applicant, shop.players[0], shop.clock.current_tick())
 
 
 ## Work a free pair of hands could actually pick up. An order that is cooking is not
@@ -126,6 +146,12 @@ func _priorities(slot: Shop.PlayerSlot, now: int) -> Array[Callable]:
 		if shop.economy.money > 900.0 or shop.card_case.display.is_empty():
 			return false
 		return int(shop.work_the_case(slot, now, 12.0)["sold"]) > 0
+	var audit := func() -> bool:
+		# The late game's core activity: forensic verification on your own shop. Same
+		# verb, new object -- and it only pays once there are staff to audit.
+		if shop.staff.employees.is_empty() or shop.staff.unsurfaced_cost() < 60.0:
+			return false
+		return not shop.audit_staff(slot, now).is_empty()
 	var cats := func() -> bool:
 		if shop.cats.residents.is_empty() and not shop.cats.stray_present:
 			return false
@@ -134,11 +160,17 @@ func _priorities(slot: Shop.PlayerSlot, now: int) -> Array[Callable]:
 
 	match policy:
 		Policy.KITCHEN_FIRST:
-			return [ready_food, cook, serve, check, deliveries, restock, case_work, clean, cats]
+			return [
+				ready_food, cook, serve, check, deliveries, restock, case_work, audit, clean, cats
+			]
 		Policy.COUNTER_FIRST:
-			return [serve, ready_food, cook, deliveries, check, restock, case_work, clean, cats]
+			return [
+				serve, ready_food, cook, deliveries, check, restock, case_work, audit, clean, cats
+			]
 		_:
-			return [serve, ready_food, cook, check, deliveries, restock, case_work, clean, cats]
+			return [
+				serve, ready_food, cook, check, deliveries, restock, case_work, audit, clean, cats
+			]
 
 
 ## The bot's verdict policy. Deliberately imperfect in different directions, so a nightly

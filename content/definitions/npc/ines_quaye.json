@@ -2,16 +2,16 @@
   "id": "base:ines_quaye",
   "type": "npc",
   "name": "loc:npc.ines_quaye",
-  "role": "repeat_offender",
-  "age": 42,
-  "first_appears_day": 8,
-  "visit_weight": 0.8,
-  "trust_arc": "volatile",
+  "role": "official",
+  "age": 26,
+  "first_appears_day": 3,
+  "visit_weight": 2.07,
+  "trust_arc": "steady",
   "tells": [
-    "watches the case, not you"
+    "asks for the temperature log first"
   ],
   "notes": "loc:npc.ines_quaye.notes",
   "tags": [
-    "repeat_offender"
+    "official"
   ]
 }

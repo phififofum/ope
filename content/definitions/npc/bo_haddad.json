@@ -2,16 +2,16 @@
   "id": "base:bo_haddad",
   "type": "npc",
   "name": "loc:npc.bo_haddad",
-  "role": "staff_candidate",
-  "age": 30,
-  "first_appears_day": 3,
-  "visit_weight": 1.14,
+  "role": "regular",
+  "age": 45,
+  "first_appears_day": 12,
+  "visit_weight": 2.42,
   "trust_arc": "warming",
   "tells": [
-    "arrives ten minutes early"
+    "brings their own dice"
   ],
   "notes": "loc:npc.bo_haddad.notes",
   "tags": [
-    "staff_candidate"
+    "regular"
   ]
 }

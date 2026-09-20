@@ -2,16 +2,16 @@
   "id": "base:ada_abara",
   "type": "npc",
   "name": "loc:npc.ada_abara",
-  "role": "official",
-  "age": 28,
-  "first_appears_day": 12,
-  "visit_weight": 0.74,
+  "role": "regular",
+  "age": 35,
+  "first_appears_day": 3,
+  "visit_weight": 0.5,
   "trust_arc": "steady",
   "tells": [
-    "asks for the temperature log first"
+    "asks after the cat"
   ],
   "notes": "loc:npc.ada_abara.notes",
   "tags": [
-    "official"
+    "regular"
   ]
 }

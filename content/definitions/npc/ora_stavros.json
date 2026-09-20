@@ -2,16 +2,16 @@
   "id": "base:ora_stavros",
   "type": "npc",
   "name": "loc:npc.ora_stavros",
-  "role": "judge",
-  "age": 29,
-  "first_appears_day": 1,
-  "visit_weight": 0.6,
+  "role": "regular",
+  "age": 71,
+  "first_appears_day": 20,
+  "visit_weight": 1.4,
   "trust_arc": "steady",
   "tells": [
-    "quotes the policy number from memory"
+    "always the same table"
   ],
   "notes": "loc:npc.ora_stavros.notes",
   "tags": [
-    "judge"
+    "regular"
   ]
 }

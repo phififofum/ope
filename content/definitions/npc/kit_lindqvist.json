@@ -1,16 +1,16 @@
 {
-  "id": "base:sol_grover",
+  "id": "base:kit_lindqvist",
   "type": "npc",
-  "name": "loc:npc.sol_grover",
+  "name": "loc:npc.kit_lindqvist",
   "role": "trade_partner",
-  "age": 29,
+  "age": 23,
   "first_appears_day": 20,
-  "visit_weight": 2.31,
+  "visit_weight": 1.0,
   "trust_arc": "steady",
   "tells": [
     "sleeves everything before it hits the glass"
   ],
-  "notes": "loc:npc.sol_grover.notes",
+  "notes": "loc:npc.kit_lindqvist.notes",
   "tags": [
     "trade_partner"
   ]

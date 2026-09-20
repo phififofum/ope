@@ -2,16 +2,16 @@
   "id": "base:hana_jelinek",
   "type": "npc",
   "name": "loc:npc.hana_jelinek",
-  "role": "repeat_offender",
-  "age": 19,
+  "role": "trade_partner",
+  "age": 62,
   "first_appears_day": 1,
-  "visit_weight": 2.43,
-  "trust_arc": "cooling",
+  "visit_weight": 1.85,
+  "trust_arc": "long_con",
   "tells": [
-    "counts their change twice"
+    "twenty clean transactions, and then one that is not"
   ],
   "notes": "loc:npc.hana_jelinek.notes",
   "tags": [
-    "repeat_offender"
+    "trade_partner"
   ]
 }

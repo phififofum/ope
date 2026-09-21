@@ -38,7 +38,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: python3 -m pip install --disable-pip-version-check jsonschema
+        run: python3 -m pip install --disable-pip-version-check jsonschema pyyaml
 
       - name: Text formats, LF endings, parseable JSON, no placeholders
         run: python3 tools/check_repo_hygiene.py
@@ -61,6 +61,10 @@ jobs:
       - name: Every relative documentation link resolves
         run: python3 tools/check_doc_links.py
 
+      # A test suite in no shard is a test suite that stopped running, silently.
+      - name: Every test suite is run by exactly one CI shard
+        run: python3 tools/check_test_shards.py
+
   lint:
     name: Lint and format
     runs-on: ubuntu-latest
@@ -80,7 +84,25 @@ jobs:
           SKIP: content-validation,licence-audit,repo-hygiene,doc-links
 
   godot:
-    name: Godot import, boot and export
+    name: ${{ matrix.name }}
+    strategy:
+      fail-fast: false
+      # Sharded by wall clock, not by tidiness. Three policy comparisons were eleven
+      # minutes of an eighteen-minute suite, so they get a runner each; everything else
+      # -- 126 tests -- finishes in well under a minute together.
+      #
+      # tools/check_test_shards.py fails the build if a suite file is in no shard, so a
+      # new test cannot quietly stop being run.
+      matrix:
+        include:
+          - name: Tests — unit and integration
+            targets: -a tests/unit -a tests/integration
+          - name: Tests — scrutiny is worth it
+            targets: -a tests/balance/test_scrutiny_is_worth_it.gd
+          - name: Tests — scrutiny costs throughput
+            targets: -a tests/balance/test_scrutiny_costs_throughput.gd
+          - name: Tests — judgement beats volume
+            targets: -a tests/balance/test_judgement_beats_volume.gd
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
@@ -131,11 +153,61 @@ jobs:
 
       # gdUnit4, vendored in addons/, so the suite runs with only the pinned binary and
       # this repository -- no network, no plugin install step.
-      - name: Unit and integration tests
+      - name: Run ${{ matrix.name }}
         run: |
           $HOME/godot/godot --headless --path . \
             -s addons/gdUnit4/bin/GdUnitCmdTool.gd --ignoreHeadlessMode \
-            -a tests/unit -a tests/integration
+            ${{ matrix.targets }}
+
+  package:
+    name: Export and visual regression
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - name: Verify the pinned engine version
+        run: |
+          pinned="$(tr -d '[:space:]' < .godot-version)"
+          if [ "$pinned" != "${GODOT_VERSION}" ]; then
+            echo "::error::.godot-version says ${pinned}, workflow says ${GODOT_VERSION}"
+            exit 1
+          fi
+
+      - name: Cache the engine and export templates
+        uses: actions/cache@v6.1.0
+        with:
+          path: |
+            ~/godot
+            ~/.local/share/godot/export_templates
+          key: godot-${{ env.GODOT_VERSION }}
+
+      - name: Install Godot ${{ env.GODOT_VERSION }}
+        run: |
+          set -euo pipefail
+          base="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable"
+          if [ ! -x "$HOME/godot/godot" ]; then
+            mkdir -p "$HOME/godot"
+            curl -sSL -o /tmp/godot.zip "${base}/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+            unzip -q -o /tmp/godot.zip -d "$HOME/godot"
+            mv "$HOME/godot/Godot_v${GODOT_VERSION}-stable_linux.x86_64" "$HOME/godot/godot"
+            chmod +x "$HOME/godot/godot"
+          fi
+          templates="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          if [ ! -d "$templates" ]; then
+            mkdir -p "$(dirname "$templates")"
+            curl -sSL -o /tmp/templates.tpz "${base}/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+            unzip -q -o /tmp/templates.tpz -d /tmp/templates
+            mv /tmp/templates/templates "$templates"
+          fi
+          "$HOME/godot/godot" --version
+
+      - name: Import the project
+        run: $HOME/godot/godot --headless --path . --import
+
+      # Boots the real engine with the real scene tree, loads every definition, and
+      # exits non-zero if any of it is missing.
+      - name: Boot headless
+        run: $HOME/godot/godot --headless --path . -- --smoke-test
 
       - name: Export Linux and Windows
         run: |

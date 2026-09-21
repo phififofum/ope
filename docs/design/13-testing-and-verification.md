@@ -33,6 +33,20 @@ dependency resolver, save migration, the patch system.
 **Target 80% coverage on `core/`**, which is where correctness actually matters. A change
 that reduces coverage on `core/` does not merge.
 
+### How the suite is run
+
+The whole suite is one command, [`tools/run_tests.sh`](../../tools/run_tests.sh), and
+locally it runs in sequence. CI shards it across runners instead, because a handful of
+suites play whole simulated days and everything else finishes in under a minute: run in
+sequence they were eighteen of a twenty-minute pipeline, and sharded the pipeline is
+about five.
+
+The shards are listed in the [CI matrix](../../.github/workflows/ci.yml), and
+[`tools/check_test_shards.py`](../../tools/check_test_shards.py) fails the build when a
+suite file is in no shard, or in two. That check exists because hand-written shards have
+exactly one dangerous failure mode: a new suite that nobody adds to the list simply stops
+being run, and nothing goes red to say so.
+
 ### 3. Headless integration tests
 
 `godot --headless` runs the real engine with the real scene tree. This is the layer that

@@ -28,6 +28,43 @@ where the hard part is knowing what to check.**
 > placeholder geometry, there is no audio, and the content is broad rather than deep.
 > [ROADMAP.md](ROADMAP.md) is the honest status, phase by phase.
 
+## Play it
+
+**[Download the latest build →](https://github.com/phififofum/ope/releases/latest)**
+
+No install, no launcher, no account. One file that already contains everything it needs.
+
+| | |
+| --- | --- |
+| **Windows** | Download the `-windows.zip`, unzip it, run `poggywoggy.exe`. Windows will say it does not recognise the publisher, because the build is not signed: **More info → Run anyway**. |
+| **Linux** | Download the `-linux.zip`, unzip it, then `chmod +x poggywoggy.x86_64 && ./poggywoggy.x86_64`. |
+| **macOS** | Not built yet. |
+
+### Controls
+
+| | |
+| --- | --- |
+| Move | `W` `A` `S` `D`, `Shift` to run |
+| Use what you are looking at | `E` |
+| Pick a document up, put it down | `E`, `Q` |
+| Turn it over, look closer | hold **right mouse**, scroll wheel, `F` to flip |
+| Reach for the tool in your other hand | **left mouse** |
+| Approve, decline, partial | `1`, `2`, `3` |
+| The binder of rules | `B` |
+| Developer console | `F1` |
+
+### Or build it yourself
+
+Needs nothing installed — it fetches its own pinned engine and export templates into
+`.tooling/`, and touches nothing outside the repository:
+
+```bash
+git clone https://github.com/phififofum/ope.git
+cd ope
+./build.sh run          # build and play  (build.ps1 on Windows)
+./build.sh all          # both platforms, into build/
+```
+
 ## What it is
 
 You run a board game cafe. The kind with a wall of four hundred games to borrow, a kitchen,

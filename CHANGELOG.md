@@ -81,8 +81,10 @@ Additive, so mods written against the schemas keep working:
 
 ### Notes
 
-No release has been tagged. The game is playable from a local build — see
-[ROADMAP.md](ROADMAP.md) for what is and is not finished, and
+`v0.1.0-playtest.1` is the first tagged build, published as a pre-release so that
+playtesters can download and run it. It is a snapshot for testing, **not** a release of
+the public mod API — schemas and event names may still move without a major version
+until `v1.0.0`. See [ROADMAP.md](ROADMAP.md) for what is and is not finished, and
 [HANDOFF.md](HANDOFF.md) for what most needs a human to look at.
 
 [Unreleased]: https://github.com/phififofum/ope/commits/main

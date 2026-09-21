@@ -196,10 +196,15 @@ func _policy_tally(policy: BotPlayer.Policy, seeds: Array, days: int = 5) -> Dic
 		)
 		var report: Dictionary = BotPlayer.new(shop, policy).play(days)
 		totals["reputation"] = float(totals["reputation"]) + float(report["final_reputation"])
-		# Cash alone is misleading: money in cardboard is still money, and a shop that
-		# converted its till into stock has not lost anything yet.
+		# The books mean the books: cash, the case, and the stock in the building. Money in
+		# cardboard is still money, and leaving inventory out would flatter whichever
+		# policy sold its shelves down and never replaced them -- a different mistake from
+		# the one under test.
 		totals["net_worth"] = (
-			float(totals["net_worth"]) + float(report["final_money"]) + shop.card_case.case_value()
+			float(totals["net_worth"])
+			+ float(report["final_money"])
+			+ shop.card_case.case_value()
+			+ shop.inventory.stock_value()
 		)
 		totals["served"] = int(totals["served"]) + shop.served_today
 		totals["walked_out"] = int(totals["walked_out"]) + shop.walked_out

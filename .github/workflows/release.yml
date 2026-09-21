@@ -128,14 +128,15 @@ jobs:
       - name: Boot the project headless
         run: $HOME/godot/godot --headless --path . -- --smoke-test
 
+      # The pack is embedded in the binary, so there is no .pck beside it to check for:
+      # a non-empty executable, and the smoke test below, are the evidence.
       - name: Export
         run: |
           set -euo pipefail
-          mkdir -p build/linux build/windows
-          $HOME/godot/godot --headless --path . --export-release "Linux" build/linux/poggywoggy.x86_64
-          $HOME/godot/godot --headless --path . --export-release "Windows Desktop" build/windows/poggywoggy.exe
-          test -f build/linux/poggywoggy.pck
-          test -f build/windows/poggywoggy.pck
+          GODOT="$HOME/godot/godot" tools/export_target.sh \
+            "Linux" build/linux/poggywoggy.x86_64
+          GODOT="$HOME/godot/godot" tools/export_target.sh \
+            "Windows Desktop" build/windows/poggywoggy.exe
 
       # The failure this catches is the one that matters: a build that runs from the
       # project and dies when exported, because a file read at runtime is missing from

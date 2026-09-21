@@ -101,17 +101,10 @@ link_templates() {
 
 export_target() {
   local preset="$1" output="$2"
-  mkdir -p "$(dirname "$output")"
   info "exporting $preset"
-  # The engine sometimes exits noisily after a successful export, so the file on disk is
-  # what counts, not the exit code. One retry covers a genuinely interrupted run.
-  "$GODOT_BIN" --headless --path "$ROOT" --export-release "$preset" "$output" >/dev/null 2>&1 || true
-  if [ ! -s "$output" ]; then
-    warn "retrying the $preset export"
-    "$GODOT_BIN" --headless --path "$ROOT" --export-release "$preset" "$output" >/dev/null 2>&1 || true
-  fi
-  [ -s "$output" ] || die "$preset export produced nothing"
-  chmod +x "$output" 2>/dev/null || true
+  # Shared with the CI workflows, because whether an export worked is decided by the
+  # file on disk rather than by the exit code -- see tools/export_target.sh.
+  GODOT="$GODOT_BIN" "$ROOT/tools/export_target.sh" "$preset" "$output" >/dev/null || die "$preset export produced nothing"
   info "built $output ($(du -h "$output" | cut -f1))"
 }
 

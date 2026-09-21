@@ -140,11 +140,10 @@ jobs:
       - name: Export Linux and Windows
         run: |
           set -euo pipefail
-          mkdir -p build/linux build/windows
-          $HOME/godot/godot --headless --path . \
-            --export-release "Linux" build/linux/poggywoggy.x86_64
-          $HOME/godot/godot --headless --path . \
-            --export-release "Windows Desktop" build/windows/poggywoggy.exe
+          GODOT="$HOME/godot/godot" tools/export_target.sh \
+            "Linux" build/linux/poggywoggy.x86_64
+          GODOT="$HOME/godot/godot" tools/export_target.sh \
+            "Windows Desktop" build/windows/poggywoggy.exe
 
       # Catches the failure that only appears after packaging: a file read at runtime
       # that is missing from include_filter in export_presets.cfg.

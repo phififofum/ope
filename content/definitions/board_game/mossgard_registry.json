@@ -1,0 +1,47 @@
+{
+  "id": "base:mossgard_registry",
+  "type": "board_game",
+  "name": "loc:board_game.mossgard_registry",
+  "designer": "Redfen Baptiste",
+  "player_count": [
+    1,
+    5
+  ],
+  "play_minutes": [
+    46,
+    74
+  ],
+  "weight": 2.5,
+  "teach_minutes": 10,
+  "retail_price": 43.02,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 24,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "plastic stand",
+      "count": 60,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

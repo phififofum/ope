@@ -1,0 +1,23 @@
+{
+  "id": "base:collectible_value_at_most",
+  "type": "rule",
+  "name": "loc:rule.collectible_value_at_most",
+  "explanation": "loc:rule.collectible_value_at_most.explanation",
+  "applies_to": {
+    "document_families": [
+      "collectible"
+    ],
+    "transaction_tags": [
+      "authentication",
+      "trade_in"
+    ]
+  },
+  "check": {
+    "op": "value_at_most",
+    "field": "collector_number",
+    "value": 999
+  },
+  "severity": "blocking",
+  "tier": 1,
+  "requires_tool": "base:loupe"
+}

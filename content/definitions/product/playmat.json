@@ -1,0 +1,25 @@
+{
+  "id": "base:playmat",
+  "type": "product",
+  "name": "loc:product.playmat",
+  "category": "accessories",
+  "tags": [],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 24,
+  "base_cost": 6.0,
+  "market_price": 19.0,
+  "price_band": [
+    12.35,
+    36.1
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

@@ -1,0 +1,64 @@
+{
+  "id": "base:redfen_syndicate",
+  "type": "board_game",
+  "name": "loc:board_game.redfen_syndicate",
+  "designer": "Drakemoor Reyes",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    38,
+    105
+  ],
+  "weight": 2.1,
+  "teach_minutes": 14,
+  "retail_price": 40.62,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "first-player marker",
+      "count": 60,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "card",
+      "count": 8,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "linen bag",
+      "count": 8,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

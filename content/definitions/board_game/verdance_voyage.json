@@ -1,0 +1,53 @@
+{
+  "id": "base:verdance_voyage",
+  "type": "board_game",
+  "name": "loc:board_game.verdance_voyage",
+  "designer": "Verdance Reyes",
+  "player_count": [
+    1,
+    4
+  ],
+  "play_minutes": [
+    67,
+    96
+  ],
+  "weight": 2.9,
+  "teach_minutes": 17,
+  "retail_price": 53.27,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "meeple",
+      "count": 104,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "player board",
+      "count": 8,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "die",
+      "count": 24,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "wooden cube",
+      "count": 24,
+      "loss_weight": 0.9
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

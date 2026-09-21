@@ -1,0 +1,58 @@
+{
+  "id": "base:lanternwick_exchange",
+  "type": "board_game",
+  "name": "loc:board_game.lanternwick_exchange",
+  "designer": "Lanternwick Baptiste",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    76,
+    140
+  ],
+  "weight": 3.1,
+  "teach_minutes": 22,
+  "retail_price": 53.62,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "plastic stand",
+      "count": 120,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "wooden cube",
+      "count": 104,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "meeple",
+      "count": 120,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

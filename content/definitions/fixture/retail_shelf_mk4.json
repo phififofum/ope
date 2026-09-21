@@ -1,0 +1,19 @@
+{
+  "id": "base:retail_shelf_mk4",
+  "type": "fixture",
+  "name": "loc:fixture.retail_shelf_mk4",
+  "category": "shelf",
+  "footprint": [
+    2,
+    1
+  ],
+  "cost": 430.5,
+  "capacity": 30,
+  "noise": -0.1,
+  "upkeep_hours": 0.33,
+  "zone": "library",
+  "tags": [
+    "shelf",
+    "quiet"
+  ]
+}

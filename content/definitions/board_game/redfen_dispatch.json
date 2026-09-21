@@ -1,0 +1,63 @@
+{
+  "id": "base:redfen_dispatch",
+  "type": "board_game",
+  "name": "loc:board_game.redfen_dispatch",
+  "designer": "Harbourline Okoro",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    79,
+    150
+  ],
+  "weight": 3.4,
+  "teach_minutes": 24,
+  "retail_price": 62.24,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 40,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "first-player marker",
+      "count": 120,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "cardboard token",
+      "count": 60,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "player board",
+      "count": 8,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "resource tile",
+      "count": 60,
+      "loss_weight": 0.5
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

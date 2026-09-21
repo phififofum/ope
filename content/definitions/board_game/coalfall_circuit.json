@@ -1,0 +1,43 @@
+{
+  "id": "base:coalfall_circuit",
+  "type": "board_game",
+  "name": "loc:board_game.coalfall_circuit",
+  "designer": "Ironwright Baptiste",
+  "player_count": [
+    1,
+    4
+  ],
+  "play_minutes": [
+    84,
+    119
+  ],
+  "weight": 3.6,
+  "teach_minutes": 18,
+  "retail_price": 48.84,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 104,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "plastic stand",
+      "count": 60,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

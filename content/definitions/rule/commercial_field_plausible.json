@@ -1,0 +1,21 @@
+{
+  "id": "base:commercial_field_plausible",
+  "type": "rule",
+  "name": "loc:rule.commercial_field_plausible",
+  "explanation": "loc:rule.commercial_field_plausible.explanation",
+  "applies_to": {
+    "document_families": [
+      "commercial"
+    ],
+    "transaction_tags": [
+      "trade_in",
+      "resale"
+    ]
+  },
+  "check": {
+    "op": "field_plausible",
+    "field": "signature"
+  },
+  "severity": "item_scoped",
+  "tier": 0
+}

@@ -1,0 +1,24 @@
+{
+  "id": "base:regional_tournament_2",
+  "type": "event",
+  "name": "loc:event.regional_tournament_2",
+  "description": "loc:event.regional_tournament_2.description",
+  "trigger": {
+    "kind": "scheduled",
+    "weight": 1.91,
+    "earliest_day": 40,
+    "act": 2
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "event",
+      "amount": 0.1
+    }
+  ],
+  "announced": false,
+  "tags": [
+    "event",
+    "crowd"
+  ]
+}

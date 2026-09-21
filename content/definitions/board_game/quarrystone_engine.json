@@ -1,0 +1,63 @@
+{
+  "id": "base:quarrystone_engine",
+  "type": "board_game",
+  "name": "loc:board_game.quarrystone_engine",
+  "designer": "Aldermere Vance",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    64,
+    134
+  ],
+  "weight": 4.2,
+  "teach_minutes": 32,
+  "retail_price": 56.83,
+  "library_eligible": false,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 60,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "plastic stand",
+      "count": 104,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "player board",
+      "count": 4,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "cardboard token",
+      "count": 104,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "die",
+      "count": 120,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

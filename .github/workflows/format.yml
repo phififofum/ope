@@ -1,0 +1,61 @@
+---
+name: Format
+
+# Runs the formatters and pushes the result. Manual only, and never on a fork's
+# pull request, because a workflow that rewrites someone else's branch without being
+# asked is a bad surprise.
+#
+# The same fixes happen locally on every commit once you run:
+#   pre-commit install
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Branch to format"
+        required: true
+        default: "main"
+
+permissions:
+  contents: write
+
+jobs:
+  format:
+    name: Apply formatters
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: ${{ inputs.branch }}
+
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+
+      - name: Install tooling
+        run: python3 -m pip install --disable-pip-version-check pre-commit jsonschema
+
+      # Formatting hooks rewrite files and exit non-zero when they do, which is not a
+      # failure here -- it is the point.
+      - name: Run the formatters
+        continue-on-error: true
+        env:
+          SKIP: content-validation,licence-audit,repo-hygiene,doc-links
+        run: pre-commit run --all-files
+
+      - name: Regenerate CREDITS.md from asset licence records
+        run: python3 tools/licence_audit.py --write
+
+      - name: Re-check the gates after formatting
+        run: |
+          python3 tools/check_repo_hygiene.py
+          python3 tools/validate_content.py --strict
+          python3 tools/licence_audit.py --check
+          python3 tools/check_doc_links.py
+
+      - name: Commit the result
+        uses: stefanzweifel/git-auto-commit-action@v7.2.0
+        with:
+          commit_message: "style: apply formatters"
+          commit_user_name: github-actions[bot]
+          commit_user_email: 41898282+github-actions[bot]@users.noreply.github.com

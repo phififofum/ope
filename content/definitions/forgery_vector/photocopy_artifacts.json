@@ -1,0 +1,26 @@
+{
+  "id": "base:photocopy_artifacts",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "base:trade_in_record"
+    ]
+  },
+  "class": "physical_defect",
+  "tier": 1,
+  "difficulty": 2,
+  "detectable_by": [
+    "base:loupe",
+    "base:naked_eye"
+  ],
+  "transform": {
+    "op": "apply_process",
+    "target": "whole_artifact",
+    "method": "photocopy_generation",
+    "generations": 2
+  },
+  "tell": {
+    "behaviour": "apologises_unprompted",
+    "weight": 0.35
+  }
+}

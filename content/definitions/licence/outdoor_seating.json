@@ -1,0 +1,21 @@
+{
+  "id": "base:outdoor_seating",
+  "type": "licence",
+  "name": "loc:licence.outdoor_seating",
+  "unlocks_categories": [],
+  "unlocks_activities": [
+    "frontage"
+  ],
+  "cost": 1100.0,
+  "renewal_days": 365,
+  "standing_required": 1,
+  "verification_burden": [
+    "Occupancy limits",
+    "Noise restrictions"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

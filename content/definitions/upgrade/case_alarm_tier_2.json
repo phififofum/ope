@@ -1,0 +1,13 @@
+{
+  "id": "base:case_alarm_tier_2",
+  "type": "upgrade",
+  "name": "loc:upgrade.case_alarm_tier_2",
+  "description": "loc:upgrade.case_alarm_tier_2.description",
+  "cost": 2520.0,
+  "prerequisites": [],
+  "unlocks": [
+    "case_alarm"
+  ],
+  "category": "security",
+  "costs_space": 0
+}

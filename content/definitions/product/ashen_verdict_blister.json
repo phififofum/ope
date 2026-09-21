@@ -1,0 +1,37 @@
+{
+  "id": "base:ashen_verdict_blister",
+  "type": "product",
+  "name": "loc:product.ashen_verdict_blister",
+  "category": "sealed_product",
+  "tags": [
+    "impulse",
+    "resealable",
+    "sealed"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 24,
+  "sealed": {
+    "card_set": "base:ashen_verdict",
+    "form": "blister",
+    "packs": 3
+  },
+  "base_cost": 14.84,
+  "market_price": 20.9,
+  "price_band": [
+    17.76,
+    33.44
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "adjacency_affinity": [
+    "accessories"
+  ],
+  "urgency": "low"
+}

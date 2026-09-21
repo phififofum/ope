@@ -1,0 +1,28 @@
+{
+  "id": "base:cold_brew_small",
+  "type": "product",
+  "name": "loc:product.cold_brew_small",
+  "category": "cold_beverages",
+  "tags": [
+    "chilled",
+    "impulse"
+  ],
+  "storage": "chilled",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 12,
+  "base_cost": 0.63,
+  "market_price": 2.38,
+  "price_band": [
+    1.55,
+    4.52
+  ],
+  "shelf_life_days": 21,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "high"
+}

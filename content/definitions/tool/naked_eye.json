@@ -1,0 +1,18 @@
+{
+  "id": "base:naked_eye",
+  "type": "tool",
+  "name": "loc:tool.naked_eye",
+  "tier": 0,
+  "reveals": [
+    "printed_fields",
+    "photo",
+    "gross_tampering",
+    "behaviour"
+  ],
+  "inspection_seconds": 0.0,
+  "unlocked_by": "start",
+  "returns_verdict": false,
+  "failure_modes": [
+    "Misses everything a tool exists to reveal."
+  ]
+}

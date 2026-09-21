@@ -1,0 +1,27 @@
+{
+  "id": "base:deck_box_large",
+  "type": "product",
+  "name": "loc:product.deck_box_large",
+  "category": "accessories",
+  "tags": [
+    "counter_adjacent"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 8,
+  "base_cost": 3.15,
+  "market_price": 11.25,
+  "price_band": [
+    7.31,
+    21.38
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "base:the_browser",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_browser",
+  "budget": [
+    16.24,
+    47.7
+  ],
+  "patience": 1.12,
+  "wants": [
+    "retail"
+  ],
+  "spawn_weight": 2.94,
+  "shifts": [
+    "evening",
+    "late_night"
+  ],
+  "fraud_propensity": 0.04,
+  "age_range": [
+    21,
+    38
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

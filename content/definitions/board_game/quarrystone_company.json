@@ -1,0 +1,53 @@
+{
+  "id": "base:quarrystone_company",
+  "type": "board_game",
+  "name": "loc:board_game.quarrystone_company",
+  "designer": "Gallowmere Vance",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    80,
+    106
+  ],
+  "weight": 3.0,
+  "teach_minutes": 10,
+  "retail_price": 50.42,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "meeple",
+      "count": 120,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "die",
+      "count": 104,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

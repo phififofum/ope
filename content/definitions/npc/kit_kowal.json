@@ -1,0 +1,17 @@
+{
+  "id": "base:kit_kowal",
+  "type": "npc",
+  "name": "loc:npc.kit_kowal",
+  "role": "judge",
+  "age": 69,
+  "first_appears_day": 1,
+  "visit_weight": 1.26,
+  "trust_arc": "steady",
+  "tells": [
+    "quotes the policy number from memory"
+  ],
+  "notes": "loc:npc.kit_kowal.notes",
+  "tags": [
+    "judge"
+  ]
+}

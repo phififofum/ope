@@ -1,0 +1,38 @@
+{
+  "id": "base:meridian_core_booster_box",
+  "type": "product",
+  "name": "loc:product.meridian_core_booster_box",
+  "category": "sealed_product",
+  "tags": [
+    "high_value",
+    "resealable",
+    "sealed",
+    "theft_exposed"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 6,
+  "sealed": {
+    "card_set": "base:meridian_core",
+    "form": "booster_box",
+    "packs": 36
+  },
+  "base_cost": 117.81,
+  "market_price": 165.93,
+  "price_band": [
+    141.04,
+    265.49
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:sealed_distribution",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "adjacency_affinity": [
+    "accessories"
+  ],
+  "urgency": "low"
+}

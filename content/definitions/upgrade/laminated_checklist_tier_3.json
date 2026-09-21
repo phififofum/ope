@@ -1,0 +1,13 @@
+{
+  "id": "base:laminated_checklist_tier_3",
+  "type": "upgrade",
+  "name": "loc:upgrade.laminated_checklist_tier_3",
+  "description": "loc:upgrade.laminated_checklist_tier_3.description",
+  "cost": 104.0,
+  "prerequisites": [],
+  "unlocks": [
+    "laminated_checklist"
+  ],
+  "category": "quality_of_life",
+  "costs_space": 2
+}

@@ -1,0 +1,48 @@
+{
+  "id": "base:brasshollow_network",
+  "type": "board_game",
+  "name": "loc:board_game.brasshollow_network",
+  "designer": "Oxbow Vance",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    50,
+    130
+  ],
+  "weight": 2.9,
+  "teach_minutes": 18,
+  "retail_price": 56.15,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "meeple",
+      "count": 104,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "resource tile",
+      "count": 104,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "base:card_sleeves_large",
+  "type": "product",
+  "name": "loc:product.card_sleeves_large",
+  "category": "accessories",
+  "tags": [
+    "counter_adjacent",
+    "impulse"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 12,
+  "base_cost": 1.58,
+  "market_price": 6.75,
+  "price_band": [
+    4.39,
+    12.82
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "high"
+}

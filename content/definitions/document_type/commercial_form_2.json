@@ -1,0 +1,53 @@
+{
+  "id": "base:commercial_form_2",
+  "type": "document_type",
+  "name": "loc:doc.commercial_form_2",
+  "family": "commercial",
+  "layout": "res://content/layouts/form_a4_carbon.tres",
+  "fields": [
+    {
+      "key": "seller_name",
+      "source": "person.full_name",
+      "face": "front"
+    },
+    {
+      "key": "seller_id_number",
+      "source": "person.id_number",
+      "face": "front"
+    },
+    {
+      "key": "item_description",
+      "source": "transaction.items",
+      "face": "front"
+    },
+    {
+      "key": "declared_provenance",
+      "source": "person.claim",
+      "face": "front"
+    },
+    {
+      "key": "date",
+      "source": "world.date",
+      "face": "front",
+      "format": "MM/DD/YYYY"
+    },
+    {
+      "key": "holding_period_ends",
+      "source": "derived.holding_end",
+      "face": "front",
+      "format": "MM/DD/YYYY"
+    },
+    {
+      "key": "signature",
+      "source": "person.signature",
+      "face": "front"
+    }
+  ],
+  "security_features": [
+    {
+      "id": "carbon_impression",
+      "revealed_by": "base:loupe"
+    }
+  ],
+  "typeface": "base:font_commercial_official"
+}

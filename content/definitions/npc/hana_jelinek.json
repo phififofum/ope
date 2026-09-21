@@ -1,0 +1,17 @@
+{
+  "id": "base:hana_jelinek",
+  "type": "npc",
+  "name": "loc:npc.hana_jelinek",
+  "role": "trade_partner",
+  "age": 62,
+  "first_appears_day": 1,
+  "visit_weight": 1.85,
+  "trust_arc": "long_con",
+  "tells": [
+    "twenty clean transactions, and then one that is not"
+  ],
+  "notes": "loc:npc.hana_jelinek.notes",
+  "tags": [
+    "trade_partner"
+  ]
+}

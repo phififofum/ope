@@ -1,0 +1,25 @@
+{
+  "id": "base:entitlement_blurred_microprint_subtle",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_feature": "microprint_border"
+  },
+  "class": "physical_defect",
+  "tier": 2,
+  "difficulty": 4,
+  "detectable_by": [
+    "base:loupe"
+  ],
+  "transform": {
+    "op": "degrade_feature",
+    "target": "microprint_border",
+    "method": "raster_blur"
+  },
+  "tell": {
+    "behaviour": "response_latency_high",
+    "weight": 0.3
+  }
+}

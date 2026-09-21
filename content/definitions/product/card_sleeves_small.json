@@ -1,0 +1,28 @@
+{
+  "id": "base:card_sleeves_small",
+  "type": "product",
+  "name": "loc:product.card_sleeves_small",
+  "category": "accessories",
+  "tags": [
+    "counter_adjacent",
+    "impulse"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 48,
+  "base_cost": 0.73,
+  "market_price": 3.15,
+  "price_band": [
+    2.05,
+    5.98
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "high"
+}

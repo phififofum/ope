@@ -1,0 +1,63 @@
+{
+  "id": "base:cindervale_voyage",
+  "type": "board_game",
+  "name": "loc:board_game.cindervale_voyage",
+  "designer": "Stillwater Baptiste",
+  "player_count": [
+    1,
+    4
+  ],
+  "play_minutes": [
+    60,
+    82
+  ],
+  "weight": 4.3,
+  "teach_minutes": 14,
+  "retail_price": 64.94,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "meeple",
+      "count": 120,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "first-player marker",
+      "count": 60,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "resource tile",
+      "count": 60,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "rulebook",
+      "count": 8,
+      "loss_weight": 0.15
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

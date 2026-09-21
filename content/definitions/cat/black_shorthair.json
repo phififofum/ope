@@ -1,0 +1,24 @@
+{
+  "id": "base:black_shorthair",
+  "type": "cat",
+  "name_pool": "loc:catnames.common",
+  "model": "res://content/scenes/cats/black.tscn",
+  "coat": "black",
+  "trait_weights": {
+    "nocturnal": 0.9,
+    "hunter": 0.75,
+    "skittish": 0.4,
+    "vigilant": 0.3,
+    "lazy": 0.41,
+    "social": 0.49,
+    "territorial": 0.09,
+    "thief": 0.2,
+    "vocal": 0.42,
+    "escape_artist": 0.11
+  },
+  "base_hunting": 0.82,
+  "counter_sensitivity": 0.41,
+  "false_positive_rate": 0.19,
+  "customer_appeal": 0.59,
+  "vocalisations": "res://content/assets/audio/cats/black/"
+}

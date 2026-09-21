@@ -1,0 +1,21 @@
+{
+  "id": "base",
+  "name": "PoggyWoggy — base content",
+  "version": "0.1.0",
+  "authors": [
+    "The PoggyWoggy contributors"
+  ],
+  "game_api": ">=0.1.0 <1.0.0",
+  "dependencies": {},
+  "load_order": 0,
+  "capabilities": [
+    "definitions",
+    "schemas",
+    "assets",
+    "scenes",
+    "scripts",
+    "locale"
+  ],
+  "affects_gameplay": true,
+  "description": "The base game, shipped as a mod and holding no privileges. Every definition here loads through the same loader, schemas and registry a community mod uses."
+}

@@ -1,0 +1,64 @@
+{
+  "id": "base:redfen_tramway",
+  "type": "board_game",
+  "name": "loc:board_game.redfen_tramway",
+  "designer": "Quarrystone Vance",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    40,
+    82
+  ],
+  "weight": 1.8,
+  "teach_minutes": 14,
+  "retail_price": 37.17,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "meeple",
+      "count": 104,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "first-player marker",
+      "count": 120,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

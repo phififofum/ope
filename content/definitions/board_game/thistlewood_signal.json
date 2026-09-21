@@ -1,0 +1,44 @@
+{
+  "id": "base:thistlewood_signal",
+  "type": "board_game",
+  "name": "loc:board_game.thistlewood_signal",
+  "designer": "Foxglove Okoro",
+  "player_count": [
+    1,
+    3
+  ],
+  "play_minutes": [
+    42,
+    57
+  ],
+  "weight": 1.5,
+  "teach_minutes": 6,
+  "retail_price": 34.53,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

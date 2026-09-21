@@ -1,0 +1,27 @@
+{
+  "id": "base:napkins_large",
+  "type": "product",
+  "name": "loc:product.napkins_large",
+  "category": "household",
+  "tags": [
+    "consumable"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 12,
+  "base_cost": 0.08,
+  "market_price": 0.0,
+  "price_band": [
+    0.0,
+    0.0
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

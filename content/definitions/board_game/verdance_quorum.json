@@ -1,0 +1,54 @@
+{
+  "id": "base:verdance_quorum",
+  "type": "board_game",
+  "name": "loc:board_game.verdance_quorum",
+  "designer": "Lanternwick Reyes",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    45,
+    129
+  ],
+  "weight": 1.9,
+  "teach_minutes": 14,
+  "retail_price": 33.09,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "meeple",
+      "count": 120,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "wooden cube",
+      "count": 104,
+      "loss_weight": 0.9
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "base:lantern_rite_blister",
+  "type": "product",
+  "name": "loc:product.lantern_rite_blister",
+  "category": "sealed_product",
+  "tags": [
+    "impulse",
+    "resealable",
+    "sealed"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 24,
+  "sealed": {
+    "card_set": "base:lantern_rite",
+    "form": "blister",
+    "packs": 3
+  },
+  "base_cost": 10.97,
+  "market_price": 15.45,
+  "price_band": [
+    13.13,
+    24.72
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "adjacency_affinity": [
+    "accessories"
+  ],
+  "urgency": "low"
+}

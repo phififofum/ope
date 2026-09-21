@@ -1,0 +1,86 @@
+name: 🐞 Bug report
+description: Something in the tools, content or docs behaves incorrectly.
+title: "bug: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing this. There is no playable build yet, so this form covers the
+        tooling, the content data, the CI pipeline and the docs. Found a *vulnerability*?
+        Do not use this form — see [SECURITY.md](https://github.com/phififofum/ope/blob/main/SECURITY.md).
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight
+      options:
+        - label: I searched [existing issues](https://github.com/phififofum/ope/issues?q=is%3Aissue) and this is not a duplicate.
+          required: true
+        - label: I am on the latest `main`.
+          required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where is it
+      options:
+        - tools: content validator
+        - tools: licence audit
+        - content: a definition or schema
+        - ci: the workflow
+        - docs
+        - repository scaffolding
+        - other / not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you observed, in one or two sentences.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: The exact commands, from a clean checkout. A reproduction someone can paste into a terminal is worth ten paragraphs of description.
+      value: |
+        1. `git clone …`
+        2. `python3 tools/validate_content.py`
+        3. …
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Full output
+      description: The complete error or output, not just the last line. This is rendered as a code block automatically.
+      render: shell
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, and (once it exists) Godot version.
+      placeholder: "Ubuntu 24.04 · Python 3.12.3 · Godot 4.7.2"
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: Hunches about the cause, related issues, a diff you already tried.

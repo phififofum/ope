@@ -1,0 +1,24 @@
+{
+  "id": "base:siamese_cross",
+  "type": "cat",
+  "name_pool": "loc:catnames.common",
+  "model": "res://content/scenes/cats/seal_point.tscn",
+  "coat": "seal_point",
+  "trait_weights": {
+    "vocal": 0.95,
+    "vigilant": 0.6,
+    "lazy": 0.08,
+    "skittish": 0.41,
+    "social": 0.37,
+    "territorial": 0.24,
+    "hunter": 0.46,
+    "thief": 0.45,
+    "nocturnal": 0.37,
+    "escape_artist": 0.46
+  },
+  "base_hunting": 0.62,
+  "counter_sensitivity": 0.62,
+  "false_positive_rate": 0.19,
+  "customer_appeal": 0.52,
+  "vocalisations": "res://content/assets/audio/cats/seal_point/"
+}

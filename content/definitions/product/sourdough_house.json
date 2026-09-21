@@ -1,0 +1,28 @@
+{
+  "id": "base:sourdough_house",
+  "type": "product",
+  "name": "loc:product.sourdough_house",
+  "category": "bakery",
+  "tags": [
+    "ingredient",
+    "perishable"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 6,
+  "base_cost": 1.44,
+  "market_price": 3.6,
+  "price_band": [
+    2.34,
+    6.84
+  ],
+  "shelf_life_days": 3,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

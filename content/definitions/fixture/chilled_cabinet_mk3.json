@@ -1,0 +1,18 @@
+{
+  "id": "base:chilled_cabinet_mk3",
+  "type": "fixture",
+  "name": "loc:fixture.chilled_cabinet_mk3",
+  "category": "cooler",
+  "footprint": [
+    2,
+    1
+  ],
+  "cost": 2465.0,
+  "capacity": 48,
+  "noise": 0.35,
+  "upkeep_hours": 0.31,
+  "zone": "service",
+  "tags": [
+    "cooler"
+  ]
+}

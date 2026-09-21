@@ -1,0 +1,30 @@
+# Python tooling configuration. The tools in tools/ are the project's CLIs -- they run in
+# CI, they run in pre-commit, and they are what a contributor runs locally. Same config
+# everywhere, so "works on my machine" and "passes CI" are the same sentence.
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["build", ".godot", "addons"]
+
+[tool.ruff.lint]
+select = [
+  "E",    # pycodestyle errors
+  "W",    # pycodestyle warnings
+  "F",    # pyflakes
+  "I",    # import sorting
+  "B",    # bugbear
+  "UP",   # pyupgrade
+  "SIM",  # simplify
+  "RUF",  # ruff-specific
+]
+ignore = [
+  "E501",    # line length is handled by the formatter
+  "RUF001",  # ambiguous unicode in strings: intentional, this project uses typographic dashes
+  "RUF002",
+  "RUF003",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

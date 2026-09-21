@@ -1,0 +1,16 @@
+{
+  "id": "base:barcode_scanner",
+  "type": "tool",
+  "name": "loc:tool.barcode_scanner",
+  "tier": 2,
+  "reveals": [
+    "barcode",
+    "encoded_all_fields"
+  ],
+  "inspection_seconds": 2.5,
+  "unlocked_by": "store_level_3",
+  "returns_verdict": false,
+  "failure_modes": [
+    "Reads what is encoded, not what is true — a well-made fake encodes cleanly."
+  ]
+}

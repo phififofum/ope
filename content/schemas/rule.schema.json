@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/rule.schema.json",
+  "title": "Rule",
+  "description": "A declarative check the counter applies to an encounter. Rules are the checklist the player carries in their head -- and the binder is generated from these, so it can never drift from what is enforced.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "applies_to",
+    "check",
+    "severity"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+    },
+    "type": {
+      "const": "rule"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "explanation": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "applies_to": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "document_families": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "document_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "transaction_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Only applies when the transaction carries all of these tags, e.g. age_restricted, trade_in, late_hours."
+        }
+      }
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "op"
+      ],
+      "properties": {
+        "op": {
+          "enum": [
+            "age_at_least",
+            "not_expired",
+            "fields_match",
+            "feature_present",
+            "matches_person",
+            "field_equals",
+            "within_threshold",
+            "holding_period",
+            "typeface_matches",
+            "physically_intact",
+            "field_plausible",
+            "value_at_most"
+          ]
+        },
+        "field": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "feature": {
+          "type": "string"
+        },
+        "value": {},
+        "threshold": {
+          "type": "number"
+        }
+      }
+    },
+    "requires_tool": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+    },
+    "severity": {
+      "enum": [
+        "blocking",
+        "item_scoped",
+        "advisory"
+      ],
+      "description": "blocking refuses the whole transaction; item_scoped refuses the flagged items and is the partial verdict; advisory costs nothing to ignore but is remembered."
+    },
+    "unlocked_by": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+    },
+    "tier": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4
+    }
+  }
+}

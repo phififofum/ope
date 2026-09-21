@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/forgery_vector.schema.json",
+  "title": "Forgery vector",
+  "description": "One way an artifact can be wrong. Combinatorial across document types by design.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "applies_to",
+    "class",
+    "tier",
+    "difficulty",
+    "detectable_by",
+    "transform"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$",
+      "description": "Namespaced id. Base content uses `base:`."
+    },
+    "type": {
+      "const": "forgery_vector"
+    },
+    "applies_to": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document_types"
+      ],
+      "properties": {
+        "document_types": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "description": "Definition ids, or `*` for every type that satisfies requires_field."
+        },
+        "requires_field": {
+          "type": "string"
+        },
+        "requires_feature": {
+          "type": "string"
+        }
+      }
+    },
+    "class": {
+      "enum": [
+        "internal_inconsistency",
+        "external_inconsistency",
+        "physical_defect"
+      ],
+      "description": "Every document type needs vectors of all three, so no single habit of looking catches everything."
+    },
+    "tier": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4,
+      "description": "The campaign tier at which this vector starts appearing."
+    },
+    "difficulty": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "detectable_by": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+      },
+      "minItems": 1,
+      "description": "At least one of these must be available at `tier`, or the encounter is a coin flip."
+    },
+    "transform": {
+      "type": "object"
+    },
+    "tell": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "behaviour": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}

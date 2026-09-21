@@ -1,0 +1,28 @@
+{
+  "id": "base:flat_white_beans_small",
+  "type": "product",
+  "name": "loc:product.flat_white_beans_small",
+  "category": "hot_beverages",
+  "tags": [
+    "ingredient",
+    "staple"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 24,
+  "base_cost": 10.15,
+  "market_price": 0.0,
+  "price_band": [
+    0.0,
+    0.0
+  ],
+  "shelf_life_days": 180,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

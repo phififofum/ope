@@ -1,0 +1,59 @@
+{
+  "id": "base:gallowmere_engine",
+  "type": "board_game",
+  "name": "loc:board_game.gallowmere_engine",
+  "designer": "Quarrystone Vance",
+  "player_count": [
+    1,
+    2
+  ],
+  "play_minutes": [
+    33,
+    79
+  ],
+  "weight": 2.1,
+  "teach_minutes": 15,
+  "retail_price": 39.79,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "meeple",
+      "count": 104,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "plastic stand",
+      "count": 120,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "card",
+      "count": 24,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

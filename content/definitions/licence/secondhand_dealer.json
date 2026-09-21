@@ -1,0 +1,23 @@
+{
+  "id": "base:secondhand_dealer",
+  "type": "licence",
+  "name": "loc:licence.secondhand_dealer",
+  "unlocks_categories": [
+    "singles",
+    "board_games"
+  ],
+  "cost": 2400,
+  "renewal_days": 365,
+  "standing_required": 3,
+  "verification_burden": [
+    "Seller ID captured against every purchase from the public",
+    "Holding period before resale",
+    "Logged provenance",
+    "Records available to police on request"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a records audit.",
+    "second": "Holding periods extended, and police contact becomes routine.",
+    "third": "Trade-in counter closed. You may sell singles; you may not buy them."
+  }
+}

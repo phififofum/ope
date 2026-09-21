@@ -1,0 +1,17 @@
+{
+  "id": "base:night_manager",
+  "type": "staff_role",
+  "name": "loc:staff_role.night_manager",
+  "tasks": [
+    "open_close",
+    "full_shift"
+  ],
+  "wage_per_shift": 176.0,
+  "base_error_rate": 0.1,
+  "training_shifts": 6,
+  "audit_surface": [
+    "the morning-after reconciliation"
+  ],
+  "permissions": [],
+  "coverage": 0.68
+}

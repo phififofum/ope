@@ -1,0 +1,53 @@
+{
+  "id": "base:umberfield_reckoning",
+  "type": "board_game",
+  "name": "loc:board_game.umberfield_reckoning",
+  "designer": "Emberdown Lindqvist",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    69,
+    87
+  ],
+  "weight": 3.0,
+  "teach_minutes": 23,
+  "retail_price": 48.06,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 8,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "wooden cube",
+      "count": 24,
+      "loss_weight": 0.9
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

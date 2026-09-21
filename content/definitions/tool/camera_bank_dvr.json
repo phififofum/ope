@@ -1,0 +1,14 @@
+{
+  "id": "base:camera_bank_dvr",
+  "type": "tool",
+  "name": "loc:tool.camera_bank_dvr",
+  "tier": 3,
+  "reveals": [
+    "recorded_footage",
+    "staff_error",
+    "disputed_transaction"
+  ],
+  "inspection_seconds": 45.0,
+  "unlocked_by": "back_office",
+  "returns_verdict": false
+}

@@ -1,0 +1,17 @@
+{
+  "id": "base:dev_calder",
+  "type": "npc",
+  "name": "loc:npc.dev_calder",
+  "role": "courier",
+  "age": 54,
+  "first_appears_day": 12,
+  "visit_weight": 1.23,
+  "trust_arc": "cooling",
+  "tells": [
+    "never has the same paperwork twice"
+  ],
+  "notes": "loc:npc.dev_calder.notes",
+  "tags": [
+    "courier"
+  ]
+}

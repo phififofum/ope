@@ -1,0 +1,24 @@
+{
+  "id": "base:general_retail",
+  "type": "licence",
+  "name": "loc:licence.general_retail",
+  "unlocks_categories": [
+    "ambient",
+    "chilled",
+    "bakery",
+    "confectionery",
+    "accessories",
+    "board_games",
+    "hot_beverages",
+    "cold_beverages"
+  ],
+  "cost": 0,
+  "renewal_days": 365,
+  "standing_required": 0,
+  "verification_burden": [],
+  "strike_consequences": {
+    "first": "Written warning on the record.",
+    "second": "Fine, and a compliance-check period.",
+    "third": "Trading suspended for a fixed period."
+  }
+}

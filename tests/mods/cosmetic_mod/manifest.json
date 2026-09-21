@@ -1,0 +1,16 @@
+{
+  "id": "cosmetic_mod",
+  "name": "Cosmetic Test Mod",
+  "version": "1.1.0",
+  "authors": [
+    "tests"
+  ],
+  "game_api": "*",
+  "dependencies": {},
+  "load_order": 200,
+  "capabilities": [
+    "assets"
+  ],
+  "affects_gameplay": false,
+  "description": "Fixture: cosmetic-only, so a multiplayer mismatch warns rather than blocks."
+}

@@ -1,0 +1,63 @@
+{
+  "id": "base:quickstone_registry",
+  "type": "board_game",
+  "name": "loc:board_game.quickstone_registry",
+  "designer": "Fenwick Baptiste",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    101,
+    134
+  ],
+  "weight": 4.4,
+  "teach_minutes": 30,
+  "retail_price": 76.19,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "plastic stand",
+      "count": 120,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "cardboard token",
+      "count": 24,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "resource tile",
+      "count": 24,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

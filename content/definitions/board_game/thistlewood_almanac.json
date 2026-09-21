@@ -1,0 +1,47 @@
+{
+  "id": "base:thistlewood_almanac",
+  "type": "board_game",
+  "name": "loc:board_game.thistlewood_almanac",
+  "designer": "Emberdown Reyes",
+  "player_count": [
+    3,
+    7
+  ],
+  "play_minutes": [
+    87,
+    170
+  ],
+  "weight": 3.5,
+  "teach_minutes": 25,
+  "retail_price": 61.15,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 24,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

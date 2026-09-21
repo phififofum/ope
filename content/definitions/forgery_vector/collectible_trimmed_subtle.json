@@ -1,0 +1,29 @@
+{
+  "id": "base:collectible_trimmed_subtle",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_field": "weight"
+  },
+  "class": "physical_defect",
+  "tier": 3,
+  "difficulty": 4,
+  "detectable_by": [
+    "base:precision_scale"
+  ],
+  "transform": {
+    "op": "resize",
+    "target": "card_edges",
+    "method": "trim_mm",
+    "range": [
+      0.2,
+      0.6
+    ]
+  },
+  "tell": {
+    "behaviour": "rehearsed_line",
+    "weight": 0.2
+  }
+}

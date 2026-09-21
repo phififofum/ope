@@ -1,0 +1,26 @@
+{
+  "id": "base:wrong_layer_core",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_feature": "layer_core"
+  },
+  "class": "physical_defect",
+  "tier": 1,
+  "difficulty": 2,
+  "detectable_by": [
+    "base:backlight_panel",
+    "base:precision_scale"
+  ],
+  "transform": {
+    "op": "substitute_stock",
+    "target": "card_core",
+    "method": "single_layer"
+  },
+  "tell": {
+    "behaviour": "watches_your_hands",
+    "weight": 0.3
+  }
+}

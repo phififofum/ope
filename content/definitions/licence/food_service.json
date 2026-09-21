@@ -1,0 +1,23 @@
+{
+  "id": "base:food_service",
+  "type": "licence",
+  "name": "loc:licence.food_service",
+  "unlocks_categories": [
+    "frozen",
+    "hot_beverages"
+  ],
+  "cost": 1800,
+  "renewal_days": 365,
+  "standing_required": 1,
+  "verification_burden": [
+    "Health inspections",
+    "Temperature logs",
+    "Allergen handling",
+    "Cross-contamination rules on the slicer"
+  ],
+  "strike_consequences": {
+    "first": "Fine and a follow-up inspection inside 14 days.",
+    "second": "Larger fine, and undercover inspections become markedly more frequent.",
+    "third": "Kitchen closed for a fixed period. The whole menu stops earning."
+  }
+}

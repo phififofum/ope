@@ -1,0 +1,25 @@
+{
+  "id": "base:metro_wholesale",
+  "type": "supplier",
+  "name": "loc:supplier.metro_wholesale",
+  "catalogue": [
+    "ambient",
+    "chilled",
+    "bakery",
+    "hot_beverages",
+    "cold_beverages",
+    "confectionery"
+  ],
+  "lead_time_days": [
+    1,
+    2
+  ],
+  "minimum_order": 150.0,
+  "price_tier": "standard",
+  "reliability": 0.94,
+  "legitimacy": {
+    "counterfeit_rate": 0.0,
+    "manifest_accuracy": 0.98,
+    "credentials_verifiable": true
+  }
+}

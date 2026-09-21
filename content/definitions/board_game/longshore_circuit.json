@@ -1,0 +1,58 @@
+{
+  "id": "base:longshore_circuit",
+  "type": "board_game",
+  "name": "loc:board_game.longshore_circuit",
+  "designer": "Umberfield Reyes",
+  "player_count": [
+    1,
+    5
+  ],
+  "play_minutes": [
+    55,
+    104
+  ],
+  "weight": 2.7,
+  "teach_minutes": 12,
+  "retail_price": 49.16,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 24,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "plastic stand",
+      "count": 120,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "die",
+      "count": 104,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

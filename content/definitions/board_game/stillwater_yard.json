@@ -1,0 +1,43 @@
+{
+  "id": "base:stillwater_yard",
+  "type": "board_game",
+  "name": "loc:board_game.stillwater_yard",
+  "designer": "Hollowbrook Reyes",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    50,
+    122
+  ],
+  "weight": 1.9,
+  "teach_minutes": 9,
+  "retail_price": 42.3,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 24,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "player board",
+      "count": 4,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "resource tile",
+      "count": 120,
+      "loss_weight": 0.5
+    }
+  ],
+  "tags": [
+    "filler",
+    "teaching_friendly"
+  ]
+}

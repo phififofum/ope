@@ -1,0 +1,18 @@
+{
+  "id": "base:game_teacher",
+  "type": "staff_role",
+  "name": "loc:staff_role.game_teacher",
+  "tasks": [
+    "teaching",
+    "event_judging",
+    "rulings"
+  ],
+  "wage_per_shift": 128.0,
+  "base_error_rate": 0.12,
+  "training_shifts": 6,
+  "audit_surface": [
+    "retention -- you find out by who stops coming back"
+  ],
+  "permissions": [],
+  "coverage": 0.45
+}

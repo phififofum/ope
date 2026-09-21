@@ -1,0 +1,13 @@
+{
+  "id": "base:back_room_extension",
+  "type": "upgrade",
+  "name": "loc:upgrade.back_room_extension",
+  "description": "loc:upgrade.back_room_extension.description",
+  "cost": 8200.0,
+  "prerequisites": [],
+  "unlocks": [
+    "back_room_extension"
+  ],
+  "category": "space",
+  "costs_space": 1
+}

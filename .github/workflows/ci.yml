@@ -1,0 +1,252 @@
+---
+name: CI
+
+# The pipeline is built before the game, because every later phase depends on being
+# able to prove itself. Any red stage stops the merge -- including for the author's
+# own convenience.
+#
+# Everything here runs locally too:
+#   pre-commit run --all-files
+#   python3 tools/validate_content.py --strict
+#   godot --headless --path . -- --smoke-test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GODOT_VERSION: 4.7.2
+
+jobs:
+  gates:
+    name: Content and repository gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python3 -m pip install --disable-pip-version-check jsonschema pyyaml
+
+      - name: Text formats, LF endings, parseable JSON, no placeholders
+        run: python3 tools/check_repo_hygiene.py
+
+      - name: Validate every definition against its schema
+        run: python3 tools/validate_content.py --strict
+
+      - name: The generated content is what the generator says it is
+        run: python3 tools/generate_content.py --check
+
+      - name: Every example mod validates the way a contributor's would
+        run: |
+          for mod in examples/mods/*/; do
+            tools/validate_mod.sh "$mod"
+          done
+
+      - name: Every asset carries a shippable licence record
+        run: python3 tools/licence_audit.py --check
+
+      - name: Every relative documentation link resolves
+        run: python3 tools/check_doc_links.py
+
+      # A test suite in no shard is a test suite that stopped running, silently.
+      - name: Every test suite is run by exactly one CI shard
+        run: python3 tools/check_test_shards.py
+
+  lint:
+    name: Lint and format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+
+      # ruff, yamllint, markdownlint, codespell, gdlint, gdformat and the whitespace
+      # hooks, all pinned in .pre-commit-config.yaml. The project's own gates are
+      # skipped here because the `gates` job runs them with clearer names.
+      - name: Run pre-commit
+        uses: pre-commit/action@v3.0.1
+        env:
+          SKIP: content-validation,licence-audit,repo-hygiene,doc-links
+
+  godot:
+    name: ${{ matrix.name }}
+    strategy:
+      fail-fast: false
+      # Sharded by wall clock, not by tidiness. Everything in tests/simulation plays
+      # whole days at 20 Hz and takes minutes; the other 126 tests together take under a
+      # minute, so they share one runner and each simulation suite gets its own.
+      #
+      # tools/check_test_shards.py fails the build if a suite file is in no shard, so a
+      # new test cannot quietly stop being run.
+      matrix:
+        include:
+          - name: Tests — unit and integration
+            targets: -a tests/unit -a tests/integration
+          - name: Tests — a simulated day
+            targets: -a tests/simulation/test_simulated_day.gd
+          - name: Tests — a campaign stretch
+            targets: -a tests/simulation/test_campaign.gd
+          - name: Tests — scrutiny is worth it
+            targets: -a tests/simulation/test_scrutiny_is_worth_it.gd
+          - name: Tests — scrutiny costs throughput
+            targets: -a tests/simulation/test_scrutiny_costs_throughput.gd
+          - name: Tests — judgement beats volume
+            targets: -a tests/simulation/test_judgement_beats_volume.gd
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - name: Verify the pinned engine version
+        run: |
+          pinned="$(tr -d '[:space:]' < .godot-version)"
+          if [ "$pinned" != "${GODOT_VERSION}" ]; then
+            echo "::error::.godot-version says ${pinned}, workflow says ${GODOT_VERSION}"
+            exit 1
+          fi
+
+      - name: Cache the engine and export templates
+        uses: actions/cache@v6.1.0
+        with:
+          path: |
+            ~/godot
+            ~/.local/share/godot/export_templates
+          key: godot-${{ env.GODOT_VERSION }}
+
+      - name: Install Godot ${{ env.GODOT_VERSION }}
+        run: |
+          set -euo pipefail
+          base="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable"
+          if [ ! -x "$HOME/godot/godot" ]; then
+            mkdir -p "$HOME/godot"
+            curl -sSL -o /tmp/godot.zip "${base}/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+            unzip -q -o /tmp/godot.zip -d "$HOME/godot"
+            mv "$HOME/godot/Godot_v${GODOT_VERSION}-stable_linux.x86_64" "$HOME/godot/godot"
+            chmod +x "$HOME/godot/godot"
+          fi
+          templates="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          if [ ! -d "$templates" ]; then
+            mkdir -p "$(dirname "$templates")"
+            curl -sSL -o /tmp/templates.tpz "${base}/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+            unzip -q -o /tmp/templates.tpz -d /tmp/templates
+            mv /tmp/templates/templates "$templates"
+          fi
+          "$HOME/godot/godot" --version
+
+      - name: Import the project
+        run: $HOME/godot/godot --headless --path . --import
+
+      # Boots the real engine with the real scene tree, loads every definition, and
+      # exits non-zero if any of it is missing.
+      - name: Boot headless
+        run: $HOME/godot/godot --headless --path . -- --smoke-test
+
+      # gdUnit4, vendored in addons/, so the suite runs with only the pinned binary and
+      # this repository -- no network, no plugin install step.
+      - name: Run ${{ matrix.name }}
+        run: |
+          $HOME/godot/godot --headless --path . \
+            -s addons/gdUnit4/bin/GdUnitCmdTool.gd --ignoreHeadlessMode \
+            ${{ matrix.targets }}
+
+  package:
+    name: Export and visual regression
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - name: Verify the pinned engine version
+        run: |
+          pinned="$(tr -d '[:space:]' < .godot-version)"
+          if [ "$pinned" != "${GODOT_VERSION}" ]; then
+            echo "::error::.godot-version says ${pinned}, workflow says ${GODOT_VERSION}"
+            exit 1
+          fi
+
+      - name: Cache the engine and export templates
+        uses: actions/cache@v6.1.0
+        with:
+          path: |
+            ~/godot
+            ~/.local/share/godot/export_templates
+          key: godot-${{ env.GODOT_VERSION }}
+
+      - name: Install Godot ${{ env.GODOT_VERSION }}
+        run: |
+          set -euo pipefail
+          base="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable"
+          if [ ! -x "$HOME/godot/godot" ]; then
+            mkdir -p "$HOME/godot"
+            curl -sSL -o /tmp/godot.zip "${base}/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+            unzip -q -o /tmp/godot.zip -d "$HOME/godot"
+            mv "$HOME/godot/Godot_v${GODOT_VERSION}-stable_linux.x86_64" "$HOME/godot/godot"
+            chmod +x "$HOME/godot/godot"
+          fi
+          templates="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          if [ ! -d "$templates" ]; then
+            mkdir -p "$(dirname "$templates")"
+            curl -sSL -o /tmp/templates.tpz "${base}/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+            unzip -q -o /tmp/templates.tpz -d /tmp/templates
+            mv /tmp/templates/templates "$templates"
+          fi
+          "$HOME/godot/godot" --version
+
+      - name: Import the project
+        run: $HOME/godot/godot --headless --path . --import
+
+      # Boots the real engine with the real scene tree, loads every definition, and
+      # exits non-zero if any of it is missing.
+      - name: Boot headless
+        run: $HOME/godot/godot --headless --path . -- --smoke-test
+
+      - name: Export Linux and Windows
+        run: |
+          set -euo pipefail
+          GODOT="$HOME/godot/godot" tools/export_target.sh \
+            "Linux" build/linux/poggywoggy.x86_64
+          GODOT="$HOME/godot/godot" tools/export_target.sh \
+            "Windows Desktop" build/windows/poggywoggy.exe
+
+      # Catches the failure that only appears after packaging: a file read at runtime
+      # that is missing from include_filter in export_presets.cfg.
+      - name: Smoke-test the exported build
+        run: |
+          chmod +x build/linux/poggywoggy.x86_64
+          ./build/linux/poggywoggy.x86_64 --headless -- --smoke-test
+
+      # The layer nothing else covers: a missing material, a black model, a UI element
+      # that drifted off screen. Needs a display, so it runs under xvfb.
+      - name: Visual regression
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb >/dev/null
+          GODOT="$HOME/godot/godot" python3 tools/visual_regression.py
+
+      - uses: actions/upload-artifact@v7.0.1
+        if: always()
+        with:
+          name: poggywoggy-visual-captures
+          path: reports/visual/
+          retention-days: 7
+          if-no-files-found: warn
+
+      - uses: actions/upload-artifact@v7.0.1
+        with:
+          name: poggywoggy-ci-linux
+          path: build/linux/
+          retention-days: 7
+          if-no-files-found: error

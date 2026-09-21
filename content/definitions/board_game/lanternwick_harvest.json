@@ -1,0 +1,53 @@
+{
+  "id": "base:lanternwick_harvest",
+  "type": "board_game",
+  "name": "loc:board_game.lanternwick_harvest",
+  "designer": "Cindervale Baptiste",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    61,
+    100
+  ],
+  "weight": 3.3,
+  "teach_minutes": 20,
+  "retail_price": 63.27,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "die",
+      "count": 104,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "cardboard token",
+      "count": 104,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "first-player marker",
+      "count": 60,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "base:emberdown_engine",
+  "type": "board_game",
+  "name": "loc:board_game.emberdown_engine",
+  "designer": "Saltmarsh Vance",
+  "player_count": [
+    1,
+    3
+  ],
+  "play_minutes": [
+    49,
+    72
+  ],
+  "weight": 2.3,
+  "teach_minutes": 10,
+  "retail_price": 46.79,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "linen bag",
+      "count": 8,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "wooden cube",
+      "count": 120,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

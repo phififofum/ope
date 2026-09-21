@@ -1,0 +1,23 @@
+{
+  "id": "base:reporting_threshold_change_2",
+  "type": "event",
+  "name": "loc:event.reporting_threshold_change_2",
+  "description": "loc:event.reporting_threshold_change_2.description",
+  "trigger": {
+    "kind": "scheduled",
+    "weight": 0.38,
+    "earliest_day": 12,
+    "act": 2
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "rules_change",
+      "amount": -0.32
+    }
+  ],
+  "announced": true,
+  "tags": [
+    "rules_change"
+  ]
+}

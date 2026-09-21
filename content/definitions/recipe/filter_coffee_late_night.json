@@ -1,0 +1,38 @@
+{
+  "id": "base:filter_coffee_late_night",
+  "type": "recipe",
+  "name": "loc:recipe.filter_coffee_late_night",
+  "price": 3.08,
+  "station_primary": "coffee_bar",
+  "ingredients": [
+    {
+      "product": "base:flat_white_beans",
+      "qty": 15.4,
+      "unit": "g"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 95,
+      "tolerance": 3
+    },
+    {
+      "station": "coffee_bar",
+      "action": "cook",
+      "seconds": 60,
+      "tolerance": 10
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": true,
+  "unlocked_by": "base:general_retail"
+}

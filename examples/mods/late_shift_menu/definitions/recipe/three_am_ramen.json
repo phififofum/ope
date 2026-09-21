@@ -1,0 +1,39 @@
+{
+  "id": "late_shift_menu:three_am_ramen",
+  "type": "recipe",
+  "name": "loc:late_shift_menu.recipe.three_am_ramen",
+  "price": 6.5,
+  "station_primary": "prep",
+  "ingredients": [
+    {
+      "product": "late_shift_menu:instant_ramen",
+      "qty": 1,
+      "unit": "each"
+    },
+    {
+      "product": "late_shift_menu:pickled_eggs",
+      "qty": 1,
+      "unit": "each"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "boil",
+      "seconds": 180,
+      "tolerance": 30
+    },
+    {
+      "station": "prep",
+      "action": "assemble",
+      "seconds": 20
+    }
+  ],
+  "modifiers_allowed": [
+    "addition",
+    "omission",
+    "quantity"
+  ],
+  "store_credit_eligible": false,
+  "unlocked_by": "base:food_service"
+}

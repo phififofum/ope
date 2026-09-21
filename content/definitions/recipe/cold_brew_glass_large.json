@@ -1,0 +1,38 @@
+{
+  "id": "base:cold_brew_glass_large",
+  "type": "recipe",
+  "name": "loc:recipe.cold_brew_glass_large",
+  "price": 5.88,
+  "station_primary": "coffee_bar",
+  "ingredients": [
+    {
+      "product": "base:cold_brew",
+      "qty": 1.4,
+      "unit": "each"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 60,
+      "tolerance": 4
+    },
+    {
+      "station": "coffee_bar",
+      "action": "cook",
+      "seconds": 8,
+      "tolerance": 10
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": true,
+  "unlocked_by": "base:general_retail"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "late_shift_menu:pickled_eggs",
+  "type": "product",
+  "name": "loc:late_shift_menu.product.pickled_eggs",
+  "category": "chilled",
+  "tags": [
+    "impulse",
+    "late_night"
+  ],
+  "storage": "chilled",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 24,
+  "base_cost": 1.1,
+  "market_price": 2.2,
+  "price_band": [
+    1.54,
+    3.96
+  ],
+  "shelf_life_days": 45,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:nightfreight_discount"
+  ],
+  "urgency": "high"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "base:bookshelf_divider_mk2",
+  "type": "fixture",
+  "name": "loc:fixture.bookshelf_divider_mk2",
+  "category": "decor",
+  "footprint": [
+    2,
+    1
+  ],
+  "cost": 243.0,
+  "capacity": 12,
+  "noise": -0.35,
+  "upkeep_hours": 0.17,
+  "zone": "any",
+  "tags": [
+    "decor",
+    "quiet"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "base:ironwright_gazette",
+  "type": "board_game",
+  "name": "loc:board_game.ironwright_gazette",
+  "designer": "Brasshollow Reyes",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    49,
+    92
+  ],
+  "weight": 3.6,
+  "teach_minutes": 15,
+  "retail_price": 67.01,
+  "library_eligible": false,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "linen bag",
+      "count": 8,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

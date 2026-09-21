@@ -1,0 +1,58 @@
+{
+  "id": "base:emberdown_manifest",
+  "type": "board_game",
+  "name": "loc:board_game.emberdown_manifest",
+  "designer": "Saltmarsh Reyes",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    65,
+    130
+  ],
+  "weight": 2.9,
+  "teach_minutes": 17,
+  "retail_price": 56.89,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 8,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "resource tile",
+      "count": 104,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "die",
+      "count": 24,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "cardboard token",
+      "count": 24,
+      "loss_weight": 0.6
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

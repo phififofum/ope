@@ -1,0 +1,32 @@
+{
+  "id": "base:sourdough_loaf",
+  "type": "product",
+  "name": "loc:product.sourdough_loaf",
+  "category": "bakery",
+  "tags": [
+    "ingredient",
+    "perishable",
+    "daily_delivery"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 10,
+  "base_cost": 1.6,
+  "market_price": 4.0,
+  "price_band": [
+    3.0,
+    6.5
+  ],
+  "shelf_life_days": 3,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "adjacency_affinity": [
+    "chilled"
+  ],
+  "urgency": "medium"
+}

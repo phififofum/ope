@@ -1,0 +1,18 @@
+{
+  "id": "dependent_mod",
+  "name": "Dependent Test Mod",
+  "version": "0.2.0",
+  "authors": [
+    "tests"
+  ],
+  "game_api": ">=0.1.0 <1.0.0",
+  "dependencies": {
+    "veto_mod": ">=1.0.0 <2.0.0"
+  },
+  "load_order": 50,
+  "capabilities": [
+    "definitions"
+  ],
+  "affects_gameplay": true,
+  "description": "Fixture: loads after veto_mod because it depends on it."
+}

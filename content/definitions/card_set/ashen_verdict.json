@@ -1,0 +1,51 @@
+{
+  "id": "base:ashen_verdict",
+  "type": "card_set",
+  "name": "loc:card_set.ashen_verdict",
+  "released_day": 198,
+  "rotates_out_day": 928,
+  "pack_price": 6.45,
+  "cards_per_pack": 9,
+  "packs_per_box": 30,
+  "rarities": [
+    {
+      "rarity": "common",
+      "pull_rate": 0.72,
+      "base_value": 0.029,
+      "value_spread": 0.019
+    },
+    {
+      "rarity": "uncommon",
+      "pull_rate": 0.2,
+      "base_value": 0.172,
+      "value_spread": 0.115
+    },
+    {
+      "rarity": "rare",
+      "pull_rate": 0.072,
+      "base_value": 0.306,
+      "value_spread": 2.446
+    },
+    {
+      "rarity": "mythic",
+      "pull_rate": 0.0076,
+      "base_value": 3.983,
+      "value_spread": 31.865
+    },
+    {
+      "rarity": "serialised",
+      "pull_rate": 0.0004,
+      "base_value": 61.92,
+      "value_spread": 495.36
+    }
+  ],
+  "security_features": [
+    "print_rosette",
+    "foil_response",
+    "layer_core"
+  ],
+  "tags": [
+    "sealed_product",
+    "authenticated"
+  ]
+}

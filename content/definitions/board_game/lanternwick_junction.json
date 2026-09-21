@@ -1,0 +1,53 @@
+{
+  "id": "base:lanternwick_junction",
+  "type": "board_game",
+  "name": "loc:board_game.lanternwick_junction",
+  "designer": "Thistlewood Reyes",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    33,
+    122
+  ],
+  "weight": 1.7,
+  "teach_minutes": 6,
+  "retail_price": 38.47,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "cardboard token",
+      "count": 104,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "scoring marker",
+      "count": 40,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "player board",
+      "count": 4,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "filler",
+    "teaching_friendly"
+  ]
+}

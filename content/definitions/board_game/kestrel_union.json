@@ -1,0 +1,48 @@
+{
+  "id": "base:kestrel_union",
+  "type": "board_game",
+  "name": "loc:board_game.kestrel_union",
+  "designer": "Kestrel Baptiste",
+  "player_count": [
+    3,
+    5
+  ],
+  "play_minutes": [
+    47,
+    97
+  ],
+  "weight": 3.1,
+  "teach_minutes": 18,
+  "retail_price": 54.25,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "wooden cube",
+      "count": 104,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "meeple",
+      "count": 104,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "plastic stand",
+      "count": 104,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

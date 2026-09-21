@@ -1,0 +1,54 @@
+{
+  "id": "base:drakemoor_yard",
+  "type": "board_game",
+  "name": "loc:board_game.drakemoor_yard",
+  "designer": "Fenwick Vance",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    35,
+    66
+  ],
+  "weight": 1.7,
+  "teach_minutes": 7,
+  "retail_price": 39.1,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 60,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "plastic stand",
+      "count": 60,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

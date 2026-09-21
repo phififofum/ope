@@ -1,0 +1,17 @@
+{
+  "id": "base:sol_grover",
+  "type": "npc",
+  "name": "loc:npc.sol_grover",
+  "role": "trade_partner",
+  "age": 29,
+  "first_appears_day": 20,
+  "visit_weight": 2.31,
+  "trust_arc": "steady",
+  "tells": [
+    "sleeves everything before it hits the glass"
+  ],
+  "notes": "loc:npc.sol_grover.notes",
+  "tags": [
+    "trade_partner"
+  ]
+}

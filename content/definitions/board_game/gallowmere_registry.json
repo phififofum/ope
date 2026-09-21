@@ -1,0 +1,49 @@
+{
+  "id": "base:gallowmere_registry",
+  "type": "board_game",
+  "name": "loc:board_game.gallowmere_registry",
+  "designer": "Fenwick Okoro",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    56,
+    95
+  ],
+  "weight": 2.1,
+  "teach_minutes": 13,
+  "retail_price": 41.31,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 120,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

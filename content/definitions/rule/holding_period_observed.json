@@ -1,0 +1,20 @@
+{
+  "id": "base:holding_period_observed",
+  "type": "rule",
+  "name": "loc:rule.holding_period_observed",
+  "explanation": "loc:rule.holding_period_observed.explanation",
+  "applies_to": {
+    "document_families": [
+      "commercial"
+    ],
+    "transaction_tags": [
+      "resale"
+    ]
+  },
+  "check": {
+    "op": "holding_period",
+    "field": "holding_period_ends"
+  },
+  "severity": "item_scoped",
+  "tier": 0
+}

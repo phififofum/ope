@@ -1,0 +1,54 @@
+{
+  "id": "base:northreach_network",
+  "type": "board_game",
+  "name": "loc:board_game.northreach_network",
+  "designer": "Brasshollow Okoro",
+  "player_count": [
+    3,
+    5
+  ],
+  "play_minutes": [
+    45,
+    74
+  ],
+  "weight": 2.3,
+  "teach_minutes": 10,
+  "retail_price": 49.02,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 60,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "first-player marker",
+      "count": 120,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "wooden cube",
+      "count": 24,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "scoring marker",
+      "count": 40,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "die",
+      "count": 60,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "base:three_cheese_toastie_large",
+  "type": "recipe",
+  "name": "loc:recipe.three_cheese_toastie_large",
+  "price": 11.9,
+  "station_primary": "griddle",
+  "ingredients": [
+    {
+      "product": "base:sourdough",
+      "qty": 2.8,
+      "unit": "slice"
+    },
+    {
+      "product": "base:cheddar",
+      "qty": 84.0,
+      "unit": "g"
+    },
+    {
+      "product": "base:butter",
+      "qty": 16.8,
+      "unit": "g"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 20,
+      "tolerance": 3
+    },
+    {
+      "station": "griddle",
+      "action": "cook",
+      "seconds": 45,
+      "tolerance": 6
+    },
+    {
+      "station": "griddle",
+      "action": "assemble",
+      "seconds": 60,
+      "tolerance": 3
+    },
+    {
+      "station": "griddle",
+      "action": "plate",
+      "seconds": 8,
+      "tolerance": 10
+    },
+    {
+      "station": "griddle",
+      "action": "melt",
+      "seconds": 20,
+      "tolerance": 14
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": false,
+  "unlocked_by": "base:food_service"
+}

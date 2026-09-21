@@ -1,0 +1,21 @@
+{
+  "id": "base:card_layers_correct",
+  "type": "rule",
+  "name": "loc:rule.card_layers_correct",
+  "explanation": "loc:rule.card_layers_correct.explanation",
+  "applies_to": {
+    "document_families": [
+      "collectible"
+    ],
+    "transaction_tags": [
+      "authentication"
+    ]
+  },
+  "check": {
+    "op": "feature_present",
+    "feature": "layer_core"
+  },
+  "severity": "blocking",
+  "tier": 1,
+  "requires_tool": "base:backlight_panel"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "base:the_reviewer_again",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_reviewer_again",
+  "budget": [
+    6.85,
+    20.39
+  ],
+  "patience": 1.06,
+  "wants": [
+    "library",
+    "drink"
+  ],
+  "spawn_weight": 2.41,
+  "shifts": [
+    "afternoon",
+    "event_night",
+    "morning"
+  ],
+  "fraud_propensity": 0.014,
+  "age_range": [
+    30,
+    55
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

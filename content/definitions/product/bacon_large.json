@@ -1,0 +1,29 @@
+{
+  "id": "base:bacon_large",
+  "type": "product",
+  "name": "loc:product.bacon_large",
+  "category": "chilled",
+  "tags": [
+    "chilled",
+    "ingredient",
+    "slicer"
+  ],
+  "storage": "chilled",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 12,
+  "base_cost": 6.6,
+  "market_price": 0.0,
+  "price_band": [
+    0.0,
+    0.0
+  ],
+  "shelf_life_days": 14,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

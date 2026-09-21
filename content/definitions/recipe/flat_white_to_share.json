@@ -1,0 +1,55 @@
+{
+  "id": "base:flat_white_to_share",
+  "type": "recipe",
+  "name": "loc:recipe.flat_white_to_share",
+  "price": 7.22,
+  "station_primary": "coffee_bar",
+  "ingredients": [
+    {
+      "product": "base:flat_white_beans",
+      "qty": 34.2,
+      "unit": "g"
+    },
+    {
+      "product": "base:oat_milk",
+      "qty": 228.0,
+      "unit": "ml"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 12,
+      "tolerance": 10
+    },
+    {
+      "station": "coffee_bar",
+      "action": "cook",
+      "seconds": 8,
+      "tolerance": 4
+    },
+    {
+      "station": "coffee_bar",
+      "action": "assemble",
+      "seconds": 45,
+      "tolerance": 6
+    },
+    {
+      "station": "coffee_bar",
+      "action": "plate",
+      "seconds": 95,
+      "tolerance": 6
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": true,
+  "unlocked_by": "base:general_retail"
+}

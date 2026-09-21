@@ -1,0 +1,51 @@
+{
+  "id": "base:saltwind_cycle",
+  "type": "card_set",
+  "name": "loc:card_set.saltwind_cycle",
+  "released_day": 450,
+  "rotates_out_day": 1180,
+  "pack_price": 4.08,
+  "cards_per_pack": 9,
+  "packs_per_box": 36,
+  "rarities": [
+    {
+      "rarity": "common",
+      "pull_rate": 0.72,
+      "base_value": 0.02,
+      "value_spread": 0.013
+    },
+    {
+      "rarity": "uncommon",
+      "pull_rate": 0.2,
+      "base_value": 0.116,
+      "value_spread": 0.077
+    },
+    {
+      "rarity": "rare",
+      "pull_rate": 0.072,
+      "base_value": 0.206,
+      "value_spread": 1.644
+    },
+    {
+      "rarity": "mythic",
+      "pull_rate": 0.0076,
+      "base_value": 2.677,
+      "value_spread": 21.416
+    },
+    {
+      "rarity": "serialised",
+      "pull_rate": 0.0004,
+      "base_value": 41.616,
+      "value_spread": 332.928
+    }
+  ],
+  "security_features": [
+    "print_rosette",
+    "foil_response",
+    "layer_core"
+  ],
+  "tags": [
+    "sealed_product",
+    "authenticated"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "base:quarrystone_junction",
+  "type": "board_game",
+  "name": "loc:board_game.quarrystone_junction",
+  "designer": "Elmgate Lindqvist",
+  "player_count": [
+    3,
+    4
+  ],
+  "play_minutes": [
+    58,
+    111
+  ],
+  "weight": 2.3,
+  "teach_minutes": 11,
+  "retail_price": 35.67,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

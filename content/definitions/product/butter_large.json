@@ -1,0 +1,28 @@
+{
+  "id": "base:butter_large",
+  "type": "product",
+  "name": "loc:product.butter_large",
+  "category": "chilled",
+  "tags": [
+    "chilled",
+    "ingredient"
+  ],
+  "storage": "chilled",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 6,
+  "base_cost": 3.15,
+  "market_price": 0.0,
+  "price_band": [
+    0.0,
+    0.0
+  ],
+  "shelf_life_days": 60,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "base:harrowgate_distribution",
+  "type": "supplier",
+  "name": "loc:supplier.harrowgate_distribution",
+  "catalogue": [
+    "board_games",
+    "sealed_product",
+    "accessories"
+  ],
+  "lead_time_days": [
+    3,
+    5
+  ],
+  "minimum_order": 400.0,
+  "price_tier": "premium",
+  "reliability": 0.97,
+  "legitimacy": {
+    "counterfeit_rate": 0.0,
+    "manifest_accuracy": 0.99,
+    "credentials_verifiable": true
+  }
+}

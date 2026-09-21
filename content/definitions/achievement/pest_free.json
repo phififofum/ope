@@ -1,0 +1,14 @@
+{
+  "id": "base:pest_free",
+  "type": "achievement",
+  "name": "loc:achievement.pest_free",
+  "description": "loc:achievement.pest_free.description",
+  "hidden": true,
+  "condition": {
+    "event": "pest_sighted",
+    "count": 1
+  },
+  "tags": [
+    "hidden"
+  ]
+}

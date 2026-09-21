@@ -1,0 +1,28 @@
+{
+  "id": "base:raw_single",
+  "type": "product",
+  "name": "loc:product.raw_single",
+  "category": "singles",
+  "tags": [
+    "buylist_tracked",
+    "case_only"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 8,
+  "base_cost": 12.0,
+  "market_price": 28.0,
+  "price_band": [
+    18.2,
+    53.2
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:secondhand_dealer",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

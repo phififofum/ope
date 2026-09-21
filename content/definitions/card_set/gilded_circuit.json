@@ -1,0 +1,51 @@
+{
+  "id": "base:gilded_circuit",
+  "type": "card_set",
+  "name": "loc:card_set.gilded_circuit",
+  "released_day": 282,
+  "rotates_out_day": 1012,
+  "pack_price": 3.87,
+  "cards_per_pack": 15,
+  "packs_per_box": 36,
+  "rarities": [
+    {
+      "rarity": "common",
+      "pull_rate": 0.72,
+      "base_value": 0.02,
+      "value_spread": 0.007
+    },
+    {
+      "rarity": "uncommon",
+      "pull_rate": 0.2,
+      "base_value": 0.059,
+      "value_spread": 0.039
+    },
+    {
+      "rarity": "rare",
+      "pull_rate": 0.072,
+      "base_value": 0.105,
+      "value_spread": 0.839
+    },
+    {
+      "rarity": "mythic",
+      "pull_rate": 0.0076,
+      "base_value": 1.367,
+      "value_spread": 10.934
+    },
+    {
+      "rarity": "serialised",
+      "pull_rate": 0.0004,
+      "base_value": 21.246,
+      "value_spread": 169.97
+    }
+  ],
+  "security_features": [
+    "print_rosette",
+    "foil_response",
+    "layer_core"
+  ],
+  "tags": [
+    "sealed_product",
+    "authenticated"
+  ]
+}

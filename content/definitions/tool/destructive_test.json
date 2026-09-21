@@ -1,0 +1,16 @@
+{
+  "id": "base:destructive_test",
+  "type": "tool",
+  "name": "loc:tool.destructive_test",
+  "tier": 4,
+  "reveals": [
+    "definitive_authenticity"
+  ],
+  "inspection_seconds": 30.0,
+  "unlocked_by": "late_campaign",
+  "returns_verdict": false,
+  "failure_modes": [
+    "Destroys the artifact. If you were wrong, you pay for it — in front of its owner."
+  ],
+  "destructive": true
+}

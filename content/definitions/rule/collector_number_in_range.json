@@ -1,0 +1,22 @@
+{
+  "id": "base:collector_number_in_range",
+  "type": "rule",
+  "name": "loc:rule.collector_number_in_range",
+  "explanation": "loc:rule.collector_number_in_range.explanation",
+  "applies_to": {
+    "document_families": [
+      "collectible"
+    ],
+    "transaction_tags": [
+      "authentication"
+    ]
+  },
+  "check": {
+    "op": "value_at_most",
+    "field": "collector_number",
+    "value": 999
+  },
+  "severity": "blocking",
+  "tier": 1,
+  "requires_tool": "base:loupe"
+}

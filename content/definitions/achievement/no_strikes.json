@@ -1,0 +1,12 @@
+{
+  "id": "base:no_strikes",
+  "type": "achievement",
+  "name": "loc:achievement.no_strikes",
+  "description": "loc:achievement.no_strikes.description",
+  "hidden": false,
+  "condition": {
+    "event": "day_ended",
+    "count": 30
+  },
+  "tags": []
+}

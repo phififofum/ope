@@ -1,0 +1,43 @@
+{
+  "id": "base:oxbow_gazette",
+  "type": "board_game",
+  "name": "loc:board_game.oxbow_gazette",
+  "designer": "Tannery Vance",
+  "player_count": [
+    1,
+    5
+  ],
+  "play_minutes": [
+    36,
+    94
+  ],
+  "weight": 1.6,
+  "teach_minutes": 8,
+  "retail_price": 39.84,
+  "library_eligible": false,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "wooden cube",
+      "count": 40,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "meeple",
+      "count": 104,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "filler",
+    "teaching_friendly"
+  ]
+}

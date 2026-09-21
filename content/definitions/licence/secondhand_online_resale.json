@@ -1,0 +1,24 @@
+{
+  "id": "base:secondhand_online_resale",
+  "type": "licence",
+  "name": "loc:licence.secondhand_online_resale",
+  "unlocks_categories": [
+    "singles",
+    "board_games"
+  ],
+  "unlocks_activities": [
+    "online_resale"
+  ],
+  "cost": 1250.0,
+  "renewal_days": 365,
+  "standing_required": 3,
+  "verification_burden": [
+    "Holding periods apply to online listings too",
+    "Platform records"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

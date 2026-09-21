@@ -1,0 +1,58 @@
+{
+  "id": "base:mossgard_network",
+  "type": "board_game",
+  "name": "loc:board_game.mossgard_network",
+  "designer": "Tannery Lindqvist",
+  "player_count": [
+    1,
+    3
+  ],
+  "play_minutes": [
+    47,
+    92
+  ],
+  "weight": 2.7,
+  "teach_minutes": 17,
+  "retail_price": 55.12,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

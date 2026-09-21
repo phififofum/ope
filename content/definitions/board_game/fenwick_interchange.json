@@ -1,0 +1,64 @@
+{
+  "id": "base:fenwick_interchange",
+  "type": "board_game",
+  "name": "loc:board_game.fenwick_interchange",
+  "designer": "Foxglove Baptiste",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    35,
+    108
+  ],
+  "weight": 1.6,
+  "teach_minutes": 7,
+  "retail_price": 33.22,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "resource tile",
+      "count": 24,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "meeple",
+      "count": 24,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "wooden cube",
+      "count": 104,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "plastic stand",
+      "count": 104,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "die",
+      "count": 120,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

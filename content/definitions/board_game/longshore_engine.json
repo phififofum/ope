@@ -1,0 +1,54 @@
+{
+  "id": "base:longshore_engine",
+  "type": "board_game",
+  "name": "loc:board_game.longshore_engine",
+  "designer": "Longshore Lindqvist",
+  "player_count": [
+    3,
+    5
+  ],
+  "play_minutes": [
+    47,
+    64
+  ],
+  "weight": 1.9,
+  "teach_minutes": 10,
+  "retail_price": 33.11,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "resource tile",
+      "count": 60,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "wooden cube",
+      "count": 104,
+      "loss_weight": 0.9
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

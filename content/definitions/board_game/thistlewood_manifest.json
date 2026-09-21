@@ -1,0 +1,63 @@
+{
+  "id": "base:thistlewood_manifest",
+  "type": "board_game",
+  "name": "loc:board_game.thistlewood_manifest",
+  "designer": "Mossgard Baptiste",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    61,
+    99
+  ],
+  "weight": 3.0,
+  "teach_minutes": 17,
+  "retail_price": 48.74,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "die",
+      "count": 120,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "plastic stand",
+      "count": 120,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "cardboard token",
+      "count": 40,
+      "loss_weight": 0.6
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

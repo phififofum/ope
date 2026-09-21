@@ -1,0 +1,14 @@
+{
+  "id": "base:second_griddle_tier_2",
+  "type": "upgrade",
+  "name": "loc:upgrade.second_griddle_tier_2",
+  "description": "loc:upgrade.second_griddle_tier_2.description",
+  "cost": 7560.0,
+  "prerequisites": [],
+  "unlocks": [
+    "second_griddle"
+  ],
+  "category": "equipment",
+  "costs_space": 0,
+  "removes_step": "serialisation"
+}

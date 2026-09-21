@@ -1,0 +1,53 @@
+{
+  "id": "base:aldermere_exchange",
+  "type": "board_game",
+  "name": "loc:board_game.aldermere_exchange",
+  "designer": "Drakemoor Okoro",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    108,
+    153
+  ],
+  "weight": 4.8,
+  "teach_minutes": 21,
+  "retail_price": 78.04,
+  "library_eligible": false,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "card",
+      "count": 24,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "plastic stand",
+      "count": 104,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "base:payment_photocopied",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ]
+  },
+  "class": "physical_defect",
+  "tier": 1,
+  "difficulty": 2,
+  "detectable_by": [
+    "base:loupe"
+  ],
+  "transform": {
+    "op": "apply_process",
+    "target": "whole_artifact",
+    "method": "photocopy_generation",
+    "generations": 2
+  },
+  "tell": {
+    "behaviour": "presses_for_speed",
+    "weight": 0.4
+  }
+}

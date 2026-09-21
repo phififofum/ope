@@ -1,0 +1,63 @@
+{
+  "id": "base:vesper_ledger",
+  "type": "board_game",
+  "name": "loc:board_game.vesper_ledger",
+  "designer": "Umberfield Vance",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    101,
+    141
+  ],
+  "weight": 4.1,
+  "teach_minutes": 21,
+  "retail_price": 54.43,
+  "library_eligible": false,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 104,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "card",
+      "count": 8,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "wooden cube",
+      "count": 24,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

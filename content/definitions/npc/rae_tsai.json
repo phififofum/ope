@@ -1,0 +1,17 @@
+{
+  "id": "base:rae_tsai",
+  "type": "npc",
+  "name": "loc:npc.rae_tsai",
+  "role": "difficult",
+  "age": 23,
+  "first_appears_day": 30,
+  "visit_weight": 0.63,
+  "trust_arc": "volatile",
+  "tells": [
+    "argues about the deposit"
+  ],
+  "notes": "loc:npc.rae_tsai.notes",
+  "tags": [
+    "difficult"
+  ]
+}

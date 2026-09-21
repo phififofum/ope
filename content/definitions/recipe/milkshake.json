@@ -1,0 +1,49 @@
+{
+  "id": "base:milkshake",
+  "type": "recipe",
+  "name": "loc:recipe.milkshake",
+  "price": 5.4,
+  "station_primary": "cold_well",
+  "ingredients": [
+    {
+      "product": "base:oat_milk",
+      "qty": 200.0,
+      "unit": "ml"
+    },
+    {
+      "product": "base:chocolate_bar",
+      "qty": 1.0,
+      "unit": "each"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 20,
+      "tolerance": 3
+    },
+    {
+      "station": "cold_well",
+      "action": "cook",
+      "seconds": 95,
+      "tolerance": 6
+    },
+    {
+      "station": "cold_well",
+      "action": "assemble",
+      "seconds": 45,
+      "tolerance": 10
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": true,
+  "unlocked_by": "base:food_service"
+}

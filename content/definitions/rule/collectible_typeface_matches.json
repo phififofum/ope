@@ -1,0 +1,22 @@
+{
+  "id": "base:collectible_typeface_matches",
+  "type": "rule",
+  "name": "loc:rule.collectible_typeface_matches",
+  "explanation": "loc:rule.collectible_typeface_matches.explanation",
+  "applies_to": {
+    "document_families": [
+      "collectible"
+    ],
+    "transaction_tags": [
+      "authentication",
+      "trade_in"
+    ]
+  },
+  "check": {
+    "op": "typeface_matches",
+    "field": "typeface"
+  },
+  "severity": "advisory",
+  "tier": 3,
+  "requires_tool": "base:reference_binder"
+}

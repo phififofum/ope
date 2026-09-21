@@ -1,0 +1,29 @@
+{
+  "id": "base:barcode_mismatch",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_field": "barcode"
+  },
+  "class": "internal_inconsistency",
+  "tier": 2,
+  "difficulty": 3,
+  "detectable_by": [
+    "base:barcode_scanner"
+  ],
+  "transform": {
+    "op": "perturb_field",
+    "target": "barcode.dob",
+    "method": "shift_years",
+    "range": [
+      2,
+      6
+    ]
+  },
+  "tell": {
+    "behaviour": "volunteers_information",
+    "weight": 0.4
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "base:payment_different_hand_subtle",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_field": "signature"
+  },
+  "class": "internal_inconsistency",
+  "tier": 1,
+  "difficulty": 2,
+  "detectable_by": [
+    "base:naked_eye"
+  ],
+  "transform": {
+    "op": "perturb_field",
+    "target": "signature",
+    "method": "different_hand"
+  },
+  "tell": {
+    "behaviour": "rehearsed_line",
+    "weight": 0.2
+  }
+}

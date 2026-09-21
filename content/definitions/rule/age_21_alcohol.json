@@ -1,0 +1,22 @@
+{
+  "id": "base:age_21_alcohol",
+  "type": "rule",
+  "name": "loc:rule.age_21_alcohol",
+  "explanation": "loc:rule.age_21_alcohol.explanation",
+  "applies_to": {
+    "document_families": [
+      "identity"
+    ],
+    "transaction_tags": [
+      "age_restricted",
+      "alcohol"
+    ]
+  },
+  "check": {
+    "op": "age_at_least",
+    "field": "dob",
+    "value": 21
+  },
+  "severity": "blocking",
+  "tier": 0
+}

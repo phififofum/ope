@@ -1,0 +1,23 @@
+{
+  "id": "base:prop_and_replica_sales",
+  "type": "licence",
+  "name": "loc:licence.prop_and_replica_sales",
+  "unlocks_categories": [
+    "accessories"
+  ],
+  "unlocks_activities": [
+    "prop_sales"
+  ],
+  "cost": 1500.0,
+  "renewal_days": 365,
+  "standing_required": 3,
+  "verification_burden": [
+    "Age checks",
+    "Logged sales"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

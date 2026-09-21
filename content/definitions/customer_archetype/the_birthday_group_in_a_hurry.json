@@ -1,0 +1,30 @@
+{
+  "id": "base:the_birthday_group_in_a_hurry",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_birthday_group_in_a_hurry",
+  "budget": [
+    8.57,
+    75.3
+  ],
+  "patience": 1.64,
+  "wants": [
+    "table",
+    "food",
+    "drink"
+  ],
+  "spawn_weight": 1.26,
+  "shifts": [
+    "afternoon",
+    "evening",
+    "late_night",
+    "midday"
+  ],
+  "fraud_propensity": 0.013,
+  "age_range": [
+    16,
+    38
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

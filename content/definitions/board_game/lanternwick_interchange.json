@@ -1,0 +1,53 @@
+{
+  "id": "base:lanternwick_interchange",
+  "type": "board_game",
+  "name": "loc:board_game.lanternwick_interchange",
+  "designer": "Saltmarsh Okoro",
+  "player_count": [
+    3,
+    5
+  ],
+  "play_minutes": [
+    52,
+    107
+  ],
+  "weight": 3.7,
+  "teach_minutes": 25,
+  "retail_price": 69.53,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 120,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "card",
+      "count": 8,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "die",
+      "count": 60,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

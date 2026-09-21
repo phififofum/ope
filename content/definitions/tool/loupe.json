@@ -1,0 +1,18 @@
+{
+  "id": "base:loupe",
+  "type": "tool",
+  "name": "loc:tool.loupe",
+  "tier": 1,
+  "reveals": [
+    "microprint_border",
+    "print_rosette",
+    "raster_pattern",
+    "edge_fibres"
+  ],
+  "inspection_seconds": 6.0,
+  "unlocked_by": "reputation_tier_2",
+  "returns_verdict": false,
+  "failure_modes": [
+    "Slow. Very slow, with a queue building."
+  ]
+}

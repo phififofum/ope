@@ -1,0 +1,13 @@
+{
+  "id": "base:bar_buildout",
+  "type": "upgrade",
+  "name": "loc:upgrade.bar_buildout",
+  "description": "loc:upgrade.bar_buildout.description",
+  "cost": 11200.0,
+  "prerequisites": [],
+  "unlocks": [
+    "bar_buildout"
+  ],
+  "category": "space",
+  "costs_space": 1
+}

@@ -1,0 +1,54 @@
+{
+  "id": "base:ironwright_union",
+  "type": "board_game",
+  "name": "loc:board_game.ironwright_union",
+  "designer": "Redfen Baptiste",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    34,
+    116
+  ],
+  "weight": 1.9,
+  "teach_minutes": 13,
+  "retail_price": 35.82,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 120,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "die",
+      "count": 40,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

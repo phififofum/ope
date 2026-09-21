@@ -1,0 +1,59 @@
+{
+  "id": "base:harbourline_waybill",
+  "type": "board_game",
+  "name": "loc:board_game.harbourline_waybill",
+  "designer": "Drakemoor Okoro",
+  "player_count": [
+    3,
+    7
+  ],
+  "play_minutes": [
+    27,
+    58
+  ],
+  "weight": 1.5,
+  "teach_minutes": 12,
+  "retail_price": 31.37,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "first-player marker",
+      "count": 120,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "card",
+      "count": 8,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

@@ -1,0 +1,70 @@
+name: 🧩 Modding API gap
+description: Something a mod should be able to do and cannot — or an API that is unclear, unstable or undocumented.
+title: "modding: "
+labels: ["area:modding", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **The test this project holds itself to:** if a mod would need to touch engine code to
+        do something reasonable, that is a bug in the modding system, not a limitation of it.
+        The base game ships as a mod and holds no privileges. Report it here.
+
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Which kind of modder are you being right now
+      options:
+        - "Data modder — a text editor and nothing else"
+        - "Content modder — models, textures, sounds, layouts"
+        - "Script modder — new systems, new mechanics, UI"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mechanism
+    attributes:
+      label: Which mechanism
+      options:
+        - "Add — a new definition"
+        - "Override — replacing a base definition by id"
+        - "Patch — a declarative edit to specific fields"
+        - "Extend — subscribing to, contributing to, or vetoing an event"
+        - "Load order and dependency resolution"
+        - "Packaging, manifest or distribution"
+        - "Multiplayer mod reconciliation"
+        - "Tooling — scaffold, validate, hot reload, console, event tracer"
+        - "Documentation"
+    validations:
+      required: true
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: What you are trying to build
+      description: The mod, in one paragraph. Concrete beats abstract — "a nightclub-door total conversion" tells us more than "more extensibility".
+    validations:
+      required: true
+
+  - type: textarea
+    id: blocker
+    attributes:
+      label: What stops you
+      description: The missing hook, the field you cannot reach, the event that fires too late, the error you get.
+    validations:
+      required: true
+
+  - type: textarea
+    id: shape
+    attributes:
+      label: What the API should look like
+      description: Sketch it. A JSON shape or an event name and payload is plenty.
+      render: json
+
+  - type: checkboxes
+    id: policy
+    attributes:
+      label: Compatibility
+      options:
+        - label: I believe this is additive (new field, new event, new type) rather than a breaking change.
+        - label: I understand that schema field removals and payload changes are major-version changes and are rare.

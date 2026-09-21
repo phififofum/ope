@@ -1,0 +1,47 @@
+{
+  "id": "base:foxglove_junction",
+  "type": "board_game",
+  "name": "loc:board_game.foxglove_junction",
+  "designer": "Emberdown Lindqvist",
+  "player_count": [
+    1,
+    3
+  ],
+  "play_minutes": [
+    60,
+    119
+  ],
+  "weight": 3.7,
+  "teach_minutes": 25,
+  "retail_price": 61.61,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "cardboard token",
+      "count": 40,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

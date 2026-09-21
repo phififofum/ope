@@ -1,0 +1,58 @@
+{
+  "id": "base:cindervale_interchange",
+  "type": "board_game",
+  "name": "loc:board_game.cindervale_interchange",
+  "designer": "Aldermere Reyes",
+  "player_count": [
+    1,
+    3
+  ],
+  "play_minutes": [
+    51,
+    74
+  ],
+  "weight": 4.5,
+  "teach_minutes": 32,
+  "retail_price": 59.62,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 24,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "die",
+      "count": 104,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "scoring marker",
+      "count": 40,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

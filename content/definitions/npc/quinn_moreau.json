@@ -1,0 +1,17 @@
+{
+  "id": "base:quinn_moreau",
+  "type": "npc",
+  "name": "loc:npc.quinn_moreau",
+  "role": "repeat_offender",
+  "age": 32,
+  "first_appears_day": 1,
+  "visit_weight": 2.08,
+  "trust_arc": "volatile",
+  "tells": [
+    "watches the case, not you"
+  ],
+  "notes": "loc:npc.quinn_moreau.notes",
+  "tags": [
+    "repeat_offender"
+  ]
+}

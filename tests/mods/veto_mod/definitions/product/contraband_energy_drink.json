@@ -1,0 +1,27 @@
+{
+  "id": "veto_mod:contraband_energy_drink",
+  "type": "product",
+  "name": "loc:veto_mod.product.contraband_energy_drink",
+  "category": "cold_beverages",
+  "tags": [
+    "chilled",
+    "impulse"
+  ],
+  "storage": "chilled",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 24,
+  "base_cost": 0.5,
+  "market_price": 3.0,
+  "price_band": [
+    2.0,
+    4.0
+  ],
+  "shelf_life_days": 90,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:nightfreight_discount"
+  ]
+}

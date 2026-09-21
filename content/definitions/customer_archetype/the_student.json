@@ -1,0 +1,29 @@
+{
+  "id": "base:the_student",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_student",
+  "budget": [
+    5.72,
+    39.33
+  ],
+  "patience": 1.18,
+  "wants": [
+    "drink",
+    "table"
+  ],
+  "spawn_weight": 2.39,
+  "shifts": [
+    "evening",
+    "event_night",
+    "midday",
+    "morning"
+  ],
+  "fraud_propensity": 0.061,
+  "age_range": [
+    21,
+    70
+  ],
+  "tags": [
+    "watchlist_candidate"
+  ]
+}

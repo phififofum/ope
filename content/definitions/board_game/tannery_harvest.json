@@ -1,0 +1,47 @@
+{
+  "id": "base:tannery_harvest",
+  "type": "board_game",
+  "name": "loc:board_game.tannery_harvest",
+  "designer": "Northreach Vance",
+  "player_count": [
+    3,
+    6
+  ],
+  "play_minutes": [
+    100,
+    168
+  ],
+  "weight": 4.0,
+  "teach_minutes": 27,
+  "retail_price": 62.65,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "linen bag",
+      "count": 8,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "die",
+      "count": 60,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "heavy"
+  ]
+}

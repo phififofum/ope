@@ -1,0 +1,51 @@
+{
+  "id": "base:hollow_crown",
+  "type": "card_set",
+  "name": "loc:card_set.hollow_crown",
+  "released_day": 366,
+  "rotates_out_day": 1096,
+  "pack_price": 4.06,
+  "cards_per_pack": 10,
+  "packs_per_box": 24,
+  "rarities": [
+    {
+      "rarity": "common",
+      "pull_rate": 0.72,
+      "base_value": 0.02,
+      "value_spread": 0.009
+    },
+    {
+      "rarity": "uncommon",
+      "pull_rate": 0.2,
+      "base_value": 0.084,
+      "value_spread": 0.056
+    },
+    {
+      "rarity": "rare",
+      "pull_rate": 0.072,
+      "base_value": 0.149,
+      "value_spread": 1.191
+    },
+    {
+      "rarity": "mythic",
+      "pull_rate": 0.0076,
+      "base_value": 1.939,
+      "value_spread": 15.513
+    },
+    {
+      "rarity": "serialised",
+      "pull_rate": 0.0004,
+      "base_value": 30.145,
+      "value_spread": 241.164
+    }
+  ],
+  "security_features": [
+    "print_rosette",
+    "foil_response",
+    "layer_core"
+  ],
+  "tags": [
+    "sealed_product",
+    "authenticated"
+  ]
+}

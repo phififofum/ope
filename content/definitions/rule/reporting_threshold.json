@@ -1,0 +1,21 @@
+{
+  "id": "base:reporting_threshold",
+  "type": "rule",
+  "name": "loc:rule.reporting_threshold",
+  "explanation": "loc:rule.reporting_threshold.explanation",
+  "applies_to": {
+    "document_families": [
+      "commercial"
+    ],
+    "transaction_tags": [
+      "high_value"
+    ]
+  },
+  "check": {
+    "op": "within_threshold",
+    "field": "amount",
+    "threshold": 1000.0
+  },
+  "severity": "advisory",
+  "tier": 0
+}

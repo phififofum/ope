@@ -1,0 +1,21 @@
+{
+  "id": "base:grading_courier_account",
+  "type": "licence",
+  "name": "loc:licence.grading_courier_account",
+  "unlocks_categories": [],
+  "unlocks_activities": [
+    "grading_submissions"
+  ],
+  "cost": 1300.0,
+  "renewal_days": 365,
+  "standing_required": 2,
+  "verification_burden": [
+    "Courier credential verification",
+    "Chain of custody"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

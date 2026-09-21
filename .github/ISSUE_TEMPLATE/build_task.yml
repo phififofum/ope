@@ -1,0 +1,66 @@
+name: 🔨 Build task
+description: A unit of work from the work order. Mostly filed by maintainers; pick one up if it is unassigned.
+title: "task: "
+labels: ["task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Phases are **strictly sequential** and gated. Work from a later phase does not get
+        merged early, however tempting — see
+        [the work order](https://github.com/phififofum/ope/blob/main/docs/design/14-work-order.md).
+        A task filed against a future phase is fine; it gets labelled `blocked-by-gate` and waits.
+
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Phase
+      options:
+        - "0 — Foundation"
+        - "1 — The skeleton"
+        - "2 — Vertical slice"
+        - "3 — Systems breadth"
+        - "4 — Multiplayer"
+        - "5 — Staff and late game"
+        - "6 — Content"
+        - "7 — Modding polish"
+        - "8 — Feel"
+        - "9 — Handoff"
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: What this task covers
+      description: One deliverable. If it needs an "and", it is probably two tasks.
+    validations:
+      required: true
+
+  - type: input
+    id: spec
+    attributes:
+      label: Spec reference
+      placeholder: "docs/design/02-architecture.md — 'The event bus'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: done
+    attributes:
+      label: Definition of done
+      description: |
+        **"It compiles" is not done. "It has an integration test that exercises it through the
+        real scene tree" is done.** Write the assertions a reviewer can check.
+      value: |
+        - [ ] <the observable thing that is true when this is finished>
+        - [ ] Covered by a test that would fail if this regressed
+        - [ ] Any deviation from the spec recorded as an ADR
+    validations:
+      required: true
+
+  - type: textarea
+    id: blocked
+    attributes:
+      label: Blocked by
+      description: Issues, gates, or decisions that must land first.

@@ -1,0 +1,20 @@
+{
+  "id": "base:kitchen_staff",
+  "type": "staff_role",
+  "name": "loc:staff_role.kitchen_staff",
+  "tasks": [
+    "orders",
+    "prep",
+    "clean_down"
+  ],
+  "wage_per_shift": 132.0,
+  "base_error_rate": 0.13,
+  "training_shifts": 6,
+  "audit_surface": [
+    "wrong orders",
+    "waste review",
+    "food to the wrong table"
+  ],
+  "permissions": [],
+  "coverage": 0.6
+}

@@ -1,0 +1,17 @@
+{
+  "id": "base:tam_nakamura",
+  "type": "npc",
+  "name": "loc:npc.tam_nakamura",
+  "role": "trade_partner",
+  "age": 43,
+  "first_appears_day": 5,
+  "visit_weight": 1.75,
+  "trust_arc": "long_con",
+  "tells": [
+    "twenty clean transactions, and then one that is not"
+  ],
+  "notes": "loc:npc.tam_nakamura.notes",
+  "tags": [
+    "trade_partner"
+  ]
+}

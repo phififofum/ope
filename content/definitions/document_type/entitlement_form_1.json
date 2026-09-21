@@ -1,0 +1,51 @@
+{
+  "id": "base:entitlement_form_1",
+  "type": "document_type",
+  "name": "loc:doc.entitlement_form_1",
+  "family": "entitlement",
+  "layout": "res://content/layouts/form_a4_carbon.tres",
+  "fields": [
+    {
+      "key": "holder",
+      "source": "person.full_name",
+      "face": "front"
+    },
+    {
+      "key": "programme",
+      "source": "world.programme",
+      "face": "front"
+    },
+    {
+      "key": "categories",
+      "source": "world.categories",
+      "face": "front"
+    },
+    {
+      "key": "balance",
+      "source": "world.balance",
+      "face": "front"
+    },
+    {
+      "key": "expiry",
+      "source": "derived.expiry",
+      "face": "front",
+      "format": "MM/DD/YYYY"
+    },
+    {
+      "key": "certificate_number",
+      "source": "person.id_number",
+      "face": "front"
+    }
+  ],
+  "security_features": [
+    {
+      "id": "uv_seal",
+      "revealed_by": "base:uv_torch"
+    },
+    {
+      "id": "microprint_border",
+      "revealed_by": "base:loupe"
+    }
+  ],
+  "typeface": "base:font_entitlement_official"
+}

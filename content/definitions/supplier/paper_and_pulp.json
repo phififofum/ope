@@ -1,0 +1,20 @@
+{
+  "id": "base:paper_and_pulp",
+  "type": "supplier",
+  "name": "loc:supplier.paper_and_pulp",
+  "catalogue": [
+    "household"
+  ],
+  "lead_time_days": [
+    2,
+    7
+  ],
+  "minimum_order": 60.0,
+  "price_tier": "discount",
+  "reliability": 0.85,
+  "legitimacy": {
+    "counterfeit_rate": 0.0,
+    "manifest_accuracy": 0.93,
+    "credentials_verifiable": true
+  }
+}

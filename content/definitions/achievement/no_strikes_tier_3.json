@@ -1,0 +1,12 @@
+{
+  "id": "base:no_strikes_tier_3",
+  "type": "achievement",
+  "name": "loc:achievement.no_strikes_tier_3",
+  "description": "loc:achievement.no_strikes_tier_3.description",
+  "hidden": false,
+  "condition": {
+    "event": "day_ended",
+    "count": 270
+  },
+  "tags": []
+}

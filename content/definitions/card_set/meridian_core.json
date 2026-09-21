@@ -1,0 +1,51 @@
+{
+  "id": "base:meridian_core",
+  "type": "card_set",
+  "name": "loc:card_set.meridian_core",
+  "released_day": 30,
+  "rotates_out_day": 760,
+  "pack_price": 5.01,
+  "cards_per_pack": 10,
+  "packs_per_box": 36,
+  "rarities": [
+    {
+      "rarity": "common",
+      "pull_rate": 0.72,
+      "base_value": 0.02,
+      "value_spread": 0.011
+    },
+    {
+      "rarity": "uncommon",
+      "pull_rate": 0.2,
+      "base_value": 0.098,
+      "value_spread": 0.065
+    },
+    {
+      "rarity": "rare",
+      "pull_rate": 0.072,
+      "base_value": 0.174,
+      "value_spread": 1.389
+    },
+    {
+      "rarity": "mythic",
+      "pull_rate": 0.0076,
+      "base_value": 2.262,
+      "value_spread": 18.099
+    },
+    {
+      "rarity": "serialised",
+      "pull_rate": 0.0004,
+      "base_value": 35.17,
+      "value_spread": 281.362
+    }
+  ],
+  "security_features": [
+    "print_rosette",
+    "foil_response",
+    "layer_core"
+  ],
+  "tags": [
+    "sealed_product",
+    "authenticated"
+  ]
+}

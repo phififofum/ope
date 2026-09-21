@@ -1,0 +1,42 @@
+{
+  "id": "base:coalfall_junction",
+  "type": "board_game",
+  "name": "loc:board_game.coalfall_junction",
+  "designer": "Fenwick Reyes",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    38,
+    81
+  ],
+  "weight": 2.7,
+  "teach_minutes": 12,
+  "retail_price": 41.26,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "die",
+      "count": 120,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "base:identity_typeface_matches",
+  "type": "rule",
+  "name": "loc:rule.identity_typeface_matches",
+  "explanation": "loc:rule.identity_typeface_matches.explanation",
+  "applies_to": {
+    "document_families": [
+      "identity"
+    ],
+    "transaction_tags": [
+      "id_required",
+      "age_restricted"
+    ]
+  },
+  "check": {
+    "op": "typeface_matches",
+    "field": "typeface"
+  },
+  "severity": "advisory",
+  "tier": 3,
+  "requires_tool": "base:reference_binder"
+}

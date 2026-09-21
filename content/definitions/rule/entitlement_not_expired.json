@@ -1,0 +1,21 @@
+{
+  "id": "base:entitlement_not_expired",
+  "type": "rule",
+  "name": "loc:rule.entitlement_not_expired",
+  "explanation": "loc:rule.entitlement_not_expired.explanation",
+  "applies_to": {
+    "document_families": [
+      "entitlement"
+    ],
+    "transaction_tags": [
+      "entitlement",
+      "reconciliation"
+    ]
+  },
+  "check": {
+    "op": "not_expired",
+    "field": "expiry"
+  },
+  "severity": "item_scoped",
+  "tier": 0
+}

@@ -1,0 +1,53 @@
+{
+  "id": "base:mossgard_reckoning",
+  "type": "board_game",
+  "name": "loc:board_game.mossgard_reckoning",
+  "designer": "Mossgard Vance",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    66,
+    109
+  ],
+  "weight": 4.1,
+  "teach_minutes": 13,
+  "retail_price": 71.38,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "wooden cube",
+      "count": 104,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "player board",
+      "count": 24,
+      "loss_weight": 0.1
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

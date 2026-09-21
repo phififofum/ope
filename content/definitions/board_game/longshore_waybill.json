@@ -1,0 +1,43 @@
+{
+  "id": "base:longshore_waybill",
+  "type": "board_game",
+  "name": "loc:board_game.longshore_waybill",
+  "designer": "Thistlewood Reyes",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    72,
+    161
+  ],
+  "weight": 2.7,
+  "teach_minutes": 15,
+  "retail_price": 52.94,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "resource tile",
+      "count": 24,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "meeple",
+      "count": 60,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

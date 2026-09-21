@@ -1,0 +1,64 @@
+{
+  "id": "base:cindervale_almanac",
+  "type": "board_game",
+  "name": "loc:board_game.cindervale_almanac",
+  "designer": "Foxglove Vance",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    46,
+    93
+  ],
+  "weight": 2.2,
+  "teach_minutes": 13,
+  "retail_price": 43.15,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "die",
+      "count": 40,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "plastic stand",
+      "count": 104,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "resource tile",
+      "count": 60,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "meeple",
+      "count": 104,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

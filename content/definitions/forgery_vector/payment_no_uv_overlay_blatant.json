@@ -1,0 +1,24 @@
+{
+  "id": "base:payment_no_uv_overlay_blatant",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_feature": "uv_seal"
+  },
+  "class": "physical_defect",
+  "tier": 1,
+  "difficulty": 1,
+  "detectable_by": [
+    "base:uv_torch"
+  ],
+  "transform": {
+    "op": "remove_feature",
+    "target": "uv_seal"
+  },
+  "tell": {
+    "behaviour": "apologises_unprompted",
+    "weight": 0.55
+  }
+}

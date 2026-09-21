@@ -1,0 +1,17 @@
+{
+  "id": "house_rules",
+  "name": "House Rules",
+  "version": "1.0.0",
+  "authors": [
+    "PoggyWoggy contributors"
+  ],
+  "game_api": ">=0.1.0 <1.0.0",
+  "dependencies": {},
+  "load_order": 120,
+  "capabilities": [
+    "definitions",
+    "scripts"
+  ],
+  "affects_gameplay": true,
+  "description": "Tier 3 example: a script mod that adds a mechanic -- a house policy the shop enforces, with the same veto power base systems have."
+}

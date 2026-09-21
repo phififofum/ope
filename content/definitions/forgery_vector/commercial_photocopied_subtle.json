@@ -1,0 +1,25 @@
+{
+  "id": "base:commercial_photocopied_subtle",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ]
+  },
+  "class": "physical_defect",
+  "tier": 2,
+  "difficulty": 3,
+  "detectable_by": [
+    "base:loupe"
+  ],
+  "transform": {
+    "op": "apply_process",
+    "target": "whole_artifact",
+    "method": "photocopy_generation",
+    "generations": 2
+  },
+  "tell": {
+    "behaviour": "response_latency_high",
+    "weight": 0.3
+  }
+}

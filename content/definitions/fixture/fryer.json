@@ -1,0 +1,18 @@
+{
+  "id": "base:fryer",
+  "type": "fixture",
+  "name": "loc:fixture.fryer",
+  "category": "kitchen",
+  "footprint": [
+    1,
+    1
+  ],
+  "cost": 1200.0,
+  "capacity": 0,
+  "noise": 0.45,
+  "upkeep_hours": 0.48,
+  "zone": "kitchen",
+  "tags": [
+    "kitchen"
+  ]
+}

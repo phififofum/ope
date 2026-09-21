@@ -1,0 +1,24 @@
+{
+  "id": "base:entitlement_no_uv_overlay_subtle",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_feature": "uv_seal"
+  },
+  "class": "physical_defect",
+  "tier": 2,
+  "difficulty": 3,
+  "detectable_by": [
+    "base:uv_torch"
+  ],
+  "transform": {
+    "op": "remove_feature",
+    "target": "uv_seal"
+  },
+  "tell": {
+    "behaviour": "watches_your_hands",
+    "weight": 0.15
+  }
+}

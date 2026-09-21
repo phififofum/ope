@@ -1,0 +1,18 @@
+{
+  "id": "base:display_case_mk5",
+  "type": "fixture",
+  "name": "loc:fixture.display_case_mk5",
+  "category": "case",
+  "footprint": [
+    2,
+    1
+  ],
+  "cost": 2160.0,
+  "capacity": 68,
+  "noise": 0.0,
+  "upkeep_hours": 0.53,
+  "zone": "counter",
+  "tags": [
+    "case"
+  ]
+}

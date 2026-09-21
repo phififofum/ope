@@ -1,0 +1,30 @@
+{
+  "id": "base:the_regular_in_a_hurry",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_regular_in_a_hurry",
+  "budget": [
+    23.54,
+    77.72
+  ],
+  "patience": 0.85,
+  "wants": [
+    "table",
+    "drink",
+    "library"
+  ],
+  "spawn_weight": 1.73,
+  "shifts": [
+    "evening",
+    "late_night",
+    "midday",
+    "morning"
+  ],
+  "fraud_propensity": 0.026,
+  "age_range": [
+    16,
+    70
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

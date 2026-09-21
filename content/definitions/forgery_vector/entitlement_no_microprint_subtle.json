@@ -1,0 +1,24 @@
+{
+  "id": "base:entitlement_no_microprint_subtle",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_feature": "microprint_border"
+  },
+  "class": "physical_defect",
+  "tier": 2,
+  "difficulty": 3,
+  "detectable_by": [
+    "base:loupe"
+  ],
+  "transform": {
+    "op": "remove_feature",
+    "target": "microprint_border"
+  },
+  "tell": {
+    "behaviour": "over_explains",
+    "weight": 0.35
+  }
+}

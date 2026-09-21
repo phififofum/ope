@@ -1,0 +1,59 @@
+{
+  "id": "base:brasshollow_tramway",
+  "type": "board_game",
+  "name": "loc:board_game.brasshollow_tramway",
+  "designer": "Quickstone Okoro",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    57,
+    136
+  ],
+  "weight": 2.2,
+  "teach_minutes": 16,
+  "retail_price": 41.84,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "resource tile",
+      "count": 120,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "scoring marker",
+      "count": 24,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

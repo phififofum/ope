@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/supplier.schema.json",
+  "title": "Supplier",
+  "description": "A source of stock, with a lead time and — crucially — a legitimacy profile.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "catalogue",
+    "lead_time_days",
+    "price_tier",
+    "reliability",
+    "legitimacy"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$",
+      "description": "Namespaced id. Base content uses `base:`."
+    },
+    "type": {
+      "const": "supplier"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "catalogue": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Product categories carried."
+    },
+    "lead_time_days": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "minimum_order": {
+      "type": "number",
+      "minimum": 0
+    },
+    "price_tier": {
+      "enum": [
+        "premium",
+        "standard",
+        "discount",
+        "grey"
+      ]
+    },
+    "reliability": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "legitimacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "counterfeit_rate",
+        "manifest_accuracy"
+      ],
+      "properties": {
+        "counterfeit_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Chance a delivery contains counterfeit or diverted product."
+        },
+        "manifest_accuracy": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "credentials_verifiable": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

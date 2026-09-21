@@ -1,0 +1,43 @@
+{
+  "id": "base:tannery_yard",
+  "type": "board_game",
+  "name": "loc:board_game.tannery_yard",
+  "designer": "Emberdown Baptiste",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    45,
+    102
+  ],
+  "weight": 2.5,
+  "teach_minutes": 16,
+  "retail_price": 45.29,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "resource tile",
+      "count": 120,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "die",
+      "count": 60,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

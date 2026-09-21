@@ -1,0 +1,17 @@
+{
+  "id": "base:sol_haddad",
+  "type": "npc",
+  "name": "loc:npc.sol_haddad",
+  "role": "regular",
+  "age": 55,
+  "first_appears_day": 30,
+  "visit_weight": 0.82,
+  "trust_arc": "steady",
+  "tells": [
+    "always the same table"
+  ],
+  "notes": "loc:npc.sol_haddad.notes",
+  "tags": [
+    "regular"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "late_shift_menu",
+  "name": "Late Shift Menu",
+  "version": "1.0.0",
+  "authors": [
+    "PoggyWoggy contributors"
+  ],
+  "game_api": ">=0.1.0 <1.0.0",
+  "dependencies": {},
+  "load_order": 100,
+  "capabilities": [
+    "definitions"
+  ],
+  "affects_gameplay": true,
+  "description": "Tier 1 example: a text editor and nothing else. Four menu items and the products behind them."
+}

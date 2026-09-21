@@ -1,0 +1,21 @@
+{
+  "id": "base:counter_staff",
+  "type": "staff_role",
+  "name": "loc:staff_role.counter_staff",
+  "tasks": [
+    "transactions",
+    "trade_ins"
+  ],
+  "wage_per_shift": 118.0,
+  "base_error_rate": 0.11,
+  "training_shifts": 6,
+  "audit_surface": [
+    "register reconciliation",
+    "camera review",
+    "a fine three days later"
+  ],
+  "permissions": [
+    "handle_age_restricted"
+  ],
+  "coverage": 0.55
+}

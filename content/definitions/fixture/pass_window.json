@@ -1,0 +1,18 @@
+{
+  "id": "base:pass_window",
+  "type": "fixture",
+  "name": "loc:fixture.pass_window",
+  "category": "kitchen",
+  "footprint": [
+    1,
+    1
+  ],
+  "cost": 420.0,
+  "capacity": 0,
+  "noise": 0.15,
+  "upkeep_hours": 0.51,
+  "zone": "kitchen",
+  "tags": [
+    "kitchen"
+  ]
+}

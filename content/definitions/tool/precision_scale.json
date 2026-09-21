@@ -1,0 +1,16 @@
+{
+  "id": "base:precision_scale",
+  "type": "tool",
+  "name": "loc:tool.precision_scale",
+  "tier": 2,
+  "reveals": [
+    "weight",
+    "seal_geometry"
+  ],
+  "inspection_seconds": 5.0,
+  "unlocked_by": "base:sealed_distribution",
+  "returns_verdict": false,
+  "failure_modes": [
+    "Tolerances overlap for genuinely old stock."
+  ]
+}

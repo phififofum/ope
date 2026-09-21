@@ -1,0 +1,29 @@
+{
+  "id": "base:the_collector_in_a_hurry",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_collector_in_a_hurry",
+  "budget": [
+    18.28,
+    85.41
+  ],
+  "patience": 1.18,
+  "wants": [
+    "singles",
+    "sealed"
+  ],
+  "spawn_weight": 2.76,
+  "shifts": [
+    "afternoon",
+    "event_night",
+    "late_night",
+    "morning"
+  ],
+  "fraud_propensity": 0.076,
+  "age_range": [
+    21,
+    70
+  ],
+  "tags": [
+    "watchlist_candidate"
+  ]
+}

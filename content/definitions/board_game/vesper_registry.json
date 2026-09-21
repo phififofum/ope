@@ -1,0 +1,53 @@
+{
+  "id": "base:vesper_registry",
+  "type": "board_game",
+  "name": "loc:board_game.vesper_registry",
+  "designer": "Foxglove Baptiste",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    77,
+    147
+  ],
+  "weight": 3.7,
+  "teach_minutes": 24,
+  "retail_price": 53.23,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 120,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "first-player marker",
+      "count": 104,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "card",
+      "count": 12,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "plastic stand",
+      "count": 104,
+      "loss_weight": 0.65
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

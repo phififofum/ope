@@ -1,0 +1,20 @@
+{
+  "id": "corner_booth:corner_booth",
+  "type": "fixture",
+  "name": "loc:corner_booth.fixture.corner_booth",
+  "category": "table",
+  "footprint": [
+    3,
+    2
+  ],
+  "cost": 620.0,
+  "capacity": 6,
+  "noise": -0.25,
+  "upkeep_hours": 0.2,
+  "zone": "play",
+  "tags": [
+    "table",
+    "quiet",
+    "deep_game"
+  ]
+}

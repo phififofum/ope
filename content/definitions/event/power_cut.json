@@ -1,0 +1,24 @@
+{
+  "id": "base:power_cut",
+  "type": "event",
+  "name": "loc:event.power_cut",
+  "description": "loc:event.power_cut.description",
+  "trigger": {
+    "kind": "random",
+    "weight": 0.48,
+    "earliest_day": 60,
+    "act": 1
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "equipment",
+      "amount": 0.15
+    }
+  ],
+  "announced": false,
+  "tags": [
+    "equipment",
+    "pressure"
+  ]
+}

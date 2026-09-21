@@ -1,0 +1,29 @@
+{
+  "id": "base:the_lapsed_player",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_lapsed_player",
+  "budget": [
+    14.08,
+    60.68
+  ],
+  "patience": 0.67,
+  "wants": [
+    "library",
+    "retail"
+  ],
+  "spawn_weight": 2.94,
+  "shifts": [
+    "afternoon",
+    "event_night",
+    "late_night",
+    "midday"
+  ],
+  "fraud_propensity": 0.037,
+  "age_range": [
+    21,
+    55
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

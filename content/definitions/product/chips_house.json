@@ -1,0 +1,28 @@
+{
+  "id": "base:chips_house",
+  "type": "product",
+  "name": "loc:product.chips_house",
+  "category": "confectionery",
+  "tags": [
+    "impulse",
+    "snack"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 12,
+  "base_cost": 0.45,
+  "market_price": 1.62,
+  "price_band": [
+    1.05,
+    3.08
+  ],
+  "shelf_life_days": 120,
+  "licence": "base:general_retail",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "high"
+}

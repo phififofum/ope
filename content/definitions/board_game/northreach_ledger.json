@@ -1,0 +1,54 @@
+{
+  "id": "base:northreach_ledger",
+  "type": "board_game",
+  "name": "loc:board_game.northreach_ledger",
+  "designer": "Lanternwick Okoro",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    31,
+    70
+  ],
+  "weight": 1.4,
+  "teach_minutes": 6,
+  "retail_price": 34.06,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 60,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "cardboard token",
+      "count": 60,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "die",
+      "count": 40,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "base:thistlewood_junction",
+  "type": "board_game",
+  "name": "loc:board_game.thistlewood_junction",
+  "designer": "Lanternwick Baptiste",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    26,
+    46
+  ],
+  "weight": 1.4,
+  "teach_minutes": 10,
+  "retail_price": 36.26,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "rulebook",
+      "count": 8,
+      "loss_weight": 0.15
+    }
+  ],
+  "tags": [
+    "filler",
+    "teaching_friendly"
+  ]
+}

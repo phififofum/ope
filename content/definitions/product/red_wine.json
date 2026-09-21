@@ -1,0 +1,27 @@
+{
+  "id": "base:red_wine",
+  "type": "product",
+  "name": "loc:product.red_wine",
+  "category": "alcohol",
+  "tags": [
+    "age_restricted"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 48,
+  "base_cost": 6.5,
+  "market_price": 24.0,
+  "price_band": [
+    15.6,
+    45.6
+  ],
+  "shelf_life_days": 900,
+  "licence": "base:on_premise_alcohol",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

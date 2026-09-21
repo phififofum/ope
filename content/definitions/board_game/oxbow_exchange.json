@@ -1,0 +1,43 @@
+{
+  "id": "base:oxbow_exchange",
+  "type": "board_game",
+  "name": "loc:board_game.oxbow_exchange",
+  "designer": "Coalfall Lindqvist",
+  "player_count": [
+    3,
+    4
+  ],
+  "play_minutes": [
+    59,
+    114
+  ],
+  "weight": 2.4,
+  "teach_minutes": 16,
+  "retail_price": 37.9,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "cardboard token",
+      "count": 104,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "first-player marker",
+      "count": 24,
+      "loss_weight": 0.8
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

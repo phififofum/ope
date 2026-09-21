@@ -1,0 +1,61 @@
+{
+  "id": "base:cold_plate_large",
+  "type": "recipe",
+  "name": "loc:recipe.cold_plate_large",
+  "price": 12.6,
+  "station_primary": "prep",
+  "ingredients": [
+    {
+      "product": "base:cheddar",
+      "qty": 112.0,
+      "unit": "g"
+    },
+    {
+      "product": "base:tomato",
+      "qty": 2.8,
+      "unit": "each"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 95,
+      "tolerance": 4
+    },
+    {
+      "station": "prep",
+      "action": "cook",
+      "seconds": 6,
+      "tolerance": 10
+    },
+    {
+      "station": "prep",
+      "action": "assemble",
+      "seconds": 8,
+      "tolerance": 3
+    },
+    {
+      "station": "prep",
+      "action": "plate",
+      "seconds": 60,
+      "tolerance": 3
+    },
+    {
+      "station": "prep",
+      "action": "melt",
+      "seconds": 95,
+      "tolerance": 3
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": false,
+  "unlocked_by": "base:food_service"
+}

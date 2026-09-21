@@ -1,0 +1,24 @@
+{
+  "id": "base:barcode_agrees_with_front",
+  "type": "rule",
+  "name": "loc:rule.barcode_agrees_with_front",
+  "explanation": "loc:rule.barcode_agrees_with_front.explanation",
+  "applies_to": {
+    "document_families": [
+      "identity"
+    ],
+    "transaction_tags": [
+      "id_required"
+    ]
+  },
+  "check": {
+    "op": "fields_match",
+    "fields": [
+      "barcode.dob",
+      "dob"
+    ]
+  },
+  "severity": "blocking",
+  "tier": 2,
+  "requires_tool": "base:barcode_scanner"
+}

@@ -1,0 +1,28 @@
+# Code owners are requested for review automatically. See
+# https://docs.github.com/articles/about-code-owners
+#
+# Ownership here means "answers for it", not "wrote it all". Adding yourself to an
+# area you review well is encouraged — see GOVERNANCE.md.
+
+# Default owner for anything not matched below.
+*                       @phififofum
+
+# The specification. Design changes need a design review, not just a code review.
+/docs/design/           @phififofum
+/docs/decisions/        @phififofum
+
+# The public mod API. Schema and event changes break other people's work.
+/content/schemas/       @phififofum
+/docs/modding/          @phififofum
+
+# Project policy and licensing.
+/LICENSE                @phififofum
+/LICENSES/              @phififofum
+/LICENSING.md           @phififofum
+/CODE_OF_CONDUCT.md     @phififofum
+/GOVERNANCE.md          @phififofum
+/SECURITY.md            @phififofum
+
+# CI and repository automation.
+/.github/               @phififofum
+/tools/                 @phififofum

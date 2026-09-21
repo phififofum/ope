@@ -1,0 +1,29 @@
+{
+  "id": "base:the_flipper_again",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_flipper_again",
+  "budget": [
+    22.49,
+    163.57
+  ],
+  "patience": 1.42,
+  "wants": [
+    "sealed",
+    "trade_in"
+  ],
+  "spawn_weight": 1.71,
+  "shifts": [
+    "evening",
+    "event_night",
+    "late_night",
+    "morning"
+  ],
+  "fraud_propensity": 0.384,
+  "age_range": [
+    18,
+    45
+  ],
+  "tags": [
+    "watchlist_candidate"
+  ]
+}

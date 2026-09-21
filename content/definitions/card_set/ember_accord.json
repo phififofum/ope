@@ -1,0 +1,51 @@
+{
+  "id": "base:ember_accord",
+  "type": "card_set",
+  "name": "loc:card_set.ember_accord",
+  "released_day": 534,
+  "rotates_out_day": 1264,
+  "pack_price": 4.32,
+  "cards_per_pack": 12,
+  "packs_per_box": 30,
+  "rarities": [
+    {
+      "rarity": "common",
+      "pull_rate": 0.72,
+      "base_value": 0.02,
+      "value_spread": 0.009
+    },
+    {
+      "rarity": "uncommon",
+      "pull_rate": 0.2,
+      "base_value": 0.08,
+      "value_spread": 0.053
+    },
+    {
+      "rarity": "rare",
+      "pull_rate": 0.072,
+      "base_value": 0.142,
+      "value_spread": 1.133
+    },
+    {
+      "rarity": "mythic",
+      "pull_rate": 0.0076,
+      "base_value": 1.845,
+      "value_spread": 14.756
+    },
+    {
+      "rarity": "serialised",
+      "pull_rate": 0.0004,
+      "base_value": 28.674,
+      "value_spread": 229.392
+    }
+  ],
+  "security_features": [
+    "print_rosette",
+    "foil_response",
+    "layer_core"
+  ],
+  "tags": [
+    "sealed_product",
+    "authenticated"
+  ]
+}

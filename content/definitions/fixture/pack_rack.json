@@ -1,0 +1,20 @@
+{
+  "id": "base:pack_rack",
+  "type": "fixture",
+  "name": "loc:fixture.pack_rack",
+  "category": "shelf",
+  "footprint": [
+    2,
+    1
+  ],
+  "cost": 240.0,
+  "capacity": 48,
+  "noise": 0.0,
+  "upkeep_hours": 0.18,
+  "zone": "counter",
+  "tags": [
+    "shelf",
+    "sealed",
+    "impulse"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "base:nils_moreau",
+  "type": "npc",
+  "name": "loc:npc.nils_moreau",
+  "role": "staff_candidate",
+  "age": 24,
+  "first_appears_day": 1,
+  "visit_weight": 1.19,
+  "trust_arc": "warming",
+  "tells": [
+    "arrives ten minutes early"
+  ],
+  "notes": "loc:npc.nils_moreau.notes",
+  "tags": [
+    "staff_candidate"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "base:commercial_physically_intact",
+  "type": "rule",
+  "name": "loc:rule.commercial_physically_intact",
+  "explanation": "loc:rule.commercial_physically_intact.explanation",
+  "applies_to": {
+    "document_families": [
+      "commercial"
+    ],
+    "transaction_tags": [
+      "trade_in",
+      "resale"
+    ]
+  },
+  "check": {
+    "op": "physically_intact"
+  },
+  "severity": "blocking",
+  "tier": 1,
+  "requires_tool": "base:loupe"
+}

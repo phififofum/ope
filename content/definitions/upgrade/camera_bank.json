@@ -1,0 +1,13 @@
+{
+  "id": "base:camera_bank",
+  "type": "upgrade",
+  "name": "loc:upgrade.camera_bank",
+  "description": "loc:upgrade.camera_bank.description",
+  "cost": 2800.0,
+  "prerequisites": [],
+  "unlocks": [
+    "camera_bank"
+  ],
+  "category": "security",
+  "costs_space": 1
+}

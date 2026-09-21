@@ -1,0 +1,17 @@
+{
+  "id": "base:mira_eze",
+  "type": "npc",
+  "name": "loc:npc.mira_eze",
+  "role": "regular",
+  "age": 48,
+  "first_appears_day": 20,
+  "visit_weight": 1.15,
+  "trust_arc": "steady",
+  "tells": [
+    "asks after the cat"
+  ],
+  "notes": "loc:npc.mira_eze.notes",
+  "tags": [
+    "regular"
+  ]
+}

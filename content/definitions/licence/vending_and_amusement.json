@@ -1,0 +1,21 @@
+{
+  "id": "base:vending_and_amusement",
+  "type": "licence",
+  "name": "loc:licence.vending_and_amusement",
+  "unlocks_categories": [],
+  "unlocks_activities": [
+    "machines"
+  ],
+  "cost": 540.0,
+  "renewal_days": 365,
+  "standing_required": 1,
+  "verification_burden": [
+    "Machine registration",
+    "Payout audits"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

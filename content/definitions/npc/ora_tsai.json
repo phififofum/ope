@@ -1,0 +1,17 @@
+{
+  "id": "base:ora_tsai",
+  "type": "npc",
+  "name": "loc:npc.ora_tsai",
+  "role": "judge",
+  "age": 29,
+  "first_appears_day": 1,
+  "visit_weight": 0.6,
+  "trust_arc": "steady",
+  "tells": [
+    "quotes the policy number from memory"
+  ],
+  "notes": "loc:npc.ora_tsai.notes",
+  "tags": [
+    "judge"
+  ]
+}

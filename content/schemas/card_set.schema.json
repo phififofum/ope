@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://poggywoggy.dev/schemas/card_set.schema.json",
+  "title": "Card set",
+  "description": "A collectible release: its pool, its pull rates, and how long it stays legal for events.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "released_day",
+    "pack_price",
+    "cards_per_pack",
+    "packs_per_box",
+    "rarities"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:[a-z0-9_]+$"
+    },
+    "type": {
+      "const": "card_set"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^loc:[a-z0-9_.]+$"
+    },
+    "released_day": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "rotates_out_day": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The day it stops being legal for sanctioned events -- for events, not for sale."
+    },
+    "pack_price": {
+      "type": "number",
+      "minimum": 0
+    },
+    "cards_per_pack": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "packs_per_box": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "rarities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rarity",
+          "pull_rate",
+          "base_value"
+        ],
+        "properties": {
+          "rarity": {
+            "type": "string"
+          },
+          "pull_rate": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "base_value": {
+            "type": "number",
+            "minimum": 0
+          },
+          "value_spread": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "security_features": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

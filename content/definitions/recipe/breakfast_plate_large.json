@@ -1,0 +1,95 @@
+{
+  "id": "base:breakfast_plate_large",
+  "type": "recipe",
+  "name": "loc:recipe.breakfast_plate_large",
+  "price": 16.1,
+  "station_primary": "griddle",
+  "ingredients": [
+    {
+      "product": "base:eggs_dozen",
+      "qty": 2.8,
+      "unit": "each"
+    },
+    {
+      "product": "base:bacon",
+      "qty": 70.0,
+      "unit": "g"
+    },
+    {
+      "product": "base:sourdough",
+      "qty": 2.8,
+      "unit": "slice"
+    },
+    {
+      "product": "base:tomato",
+      "qty": 1.4,
+      "unit": "each"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 60,
+      "tolerance": 6
+    },
+    {
+      "station": "griddle",
+      "action": "cook",
+      "seconds": 95,
+      "tolerance": 3
+    },
+    {
+      "station": "griddle",
+      "action": "assemble",
+      "seconds": 6,
+      "tolerance": 4
+    },
+    {
+      "station": "griddle",
+      "action": "plate",
+      "seconds": 45,
+      "tolerance": 6
+    },
+    {
+      "station": "griddle",
+      "action": "melt",
+      "seconds": 45,
+      "tolerance": 10
+    },
+    {
+      "station": "griddle",
+      "action": "slice",
+      "seconds": 6,
+      "tolerance": 10
+    },
+    {
+      "station": "griddle",
+      "action": "prep",
+      "seconds": 8,
+      "tolerance": 4
+    },
+    {
+      "station": "griddle",
+      "action": "cook",
+      "seconds": 6,
+      "tolerance": 14
+    },
+    {
+      "station": "griddle",
+      "action": "assemble",
+      "seconds": 60,
+      "tolerance": 3
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": false,
+  "unlocked_by": "base:food_service"
+}

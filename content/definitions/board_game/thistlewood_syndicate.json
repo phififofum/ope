@@ -1,0 +1,63 @@
+{
+  "id": "base:thistlewood_syndicate",
+  "type": "board_game",
+  "name": "loc:board_game.thistlewood_syndicate",
+  "designer": "Drakemoor Baptiste",
+  "player_count": [
+    2,
+    3
+  ],
+  "play_minutes": [
+    56,
+    144
+  ],
+  "weight": 4.6,
+  "teach_minutes": 14,
+  "retail_price": 59.48,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "scoring marker",
+      "count": 40,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "card",
+      "count": 24,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "wooden cube",
+      "count": 24,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "cardboard token",
+      "count": 24,
+      "loss_weight": 0.6
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

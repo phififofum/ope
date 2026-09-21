@@ -1,0 +1,24 @@
+{
+  "id": "base:farm_tabby",
+  "type": "cat",
+  "name_pool": "loc:catnames.common",
+  "model": "res://content/scenes/cats/brown_tabby.tscn",
+  "coat": "brown_tabby",
+  "trait_weights": {
+    "hunter": 0.95,
+    "escape_artist": 0.6,
+    "vigilant": 0.42,
+    "lazy": 0.39,
+    "skittish": 0.27,
+    "social": 0.46,
+    "territorial": 0.26,
+    "thief": 0.49,
+    "vocal": 0.37,
+    "nocturnal": 0.24
+  },
+  "base_hunting": 0.96,
+  "counter_sensitivity": 0.49,
+  "false_positive_rate": 0.14,
+  "customer_appeal": 0.58,
+  "vocalisations": "res://content/assets/audio/cats/brown_tabby/"
+}

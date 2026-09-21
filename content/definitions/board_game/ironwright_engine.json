@@ -1,0 +1,48 @@
+{
+  "id": "base:ironwright_engine",
+  "type": "board_game",
+  "name": "loc:board_game.ironwright_engine",
+  "designer": "Foxglove Reyes",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    34,
+    88
+  ],
+  "weight": 2.0,
+  "teach_minutes": 8,
+  "retail_price": 30.27,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 60,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "linen bag",
+      "count": 8,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    }
+  ],
+  "tags": [
+    "midweight",
+    "teaching_friendly"
+  ]
+}

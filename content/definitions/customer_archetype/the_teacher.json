@@ -1,0 +1,27 @@
+{
+  "id": "base:the_teacher",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_teacher",
+  "budget": [
+    4.64,
+    19.48
+  ],
+  "patience": 1.48,
+  "wants": [
+    "table",
+    "library"
+  ],
+  "spawn_weight": 0.72,
+  "shifts": [
+    "afternoon",
+    "late_night"
+  ],
+  "fraud_propensity": 0.009,
+  "age_range": [
+    30,
+    70
+  ],
+  "tags": [
+    "regular_candidate"
+  ]
+}

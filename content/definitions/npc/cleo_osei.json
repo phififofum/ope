@@ -1,0 +1,17 @@
+{
+  "id": "base:cleo_osei",
+  "type": "npc",
+  "name": "loc:npc.cleo_osei",
+  "role": "regular",
+  "age": 66,
+  "first_appears_day": 3,
+  "visit_weight": 1.28,
+  "trust_arc": "steady",
+  "tells": [
+    "always the same table"
+  ],
+  "notes": "loc:npc.cleo_osei.notes",
+  "tags": [
+    "regular"
+  ]
+}

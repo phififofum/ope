@@ -1,0 +1,17 @@
+{
+  "id": "base:bo_haddad",
+  "type": "npc",
+  "name": "loc:npc.bo_haddad",
+  "role": "regular",
+  "age": 45,
+  "first_appears_day": 12,
+  "visit_weight": 2.42,
+  "trust_arc": "warming",
+  "tells": [
+    "brings their own dice"
+  ],
+  "notes": "loc:npc.bo_haddad.notes",
+  "tags": [
+    "regular"
+  ]
+}

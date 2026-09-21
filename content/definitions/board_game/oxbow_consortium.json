@@ -1,0 +1,64 @@
+{
+  "id": "base:oxbow_consortium",
+  "type": "board_game",
+  "name": "loc:board_game.oxbow_consortium",
+  "designer": "Coalfall Lindqvist",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    32,
+    118
+  ],
+  "weight": 1.3,
+  "teach_minutes": 7,
+  "retail_price": 33.03,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "die",
+      "count": 24,
+      "loss_weight": 0.85
+    },
+    {
+      "part": "meeple",
+      "count": 104,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "cardboard token",
+      "count": 120,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "rulebook",
+      "count": 4,
+      "loss_weight": 0.15
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "filler",
+    "teaching_friendly"
+  ]
+}

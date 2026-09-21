@@ -1,0 +1,24 @@
+{
+  "id": "base:delivery_gone_wrong",
+  "type": "event",
+  "name": "loc:event.delivery_gone_wrong",
+  "description": "loc:event.delivery_gone_wrong.description",
+  "trigger": {
+    "kind": "random",
+    "weight": 0.5,
+    "earliest_day": 60,
+    "act": 1
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "supply",
+      "amount": -0.39
+    }
+  ],
+  "announced": false,
+  "tags": [
+    "supply",
+    "verification"
+  ]
+}

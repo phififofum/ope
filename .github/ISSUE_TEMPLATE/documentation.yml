@@ -1,0 +1,47 @@
+name: 📖 Documentation
+description: Something in the docs is wrong, missing, misleading or hard to find.
+title: "docs: "
+labels: ["documentation", "good first issue"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Documentation issues are real issues. If a doc was unclear to you, it is unclear —
+        and you are the only person who can report that while you still remember why.
+
+  - type: input
+    id: where
+    attributes:
+      label: Which document
+      description: Path and heading, or a link.
+      placeholder: "docs/modding/definition-types.md — 'Forgery vectors'"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem
+      options:
+        - "Wrong — it says something untrue"
+        - "Stale — it describes how things used to be"
+        - "Missing — the thing I needed is not written down anywhere"
+        - "Unclear — I could not tell what it meant"
+        - "Unfindable — it exists but I could not get to it from where I started"
+        - "Broken link, typo, or formatting"
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: What went wrong
+      description: What you were trying to do, what the doc told you, and what you needed it to tell you.
+    validations:
+      required: true
+
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested wording
+      description: Optional, and extremely welcome. A pull request is even more welcome.

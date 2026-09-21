@@ -1,0 +1,63 @@
+{
+  "id": "base:coalfall_harvest",
+  "type": "board_game",
+  "name": "loc:board_game.coalfall_harvest",
+  "designer": "Pinehaven Okoro",
+  "player_count": [
+    2,
+    5
+  ],
+  "play_minutes": [
+    47,
+    113
+  ],
+  "weight": 3.6,
+  "teach_minutes": 25,
+  "retail_price": 43.76,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "plastic stand",
+      "count": 60,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "linen bag",
+      "count": 12,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "wooden cube",
+      "count": 24,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "first-player marker",
+      "count": 120,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "resource tile",
+      "count": 40,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "meeple",
+      "count": 120,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

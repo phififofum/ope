@@ -1,0 +1,15 @@
+{
+  "id": "base:network_lookup",
+  "type": "tool",
+  "name": "loc:tool.network_lookup",
+  "tier": 3,
+  "reveals": [
+    "cross_shop_reputation"
+  ],
+  "inspection_seconds": 30.0,
+  "unlocked_by": "late_campaign",
+  "returns_verdict": false,
+  "failure_modes": [
+    "And the seller can see you doing it."
+  ]
+}

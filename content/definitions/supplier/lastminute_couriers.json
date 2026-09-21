@@ -1,0 +1,20 @@
+{
+  "id": "base:lastminute_couriers",
+  "type": "supplier",
+  "name": "loc:supplier.lastminute_couriers",
+  "catalogue": [
+    "ambient"
+  ],
+  "lead_time_days": [
+    2,
+    7
+  ],
+  "minimum_order": 60.0,
+  "price_tier": "discount",
+  "reliability": 0.58,
+  "legitimacy": {
+    "counterfeit_rate": 0.03,
+    "manifest_accuracy": 0.81,
+    "credentials_verifiable": true
+  }
+}

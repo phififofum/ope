@@ -1,0 +1,51 @@
+{
+  "id": "base:tidefall",
+  "type": "card_set",
+  "name": "loc:card_set.tidefall",
+  "released_day": 114,
+  "rotates_out_day": 844,
+  "pack_price": 5.51,
+  "cards_per_pack": 9,
+  "packs_per_box": 30,
+  "rarities": [
+    {
+      "rarity": "common",
+      "pull_rate": 0.72,
+      "base_value": 0.022,
+      "value_spread": 0.015
+    },
+    {
+      "rarity": "uncommon",
+      "pull_rate": 0.2,
+      "base_value": 0.133,
+      "value_spread": 0.089
+    },
+    {
+      "rarity": "rare",
+      "pull_rate": 0.072,
+      "base_value": 0.237,
+      "value_spread": 1.894
+    },
+    {
+      "rarity": "mythic",
+      "pull_rate": 0.0076,
+      "base_value": 3.084,
+      "value_spread": 24.669
+    },
+    {
+      "rarity": "serialised",
+      "pull_rate": 0.0004,
+      "base_value": 47.937,
+      "value_spread": 383.496
+    }
+  ],
+  "security_features": [
+    "print_rosette",
+    "foil_response",
+    "layer_core"
+  ],
+  "tags": [
+    "sealed_product",
+    "authenticated"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "base:event_floor",
+  "type": "upgrade",
+  "name": "loc:upgrade.event_floor",
+  "description": "loc:upgrade.event_floor.description",
+  "cost": 9800.0,
+  "prerequisites": [],
+  "unlocks": [
+    "event_floor"
+  ],
+  "category": "space",
+  "costs_space": 2
+}

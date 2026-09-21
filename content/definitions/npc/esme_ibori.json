@@ -1,0 +1,17 @@
+{
+  "id": "base:esme_ibori",
+  "type": "npc",
+  "name": "loc:npc.esme_ibori",
+  "role": "repeat_offender",
+  "age": 60,
+  "first_appears_day": 30,
+  "visit_weight": 1.67,
+  "trust_arc": "volatile",
+  "tells": [
+    "watches the case, not you"
+  ],
+  "notes": "loc:npc.esme_ibori.notes",
+  "tags": [
+    "repeat_offender"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "base:seller_id_recorded",
+  "type": "rule",
+  "name": "loc:rule.seller_id_recorded",
+  "explanation": "loc:rule.seller_id_recorded.explanation",
+  "applies_to": {
+    "document_families": [
+      "commercial"
+    ],
+    "transaction_tags": [
+      "trade_in"
+    ]
+  },
+  "check": {
+    "op": "field_equals",
+    "field": "seller_id_number",
+    "value": "__from_person__"
+  },
+  "severity": "blocking",
+  "tier": 0
+}

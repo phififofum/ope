@@ -1,0 +1,28 @@
+{
+  "id": "base:the_dealer_again",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_dealer_again",
+  "budget": [
+    4.28,
+    13.98
+  ],
+  "patience": 1.45,
+  "wants": [
+    "trade_in",
+    "singles"
+  ],
+  "spawn_weight": 0.9,
+  "shifts": [
+    "afternoon",
+    "event_night",
+    "midday"
+  ],
+  "fraud_propensity": 0.25,
+  "age_range": [
+    30,
+    38
+  ],
+  "tags": [
+    "watchlist_candidate"
+  ]
+}

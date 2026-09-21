@@ -1,0 +1,18 @@
+{
+  "id": "base:floor_watch",
+  "type": "staff_role",
+  "name": "loc:staff_role.floor_watch",
+  "tasks": [
+    "deterrence",
+    "incidents"
+  ],
+  "wage_per_shift": 124.0,
+  "base_error_rate": 0.09,
+  "training_shifts": 6,
+  "audit_surface": [
+    "shrink on the case",
+    "incidents handled badly"
+  ],
+  "permissions": [],
+  "coverage": 0.5
+}

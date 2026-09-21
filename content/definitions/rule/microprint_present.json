@@ -1,0 +1,21 @@
+{
+  "id": "base:microprint_present",
+  "type": "rule",
+  "name": "loc:rule.microprint_present",
+  "explanation": "loc:rule.microprint_present.explanation",
+  "applies_to": {
+    "document_families": [
+      "identity"
+    ],
+    "transaction_tags": [
+      "id_required"
+    ]
+  },
+  "check": {
+    "op": "feature_present",
+    "feature": "microprint_border"
+  },
+  "severity": "blocking",
+  "tier": 1,
+  "requires_tool": "base:loupe"
+}

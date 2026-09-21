@@ -1,0 +1,123 @@
+# Labels as data, reviewable like anything else.
+# Apply with: gh label create "<name>" --color <color> --description "<desc>" --force
+# (or any label-sync action, run manually — we do not auto-sync on push.)
+
+# --- Type -------------------------------------------------------------------
+- name: bug
+  color: d73a4a
+  description: Something behaves incorrectly
+- name: design
+  color: 8b5cf6
+  description: A proposal or argument about the specification
+- name: content
+  color: 0e8a16
+  description: Definitions, schemas and game data
+- name: documentation
+  color: 0075ca
+  description: Docs are wrong, missing, unclear or unfindable
+- name: task
+  color: 1d76db
+  description: A unit of work from the work order
+- name: dependencies
+  color: 5319e7
+  description: Dependency updates
+
+# --- Triage -----------------------------------------------------------------
+- name: needs-triage
+  color: ededed
+  description: Not yet looked at by a maintainer
+- name: needs-info
+  color: fbca04
+  description: Waiting on the reporter
+- name: blocked-by-gate
+  color: b60205
+  description: Correct work, wrong phase — parked until the gate passes
+- name: spec-deviation
+  color: e99695
+  description: Departs from the design brief; needs an ADR
+- name: breaking-change
+  color: b60205
+  description: Changes the public mod API — schemas, event names or payloads
+
+# --- Invitation -------------------------------------------------------------
+- name: good first issue
+  color: 7057ff
+  description: Self-contained, well-specified, no hidden context
+- name: help wanted
+  color: 008672
+  description: Maintainers are not working on this and would like someone to
+
+# --- Loops ------------------------------------------------------------------
+- name: "loop:a"
+  color: c2e0c6
+  description: The floor — library, cafe inventory, zone design, maintenance
+- name: "loop:b"
+  color: bfd4f2
+  description: The counter — verification, documents, people
+- name: "loop:c"
+  color: f9d0c4
+  description: The kitchen
+- name: "loop:d"
+  color: fef2c0
+  description: The case — cards, grading, the gamble
+
+# --- Areas ------------------------------------------------------------------
+- name: "area:registry"
+  color: d4c5f9
+  description: Content registry, schemas, loader, event bus
+- name: "area:modding"
+  color: d4c5f9
+  description: Mod loader, SDK, public API
+- name: "area:netcode"
+  color: d4c5f9
+  description: Replication, join and drop, host authority
+- name: "area:tools"
+  color: d4c5f9
+  description: Validator, licence audit, CLIs
+- name: "area:ci"
+  color: d4c5f9
+  description: Workflows and the pipeline
+- name: "area:a11y"
+  color: 006b75
+  description: Accessibility — never optional, never retrofitted
+- name: "area:audio"
+  color: d4c5f9
+  description: Sound design and the soundscape
+- name: "area:art"
+  color: d4c5f9
+  description: Models, materials, document rendering
+- name: "area:licensing"
+  color: 006b75
+  description: Asset provenance and licence compliance
+
+# --- Phases -----------------------------------------------------------------
+- name: "phase:0"
+  color: eeeeee
+  description: Foundation
+- name: "phase:1"
+  color: eeeeee
+  description: The skeleton
+- name: "phase:2"
+  color: eeeeee
+  description: Vertical slice
+- name: "phase:3"
+  color: eeeeee
+  description: Systems breadth
+- name: "phase:4"
+  color: eeeeee
+  description: Multiplayer
+- name: "phase:5"
+  color: eeeeee
+  description: Staff and late game
+- name: "phase:6"
+  color: eeeeee
+  description: Content
+- name: "phase:7"
+  color: eeeeee
+  description: Modding polish
+- name: "phase:8"
+  color: eeeeee
+  description: Feel
+- name: "phase:9"
+  color: eeeeee
+  description: Handoff

@@ -1,0 +1,24 @@
+{
+  "id": "base:burst_pipe_3",
+  "type": "event",
+  "name": "loc:event.burst_pipe_3",
+  "description": "loc:event.burst_pipe_3.description",
+  "trigger": {
+    "kind": "random",
+    "weight": 1.86,
+    "earliest_day": 1,
+    "act": 3
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "equipment",
+      "amount": -0.23
+    }
+  ],
+  "announced": false,
+  "tags": [
+    "equipment",
+    "closure"
+  ]
+}

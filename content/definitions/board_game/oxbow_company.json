@@ -1,0 +1,42 @@
+{
+  "id": "base:oxbow_company",
+  "type": "board_game",
+  "name": "loc:board_game.oxbow_company",
+  "designer": "Saltmarsh Okoro",
+  "player_count": [
+    3,
+    6
+  ],
+  "play_minutes": [
+    76,
+    112
+  ],
+  "weight": 3.3,
+  "teach_minutes": 17,
+  "retail_price": 54.25,
+  "library_eligible": false,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "cardboard token",
+      "count": 60,
+      "loss_weight": 0.6
+    },
+    {
+      "part": "player board",
+      "count": 8,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "die",
+      "count": 24,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

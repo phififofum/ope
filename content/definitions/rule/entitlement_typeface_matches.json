@@ -1,0 +1,22 @@
+{
+  "id": "base:entitlement_typeface_matches",
+  "type": "rule",
+  "name": "loc:rule.entitlement_typeface_matches",
+  "explanation": "loc:rule.entitlement_typeface_matches.explanation",
+  "applies_to": {
+    "document_families": [
+      "entitlement"
+    ],
+    "transaction_tags": [
+      "entitlement",
+      "reconciliation"
+    ]
+  },
+  "check": {
+    "op": "typeface_matches",
+    "field": "typeface"
+  },
+  "severity": "advisory",
+  "tier": 3,
+  "requires_tool": "base:reference_binder"
+}

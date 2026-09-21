@@ -1,0 +1,78 @@
+{
+  "id": "base:table_platter_vegetarian",
+  "type": "recipe",
+  "name": "loc:recipe.table_platter_vegetarian",
+  "price": 18.0,
+  "station_primary": "prep",
+  "ingredients": [
+    {
+      "product": "base:cheddar",
+      "qty": 120.0,
+      "unit": "g"
+    },
+    {
+      "product": "base:sourdough",
+      "qty": 4.0,
+      "unit": "slice"
+    },
+    {
+      "product": "base:chips",
+      "qty": 2.0,
+      "unit": "bag"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 60,
+      "tolerance": 3
+    },
+    {
+      "station": "prep",
+      "action": "cook",
+      "seconds": 95,
+      "tolerance": 10
+    },
+    {
+      "station": "prep",
+      "action": "assemble",
+      "seconds": 45,
+      "tolerance": 4
+    },
+    {
+      "station": "prep",
+      "action": "plate",
+      "seconds": 6,
+      "tolerance": 10
+    },
+    {
+      "station": "prep",
+      "action": "melt",
+      "seconds": 45,
+      "tolerance": 4
+    },
+    {
+      "station": "prep",
+      "action": "slice",
+      "seconds": 6,
+      "tolerance": 10
+    },
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 8,
+      "tolerance": 4
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": false,
+  "unlocked_by": "base:food_service"
+}

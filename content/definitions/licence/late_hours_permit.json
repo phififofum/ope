@@ -1,0 +1,20 @@
+{
+  "id": "base:late_hours_permit",
+  "type": "licence",
+  "name": "loc:licence.late_hours_permit",
+  "unlocks_categories": [],
+  "unlocks_activities": [
+    "late_hours_door"
+  ],
+  "cost": 1900.0,
+  "renewal_days": 365,
+  "standing_required": 3,
+  "verification_burden": [
+    "Carding at the door after the cutoff"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

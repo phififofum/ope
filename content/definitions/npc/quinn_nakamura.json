@@ -1,0 +1,17 @@
+{
+  "id": "base:quinn_nakamura",
+  "type": "npc",
+  "name": "loc:npc.quinn_nakamura",
+  "role": "regular",
+  "age": 71,
+  "first_appears_day": 20,
+  "visit_weight": 2.33,
+  "trust_arc": "steady",
+  "tells": [
+    "asks after the cat"
+  ],
+  "notes": "loc:npc.quinn_nakamura.notes",
+  "tags": [
+    "regular"
+  ]
+}

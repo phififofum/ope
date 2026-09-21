@@ -1,0 +1,17 @@
+{
+  "id": "base:pax_fontaine",
+  "type": "npc",
+  "name": "loc:npc.pax_fontaine",
+  "role": "repeat_offender",
+  "age": 65,
+  "first_appears_day": 8,
+  "visit_weight": 1.66,
+  "trust_arc": "cooling",
+  "tells": [
+    "counts their change twice"
+  ],
+  "notes": "loc:npc.pax_fontaine.notes",
+  "tags": [
+    "repeat_offender"
+  ]
+}

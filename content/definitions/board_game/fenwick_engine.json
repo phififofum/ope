@@ -1,0 +1,53 @@
+{
+  "id": "base:fenwick_engine",
+  "type": "board_game",
+  "name": "loc:board_game.fenwick_engine",
+  "designer": "Foxglove Vance",
+  "player_count": [
+    2,
+    6
+  ],
+  "play_minutes": [
+    52,
+    117
+  ],
+  "weight": 2.5,
+  "teach_minutes": 10,
+  "retail_price": 36.16,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "card",
+      "count": 4,
+      "loss_weight": 0.3
+    },
+    {
+      "part": "plastic stand",
+      "count": 104,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "scoring marker",
+      "count": 104,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

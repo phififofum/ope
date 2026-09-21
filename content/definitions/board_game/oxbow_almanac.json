@@ -1,0 +1,59 @@
+{
+  "id": "base:oxbow_almanac",
+  "type": "board_game",
+  "name": "loc:board_game.oxbow_almanac",
+  "designer": "Northreach Vance",
+  "player_count": [
+    1,
+    3
+  ],
+  "play_minutes": [
+    59,
+    147
+  ],
+  "weight": 2.2,
+  "teach_minutes": 14,
+  "retail_price": 46.62,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 60,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "linen bag",
+      "count": 24,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "resource tile",
+      "count": 24,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "plastic stand",
+      "count": 104,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "rulebook",
+      "count": 24,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight",
+    "teaching_friendly"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "base:nils_lindqvist",
+  "type": "npc",
+  "name": "loc:npc.nils_lindqvist",
+  "role": "regular",
+  "age": 32,
+  "first_appears_day": 5,
+  "visit_weight": 0.52,
+  "trust_arc": "warming",
+  "tells": [
+    "brings their own dice"
+  ],
+  "notes": "loc:npc.nils_lindqvist.notes",
+  "tags": [
+    "regular"
+  ]
+}

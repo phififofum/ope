@@ -1,0 +1,15 @@
+{
+  "id": "base:terminal_fraud_flags",
+  "type": "tool",
+  "name": "loc:tool.terminal_fraud_flags",
+  "tier": 4,
+  "reveals": [
+    "card_risk_signals"
+  ],
+  "inspection_seconds": 4.0,
+  "unlocked_by": "late_campaign",
+  "returns_verdict": false,
+  "failure_modes": [
+    "Flags risk, never fraud; the difference costs you a customer either way."
+  ]
+}

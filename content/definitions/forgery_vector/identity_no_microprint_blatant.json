@@ -1,0 +1,24 @@
+{
+  "id": "base:identity_no_microprint_blatant",
+  "type": "forgery_vector",
+  "applies_to": {
+    "document_types": [
+      "*"
+    ],
+    "requires_feature": "microprint_border"
+  },
+  "class": "physical_defect",
+  "tier": 1,
+  "difficulty": 1,
+  "detectable_by": [
+    "base:loupe"
+  ],
+  "transform": {
+    "op": "remove_feature",
+    "target": "microprint_border"
+  },
+  "tell": {
+    "behaviour": "looks_at_door",
+    "weight": 0.5
+  }
+}

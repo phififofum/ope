@@ -1,0 +1,21 @@
+{
+  "id": "base:charity_gaming",
+  "type": "licence",
+  "name": "loc:licence.charity_gaming",
+  "unlocks_categories": [],
+  "unlocks_activities": [
+    "charity_events"
+  ],
+  "cost": 600.0,
+  "renewal_days": 365,
+  "standing_required": 2,
+  "verification_burden": [
+    "Prize limits",
+    "Records for the regulator"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

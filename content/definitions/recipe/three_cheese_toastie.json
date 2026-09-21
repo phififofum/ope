@@ -1,0 +1,68 @@
+{
+  "id": "base:three_cheese_toastie",
+  "type": "recipe",
+  "name": "loc:recipe.three_cheese_toastie",
+  "price": 8.5,
+  "station_primary": "griddle",
+  "ingredients": [
+    {
+      "product": "base:sourdough_loaf",
+      "qty": 2,
+      "unit": "slice"
+    },
+    {
+      "product": "base:cheddar_block",
+      "qty": 60,
+      "unit": "g"
+    },
+    {
+      "product": "base:butter_block",
+      "qty": 12,
+      "unit": "g"
+    }
+  ],
+  "steps": [
+    {
+      "station": "slicer",
+      "action": "slice",
+      "target": "base:cheddar_block",
+      "seconds": 8,
+      "skill_window": true
+    },
+    {
+      "station": "prep",
+      "action": "butter",
+      "seconds": 6
+    },
+    {
+      "station": "griddle",
+      "action": "cook",
+      "seconds": 95,
+      "tolerance": 14
+    },
+    {
+      "station": "prep",
+      "action": "assemble",
+      "order": [
+        "bread",
+        "cheese",
+        "bread"
+      ]
+    },
+    {
+      "station": "pass",
+      "action": "plate",
+      "seconds": 4
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": false,
+  "unlocked_by": "base:food_service"
+}

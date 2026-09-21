@@ -1,0 +1,24 @@
+{
+  "id": "base:consignment_sales",
+  "type": "licence",
+  "name": "loc:licence.consignment_sales",
+  "unlocks_categories": [
+    "singles"
+  ],
+  "unlocks_activities": [
+    "consignment"
+  ],
+  "cost": 1700.0,
+  "renewal_days": 365,
+  "standing_required": 3,
+  "verification_burden": [
+    "Owner records",
+    "Payout reconciliation",
+    "Insurance on goods you do not own"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "base:raking_light",
+  "type": "tool",
+  "name": "loc:tool.raking_light",
+  "tier": 1,
+  "reveals": [
+    "surface_scratches",
+    "whitening"
+  ],
+  "inspection_seconds": 5.0,
+  "unlocked_by": "reputation_tier_2",
+  "returns_verdict": false
+}

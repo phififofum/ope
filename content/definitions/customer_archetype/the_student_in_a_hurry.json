@@ -1,0 +1,27 @@
+{
+  "id": "base:the_student_in_a_hurry",
+  "type": "customer_archetype",
+  "name": "loc:archetype.the_student_in_a_hurry",
+  "budget": [
+    15.31,
+    134.28
+  ],
+  "patience": 1.34,
+  "wants": [
+    "drink",
+    "table"
+  ],
+  "spawn_weight": 0.57,
+  "shifts": [
+    "event_night",
+    "late_night"
+  ],
+  "fraud_propensity": 0.057,
+  "age_range": [
+    16,
+    45
+  ],
+  "tags": [
+    "watchlist_candidate"
+  ]
+}

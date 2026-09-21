@@ -1,0 +1,24 @@
+{
+  "id": "base:rat_problem_3",
+  "type": "event",
+  "name": "loc:event.rat_problem_3",
+  "description": "loc:event.rat_problem_3.description",
+  "trigger": {
+    "kind": "conditional",
+    "weight": 1.57,
+    "earliest_day": 60,
+    "act": 3
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "pests",
+      "amount": -0.17
+    }
+  ],
+  "announced": false,
+  "tags": [
+    "pests",
+    "cats"
+  ]
+}

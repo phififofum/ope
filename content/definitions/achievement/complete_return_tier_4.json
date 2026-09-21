@@ -1,0 +1,12 @@
+{
+  "id": "base:complete_return_tier_4",
+  "type": "achievement",
+  "name": "loc:achievement.complete_return_tier_4",
+  "description": "loc:achievement.complete_return_tier_4.description",
+  "hidden": false,
+  "condition": {
+    "event": "component_check_resolved",
+    "count": 13
+  },
+  "tags": []
+}

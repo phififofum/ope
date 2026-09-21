@@ -1,0 +1,61 @@
+{
+  "id": "base:cold_plate_to_share",
+  "type": "recipe",
+  "name": "loc:recipe.cold_plate_to_share",
+  "price": 17.1,
+  "station_primary": "prep",
+  "ingredients": [
+    {
+      "product": "base:cheddar",
+      "qty": 152.0,
+      "unit": "g"
+    },
+    {
+      "product": "base:tomato",
+      "qty": 3.8,
+      "unit": "each"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 95,
+      "tolerance": 14
+    },
+    {
+      "station": "prep",
+      "action": "cook",
+      "seconds": 20,
+      "tolerance": 3
+    },
+    {
+      "station": "prep",
+      "action": "assemble",
+      "seconds": 60,
+      "tolerance": 6
+    },
+    {
+      "station": "prep",
+      "action": "plate",
+      "seconds": 6,
+      "tolerance": 10
+    },
+    {
+      "station": "prep",
+      "action": "melt",
+      "seconds": 12,
+      "tolerance": 4
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": false,
+  "unlocked_by": "base:food_service"
+}

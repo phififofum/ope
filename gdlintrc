@@ -1,0 +1,15 @@
+# GDScript lint rules. Only the deviations from gdlint's defaults are listed; run
+# `gdlint --dump-default-config` to see the rest.
+
+# Data dispatch is the shape of this codebase: mapping a JSON `op`, `source` or type
+# name onto a value reads far better as a match with early returns than as a variable
+# threaded through ten branches. The default of 6 punishes exactly that pattern.
+max-returns: 24
+
+# The registry, the loader and the verification engine each expose a wide but shallow
+# API on purpose -- they are the seams other systems and mods talk through.
+max-public-methods: 30
+
+# Content-heavy systems run long. 1000 lines is still the point at which a file should
+# be split, and nothing here is near it.
+max-file-lines: 1000

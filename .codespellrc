@@ -1,0 +1,5 @@
+[codespell]
+skip = ./.git,./addons,./build,./.godot,./LICENSES,./node_modules,*.pck,*.zip,*.svg
+# British spellings and domain words that are correct here.
+ignore-words-list = patter,ines,unparseable,licence,licences,unlicenced,organised,recognisable,colour,colours,coloured,behaviour,behaviours,favour,favours,centre,centred,metre,minimise,maximise,optimise,optimisation,specialisation,localisation,localise,externalised,normalised,memorised,memorise,prioritised,ba,nd,te,ist,hist
+check-hidden = true

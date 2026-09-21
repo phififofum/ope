@@ -1,0 +1,21 @@
+// Linux depot for PoggyWoggy.
+//
+// FileMapping paths are relative to the `contentroot` in app_build.vdf (build/).
+// The build produces build/linux/poggywoggy.x86_64 plus poggywoggy.pck, and both
+// must ship — the executable without its .pck starts and immediately fails.
+"DepotBuild"
+{
+	"DepotID" "481"               // ← your Linux depot id
+	"contentroot" "../build/linux"
+
+	"FileMapping"
+	{
+		"LocalPath" "*"
+		"DepotPath" "."
+		"recursive" "1"
+	}
+
+	"FileExclusion" "*.pdb"
+	"FileExclusion" "*.debug"
+	"FileExclusion" "**/*.log"
+}

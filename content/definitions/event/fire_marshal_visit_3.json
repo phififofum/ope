@@ -1,0 +1,24 @@
+{
+  "id": "base:fire_marshal_visit_3",
+  "type": "event",
+  "name": "loc:event.fire_marshal_visit_3",
+  "description": "loc:event.fire_marshal_visit_3.description",
+  "trigger": {
+    "kind": "conditional",
+    "weight": 0.39,
+    "earliest_day": 1,
+    "act": 3
+  },
+  "effects": [
+    {
+      "op": "modify",
+      "target": "compliance",
+      "amount": 0.01
+    }
+  ],
+  "announced": false,
+  "tags": [
+    "compliance",
+    "event"
+  ]
+}

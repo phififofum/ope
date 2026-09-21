@@ -1,0 +1,29 @@
+{
+  "id": "base:graded_single_large",
+  "type": "product",
+  "name": "loc:product.graded_single_large",
+  "category": "singles",
+  "tags": [
+    "case_only",
+    "high_value",
+    "theft_exposed"
+  ],
+  "storage": "ambient",
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "units_per_case": 8,
+  "base_cost": 210.0,
+  "market_price": 465.0,
+  "price_band": [
+    302.25,
+    883.5
+  ],
+  "shelf_life_days": 0,
+  "licence": "base:secondhand_dealer",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "base:cut_price_cartons",
+  "type": "supplier",
+  "name": "loc:supplier.cut_price_cartons",
+  "catalogue": [
+    "ambient",
+    "household"
+  ],
+  "lead_time_days": [
+    2,
+    7
+  ],
+  "minimum_order": 60.0,
+  "price_tier": "discount",
+  "reliability": 0.68,
+  "legitimacy": {
+    "counterfeit_rate": 0.06,
+    "manifest_accuracy": 0.8,
+    "credentials_verifiable": true
+  }
+}

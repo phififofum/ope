@@ -1,0 +1,17 @@
+{
+  "id": "base:jo_duarte",
+  "type": "npc",
+  "name": "loc:npc.jo_duarte",
+  "role": "staff_candidate",
+  "age": 39,
+  "first_appears_day": 12,
+  "visit_weight": 1.77,
+  "trust_arc": "warming",
+  "tells": [
+    "arrives ten minutes early"
+  ],
+  "notes": "loc:npc.jo_duarte.notes",
+  "tags": [
+    "staff_candidate"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "base:flat_white_vegetarian",
+  "type": "recipe",
+  "name": "loc:recipe.flat_white_vegetarian",
+  "price": 3.8,
+  "station_primary": "coffee_bar",
+  "ingredients": [
+    {
+      "product": "base:flat_white_beans",
+      "qty": 18.0,
+      "unit": "g"
+    },
+    {
+      "product": "base:oat_milk",
+      "qty": 120.0,
+      "unit": "ml"
+    }
+  ],
+  "steps": [
+    {
+      "station": "prep",
+      "action": "prep",
+      "seconds": 95,
+      "tolerance": 14
+    },
+    {
+      "station": "coffee_bar",
+      "action": "cook",
+      "seconds": 60,
+      "tolerance": 6
+    },
+    {
+      "station": "coffee_bar",
+      "action": "assemble",
+      "seconds": 12,
+      "tolerance": 4
+    },
+    {
+      "station": "coffee_bar",
+      "action": "plate",
+      "seconds": 6,
+      "tolerance": 14
+    }
+  ],
+  "modifiers_allowed": [
+    "omission",
+    "addition",
+    "substitution",
+    "preparation",
+    "portioning",
+    "quantity"
+  ],
+  "store_credit_eligible": true,
+  "unlocked_by": "base:general_retail"
+}

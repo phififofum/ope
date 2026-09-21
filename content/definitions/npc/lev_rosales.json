@@ -1,0 +1,17 @@
+{
+  "id": "base:lev_rosales",
+  "type": "npc",
+  "name": "loc:npc.lev_rosales",
+  "role": "courier",
+  "age": 22,
+  "first_appears_day": 3,
+  "visit_weight": 1.62,
+  "trust_arc": "cooling",
+  "tells": [
+    "never has the same paperwork twice"
+  ],
+  "notes": "loc:npc.lev_rosales.notes",
+  "tags": [
+    "courier"
+  ]
+}

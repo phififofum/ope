@@ -1,0 +1,12 @@
+{
+  "id": "base:date_wheel",
+  "type": "tool",
+  "name": "loc:tool.date_wheel",
+  "tier": 0,
+  "reveals": [
+    "computed_age"
+  ],
+  "inspection_seconds": 1.5,
+  "unlocked_by": "start",
+  "returns_verdict": false
+}

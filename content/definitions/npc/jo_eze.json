@@ -1,0 +1,17 @@
+{
+  "id": "base:jo_eze",
+  "type": "npc",
+  "name": "loc:npc.jo_eze",
+  "role": "difficult",
+  "age": 52,
+  "first_appears_day": 3,
+  "visit_weight": 0.41,
+  "trust_arc": "volatile",
+  "tells": [
+    "argues about the deposit"
+  ],
+  "notes": "loc:npc.jo_eze.notes",
+  "tags": [
+    "difficult"
+  ]
+}

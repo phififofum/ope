@@ -1,0 +1,58 @@
+{
+  "id": "base:coalfall_voyage",
+  "type": "board_game",
+  "name": "loc:board_game.coalfall_voyage",
+  "designer": "Coalfall Vance",
+  "player_count": [
+    2,
+    4
+  ],
+  "play_minutes": [
+    63,
+    105
+  ],
+  "weight": 2.6,
+  "teach_minutes": 21,
+  "retail_price": 37.24,
+  "library_eligible": true,
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "components": [
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "linen bag",
+      "count": 8,
+      "loss_weight": 0.4
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "wooden cube",
+      "count": 104,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "first-player marker",
+      "count": 40,
+      "loss_weight": 0.8
+    },
+    {
+      "part": "scoring marker",
+      "count": 40,
+      "loss_weight": 0.75
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "midweight"
+  ]
+}

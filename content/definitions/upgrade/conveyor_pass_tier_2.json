@@ -1,0 +1,14 @@
+{
+  "id": "base:conveyor_pass_tier_2",
+  "type": "upgrade",
+  "name": "loc:upgrade.conveyor_pass_tier_2",
+  "description": "loc:upgrade.conveyor_pass_tier_2.description",
+  "cost": 6120.0,
+  "prerequisites": [],
+  "unlocks": [
+    "conveyor_pass"
+  ],
+  "category": "automation",
+  "costs_space": 1,
+  "removes_step": "walking to the window"
+}

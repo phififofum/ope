@@ -1,0 +1,21 @@
+{
+  "id": "base:age_18_general",
+  "type": "rule",
+  "name": "loc:rule.age_18_general",
+  "explanation": "loc:rule.age_18_general.explanation",
+  "applies_to": {
+    "document_families": [
+      "identity"
+    ],
+    "transaction_tags": [
+      "age_restricted"
+    ]
+  },
+  "check": {
+    "op": "age_at_least",
+    "field": "dob",
+    "value": 18
+  },
+  "severity": "blocking",
+  "tier": 0
+}

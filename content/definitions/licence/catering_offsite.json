@@ -1,0 +1,20 @@
+{
+  "id": "base:catering_offsite",
+  "type": "licence",
+  "name": "loc:licence.catering_offsite",
+  "unlocks_categories": [],
+  "unlocks_activities": [
+    "offsite_catering"
+  ],
+  "cost": 2400.0,
+  "renewal_days": 365,
+  "standing_required": 3,
+  "verification_burden": [
+    "Transport temperature logs"
+  ],
+  "strike_consequences": {
+    "first": "Fine, and a note on the record.",
+    "second": "Larger fine, and undercover attempts become frequent.",
+    "third": "Suspended for a fixed period. The revenue stops."
+  }
+}

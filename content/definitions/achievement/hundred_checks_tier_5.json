@@ -1,0 +1,12 @@
+{
+  "id": "base:hundred_checks_tier_5",
+  "type": "achievement",
+  "name": "loc:achievement.hundred_checks_tier_5",
+  "description": "loc:achievement.hundred_checks_tier_5.description",
+  "hidden": false,
+  "condition": {
+    "event": "component_check_resolved",
+    "count": 1700
+  },
+  "tags": []
+}

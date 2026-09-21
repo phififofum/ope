@@ -1,0 +1,53 @@
+{
+  "id": "base:redfen_harvest",
+  "type": "board_game",
+  "name": "loc:board_game.redfen_harvest",
+  "designer": "Mossgard Vance",
+  "player_count": [
+    3,
+    5
+  ],
+  "play_minutes": [
+    87,
+    106
+  ],
+  "weight": 3.9,
+  "teach_minutes": 14,
+  "retail_price": 51.61,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "wooden cube",
+      "count": 24,
+      "loss_weight": 0.9
+    },
+    {
+      "part": "scoring marker",
+      "count": 40,
+      "loss_weight": 0.75
+    },
+    {
+      "part": "resource tile",
+      "count": 120,
+      "loss_weight": 0.5
+    },
+    {
+      "part": "meeple",
+      "count": 40,
+      "loss_weight": 0.7
+    },
+    {
+      "part": "die",
+      "count": 24,
+      "loss_weight": 0.85
+    }
+  ],
+  "tags": [
+    "component_dense",
+    "heavy"
+  ]
+}

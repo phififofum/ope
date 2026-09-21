@@ -1,0 +1,17 @@
+{
+  "id": "base:ora_stavros",
+  "type": "npc",
+  "name": "loc:npc.ora_stavros",
+  "role": "regular",
+  "age": 71,
+  "first_appears_day": 20,
+  "visit_weight": 1.4,
+  "trust_arc": "steady",
+  "tells": [
+    "always the same table"
+  ],
+  "notes": "loc:npc.ora_stavros.notes",
+  "tags": [
+    "regular"
+  ]
+}

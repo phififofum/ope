@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Question or idea
+    url: https://github.com/phififofum/ope/discussions
+    about: Anything open-ended — how something works, whether an idea is wanted, or a design argument that is not yet a proposal.
+  - name: 🔒 Security vulnerability
+    url: https://github.com/phififofum/ope/security/advisories/new
+    about: Mod sandbox escapes, malicious save or mod packages, peer-to-host attacks, verification-truth leakage. Never a public issue.
+  - name: 📖 Read the design specification first
+    url: https://github.com/phififofum/ope/blob/main/docs/design/README.md
+    about: Sixteen numbered documents. Most "why is it like that" questions are answered here, with the reasoning attached.
+  - name: 🧩 Modding guide
+    url: https://github.com/phififofum/ope/blob/main/docs/modding/README.md
+    about: How to add content and write a mod, including the 15-minute first mod.

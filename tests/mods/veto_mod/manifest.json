@@ -1,0 +1,17 @@
+{
+  "id": "veto_mod",
+  "name": "Veto Test Mod",
+  "version": "1.0.0",
+  "authors": [
+    "tests"
+  ],
+  "game_api": ">=0.1.0 <1.0.0",
+  "dependencies": {},
+  "load_order": 50,
+  "capabilities": [
+    "definitions",
+    "scripts"
+  ],
+  "affects_gameplay": true,
+  "description": "Fixture: adds a product, overrides a base product, vetoes sale_attempted."
+}

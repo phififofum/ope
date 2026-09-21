@@ -1,0 +1,29 @@
+{
+  "id": "base:cheddar_block",
+  "type": "product",
+  "name": "loc:product.cheddar_block",
+  "category": "chilled",
+  "tags": [
+    "chilled",
+    "ingredient",
+    "slicer"
+  ],
+  "storage": "chilled",
+  "shelf_footprint": [
+    1,
+    1
+  ],
+  "units_per_case": 8,
+  "base_cost": 5.2,
+  "market_price": 0.0,
+  "price_band": [
+    0.0,
+    0.0
+  ],
+  "shelf_life_days": 45,
+  "licence": "base:food_service",
+  "suppliers": [
+    "base:metro_wholesale"
+  ],
+  "urgency": "low"
+}

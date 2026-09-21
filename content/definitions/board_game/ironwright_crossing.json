@@ -1,0 +1,42 @@
+{
+  "id": "base:ironwright_crossing",
+  "type": "board_game",
+  "name": "loc:board_game.ironwright_crossing",
+  "designer": "Ironwright Okoro",
+  "player_count": [
+    1,
+    3
+  ],
+  "play_minutes": [
+    71,
+    110
+  ],
+  "weight": 3.4,
+  "teach_minutes": 19,
+  "retail_price": 40.45,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "plastic stand",
+      "count": 24,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "player board",
+      "count": 12,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

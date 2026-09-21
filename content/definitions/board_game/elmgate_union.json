@@ -1,0 +1,47 @@
+{
+  "id": "base:elmgate_union",
+  "type": "board_game",
+  "name": "loc:board_game.elmgate_union",
+  "designer": "Fenwick Baptiste",
+  "player_count": [
+    3,
+    6
+  ],
+  "play_minutes": [
+    42,
+    108
+  ],
+  "weight": 3.3,
+  "teach_minutes": 25,
+  "retail_price": 54.18,
+  "library_eligible": true,
+  "shelf_footprint": [
+    2,
+    1
+  ],
+  "components": [
+    {
+      "part": "player board",
+      "count": 8,
+      "loss_weight": 0.1
+    },
+    {
+      "part": "rulebook",
+      "count": 12,
+      "loss_weight": 0.15
+    },
+    {
+      "part": "plastic stand",
+      "count": 40,
+      "loss_weight": 0.65
+    },
+    {
+      "part": "linen bag",
+      "count": 4,
+      "loss_weight": 0.4
+    }
+  ],
+  "tags": [
+    "midweight"
+  ]
+}

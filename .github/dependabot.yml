@@ -1,0 +1,17 @@
+version: 2
+updates:
+  # Godot itself is pinned in .godot-version and updated deliberately, never automatically.
+  # This keeps the CI actions current, which is the one place drift causes silent breakage.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+    labels:
+      - "area:ci"
+      - "dependencies"
+    commit-message:
+      prefix: "ci"
+    open-pull-requests-limit: 5
+    groups:
+      github-actions:
+        patterns: ["*"]

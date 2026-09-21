@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Runs the whole test suite the way CI does.
 #
-#   tools/run_tests.sh                 # everything, including the slow balance suites
+#   tools/run_tests.sh                 # everything, including the slow simulation suites
 #   tools/run_tests.sh tests/unit      # one directory
 #
 # CI runs the same suites sharded across runners -- see the matrix in ci.yml. Locally
-# they run in sequence, which takes about twenty minutes; the balance suites are most
-# of that, because each plays whole simulated days.
+# they run in sequence, which takes about twenty minutes; tests/simulation is most of
+# that, because every suite in it plays whole simulated days.
 #
 # GODOT may be set to a specific binary; otherwise `godot` from PATH is used.
 set -euo pipefail
@@ -17,7 +17,7 @@ cd "$ROOT"
 
 targets=("$@")
 if [ ${#targets[@]} -eq 0 ]; then
-  targets=(tests/unit tests/integration tests/balance)
+  targets=(tests/unit tests/integration tests/simulation)
 fi
 
 args=()

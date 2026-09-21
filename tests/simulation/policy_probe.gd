@@ -3,7 +3,7 @@ extends RefCounted
 
 ## Plays a bot policy across seeds and reports what it cost and what it caught.
 ##
-## Shared by the balance suites, which are one claim per file on purpose: three of these
+## Shared by the comparison suites, which are one claim per file on purpose: three of these
 ## comparisons were eleven minutes of a twenty-minute pipeline, and split across files CI
 ## runs them at the same time instead of one after another.
 ##

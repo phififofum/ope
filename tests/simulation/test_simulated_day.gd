@@ -3,9 +3,8 @@ extends GdUnitTestSuite
 ## The Phase 2 gate: the bot completes a simulated day. Beyond that, these assert the
 ## properties a shift must have — never idle, never unwinnable, never unfair.
 ##
-## The claims that compare one policy against another live in [code]tests/balance/[/code],
-## one per file: they play whole days and were most of the pipeline when they ran in
-## sequence.
+## The claims that compare one policy against another are one per file beside this one:
+## they play whole days, and running them in sequence was most of the pipeline.
 
 var registry: ContentRegistry
 var bus: EventBus

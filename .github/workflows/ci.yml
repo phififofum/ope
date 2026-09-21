@@ -87,9 +87,9 @@ jobs:
     name: ${{ matrix.name }}
     strategy:
       fail-fast: false
-      # Sharded by wall clock, not by tidiness. Three policy comparisons were eleven
-      # minutes of an eighteen-minute suite, so they get a runner each; everything else
-      # -- 126 tests -- finishes in well under a minute together.
+      # Sharded by wall clock, not by tidiness. Everything in tests/simulation plays
+      # whole days at 20 Hz and takes minutes; the other 126 tests together take under a
+      # minute, so they share one runner and each simulation suite gets its own.
       #
       # tools/check_test_shards.py fails the build if a suite file is in no shard, so a
       # new test cannot quietly stop being run.
@@ -97,12 +97,16 @@ jobs:
         include:
           - name: Tests — unit and integration
             targets: -a tests/unit -a tests/integration
+          - name: Tests — a simulated day
+            targets: -a tests/simulation/test_simulated_day.gd
+          - name: Tests — a campaign stretch
+            targets: -a tests/simulation/test_campaign.gd
           - name: Tests — scrutiny is worth it
-            targets: -a tests/balance/test_scrutiny_is_worth_it.gd
+            targets: -a tests/simulation/test_scrutiny_is_worth_it.gd
           - name: Tests — scrutiny costs throughput
-            targets: -a tests/balance/test_scrutiny_costs_throughput.gd
+            targets: -a tests/simulation/test_scrutiny_costs_throughput.gd
           - name: Tests — judgement beats volume
-            targets: -a tests/balance/test_judgement_beats_volume.gd
+            targets: -a tests/simulation/test_judgement_beats_volume.gd
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1

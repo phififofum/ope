@@ -36,8 +36,8 @@ that reduces coverage on `core/` does not merge.
 ### How the suite is run
 
 The whole suite is one command, [`tools/run_tests.sh`](../../tools/run_tests.sh), and
-locally it runs in sequence. CI shards it across runners instead, because a handful of
-suites play whole simulated days and everything else finishes in under a minute: run in
+locally it runs in sequence. CI shards it across runners instead, because every suite in
+[`tests/simulation/`](../../tests/simulation) plays whole simulated days and everything else finishes in under a minute: run in
 sequence they were eighteen of a twenty-minute pipeline, and sharded the pipeline is
 about five.
 

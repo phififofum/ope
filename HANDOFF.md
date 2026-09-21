@@ -92,6 +92,13 @@ needs installing first, and nothing is written outside the repository.
    scaling it with counter traffic, is a one-line experiment — but which way it should go
    is a question about how the game feels.
 
+   The measured five-day picture, three seeds, standard preset, three players: the
+   triaging shop ends at 2.6 reputation and nine licences, the careless one at -1.5 and
+   six. On cash the careless shop is ahead, 3,186 against 325 — because it serves a third
+   more people and buys nothing, while the triaging shop converts its till into licences.
+   Whether carelessness should lose on the money as well as on standing is a real
+   question and it is not settled here.
+
    A caution on how any of this is measured: comparing two bot policies' net worth
    cannot settle a question about one mechanic, because two policies differ in what they
    serve, cook, clean, audit and buy. The claim that opening sealed stock loses money is

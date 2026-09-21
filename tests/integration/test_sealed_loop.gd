@@ -219,28 +219,35 @@ func test_selling_sealed_over_the_counter_is_recorded_beside_ripping() -> void:
 	assert_float(float(ledger["sealed_revenue"])).is_greater(0.0)
 
 
-func test_the_gambler_ends_up_behind_the_shop_that_sold_its_stock() -> void:
-	# The claim the ledger makes, played out by two bots over a week. The gambler opens
-	# everything it can afford; the balanced bot sells the same stock across the counter.
+func test_a_shop_that_opens_its_stock_gets_back_less_than_it_gave_up() -> void:
+	# The design promise, measured where it can actually be isolated: the gambler's own
+	# ledger. Comparing two bots' net worth cannot carry this claim -- two policies differ
+	# in what they serve, clean, audit and buy, and ripping is one line of that. The
+	# ledger compares like with like: every unit opened, against what it would have sold
+	# for.
 	var gambler := BotPlayer.new(_shop(77), BotPlayer.Policy.GAMBLER)
-	var seller := BotPlayer.new(_shop(77), BotPlayer.Policy.BALANCED)
-	var gambled: Dictionary = gambler.play(5)
-	var sold: Dictionary = seller.play(5)
+	var report: Dictionary = gambler.play(5)
+	var ledger: Dictionary = report["sealed"]
 
-	# Net worth counts the cardboard both ways round: stock on the shelf and singles in
-	# the case. Opening a box moves value from one column to the other, and loses some of
-	# it on the way, which is the only thing this test is really asking about.
-	var gambler_worth: float = (
-		float(gambled["final_money"]) + float(gambled["case_value"]) + float(gambled["stock_value"])
-	)
-	var seller_worth: float = (
-		float(sold["final_money"]) + float(sold["case_value"]) + float(sold["stock_value"])
-	)
-	assert_int(int((gambled["sealed"] as Dictionary)["units_ripped"])).is_greater(0)
 	(
-		assert_float(gambler_worth)
-		. override_failure_message(
-			"the gambler finished ahead on net worth: %s against %s" % [gambler_worth, seller_worth]
-		)
-		. is_less(seller_worth)
+		assert_int(int(ledger["units_ripped"]))
+		. override_failure_message("the gambler never opened anything, so this asserts nothing")
+		. is_greater(0)
 	)
+	(
+		assert_float(float(ledger["return_ratio"]))
+		. override_failure_message(
+			(
+				"opened %d unit(s) worth %.0f and got back %.0f"
+				% [
+					ledger["units_ripped"],
+					ledger["retail_forgone"],
+					float(ledger["realised"]) + float(ledger["unsold_value"]),
+				]
+			)
+		)
+		. is_less(1.0)
+	)
+	# It stayed a gamble rather than becoming a tax: the shop is still standing.
+	assert_bool(bool(report["insolvent"])).is_false()
+	assert_int(int(report["soft_lock_ticks"])).is_equal(0)

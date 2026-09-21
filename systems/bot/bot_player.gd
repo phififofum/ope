@@ -86,11 +86,12 @@ func play(days: int, sample_every_ticks: int = 600) -> Dictionary:
 ## afford. It is a probe for dead ends -- if the campaign cannot be advanced by a policy
 ## this simple, the economy is wrong rather than the player.
 func _buy_what_we_can_afford() -> void:
-	# Reordering is not a policy: a shop that never restocks is not telling us anything
-	# about scrutiny, it is telling us about an empty shelf.
-	_order_the_thin_shelves()
+	# The careless policy is careless about everything, including the back door. That is
+	# the point of it: it is the floor of competence, not a controlled experiment in
+	# scrutiny alone.
 	if policy == Policy.CARELESS:
 		return
+	_order_the_thin_shelves()
 	var affordable: Array = shop.affordable_licences()
 	if not affordable.is_empty():
 		shop.buy_licence((affordable[0] as ContentDefinition).id)

@@ -92,6 +92,13 @@ needs installing first, and nothing is written outside the repository.
    scaling it with counter traffic, is a one-line experiment — but which way it should go
    is a question about how the game feels.
 
+   A caution on how any of this is measured: comparing two bot policies' net worth
+   cannot settle a question about one mechanic, because two policies differ in what they
+   serve, cook, clean, audit and buy. The claim that opening sealed stock loses money is
+   asserted against the sealed ledger itself, which compares like with like; the claim
+   that judgement beats volume is asserted against triage, which differs from
+   carelessness in exactly that.
+
    Two more things the bot revealed and nobody should rely on. The careless policy is
    partly saved from itself by poverty: it declines the high-value trade-ins it cannot
    fund, and those are exactly where the forgeries concentrate. And the *exhaustive*

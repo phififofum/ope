@@ -53,6 +53,9 @@ No install, no launcher, no account. One file that already contains everything i
 | The binder of rules | `B` |
 | Developer console | `F1` |
 
+Cutting a new build for testers is one button — **Actions → Release → Run workflow** — and
+takes about ten minutes: [how it works](docs/release/playtest.md).
+
 ### Or build it yourself
 
 Needs nothing installed — it fetches its own pinned engine and export templates into

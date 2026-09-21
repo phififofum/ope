@@ -17,6 +17,7 @@ Everything written down about PoggyWoggy, arranged by what you came here to do.
 | Know why something is the way it is | [decisions/](decisions/) |
 | Decode a term | [glossary.md](glossary.md) |
 | See what happens next, in what order | [design/14-work-order.md](design/14-work-order.md) |
+| Cut a build for playtesters, without a terminal | [release/playtest.md](release/playtest.md) |
 | Build and ship a test build to Steam | [release/steam.md](release/steam.md) |
 
 ## The specification

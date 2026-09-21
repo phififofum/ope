@@ -5,12 +5,23 @@ name: Release
 #
 # Steam upload is skipped — not failed — when secrets are absent, so forks and
 # contributor tags can never publish anything. See docs/release/steam.md.
+#
+# A release can be cut two ways: push a `v*` tag, or run this workflow from the
+# Actions tab with a version. The second path exists so that cutting a build for
+# playtesters needs no terminal. It creates the tag here rather than pushing one and
+# waiting for it to trigger this workflow — GitHub deliberately does not fire
+# workflows from a push made with GITHUB_TOKEN, so that would sit there doing
+# nothing.
 
 on:
   push:
     tags: ["v*"]
   workflow_dispatch:
     inputs:
+      version:
+        description: "Version to release, without the leading v (e.g. 0.1.0-playtest.1). Leave blank to build without releasing."
+        required: false
+        default: ""
       steam_branch:
         description: "Steam branch to upload to (never set live automatically)"
         required: false
@@ -36,6 +47,41 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+
+      - name: Work out what is being released
+        id: release
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          set -euo pipefail
+          if [ "${GITHUB_EVENT_NAME}" = "push" ]; then
+            tag="${GITHUB_REF_NAME}"
+          elif [ -n "${VERSION}" ]; then
+            tag="v${VERSION#v}"
+          else
+            tag=""
+          fi
+          echo "tag=${tag}" >> "$GITHUB_OUTPUT"
+          if [ -z "${tag}" ]; then
+            echo "::notice::No version given, so this run builds but publishes nothing."
+          else
+            echo "::notice::Releasing ${tag}"
+          fi
+
+      - name: Create the tag
+        if: github.event_name == 'workflow_dispatch' && steps.release.outputs.tag != ''
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null 2>&1; then
+            echo "::error::${TAG} already exists. Pick a new version."
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "${TAG}" -m "${TAG}"
+          git push origin "refs/tags/${TAG}"
 
       - name: Verify the pinned engine version matches the workflow
         run: |
@@ -112,19 +158,22 @@ jobs:
           if-no-files-found: error
 
       - name: Package for the GitHub release
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: steps.release.outputs.tag != ''
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
         run: |
           cd build
-          zip -r "poggywoggy-${GITHUB_REF_NAME}-linux.zip" linux
-          zip -r "poggywoggy-${GITHUB_REF_NAME}-windows.zip" windows
+          zip -r "poggywoggy-${TAG}-linux.zip" linux
+          zip -r "poggywoggy-${TAG}-windows.zip" windows
 
       # Published rather than drafted, and marked pre-release: these tags exist so that
       # playtesters can download a build without being given instructions first. Steam
       # is still a human decision -- see the job below.
       - name: Publish the GitHub release
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: steps.release.outputs.tag != ''
         uses: softprops/action-gh-release@v3.0.3
         with:
+          tag_name: ${{ steps.release.outputs.tag }}
           prerelease: true
           generate_release_notes: true
           files: |
@@ -136,7 +185,7 @@ jobs:
 
             ## Windows
 
-            1. Download `poggywoggy-${{ github.ref_name }}-windows.zip` below.
+            1. Download `poggywoggy-${{ steps.release.outputs.tag }}-windows.zip` below.
             2. Unzip it anywhere.
             3. Run `poggywoggy.exe`.
 
@@ -145,7 +194,7 @@ jobs:
 
             ## Linux
 
-            1. Download `poggywoggy-${{ github.ref_name }}-linux.zip` below.
+            1. Download `poggywoggy-${{ steps.release.outputs.tag }}-linux.zip` below.
             2. Unzip it, then in a terminal:
 
             ```bash

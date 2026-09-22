@@ -1,0 +1,12 @@
+{
+  "id": "base:graded_ten",
+  "type": "achievement",
+  "name": "loc:achievement.graded_ten",
+  "description": "loc:achievement.graded_ten.description",
+  "hidden": false,
+  "condition": {
+    "event": "card_graded",
+    "count": 10
+  },
+  "tags": []
+}

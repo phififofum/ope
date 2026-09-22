@@ -1,0 +1,12 @@
+{
+  "id": "base:delegated",
+  "type": "achievement",
+  "name": "loc:achievement.delegated",
+  "description": "loc:achievement.delegated.description",
+  "hidden": false,
+  "condition": {
+    "event": "shift_started",
+    "count": 30
+  },
+  "tags": []
+}

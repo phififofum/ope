@@ -1,0 +1,12 @@
+{
+  "id": "base:fed_it_a_season",
+  "type": "achievement",
+  "name": "loc:achievement.fed_it_a_season",
+  "description": "loc:achievement.fed_it_a_season.description",
+  "hidden": false,
+  "condition": {
+    "event": "cat_fed",
+    "count": 90
+  },
+  "tags": []
+}

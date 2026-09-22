@@ -1,0 +1,14 @@
+{
+  "id": "base:task_lamp",
+  "type": "upgrade",
+  "name": "loc:upgrade.task_lamp",
+  "description": "loc:upgrade.task_lamp.description",
+  "cost": 120.0,
+  "prerequisites": [],
+  "unlocks": [
+    "task_lamp"
+  ],
+  "category": "quality_of_life",
+  "costs_space": 0,
+  "removes_step": "squinting"
+}

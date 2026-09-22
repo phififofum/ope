@@ -1,0 +1,12 @@
+{
+  "id": "base:first_feed",
+  "type": "achievement",
+  "name": "loc:achievement.first_feed",
+  "description": "loc:achievement.first_feed.description",
+  "hidden": false,
+  "condition": {
+    "event": "cat_fed",
+    "count": 1
+  },
+  "tags": []
+}

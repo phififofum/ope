@@ -1,0 +1,12 @@
+{
+  "id": "base:first_ticket",
+  "type": "achievement",
+  "name": "loc:achievement.first_ticket",
+  "description": "loc:achievement.first_ticket.description",
+  "hidden": false,
+  "condition": {
+    "event": "order_taken",
+    "count": 1
+  },
+  "tags": []
+}

@@ -9,6 +9,6 @@
     "condiment_dispenser"
   ],
   "category": "automation",
-  "costs_space": 2,
+  "costs_space": 0,
   "removes_step": "manual portioning"
 }

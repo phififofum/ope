@@ -4,11 +4,13 @@
   "name": "loc:upgrade.second_griddle",
   "description": "loc:upgrade.second_griddle.description",
   "cost": 4200.0,
-  "prerequisites": [],
+  "prerequisites": [
+    "base:griddle_timer_array"
+  ],
   "unlocks": [
     "second_griddle"
   ],
   "category": "equipment",
   "costs_space": 2,
-  "removes_step": "serialisation"
+  "removes_step": "cooking one thing at a time"
 }

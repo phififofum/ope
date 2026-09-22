@@ -1,0 +1,12 @@
+{
+  "id": "base:first_burnt_one",
+  "type": "achievement",
+  "name": "loc:achievement.first_burnt_one",
+  "description": "loc:achievement.first_burnt_one.description",
+  "hidden": false,
+  "condition": {
+    "event": "order_failed",
+    "count": 1
+  },
+  "tags": []
+}

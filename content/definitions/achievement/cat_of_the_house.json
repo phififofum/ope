@@ -1,0 +1,14 @@
+{
+  "id": "base:cat_of_the_house",
+  "type": "achievement",
+  "name": "loc:achievement.cat_of_the_house",
+  "description": "loc:achievement.cat_of_the_house.description",
+  "hidden": true,
+  "condition": {
+    "event": "cat_fed",
+    "count": 365
+  },
+  "tags": [
+    "hidden"
+  ]
+}

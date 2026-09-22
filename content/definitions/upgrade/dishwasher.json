@@ -1,0 +1,14 @@
+{
+  "id": "base:dishwasher",
+  "type": "upgrade",
+  "name": "loc:upgrade.dishwasher",
+  "description": "loc:upgrade.dishwasher.description",
+  "cost": 1900.0,
+  "prerequisites": [],
+  "unlocks": [
+    "dishwasher"
+  ],
+  "category": "automation",
+  "costs_space": 1,
+  "removes_step": "washing up between rushes"
+}

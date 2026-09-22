@@ -1,0 +1,12 @@
+{
+  "id": "base:a_full_shift",
+  "type": "achievement",
+  "name": "loc:achievement.a_full_shift",
+  "description": "loc:achievement.a_full_shift.description",
+  "hidden": false,
+  "condition": {
+    "event": "verification_resolved",
+    "count": 40
+  },
+  "tags": []
+}

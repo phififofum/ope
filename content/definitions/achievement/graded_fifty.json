@@ -1,0 +1,12 @@
+{
+  "id": "base:graded_fifty",
+  "type": "achievement",
+  "name": "loc:achievement.graded_fifty",
+  "description": "loc:achievement.graded_fifty.description",
+  "hidden": false,
+  "condition": {
+    "event": "card_graded",
+    "count": 50
+  },
+  "tags": []
+}

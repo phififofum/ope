@@ -1,0 +1,16 @@
+{
+  "id": "base:staff_room",
+  "type": "upgrade",
+  "name": "loc:upgrade.staff_room",
+  "description": "loc:upgrade.staff_room.description",
+  "cost": 3900.0,
+  "prerequisites": [
+    "base:back_room_extension"
+  ],
+  "unlocks": [
+    "staff_room"
+  ],
+  "category": "quality_of_life",
+  "costs_space": 0,
+  "removes_step": "breaks taken standing up"
+}

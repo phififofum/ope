@@ -1,0 +1,12 @@
+{
+  "id": "base:a_box_of_it",
+  "type": "achievement",
+  "name": "loc:achievement.a_box_of_it",
+  "description": "loc:achievement.a_box_of_it.description",
+  "hidden": false,
+  "condition": {
+    "event": "pack_opened",
+    "count": 36
+  },
+  "tags": []
+}

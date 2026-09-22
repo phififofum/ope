@@ -1,0 +1,16 @@
+{
+  "id": "base:order_screen",
+  "type": "upgrade",
+  "name": "loc:upgrade.order_screen",
+  "description": "loc:upgrade.order_screen.description",
+  "cost": 1450.0,
+  "prerequisites": [
+    "base:ticket_printer"
+  ],
+  "unlocks": [
+    "order_screen"
+  ],
+  "category": "automation",
+  "costs_space": 1,
+  "removes_step": "shouting the pass"
+}

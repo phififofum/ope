@@ -1,0 +1,12 @@
+{
+  "id": "base:fifty_plates",
+  "type": "achievement",
+  "name": "loc:achievement.fifty_plates",
+  "description": "loc:achievement.fifty_plates.description",
+  "hidden": false,
+  "condition": {
+    "event": "order_completed",
+    "count": 50
+  },
+  "tags": []
+}

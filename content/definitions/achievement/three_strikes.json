@@ -1,0 +1,14 @@
+{
+  "id": "base:three_strikes",
+  "type": "achievement",
+  "name": "loc:achievement.three_strikes",
+  "description": "loc:achievement.three_strikes.description",
+  "hidden": true,
+  "condition": {
+    "event": "strike_issued",
+    "count": 3
+  },
+  "tags": [
+    "hidden"
+  ]
+}

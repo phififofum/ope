@@ -1,0 +1,12 @@
+{
+  "id": "base:first_strike",
+  "type": "achievement",
+  "name": "loc:achievement.first_strike",
+  "description": "loc:achievement.first_strike.description",
+  "hidden": false,
+  "condition": {
+    "event": "strike_issued",
+    "count": 1
+  },
+  "tags": []
+}

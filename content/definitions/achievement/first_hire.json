@@ -1,0 +1,14 @@
+{
+  "id": "base:first_hire",
+  "type": "achievement",
+  "name": "loc:achievement.first_hire",
+  "description": "loc:achievement.first_hire.description",
+  "hidden": true,
+  "condition": {
+    "event": "staff_error_made",
+    "count": 1
+  },
+  "tags": [
+    "hidden"
+  ]
+}

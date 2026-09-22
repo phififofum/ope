@@ -1,0 +1,14 @@
+{
+  "id": "base:shelving_run",
+  "type": "upgrade",
+  "name": "loc:upgrade.shelving_run",
+  "description": "loc:upgrade.shelving_run.description",
+  "cost": 1750.0,
+  "prerequisites": [],
+  "unlocks": [
+    "shelving_run"
+  ],
+  "category": "space",
+  "costs_space": 0,
+  "removes_step": "double stacking"
+}

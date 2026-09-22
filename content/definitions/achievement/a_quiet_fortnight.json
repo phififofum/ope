@@ -1,0 +1,12 @@
+{
+  "id": "base:a_quiet_fortnight",
+  "type": "achievement",
+  "name": "loc:achievement.a_quiet_fortnight",
+  "description": "loc:achievement.a_quiet_fortnight.description",
+  "hidden": false,
+  "condition": {
+    "event": "day_ended",
+    "count": 14
+  },
+  "tags": []
+}

@@ -1,0 +1,14 @@
+{
+  "id": "base:card_scales",
+  "type": "upgrade",
+  "name": "loc:upgrade.card_scales",
+  "description": "loc:upgrade.card_scales.description",
+  "cost": 890.0,
+  "prerequisites": [],
+  "unlocks": [
+    "card_scales"
+  ],
+  "category": "equipment",
+  "costs_space": 1,
+  "removes_step": "guessing the weight"
+}

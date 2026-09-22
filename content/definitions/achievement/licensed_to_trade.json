@@ -1,0 +1,12 @@
+{
+  "id": "base:licensed_to_trade",
+  "type": "achievement",
+  "name": "loc:achievement.licensed_to_trade",
+  "description": "loc:achievement.licensed_to_trade.description",
+  "hidden": false,
+  "condition": {
+    "event": "licence_granted",
+    "count": 5
+  },
+  "tags": []
+}

@@ -1,0 +1,14 @@
+{
+  "id": "base:awning",
+  "type": "upgrade",
+  "name": "loc:upgrade.awning",
+  "description": "loc:upgrade.awning.description",
+  "cost": 1520.0,
+  "prerequisites": [],
+  "unlocks": [
+    "awning"
+  ],
+  "category": "space",
+  "costs_space": 0,
+  "removes_step": "the queue standing in the rain"
+}

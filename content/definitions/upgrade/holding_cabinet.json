@@ -9,6 +9,6 @@
     "holding_cabinet"
   ],
   "category": "automation",
-  "costs_space": 0,
+  "costs_space": 2,
   "removes_step": "cooking staples to order"
 }

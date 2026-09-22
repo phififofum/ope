@@ -1,0 +1,12 @@
+{
+  "id": "base:fully_papered",
+  "type": "achievement",
+  "name": "loc:achievement.fully_papered",
+  "description": "loc:achievement.fully_papered.description",
+  "hidden": false,
+  "condition": {
+    "event": "licence_granted",
+    "count": 12
+  },
+  "tags": []
+}

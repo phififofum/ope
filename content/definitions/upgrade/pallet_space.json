@@ -1,0 +1,14 @@
+{
+  "id": "base:pallet_space",
+  "type": "upgrade",
+  "name": "loc:upgrade.pallet_space",
+  "description": "loc:upgrade.pallet_space.description",
+  "cost": 2400.0,
+  "prerequisites": [],
+  "unlocks": [
+    "pallet_space"
+  ],
+  "category": "space",
+  "costs_space": 0,
+  "removes_step": "breaking down deliveries in the doorway"
+}

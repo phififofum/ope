@@ -1,0 +1,12 @@
+{
+  "id": "base:a_month_of_it",
+  "type": "achievement",
+  "name": "loc:achievement.a_month_of_it",
+  "description": "loc:achievement.a_month_of_it.description",
+  "hidden": false,
+  "condition": {
+    "event": "day_ended",
+    "count": 30
+  },
+  "tags": []
+}

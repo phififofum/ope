@@ -1,0 +1,12 @@
+{
+  "id": "base:nobody_walks",
+  "type": "achievement",
+  "name": "loc:achievement.nobody_walks",
+  "description": "loc:achievement.nobody_walks.description",
+  "hidden": false,
+  "condition": {
+    "event": "customer_served",
+    "count": 250
+  },
+  "tags": []
+}

@@ -9,5 +9,6 @@
     "case_alarm"
   ],
   "category": "security",
-  "costs_space": 1
+  "costs_space": 0,
+  "removes_step": "watching the case"
 }

@@ -1,0 +1,14 @@
+{
+  "id": "base:prep_fridge",
+  "type": "upgrade",
+  "name": "loc:upgrade.prep_fridge",
+  "description": "loc:upgrade.prep_fridge.description",
+  "cost": 2350.0,
+  "prerequisites": [],
+  "unlocks": [
+    "prep_fridge"
+  ],
+  "category": "automation",
+  "costs_space": 0,
+  "removes_step": "fetching from the back"
+}

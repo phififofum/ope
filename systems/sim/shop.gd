@@ -29,6 +29,18 @@ const DAY_TICKS: int = 25 * 60 * TickScheduler.TICKS_PER_SECOND  ## ~25 real min
 const SHIFTS: PackedStringArray = [
 	"morning", "midday", "afternoon", "evening", "event_night", "late_night", "dead_hours"
 ]
+## Which kinds of equipment shorten which work. A slicer does not help you read an ID.
+## Which kinds of equipment shorten which work. Every category the content ships must
+## appear here: equipment that is bought and then does nothing is worse than equipment
+## that does not exist, because the player paid for it.
+const UPGRADE_HELPS: Dictionary = {
+	"automation": [Task.COOK, Task.RUN_FOOD],
+	"space": [Task.RESTOCK, Task.RECEIVE_DELIVERY],
+	"security": [Task.CASE_WORK, Task.AUDIT],
+	"quality_of_life": [Task.SERVE_COUNTER, Task.CHECK_RETURN, Task.CLEAN],
+	"equipment": [Task.SERVE_COUNTER, Task.CASE_WORK],
+}
+
 const RENT_PER_DAY: float = 210.0
 const UTILITIES_PER_DAY: float = 68.0
 
@@ -72,6 +84,9 @@ var shift_index: int = 0
 var owned_tools: PackedStringArray = ["base:naked_eye", "base:date_wheel"]
 ## The glass you inherited. Everything past it is bought.
 var owned_fixtures: PackedStringArray = ["base:display_case"]
+## Equipment bought to make the work quicker. Forty-five of these ship in content and
+## none of them were reachable from inside the game, which is its own kind of bug.
+var owned_upgrades: PackedStringArray = []
 
 ## Work waiting for a pair of hands. The queue is the game.
 var waiting_encounters: Array[Encounter] = []
@@ -177,7 +192,7 @@ func interview(role_id: StringName) -> StaffSystem.Employee:
 
 
 func hire(employee: StaffSystem.Employee, slot: PlayerSlot, now: int) -> Dictionary:
-	slot.occupy(now, 90.0, Task.AUDIT)
+	_occupy(slot, now, 90.0, Task.AUDIT)
 	var outcome: EventOutcome = staff.hire(employee, economy)
 	return {
 		"hired": outcome.allowed,
@@ -407,7 +422,7 @@ func serve_counter(
 		return {}
 	var encounter: Encounter = waiting_encounters.pop_front()
 	var seconds: float = 4.0 + verification.inspection_cost(tools_used)
-	slot.occupy(now, seconds, Task.SERVE_COUNTER)
+	_occupy(slot, now, seconds, Task.SERVE_COUNTER)
 
 	var result: Dictionary = verification.resolve(
 		encounter, verdict, tools_used, now, owned_tools, reason
@@ -461,7 +476,7 @@ func cook_next(slot: PlayerSlot, now: int) -> bool:
 	for order: Kitchen.Order in kitchen.pending_orders():
 		if order.state == Kitchen.OrderState.WAITING:
 			if kitchen.start_order(order, now):
-				slot.occupy(now, 6.0, Task.COOK)
+				_occupy(slot, now, 6.0, Task.COOK)
 				return true
 			return false
 	return false
@@ -476,7 +491,7 @@ func run_food(slot: PlayerSlot, now: int) -> bool:
 			economy.adjust_reputation((accuracy - 0.6) * 0.05, "kitchen accuracy")
 			# Table service means travel: the plate goes to a specific table, through the
 			# floor plan you designed.
-			slot.occupy(now, 8.0, Task.RUN_FOOD)
+			_occupy(slot, now, 8.0, Task.RUN_FOOD)
 			served_today += 1
 			return true
 	return false
@@ -487,7 +502,7 @@ func check_next_return(slot: PlayerSlot, now: int) -> Dictionary:
 		return {}
 	var copy: GameLibrary.Copy = library.awaiting_check[0]
 	var seconds: float = library.check_seconds(copy)
-	slot.occupy(now, seconds, Task.CHECK_RETURN)
+	_occupy(slot, now, seconds, Task.CHECK_RETURN)
 	var result: Dictionary = library.perform_check(copy)
 	# A complete copy going back on the shelf is quiet, ordinary competence. An
 	# incomplete one found now is a problem you caught instead of one you lent out.
@@ -504,12 +519,12 @@ func restock_shelves(slot: PlayerSlot, now: int) -> int:
 		if restocked > 0:
 			break
 	if restocked > 0:
-		slot.occupy(now, 12.0, Task.RESTOCK)
+		_occupy(slot, now, 12.0, Task.RESTOCK)
 	return restocked
 
 
 func clean_up(slot: PlayerSlot, now: int, seconds: float = 20.0) -> void:
-	slot.occupy(now, seconds, Task.CLEAN)
+	_occupy(slot, now, seconds, Task.CLEAN)
 	maintenance.clean(seconds)
 	if maintenance.tables_dirty > 0:
 		maintenance.reset_table()
@@ -523,7 +538,7 @@ func receive_deliveries(slot: PlayerSlot, now: int, verify: bool) -> Array[Dicti
 		# Verifying a delivery properly costs a minute you do not have, which is why a
 		# trio usually waves them through and a fourth player changes the game.
 		var seconds: float = 45.0 if verify else 8.0
-		slot.occupy(now, seconds, Task.RECEIVE_DELIVERY)
+		_occupy(slot, now, seconds, Task.RECEIVE_DELIVERY)
 		var caught: bool = verify and not delivery.problem.is_empty()
 		if caught:
 			inventory.incoming.erase(delivery)
@@ -540,7 +555,7 @@ func receive_deliveries(slot: PlayerSlot, now: int, verify: bool) -> Array[Dicti
 
 
 func tend_cats(slot: PlayerSlot, now: int) -> void:
-	slot.occupy(now, 15.0, Task.CAT_CARE)
+	_occupy(slot, now, 15.0, Task.CAT_CARE)
 	for cat: CatSystem.Cat in cats.residents:
 		if cat.outside:
 			cats.recover_cat(cat)
@@ -560,7 +575,7 @@ func tend_cats(slot: PlayerSlot, now: int) -> void:
 func work_the_case(
 	slot: PlayerSlot, now: int, sell_above: float = 0.0, display_above: float = 0.0
 ) -> Dictionary:
-	slot.occupy(now, 25.0, Task.CASE_WORK)
+	_occupy(slot, now, 25.0, Task.CASE_WORK)
 	var graded: Array[Dictionary] = card_case.collect_grading(economy)
 	card_case.showcase_capacity = _showcase_capacity()
 	var displayed: int = 0
@@ -601,7 +616,7 @@ func rip_sealed(slot: PlayerSlot, now: int, product_id: StringName) -> Dictionar
 	if product == null or not _is_sealed_product(product):
 		return {"opened": false, "reason": "not sealed product"}
 	var packs: int = maxi(1, int(product.get_value("sealed", {}).get("packs", 1)))
-	slot.occupy(now, clampf(5.0 + float(packs) * 1.6, 5.0, 70.0), Task.RIP_SEALED)
+	_occupy(slot, now, clampf(5.0 + float(packs) * 1.6, 5.0, 70.0), Task.RIP_SEALED)
 
 	var result: Dictionary = card_case.rip(product_id, inventory, economy)
 	if not bool(result.get("opened", false)):
@@ -642,6 +657,46 @@ func _showcase_capacity() -> int:
 
 ## Buys a fixture outright. Glass is capital like anything else: a bigger case shows more
 ## and is one more thing that was not stock.
+## Buys a piece of equipment. An upgrade is a permanent, paid-for reduction in how long
+## the work takes -- which is the only currency the game really has, since every task is
+## priced in seconds the queue is not waiting through.
+func buy_upgrade(upgrade_id: StringName) -> bool:
+	var upgrade: ContentDefinition = registry.get_definition(upgrade_id)
+	if upgrade == null or owned_upgrades.has(String(upgrade_id)):
+		return false
+	for prerequisite: String in upgrade.get_value("prerequisites", []):
+		if not owned_upgrades.has(prerequisite):
+			return false
+	if not economy.spend(upgrade.get_number("cost"), "upgrade: %s" % upgrade_id):
+		return false
+	owned_upgrades.append(String(upgrade_id))
+	bus.publish(
+		EventCatalog.MONEY_CHANGED,
+		{"reason": "upgrade", "upgrade": String(upgrade_id), "money": economy.money}
+	)
+	return true
+
+
+## Puts a pair of hands on a job for as long as it takes. Every task in the shift is
+## priced through here, so the equipment discount cannot be applied at one call site and
+## forgotten at the others.
+func _occupy(slot: PlayerSlot, now: int, seconds: float, task: Task) -> void:
+	slot.occupy(now, seconds * _task_multiplier(task), task)
+
+
+## How long a task takes, after the equipment you have bought. Diminishing, and floored,
+## because no amount of shopping should make the shift free.
+func _task_multiplier(task: Task) -> float:
+	var relevant: int = 0
+	for upgrade_id: String in owned_upgrades:
+		var upgrade: ContentDefinition = registry.get_definition(StringName(upgrade_id))
+		if upgrade == null:
+			continue
+		if UPGRADE_HELPS.get(upgrade.get_text("category"), []).has(task):
+			relevant += 1
+	return maxf(0.55, pow(0.88, float(relevant)))
+
+
 func buy_fixture(fixture_id: StringName) -> bool:
 	var fixture: ContentDefinition = registry.get_definition(fixture_id)
 	if fixture == null or owned_fixtures.has(String(fixture_id)):
@@ -654,7 +709,7 @@ func buy_fixture(fixture_id: StringName) -> bool:
 
 
 func audit_staff(slot: PlayerSlot, now: int, thoroughness: float = 0.6) -> Array:
-	slot.occupy(now, 60.0, Task.AUDIT)
+	_occupy(slot, now, 60.0, Task.AUDIT)
 	return staff.review("review", thoroughness)
 
 

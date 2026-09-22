@@ -1,0 +1,16 @@
+{
+  "id": "base:cold_room",
+  "type": "upgrade",
+  "name": "loc:upgrade.cold_room",
+  "description": "loc:upgrade.cold_room.description",
+  "cost": 6800.0,
+  "prerequisites": [
+    "base:back_room_extension"
+  ],
+  "unlocks": [
+    "cold_room"
+  ],
+  "category": "space",
+  "costs_space": 0,
+  "removes_step": "two fridges and a prayer"
+}

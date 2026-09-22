@@ -1,0 +1,12 @@
+{
+  "id": "base:first_sale",
+  "type": "achievement",
+  "name": "loc:achievement.first_sale",
+  "description": "loc:achievement.first_sale.description",
+  "hidden": false,
+  "condition": {
+    "event": "sale_attempted",
+    "count": 1
+  },
+  "tags": []
+}

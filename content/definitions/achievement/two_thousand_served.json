@@ -1,0 +1,12 @@
+{
+  "id": "base:two_thousand_served",
+  "type": "achievement",
+  "name": "loc:achievement.two_thousand_served",
+  "description": "loc:achievement.two_thousand_served.description",
+  "hidden": false,
+  "condition": {
+    "event": "customer_served",
+    "count": 2000
+  },
+  "tags": []
+}

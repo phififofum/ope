@@ -1,0 +1,12 @@
+{
+  "id": "base:first_licence",
+  "type": "achievement",
+  "name": "loc:achievement.first_licence",
+  "description": "loc:achievement.first_licence.description",
+  "hidden": false,
+  "condition": {
+    "event": "licence_granted",
+    "count": 1
+  },
+  "tags": []
+}

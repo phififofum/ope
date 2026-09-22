@@ -1,0 +1,12 @@
+{
+  "id": "base:mouse_sighted",
+  "type": "achievement",
+  "name": "loc:achievement.mouse_sighted",
+  "description": "loc:achievement.mouse_sighted.description",
+  "hidden": false,
+  "condition": {
+    "event": "pest_sighted",
+    "count": 1
+  },
+  "tags": []
+}

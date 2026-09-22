@@ -1,0 +1,12 @@
+{
+  "id": "base:first_plate",
+  "type": "achievement",
+  "name": "loc:achievement.first_plate",
+  "description": "loc:achievement.first_plate.description",
+  "hidden": false,
+  "condition": {
+    "event": "order_completed",
+    "count": 1
+  },
+  "tags": []
+}

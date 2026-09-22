@@ -1,0 +1,12 @@
+{
+  "id": "base:first_return",
+  "type": "achievement",
+  "name": "loc:achievement.first_return",
+  "description": "loc:achievement.first_return.description",
+  "hidden": false,
+  "condition": {
+    "event": "component_check_resolved",
+    "count": 1
+  },
+  "tags": []
+}

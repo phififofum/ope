@@ -9,5 +9,6 @@
     "reference_binder_stand"
   ],
   "category": "quality_of_life",
-  "costs_space": 2
+  "costs_space": 2,
+  "removes_step": "putting the binder down"
 }

@@ -9,6 +9,6 @@
     "auto_slicer"
   ],
   "category": "automation",
-  "costs_space": 1,
+  "costs_space": 2,
   "removes_step": "manual slicing"
 }

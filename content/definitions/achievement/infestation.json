@@ -1,0 +1,14 @@
+{
+  "id": "base:infestation",
+  "type": "achievement",
+  "name": "loc:achievement.infestation",
+  "description": "loc:achievement.infestation.description",
+  "hidden": true,
+  "condition": {
+    "event": "pest_sighted",
+    "count": 100
+  },
+  "tags": [
+    "hidden"
+  ]
+}

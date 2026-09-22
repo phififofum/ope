@@ -1,0 +1,14 @@
+{
+  "id": "base:air_handling",
+  "type": "upgrade",
+  "name": "loc:upgrade.air_handling",
+  "description": "loc:upgrade.air_handling.description",
+  "cost": 4600.0,
+  "prerequisites": [],
+  "unlocks": [
+    "air_handling"
+  ],
+  "category": "quality_of_life",
+  "costs_space": 1,
+  "removes_step": "the smell of the fryer"
+}

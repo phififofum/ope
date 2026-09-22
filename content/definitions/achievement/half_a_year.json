@@ -1,0 +1,12 @@
+{
+  "id": "base:half_a_year",
+  "type": "achievement",
+  "name": "loc:achievement.half_a_year",
+  "description": "loc:achievement.half_a_year.description",
+  "hidden": false,
+  "condition": {
+    "event": "day_ended",
+    "count": 180
+  },
+  "tags": []
+}

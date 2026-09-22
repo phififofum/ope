@@ -1,0 +1,16 @@
+{
+  "id": "base:shutter",
+  "type": "upgrade",
+  "name": "loc:upgrade.shutter",
+  "description": "loc:upgrade.shutter.description",
+  "cost": 3200.0,
+  "prerequisites": [
+    "base:door_buzzer"
+  ],
+  "unlocks": [
+    "shutter"
+  ],
+  "category": "security",
+  "costs_space": 1,
+  "removes_step": "worrying overnight"
+}

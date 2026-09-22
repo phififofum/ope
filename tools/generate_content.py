@@ -546,39 +546,82 @@ def gen_events(written: dict) -> None:
         )
 
 
+# label, category, the step it removes, cost, what it needs first
+#
+# Forty-five distinct pieces of equipment rather than fifteen at three tiers. A "Tier 3
+# Laminated Checklist" is not a thing anybody wants to buy, and a shop list that is two
+# thirds padding is the fastest way to make a catalogue feel generated.
+#
+# Each one names a real job in a real shop, and the prerequisites make the list read as a
+# sequence of decisions instead of a wall of prices.
+UPGRADE_SEEDS = [
+    # Kitchen and service automation
+    ("ticket printer", "automation", "memorising orders", 900, []),
+    ("order screen", "automation", "shouting the pass", 1450, ["ticket_printer"]),
+    ("condiment dispenser", "automation", "manual portioning", 450, []),
+    ("griddle timer array", "automation", "tracking timings by eye", 1250, []),
+    ("auto slicer", "automation", "manual slicing", 1600, []),
+    ("holding cabinet", "automation", "cooking staples to order", 2100, []),
+    ("bean hopper", "automation", "dosing by eye", 780, []),
+    ("conveyor pass", "automation", "walking to the window", 3400, ["order_screen"]),
+    ("plate warmer", "automation", "plating cold", 640, []),
+    ("dishwasher", "automation", "washing up between rushes", 1900, []),
+    ("prep fridge", "automation", "fetching from the back", 2350, []),
+    ("second griddle", "equipment", "cooking one thing at a time", 4200, ["griddle_timer_array"]),
+    # The counter
+    ("laminated checklist", "quality_of_life", "remembering the rules", 40, []),
+    ("reference binder stand", "quality_of_life", "putting the binder down", 260, []),
+    ("counter mat", "quality_of_life", "chasing cards across the counter", 85, []),
+    ("task lamp", "quality_of_life", "squinting", 120, []),
+    ("magnifier arm", "equipment", "holding the loupe", 540, ["task_lamp"]),
+    ("card scales", "equipment", "guessing the weight", 890, []),
+    ("light box", "equipment", "holding things up to the strip light", 1150, ["task_lamp"]),
+    ("receipt printer", "quality_of_life", "writing receipts out", 320, []),
+    ("card reader", "quality_of_life", "counting cash", 410, []),
+    ("queue rail", "quality_of_life", "sorting out who was first", 380, []),
+    # Security
+    ("camera bank", "security", "wondering what happened", 2800, []),
+    ("case alarm", "security", "watching the case", 1400, []),
+    ("door buzzer", "security", "keeping an eye on the door", 760, []),
+    ("stock room lock", "security", "trusting everybody", 540, []),
+    ("till audit log", "security", "reconciling by hand", 1180, ["card_reader"]),
+    ("shutter", "security", "worrying overnight", 3200, ["door_buzzer"]),
+    ("safe", "security", "banking daily", 1650, []),
+    ("mirror dome", "security", "blind corners", 290, []),
+    # Space
+    ("back room extension", "space", "shuffling stock to reach stock", 8200, []),
+    ("mezzanine", "space", "storing overflow at home", 15400, ["back_room_extension"]),
+    ("event floor", "space", "clearing tables for a tournament", 9800, []),
+    ("bar buildout", "space", "serving drinks from the counter", 11200, ["event_floor"]),
+    ("shelving run", "space", "double stacking", 1750, []),
+    ("pallet space", "space", "breaking down deliveries in the doorway", 2400, []),
+    ("cold room", "space", "two fridges and a prayer", 6800, ["back_room_extension"]),
+    ("bin store", "space", "walking the waste out front", 980, []),
+    ("bike rack", "space", "bikes in the aisle", 310, []),
+    ("awning", "space", "the queue standing in the rain", 1520, []),
+    # Comfort, which is a real upgrade in a place people sit for six hours
+    ("good chairs", "quality_of_life", "customers leaving early", 2200, []),
+    ("air handling", "quality_of_life", "the smell of the fryer", 4600, []),
+    ("sound baffles", "quality_of_life", "shouting over the room", 1380, []),
+    ("water station", "quality_of_life", "fetching tap water", 260, []),
+    ("staff room", "quality_of_life", "breaks taken standing up", 3900, ["back_room_extension"]),
+]
+
+
 def gen_upgrades(written: dict) -> None:
     rng = rng_for("upgrade")
-    seeds = [
-        ("ticket printer", "automation", "memorising orders", 900),
-        ("auto slicer", "automation", "manual slicing", 1600),
-        ("holding cabinet", "automation", "cooking staples to order", 2100),
-        ("conveyor pass", "automation", "walking to the window", 3400),
-        ("condiment dispenser", "automation", "manual portioning", 450),
-        ("griddle timer array", "automation", "tracking timings by eye", 1250),
-        ("second griddle", "equipment", "serialisation", 4200),
-        ("camera bank", "security", "", 2800),
-        ("case alarm", "security", "", 1400),
-        ("back room extension", "space", "", 8200),
-        ("mezzanine", "space", "", 15400),
-        ("event floor", "space", "", 9800),
-        ("laminated checklist", "quality_of_life", "", 40),
-        ("reference binder stand", "quality_of_life", "", 260),
-        ("bar buildout", "space", "", 11200),
-    ]
-    for index in range(COUNTS["upgrade"]):
-        label, category, removes, cost = seeds[index % len(seeds)]
-        tier = index // len(seeds)
-        slug = label.lower().replace(" ", "_") + (f"_tier_{tier + 1}" if tier else "")
+    for label, category, removes, cost, prerequisites in UPGRADE_SEEDS[: COUNTS["upgrade"]]:
+        slug = label.lower().replace(" ", "_")
         data = {
             "id": f"base:{slug}",
             "type": "upgrade",
             "name": f"loc:upgrade.{slug}",
             "description": f"loc:upgrade.{slug}.description",
-            "cost": round(cost * (1.0 + tier * 0.8), 2),
-            "prerequisites": [],
-            "unlocks": [label.lower().replace(" ", "_")],
+            "cost": float(cost),
+            "prerequisites": [f"base:{name}" for name in prerequisites],
+            "unlocks": [slug],
             "category": category,
-            "costs_space": rng.choice([0, 1, 1, 2]),
+            "costs_space": rng.choice([0, 1, 1, 2]) if category != "space" else 0,
         }
         if removes:
             data["removes_step"] = removes
@@ -1714,19 +1757,83 @@ NPC_SEEDS = [
     ("courier", "cooling", ["never has the same paperwork twice"]),
 ]
 
+# slug, event counted, how many, hidden
+#
+# Sixty distinct deeds rather than twelve at five tiers. A tier ladder is the laziest
+# possible achievement list: it multiplies a number and calls it new content, and a
+# player reading "Cat Bonded Tier 4" knows exactly how little thought went into it.
+#
+# These are named for the thing that happened, and the counts are chosen so that the
+# early ones land inside a first session and the late ones mark a real campaign.
 ACHIEVEMENT_SEEDS = [
+    # The counter, which is the game
+    ("first_verdict", "verification_resolved", 1, False),
+    ("a_full_shift", "verification_resolved", 40, False),
+    ("hundred_hands", "verification_resolved", 100, False),
+    ("thousand_hands", "verification_resolved", 1000, False),
+    ("the_long_week", "day_ended", 7, False),
+    ("a_month_of_it", "day_ended", 30, False),
     ("first_refusal", "customer_left", 1, False),
-    ("caught_one", "verification_resolved", 1, False),
-    ("caught_fifty", "verification_resolved", 50, False),
-    ("clean_week", "day_ended", 7, False),
-    ("complete_return", "component_check_resolved", 1, False),
-    ("hundred_checks", "component_check_resolved", 100, False),
+    ("nobody_walks", "customer_served", 250, False),
+    ("five_hundred_served", "customer_served", 500, False),
+    ("two_thousand_served", "customer_served", 2000, False),
+    ("first_strike", "strike_issued", 1, False),
+    ("three_strikes", "strike_issued", 3, True),
+    # The case
     ("first_pack", "pack_opened", 1, False),
-    ("graded_well", "card_graded", 1, False),
-    ("kitchen_rush", "order_completed", 40, False),
-    ("no_strikes", "day_ended", 30, False),
-    ("cat_bonded", "cat_fed", 20, False),
-    ("pest_free", "pest_sighted", 1, True),
+    ("a_box_of_it", "pack_opened", 36, False),
+    ("case_of_cases", "pack_opened", 216, False),
+    ("still_ripping", "pack_opened", 500, True),
+    ("first_grade_back", "card_graded", 1, False),
+    ("graded_ten", "card_graded", 10, False),
+    ("graded_fifty", "card_graded", 50, False),
+    ("graded_two_hundred", "card_graded", 200, False),
+    # The kitchen
+    ("first_ticket", "order_taken", 1, False),
+    ("first_plate", "order_completed", 1, False),
+    ("fifty_plates", "order_completed", 50, False),
+    ("three_hundred_plates", "order_completed", 300, False),
+    ("thousand_plates", "order_completed", 1000, False),
+    ("first_burnt_one", "order_failed", 1, False),
+    ("the_bad_night", "order_failed", 25, True),
+    # The library
+    ("first_return", "component_check_resolved", 1, False),
+    ("counted_a_hundred", "component_check_resolved", 100, False),
+    ("counted_five_hundred", "component_check_resolved", 500, False),
+    ("counted_two_thousand", "component_check_resolved", 2000, False),
+    ("first_loan", "game_returned", 1, False),
+    ("lending_library", "game_returned", 200, False),
+    # The cat
+    ("first_feed", "cat_fed", 1, False),
+    ("fed_it_a_week", "cat_fed", 7, False),
+    ("fed_it_a_season", "cat_fed", 90, False),
+    ("cat_of_the_house", "cat_fed", 365, True),
+    ("first_reaction", "cat_reacted", 1, False),
+    ("the_cat_knows", "cat_reacted", 50, False),
+    ("mouse_sighted", "pest_sighted", 1, False),
+    ("infestation", "pest_sighted", 100, True),
+    # Money, standing and the paperwork
+    ("first_licence", "licence_granted", 1, False),
+    ("licensed_to_trade", "licence_granted", 5, False),
+    ("fully_papered", "licence_granted", 12, False),
+    ("every_permission", "licence_granted", 25, True),
+    ("first_hire", "staff_error_made", 1, True),
+    ("delegated", "shift_started", 30, False),
+    ("open_a_year", "shift_started", 365, True),
+    # Trade
+    ("first_trade_in", "trade_in_attempted", 1, False),
+    ("buylist_regular", "trade_in_attempted", 100, False),
+    ("first_delivery", "delivery_accepted", 1, False),
+    ("hundred_deliveries", "delivery_accepted", 100, False),
+    ("first_sale", "sale_attempted", 1, False),
+    ("five_hundred_sales", "sale_attempted", 500, False),
+    # The slow ones
+    ("a_quiet_fortnight", "day_ended", 14, False),
+    ("a_season", "day_ended", 90, False),
+    ("half_a_year", "day_ended", 180, False),
+    ("the_full_year", "day_ended", 365, True),
+    ("reputation_noticed", "reputation_changed", 500, False),
+    ("reputation_established", "reputation_changed", 5000, False),
 ]
 
 
@@ -1763,29 +1870,21 @@ def gen_npcs(written: dict) -> None:
 
 
 def gen_achievements(written: dict) -> None:
-    rng = rng_for("achievement")
-    made: int = 0
-    for tier in range(5):
-        for base_name, event, count, hidden in ACHIEVEMENT_SEEDS:
-            if made >= 60:
-                return
-            slug = base_name if tier == 0 else f"{base_name}_tier_{tier + 1}"
-            write(
-                "achievement",
-                slug,
-                {
-                    "id": f"base:{slug}",
-                    "type": "achievement",
-                    "name": f"loc:achievement.{slug}",
-                    "description": f"loc:achievement.{slug}.description",
-                    "hidden": hidden,
-                    "condition": {"event": event, "count": count * (tier * 4 + 1)},
-                    "tags": ["hidden"] if hidden else [],
-                },
-                written,
-            )
-            made += 1
-            _ = rng
+    for slug, event, count, hidden in ACHIEVEMENT_SEEDS:
+        write(
+            "achievement",
+            slug,
+            {
+                "id": f"base:{slug}",
+                "type": "achievement",
+                "name": f"loc:achievement.{slug}",
+                "description": f"loc:achievement.{slug}.description",
+                "hidden": hidden,
+                "condition": {"event": event, "count": count},
+                "tags": ["hidden"] if hidden else [],
+            },
+            written,
+        )
 
 
 GIVEN_NAMES = [

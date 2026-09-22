@@ -1,0 +1,14 @@
+{
+  "id": "base:bean_hopper",
+  "type": "upgrade",
+  "name": "loc:upgrade.bean_hopper",
+  "description": "loc:upgrade.bean_hopper.description",
+  "cost": 780.0,
+  "prerequisites": [],
+  "unlocks": [
+    "bean_hopper"
+  ],
+  "category": "automation",
+  "costs_space": 2,
+  "removes_step": "dosing by eye"
+}

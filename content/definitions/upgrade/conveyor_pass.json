@@ -4,11 +4,13 @@
   "name": "loc:upgrade.conveyor_pass",
   "description": "loc:upgrade.conveyor_pass.description",
   "cost": 3400.0,
-  "prerequisites": [],
+  "prerequisites": [
+    "base:order_screen"
+  ],
   "unlocks": [
     "conveyor_pass"
   ],
   "category": "automation",
-  "costs_space": 0,
+  "costs_space": 1,
   "removes_step": "walking to the window"
 }

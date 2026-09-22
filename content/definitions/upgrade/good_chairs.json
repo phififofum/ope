@@ -1,0 +1,14 @@
+{
+  "id": "base:good_chairs",
+  "type": "upgrade",
+  "name": "loc:upgrade.good_chairs",
+  "description": "loc:upgrade.good_chairs.description",
+  "cost": 2200.0,
+  "prerequisites": [],
+  "unlocks": [
+    "good_chairs"
+  ],
+  "category": "quality_of_life",
+  "costs_space": 0,
+  "removes_step": "customers leaving early"
+}

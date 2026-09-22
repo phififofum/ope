@@ -1,0 +1,14 @@
+{
+  "id": "base:card_reader",
+  "type": "upgrade",
+  "name": "loc:upgrade.card_reader",
+  "description": "loc:upgrade.card_reader.description",
+  "cost": 410.0,
+  "prerequisites": [],
+  "unlocks": [
+    "card_reader"
+  ],
+  "category": "quality_of_life",
+  "costs_space": 1,
+  "removes_step": "counting cash"
+}

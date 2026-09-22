@@ -1,0 +1,14 @@
+{
+  "id": "base:door_buzzer",
+  "type": "upgrade",
+  "name": "loc:upgrade.door_buzzer",
+  "description": "loc:upgrade.door_buzzer.description",
+  "cost": 760.0,
+  "prerequisites": [],
+  "unlocks": [
+    "door_buzzer"
+  ],
+  "category": "security",
+  "costs_space": 0,
+  "removes_step": "keeping an eye on the door"
+}

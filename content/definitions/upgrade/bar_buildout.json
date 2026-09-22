@@ -4,10 +4,13 @@
   "name": "loc:upgrade.bar_buildout",
   "description": "loc:upgrade.bar_buildout.description",
   "cost": 11200.0,
-  "prerequisites": [],
+  "prerequisites": [
+    "base:event_floor"
+  ],
   "unlocks": [
     "bar_buildout"
   ],
   "category": "space",
-  "costs_space": 1
+  "costs_space": 0,
+  "removes_step": "serving drinks from the counter"
 }

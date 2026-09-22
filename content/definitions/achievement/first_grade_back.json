@@ -1,0 +1,12 @@
+{
+  "id": "base:first_grade_back",
+  "type": "achievement",
+  "name": "loc:achievement.first_grade_back",
+  "description": "loc:achievement.first_grade_back.description",
+  "hidden": false,
+  "condition": {
+    "event": "card_graded",
+    "count": 1
+  },
+  "tags": []
+}

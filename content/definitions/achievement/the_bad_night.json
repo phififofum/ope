@@ -1,0 +1,14 @@
+{
+  "id": "base:the_bad_night",
+  "type": "achievement",
+  "name": "loc:achievement.the_bad_night",
+  "description": "loc:achievement.the_bad_night.description",
+  "hidden": true,
+  "condition": {
+    "event": "order_failed",
+    "count": 25
+  },
+  "tags": [
+    "hidden"
+  ]
+}

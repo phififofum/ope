@@ -1,0 +1,12 @@
+{
+  "id": "base:fed_it_a_week",
+  "type": "achievement",
+  "name": "loc:achievement.fed_it_a_week",
+  "description": "loc:achievement.fed_it_a_week.description",
+  "hidden": false,
+  "condition": {
+    "event": "cat_fed",
+    "count": 7
+  },
+  "tags": []
+}

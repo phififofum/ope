@@ -1,0 +1,14 @@
+{
+  "id": "base:receipt_printer",
+  "type": "upgrade",
+  "name": "loc:upgrade.receipt_printer",
+  "description": "loc:upgrade.receipt_printer.description",
+  "cost": 320.0,
+  "prerequisites": [],
+  "unlocks": [
+    "receipt_printer"
+  ],
+  "category": "quality_of_life",
+  "costs_space": 1,
+  "removes_step": "writing receipts out"
+}

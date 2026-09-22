@@ -71,6 +71,18 @@ func _capture(path: String) -> void:
 	await RenderingServer.frame_post_draw
 	_write_image(path.get_basename() + "_room.png")
 
+	# The back office, which is where the campaign actually lives: licences, equipment,
+	# staff, the ledger and the deeds. A third shot because it fails differently again --
+	# an empty page here means content the player cannot reach.
+	session.management.toggle()
+	for _frame: int in range(8):
+		await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	_write_image(path.get_basename() + "_office.png")
+	session.management.toggle()
+	for _frame: int in range(4):
+		await get_tree().process_frame
+
 	session._serve_next()
 	for _frame: int in range(12):
 		await get_tree().process_frame

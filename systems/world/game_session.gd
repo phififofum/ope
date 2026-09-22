@@ -14,6 +14,8 @@ var settings: GameSettings
 var shop: Shop
 var world: ShopWorld
 var hud: Hud
+var foley: Foley
+var management: ManagementScreen
 var inspection: InspectionView
 var log: RunLog
 
@@ -58,6 +60,18 @@ func start(p_settings: GameSettings, session_seed: int = 0, player_count: int = 
 	inspection.setup(settings, registry)
 	inspection.verdict_chosen.connect(_on_verdict_chosen)
 
+	# The shop makes noise. Every sound is synthesised at startup -- see [Foley] -- and
+	# every one has a visual counterpart in the HUD, so silence remains playable.
+	foley = Foley.new(settings)
+	add_child(foley)
+	foley.listen_to(bus)
+
+	# The back office. Everything the shop owns or could buy is in here, because a
+	# thousand definitions the player cannot reach are not content.
+	management = ManagementScreen.new()
+	overlay.add_child(management)
+	management.setup(shop, log, settings)
+
 	console = DevConsole.new()
 	add_child(console)
 	console.setup(registry, bus)
@@ -76,6 +90,7 @@ func _process(delta: float) -> void:
 		shop.tick()
 	if ticks > 0:
 		world.sync_customers()
+		foley.set_occupancy(shop.waiting_encounters.size())
 	if _clock.current_tick() % 600 == 0 and log != null:
 		log.sample(shop.day, shop.clock.current_tick(), shop.state_sample())
 	if shop.clock.current_tick() - shop.day * Shop.DAY_TICKS > Shop.DAY_TICKS:
@@ -121,6 +136,21 @@ func _unhandled_input(event: InputEvent) -> void:
 		_show_binder()
 	elif event is InputEventKey and (event as InputEventKey).keycode == KEY_F1:
 		console.toggle()
+	elif event is InputEventKey and (event as InputEventKey).keycode == KEY_TAB:
+		management.toggle()
+		# The shift does not stop while you shop. Deciding what to spend money on with a
+		# queue building is the decision, not an interlude from it.
+		world.player.accepting_input = not management.visible
+		Input.mouse_mode = (
+			Input.MOUSE_MODE_VISIBLE if management.visible else Input.MOUSE_MODE_CAPTURED
+		)
+	elif management.visible and event is InputEventKey:
+		if (event as InputEventKey).keycode == KEY_ESCAPE:
+			management.toggle()
+			world.player.accepting_input = true
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		else:
+			management.handle_key((event as InputEventKey).keycode)
 
 
 ## One interaction verb, and what it does depends entirely on what you are standing in

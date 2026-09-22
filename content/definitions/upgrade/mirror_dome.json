@@ -1,0 +1,14 @@
+{
+  "id": "base:mirror_dome",
+  "type": "upgrade",
+  "name": "loc:upgrade.mirror_dome",
+  "description": "loc:upgrade.mirror_dome.description",
+  "cost": 290.0,
+  "prerequisites": [],
+  "unlocks": [
+    "mirror_dome"
+  ],
+  "category": "security",
+  "costs_space": 1,
+  "removes_step": "blind corners"
+}

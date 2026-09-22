@@ -1,0 +1,14 @@
+{
+  "id": "base:bike_rack",
+  "type": "upgrade",
+  "name": "loc:upgrade.bike_rack",
+  "description": "loc:upgrade.bike_rack.description",
+  "cost": 310.0,
+  "prerequisites": [],
+  "unlocks": [
+    "bike_rack"
+  ],
+  "category": "space",
+  "costs_space": 0,
+  "removes_step": "bikes in the aisle"
+}

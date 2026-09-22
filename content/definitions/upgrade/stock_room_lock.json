@@ -1,0 +1,14 @@
+{
+  "id": "base:stock_room_lock",
+  "type": "upgrade",
+  "name": "loc:upgrade.stock_room_lock",
+  "description": "loc:upgrade.stock_room_lock.description",
+  "cost": 540.0,
+  "prerequisites": [],
+  "unlocks": [
+    "stock_room_lock"
+  ],
+  "category": "security",
+  "costs_space": 1,
+  "removes_step": "trusting everybody"
+}

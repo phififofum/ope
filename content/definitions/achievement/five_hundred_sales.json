@@ -1,0 +1,12 @@
+{
+  "id": "base:five_hundred_sales",
+  "type": "achievement",
+  "name": "loc:achievement.five_hundred_sales",
+  "description": "loc:achievement.five_hundred_sales.description",
+  "hidden": false,
+  "condition": {
+    "event": "sale_attempted",
+    "count": 500
+  },
+  "tags": []
+}

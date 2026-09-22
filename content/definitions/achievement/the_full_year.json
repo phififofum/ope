@@ -1,0 +1,14 @@
+{
+  "id": "base:the_full_year",
+  "type": "achievement",
+  "name": "loc:achievement.the_full_year",
+  "description": "loc:achievement.the_full_year.description",
+  "hidden": true,
+  "condition": {
+    "event": "day_ended",
+    "count": 365
+  },
+  "tags": [
+    "hidden"
+  ]
+}

@@ -9,5 +9,6 @@
     "camera_bank"
   ],
   "category": "security",
-  "costs_space": 1
+  "costs_space": 1,
+  "removes_step": "wondering what happened"
 }

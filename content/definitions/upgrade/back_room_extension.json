@@ -9,5 +9,6 @@
     "back_room_extension"
   ],
   "category": "space",
-  "costs_space": 1
+  "costs_space": 0,
+  "removes_step": "shuffling stock to reach stock"
 }

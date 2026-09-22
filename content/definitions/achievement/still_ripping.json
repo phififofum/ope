@@ -1,0 +1,14 @@
+{
+  "id": "base:still_ripping",
+  "type": "achievement",
+  "name": "loc:achievement.still_ripping",
+  "description": "loc:achievement.still_ripping.description",
+  "hidden": true,
+  "condition": {
+    "event": "pack_opened",
+    "count": 500
+  },
+  "tags": [
+    "hidden"
+  ]
+}

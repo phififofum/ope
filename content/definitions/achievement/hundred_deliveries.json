@@ -1,0 +1,12 @@
+{
+  "id": "base:hundred_deliveries",
+  "type": "achievement",
+  "name": "loc:achievement.hundred_deliveries",
+  "description": "loc:achievement.hundred_deliveries.description",
+  "hidden": false,
+  "condition": {
+    "event": "delivery_accepted",
+    "count": 100
+  },
+  "tags": []
+}

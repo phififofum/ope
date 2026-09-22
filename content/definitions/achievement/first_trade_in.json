@@ -1,0 +1,12 @@
+{
+  "id": "base:first_trade_in",
+  "type": "achievement",
+  "name": "loc:achievement.first_trade_in",
+  "description": "loc:achievement.first_trade_in.description",
+  "hidden": false,
+  "condition": {
+    "event": "trade_in_attempted",
+    "count": 1
+  },
+  "tags": []
+}

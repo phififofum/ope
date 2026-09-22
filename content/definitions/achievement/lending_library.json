@@ -1,0 +1,12 @@
+{
+  "id": "base:lending_library",
+  "type": "achievement",
+  "name": "loc:achievement.lending_library",
+  "description": "loc:achievement.lending_library.description",
+  "hidden": false,
+  "condition": {
+    "event": "game_returned",
+    "count": 200
+  },
+  "tags": []
+}

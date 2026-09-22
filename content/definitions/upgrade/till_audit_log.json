@@ -1,0 +1,16 @@
+{
+  "id": "base:till_audit_log",
+  "type": "upgrade",
+  "name": "loc:upgrade.till_audit_log",
+  "description": "loc:upgrade.till_audit_log.description",
+  "cost": 1180.0,
+  "prerequisites": [
+    "base:card_reader"
+  ],
+  "unlocks": [
+    "till_audit_log"
+  ],
+  "category": "security",
+  "costs_space": 1,
+  "removes_step": "reconciling by hand"
+}

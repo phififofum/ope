@@ -1,0 +1,12 @@
+{
+  "id": "base:graded_two_hundred",
+  "type": "achievement",
+  "name": "loc:achievement.graded_two_hundred",
+  "description": "loc:achievement.graded_two_hundred.description",
+  "hidden": false,
+  "condition": {
+    "event": "card_graded",
+    "count": 200
+  },
+  "tags": []
+}

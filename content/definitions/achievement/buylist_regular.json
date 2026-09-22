@@ -1,0 +1,12 @@
+{
+  "id": "base:buylist_regular",
+  "type": "achievement",
+  "name": "loc:achievement.buylist_regular",
+  "description": "loc:achievement.buylist_regular.description",
+  "hidden": false,
+  "condition": {
+    "event": "trade_in_attempted",
+    "count": 100
+  },
+  "tags": []
+}

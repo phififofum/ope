@@ -1,0 +1,16 @@
+{
+  "id": "base:light_box",
+  "type": "upgrade",
+  "name": "loc:upgrade.light_box",
+  "description": "loc:upgrade.light_box.description",
+  "cost": 1150.0,
+  "prerequisites": [
+    "base:task_lamp"
+  ],
+  "unlocks": [
+    "light_box"
+  ],
+  "category": "equipment",
+  "costs_space": 1,
+  "removes_step": "holding things up to the strip light"
+}

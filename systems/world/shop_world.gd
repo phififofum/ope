@@ -22,7 +22,7 @@ var interactables: Array[Interactable] = []
 var counter_position := Vector3(0.0, 0.0, -3.0)
 
 var _materials: Dictionary = {}
-var _customers: Array[MeshInstance3D] = []
+var _customers: Array[Node3D] = []
 
 
 func build(p_shop: Shop) -> void:
@@ -33,12 +33,20 @@ func build(p_shop: Shop) -> void:
 	built.emit(fixtures.size())
 
 
+## The shell: floor, walls, ceiling, the window onto the street, and the light.
+##
+## Everything here is generated -- see [Surfaces] -- so the room has grain, tile and
+## paintwork without a single imported image.
 func _build_room() -> void:
+	var boards: Texture2D = Surfaces.tile(Color(0.31, 0.29, 0.27), Color(0.19, 0.18, 0.18))
+	var floor_material: StandardMaterial3D = Surfaces.textured(
+		boards, Vector3(ROOM_SIZE.x * 0.25, ROOM_SIZE.z * 0.25, 1.0), 0.75
+	)
 	var floor_mesh := MeshInstance3D.new()
 	var floor_box := BoxMesh.new()
 	floor_box.size = Vector3(ROOM_SIZE.x, 0.2, ROOM_SIZE.z)
 	floor_mesh.mesh = floor_box
-	floor_mesh.material_override = _material("floor", Color(0.22, 0.2, 0.19))
+	floor_mesh.material_override = floor_material
 	floor_mesh.position = Vector3(0.0, -0.1, 0.0)
 	add_child(floor_mesh)
 
@@ -56,10 +64,16 @@ func _build_room() -> void:
 	_add_box(
 		Vector3(0.0, ROOM_SIZE.y, 0.0),
 		Vector3(ROOM_SIZE.x, 0.2, ROOM_SIZE.z),
-		_material("ceiling", Color(0.26, 0.25, 0.26)),
+		Surfaces.matte(Color(0.42, 0.41, 0.4), 0.98),
 		false
 	)
 
+	var paint: StandardMaterial3D = Surfaces.textured(
+		Surfaces.plaster(Color(0.5, 0.45, 0.39)), Vector3(4.0, 1.0, 1.0), 0.95
+	)
+	var panelling: StandardMaterial3D = Surfaces.textured(
+		Surfaces.wood(Color(0.34, 0.22, 0.15)), Vector3(8.0, 1.0, 1.0), 0.7
+	)
 	for wall: Array in [
 		[
 			Vector3(0.0, ROOM_SIZE.y * 0.5, -ROOM_SIZE.z * 0.5),
@@ -78,46 +92,135 @@ func _build_room() -> void:
 			Vector3(0.2, ROOM_SIZE.y, ROOM_SIZE.z)
 		],
 	]:
-		_add_box(wall[0], wall[1], _material("wall", Color(0.3, 0.29, 0.31)), true)
+		_add_box(wall[0], wall[1], paint, true)
+		# Wainscot: a dado rail's worth of timber round the bottom of the room, which is
+		# most of what stops a flat wall reading as a flat wall.
+		var low: Vector3 = wall[0]
+		low.y = 0.5
+		var thickness: Vector3 = wall[1]
+		thickness.y = 1.0
+		_add_box(
+			low + _toward_room(low) * 0.11, thickness * Vector3(0.999, 1.0, 0.999), panelling, false
+		)
 
-	# Warm, over-lit fluorescents against a dark street. The light does as much of the
-	# work as the geometry here, so it gets an environment rather than one bright bulb:
-	# ambient fill to keep the room readable, tonemapping so the whites are not blown.
+	_build_window()
+	_build_lighting()
+
+
+## The street outside, seen through the front glass. It is a lit panel rather than a
+## world, but it gives the room an outside to be inside of -- and at this hour the point
+## is that it is dark out there and warm in here.
+func _build_window() -> void:
+	var z: float = ROOM_SIZE.z * 0.5 - 0.14
+	_add_box(
+		Vector3(-2.5, 1.85, z),
+		Vector3(5.6, 2.1, 0.06),
+		Surfaces.glowing(Color(0.1, 0.13, 0.22), 0.3),
+		false
+	)
+	var frame: StandardMaterial3D = Surfaces.textured(
+		Surfaces.wood(Color(0.3, 0.19, 0.13)), Vector3(3.0, 1.0, 1.0), 0.6
+	)
+	for bar: Array in [
+		[Vector3(-2.5, 0.78, z), Vector3(5.8, 0.12, 0.12)],
+		[Vector3(-2.5, 2.92, z), Vector3(5.8, 0.12, 0.12)],
+		[Vector3(-5.35, 1.85, z), Vector3(0.12, 2.2, 0.12)],
+		[Vector3(0.35, 1.85, z), Vector3(0.12, 2.2, 0.12)],
+		[Vector3(-2.5, 1.85, z), Vector3(0.08, 2.1, 0.1)],
+	]:
+		_add_box(bar[0], bar[1], frame, false)
+
+	# The sign in the window, lit from behind, facing the street.
+	_add_box(
+		Vector3(-2.5, 2.45, z - 0.1),
+		Vector3(2.4, 0.5, 0.06),
+		Surfaces.glowing(Color(0.95, 0.42, 0.28), 1.3),
+		false
+	)
+
+	# Streetlight leaking in, cold against the warm interior.
+	var outside := OmniLight3D.new()
+	outside.position = Vector3(-2.5, 2.1, z - 0.8)
+	outside.light_color = Color(0.55, 0.68, 0.95)
+	outside.light_energy = 0.7
+	outside.omni_range = 7.0
+	add_child(outside)
+
+
+## Warm, over-lit fluorescents against a dark street. The light does as much of the work
+## as the geometry, so it gets an environment rather than one bright bulb.
+func _build_lighting() -> void:
 	var environment := WorldEnvironment.new()
 	var world_environment := Environment.new()
 	world_environment.background_mode = Environment.BG_COLOR
-	world_environment.background_color = Color(0.05, 0.05, 0.07)
+	world_environment.background_color = Color(0.04, 0.04, 0.06)
 	world_environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	world_environment.ambient_light_color = Color(0.55, 0.52, 0.5)
-	world_environment.ambient_light_energy = 0.9
+	world_environment.ambient_light_color = Color(0.42, 0.44, 0.52)
+	world_environment.ambient_light_energy = 0.2
 	world_environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
-	world_environment.tonemap_white = 3.0
+	world_environment.tonemap_white = 6.0
+	world_environment.tonemap_exposure = 0.5
+	world_environment.ssao_enabled = true
+	world_environment.ssao_radius = 0.9
+	world_environment.ssao_intensity = 1.6
+	# The glow is what makes the case, the sign and the strip lights read as light
+	# sources rather than as pale paint.
+	world_environment.glow_enabled = true
+	world_environment.glow_intensity = 0.28
+	world_environment.glow_bloom = 0.12
 	environment.environment = world_environment
 	add_child(environment)
 
-	# Strip lights down the room, the way a long narrow space is actually lit.
-	for offset: float in [-4.0, 0.0, 4.0]:
-		var light := OmniLight3D.new()
-		light.position = Vector3(offset, 2.85, 0.0)
-		light.light_color = Color(1.0, 0.95, 0.86)
-		light.light_energy = 0.9
-		light.omni_range = 9.0
-		light.omni_attenuation = 1.4
-		add_child(light)
+	for offset: float in [-5.0, -1.5, 2.0, 5.5]:
+		# The fitting, then the light it casts. A bare OmniLight3D with nothing to come
+		# out of is the single most placeholder-looking thing in a room.
+		_add_box(
+			Vector3(offset, ROOM_SIZE.y - 0.16, 0.0),
+			Vector3(0.3, 0.08, 4.5),
+			Surfaces.glowing(Color(1.0, 0.96, 0.88), 0.55),
+			false
+		)
+		for along: float in [-0.5]:
+			var light := OmniLight3D.new()
+			light.position = Vector3(offset, 2.8, along)
+			light.light_color = Color(1.0, 0.94, 0.84)
+			light.light_energy = 0.75
+			light.omni_range = 5.2
+			light.omni_attenuation = 1.2
+			light.shadow_enabled = offset < 0.0
+			add_child(light)
+
+
+## Which way is into the room from a wall at [param point] -- used to sit the panelling
+## just proud of the plaster.
+func _toward_room(point: Vector3) -> Vector3:
+	return Vector3(-signf(point.x), 0.0, -signf(point.z))
 
 
 ## Places one fixture per definition, laid out along the zones the definitions declare.
 ## A mod that adds a fixture gets a place in the room without touching this file.
 func _place_fixtures() -> void:
 	var zone_cursor: Dictionary = {}
+	# Where each zone starts, and which way it runs from there. A shop is walls with
+	# things against them and a floor you walk down the middle of -- laying fixtures out
+	# in a grid in the open floor is what made this read as a warehouse.
 	var zone_origin: Dictionary = {
-		"counter": Vector3(-4.0, 0.0, -3.0),
-		"kitchen": Vector3(4.0, 0.0, -3.5),
-		"library": Vector3(-6.5, 0.0, 2.0),
-		"play": Vector3(0.0, 0.0, 3.0),
-		"service": Vector3(6.0, 0.0, 0.0),
-		"back": Vector3(6.5, 0.0, 4.5),
-		"any": Vector3(0.0, 0.0, 0.0),
+		"counter": Vector3(-6.2, 0.0, -4.4),
+		"kitchen": Vector3(2.4, 0.0, -4.6),
+		"library": Vector3(-7.2, 0.0, 0.4),
+		"play": Vector3(-3.4, 0.0, 3.4),
+		"service": Vector3(6.9, 0.0, -1.5),
+		"back": Vector3(6.6, 0.0, 4.4),
+		"any": Vector3(2.0, 0.0, 1.6),
+	}
+	var zone_run: Dictionary = {
+		"counter": Vector3(1.9, 0.0, 0.0),
+		"kitchen": Vector3(1.9, 0.0, 0.0),
+		"library": Vector3(0.0, 0.0, 1.7),
+		"play": Vector3(2.4, 0.0, 0.0),
+		"service": Vector3(0.0, 0.0, 1.8),
+		"back": Vector3(-1.8, 0.0, 0.0),
+		"any": Vector3(1.8, 0.0, 0.0),
 	}
 
 	var placed: int = 0
@@ -128,16 +231,16 @@ func _place_fixtures() -> void:
 		var index: int = int(zone_cursor.get(zone, 0))
 		zone_cursor[zone] = index + 1
 		var origin: Vector3 = zone_origin.get(zone, Vector3.ZERO)
-		var offset := Vector3(float(index % 4) * 1.6, 0.0, floor(float(index) / 4.0) * 1.6)
+		var run: Vector3 = zone_run.get(zone, Vector3(1.8, 0.0, 0.0))
+		# Wrap onto a second row rather than walking a shelf through the wall.
+		var along: int = index % 4
+		var row: int = int(floor(float(index) / 4.0))
+		var offset: Vector3 = (
+			run * float(along) + Vector3(run.z, 0.0, run.x).normalized() * float(row) * 1.5
+		)
 		var footprint: Array = fixture.get_value("footprint", [1, 1])
 		var size := Vector3(float(footprint[0]) * 0.9, 0.9, float(footprint[1]) * 0.9)
-		var node: Node3D = _add_box(
-			origin + offset + Vector3(0.0, size.y * 0.5, 0.0),
-			size,
-			_material(fixture.get_text("category"), _category_colour(fixture.get_text("category"))),
-			true
-		)
-		node.name = String(fixture.id).replace(":", "_")
+		var node: Node3D = _build_fixture(fixture, origin + offset, size)
 		fixtures.append(node)
 		_attach_interactable(node, fixture, size)
 		placed += 1
@@ -163,6 +266,258 @@ func _room_furniture() -> Array:
 		else:
 			rest.append(fixture)
 	return essential + rest
+
+
+## Builds the fixture itself, in parts, according to what it is for.
+##
+## A shelf is uprights and boards with stock on them; a case is a lit box under glass
+## with cards in it; a table has legs. One box per fixture was what made the room read as
+## a diagram of a shop rather than a shop.
+func _build_fixture(fixture: ContentDefinition, centre: Vector3, size: Vector3) -> Node3D:
+	var root := Node3D.new()
+	root.position = centre
+	root.name = String(fixture.id).replace(":", "_")
+	add_child(root)
+
+	var tags: Array = fixture.get_value("tags", [])
+	match fixture.get_text("category"):
+		"shelf":
+			_build_shelving(root, size, tags.has("sealed"))
+		"case":
+			_build_display_case(root, size)
+		"counter":
+			_build_counter(root, size)
+		"table":
+			_build_table(root, size)
+		"kitchen":
+			_build_kitchen_station(root, size)
+		"cooler":
+			_build_cooler(root, size)
+		_:
+			_attach(root, Vector3(0.0, size.y * 0.5, 0.0), size, _carcass())
+
+	# One collider for the whole fixture: the parts are decoration, the footprint is what
+	# the player walks into.
+	var body := StaticBody3D.new()
+	var shape := CollisionShape3D.new()
+	var collision := BoxShape3D.new()
+	collision.size = Vector3(size.x, maxf(size.y, 1.0), size.z)
+	shape.shape = collision
+	body.add_child(shape)
+	body.position = Vector3(0.0, collision.size.y * 0.5, 0.0)
+	root.add_child(body)
+	return root
+
+
+## Uprights, boards, and product on the boards. The stock is coloured by category, so a
+## wall of sealed product looks different from a wall of crisps at a glance -- which is
+## the whole job of a shop shelf.
+func _build_shelving(root: Node3D, size: Vector3, sealed: bool) -> void:
+	var height: float = 2.1
+	var carcass: StandardMaterial3D = _carcass()
+	_attach(root, Vector3(-size.x * 0.5, height * 0.5, 0.0), Vector3(0.08, height, size.z), carcass)
+	_attach(root, Vector3(size.x * 0.5, height * 0.5, 0.0), Vector3(0.08, height, size.z), carcass)
+	_attach(root, Vector3(0.0, height, 0.0), Vector3(size.x, 0.08, size.z), carcass)
+	_attach(root, Vector3(0.0, 0.06, 0.0), Vector3(size.x, 0.12, size.z), carcass)
+
+	var shelf_count: int = 4
+	for level: int in range(shelf_count):
+		var y: float = 0.38 + float(level) * 0.44
+		_attach(root, Vector3(0.0, y, 0.0), Vector3(size.x - 0.1, 0.05, size.z * 0.9), carcass)
+		# A strip light under each board. Retail lighting is mostly this.
+		_attach(
+			root,
+			Vector3(0.0, y + 0.4, -size.z * 0.28),
+			Vector3(size.x - 0.24, 0.03, 0.05),
+			Surfaces.glowing(Color(1.0, 0.97, 0.9), 0.3)
+		)
+		_stock_a_shelf(root, size, y, level, sealed)
+
+
+## The goods. Deterministic from the level index so a shelf does not reshuffle itself
+## every time the room is built, which would make the visual baseline meaningless.
+func _stock_a_shelf(root: Node3D, size: Vector3, y: float, level: int, sealed: bool) -> void:
+	var palette: Array = (
+		[Color(0.85, 0.33, 0.26), Color(0.93, 0.74, 0.22), Color(0.24, 0.44, 0.72)]
+		if sealed
+		else [Color(0.42, 0.55, 0.36), Color(0.76, 0.6, 0.35), Color(0.6, 0.38, 0.55)]
+	)
+	var across: int = maxi(3, int(size.x / 0.22))
+	for index: int in range(across):
+		# A gap or two, because a perfectly faced shelf is a rendering, not a shop.
+		if (index * 7 + level * 3) % 11 == 0:
+			continue
+		var width: float = size.x / float(across)
+		var x: float = -size.x * 0.5 + width * (float(index) + 0.5)
+		var tint: Color = palette[(index + level) % palette.size()]
+		var tall: float = 0.2 + 0.08 * float((index + level) % 3)
+		_attach(
+			root,
+			Vector3(x, y + 0.03 + tall * 0.5, 0.0),
+			Vector3(width * 0.78, tall, size.z * 0.55),
+			Surfaces.matte(tint, 0.8)
+		)
+
+
+## The case: a lit box you look down into, with cards standing up in it. This is the
+## thing the game is named after being able to look at.
+func _build_display_case(root: Node3D, size: Vector3) -> void:
+	var carcass: StandardMaterial3D = _carcass()
+	_attach(root, Vector3(0.0, 0.42, 0.0), Vector3(size.x, 0.84, size.z), carcass)
+	_attach(
+		root,
+		Vector3(0.0, 0.86, 0.0),
+		Vector3(size.x, 0.04, size.z),
+		Surfaces.metal(Color(0.46, 0.47, 0.5), 0.6)
+	)
+	# The interior, lit from inside so the glass has something to glow with.
+	_attach(
+		root,
+		Vector3(0.0, 0.9, 0.0),
+		Vector3(size.x - 0.1, 0.02, size.z - 0.1),
+		Surfaces.glowing(Color(1.0, 0.97, 0.9), 0.08)
+	)
+	for index: int in range(maxi(4, int(size.x / 0.3))):
+		var step: float = size.x / float(maxi(4, int(size.x / 0.3)))
+		var x: float = -size.x * 0.5 + step * (float(index) + 0.5)
+		var rare: bool = index % 4 == 2
+		_attach(
+			root,
+			Vector3(x, 1.02, 0.02 * float(index % 3)),
+			Vector3(step * 0.6, 0.24, 0.015),
+			Surfaces.matte(Color(0.86, 0.72, 0.32) if rare else Color(0.72, 0.76, 0.84), 0.45)
+		)
+	# The glass goes on last so it draws over what is inside it.
+	_attach(
+		root,
+		Vector3(0.0, 1.12, 0.0),
+		Vector3(size.x, 0.44, size.z),
+		Surfaces.glass(Color(0.5, 0.62, 0.66, 0.13))
+	)
+	var light := OmniLight3D.new()
+	light.position = Vector3(0.0, 1.0, 0.0)
+	light.light_color = Color(1.0, 0.95, 0.85)
+	light.light_energy = 0.5
+	light.omni_range = 2.2
+	root.add_child(light)
+
+
+## Where the player stands: a solid front, a worn top, and a till.
+func _build_counter(root: Node3D, size: Vector3) -> void:
+	_attach(root, Vector3(0.0, 0.46, 0.0), Vector3(size.x, 0.92, size.z), _carcass())
+	_attach(
+		root,
+		Vector3(0.0, 0.95, 0.0),
+		Vector3(size.x + 0.08, 0.06, size.z + 0.08),
+		Surfaces.textured(Surfaces.wood(Color(0.45, 0.31, 0.2)), Vector3(2.0, 1.0, 1.0), 0.45)
+	)
+	_attach(
+		root,
+		Vector3(size.x * 0.28, 1.1, 0.0),
+		Vector3(0.34, 0.24, 0.3),
+		Surfaces.matte(Color(0.2, 0.21, 0.23), 0.5)
+	)
+	_attach(
+		root,
+		Vector3(size.x * 0.28, 1.23, -0.04),
+		Vector3(0.26, 0.12, 0.02),
+		Surfaces.glowing(Color(0.4, 0.95, 0.6), 1.2)
+	)
+
+
+func _build_table(root: Node3D, size: Vector3) -> void:
+	var timber: StandardMaterial3D = Surfaces.textured(
+		Surfaces.wood(Color(0.42, 0.29, 0.19)), Vector3(2.0, 2.0, 1.0), 0.6
+	)
+	_attach(root, Vector3(0.0, 0.74, 0.0), Vector3(size.x, 0.06, size.z), timber)
+	for corner: Vector2 in [Vector2(-1, -1), Vector2(1, -1), Vector2(-1, 1), Vector2(1, 1)]:
+		_attach(
+			root,
+			Vector3(corner.x * (size.x * 0.5 - 0.08), 0.37, corner.y * (size.z * 0.5 - 0.08)),
+			Vector3(0.07, 0.74, 0.07),
+			timber
+		)
+		# A stool per corner: an empty table reads as furniture, an occupied one as a cafe.
+		_attach(
+			root,
+			Vector3(corner.x * (size.x * 0.5 + 0.34), 0.44, corner.y * (size.z * 0.5 + 0.12)),
+			Vector3(0.34, 0.08, 0.34),
+			Surfaces.textured(Surfaces.fabric(Color(0.55, 0.28, 0.3)), Vector3.ONE, 0.95)
+		)
+
+
+func _build_kitchen_station(root: Node3D, size: Vector3) -> void:
+	_attach(
+		root,
+		Vector3(0.0, 0.45, 0.0),
+		Vector3(size.x, 0.9, size.z),
+		Surfaces.metal(Color(0.4, 0.42, 0.45), 0.62)
+	)
+	_attach(
+		root,
+		Vector3(0.0, 0.93, 0.0),
+		Vector3(size.x, 0.05, size.z),
+		Surfaces.metal(Color(0.5, 0.52, 0.55), 0.5)
+	)
+	for ring: float in [-0.22, 0.22]:
+		_attach(
+			root,
+			Vector3(ring, 0.97, 0.0),
+			Vector3(0.24, 0.02, 0.24),
+			Surfaces.glowing(Color(0.95, 0.35, 0.18), 1.5)
+		)
+	# The extractor hood, which is most of what makes a kitchen look like a kitchen.
+	_attach(
+		root,
+		Vector3(0.0, 1.85, -size.z * 0.2),
+		Vector3(size.x + 0.2, 0.3, size.z * 0.9),
+		Surfaces.metal(Color(0.44, 0.46, 0.48), 0.55)
+	)
+
+
+func _build_cooler(root: Node3D, size: Vector3) -> void:
+	_attach(
+		root,
+		Vector3(0.0, 0.9, 0.0),
+		Vector3(size.x, 1.8, size.z),
+		Surfaces.metal(Color(0.26, 0.28, 0.32), 0.65)
+	)
+	for level: int in range(3):
+		var y: float = 0.5 + float(level) * 0.45
+		_attach(
+			root,
+			Vector3(0.0, y, size.z * 0.1),
+			Vector3(size.x - 0.16, 0.34, size.z * 0.5),
+			Surfaces.matte(Color(0.3, 0.55, 0.72), 0.6)
+		)
+	_attach(
+		root,
+		Vector3(0.0, 1.0, size.z * 0.46),
+		Vector3(size.x - 0.06, 1.6, 0.04),
+		Surfaces.glass(Color(0.75, 0.88, 0.95, 0.3))
+	)
+	var chill := OmniLight3D.new()
+	chill.position = Vector3(0.0, 1.2, 0.2)
+	chill.light_color = Color(0.72, 0.88, 1.0)
+	chill.light_energy = 0.55
+	chill.omni_range = 2.2
+	root.add_child(chill)
+
+
+## Painted chipboard, the material every shop fitting is actually made of.
+func _carcass() -> StandardMaterial3D:
+	return Surfaces.textured(Surfaces.wood(Color(0.38, 0.26, 0.18)), Vector3(2.0, 1.0, 1.0), 0.75)
+
+
+func _attach(root: Node3D, centre: Vector3, size: Vector3, material: Material) -> MeshInstance3D:
+	var mesh := MeshInstance3D.new()
+	var box := BoxMesh.new()
+	box.size = size
+	mesh.mesh = box
+	mesh.material_override = material
+	mesh.position = centre
+	root.add_child(mesh)
+	return mesh
 
 
 func _attach_interactable(node: Node3D, fixture: ContentDefinition, size: Vector3) -> void:
@@ -231,21 +586,85 @@ func _attach_interactable(node: Node3D, fixture: ContentDefinition, size: Vector
 func sync_customers() -> void:
 	var wanted: int = shop.waiting_encounters.size() if shop != null else 0
 	while _customers.size() < wanted:
-		var index: int = _customers.size()
-		var figure := MeshInstance3D.new()
-		var capsule := CapsuleMesh.new()
-		capsule.height = 1.75
-		capsule.radius = 0.3
-		figure.mesh = capsule
-		figure.material_override = _material(
-			"person_%d" % (index % 4), Color(0.45 + 0.1 * float(index % 3), 0.4, 0.38)
-		)
-		figure.position = counter_position + Vector3(0.0, 0.95, 1.4 + float(index) * 0.75)
-		add_child(figure)
-		_customers.append(figure)
+		_customers.append(_build_person(_customers.size()))
 	while _customers.size() > wanted:
-		var last: MeshInstance3D = _customers.pop_back()
+		var last: Node3D = _customers.pop_back()
 		last.queue_free()
+	# Whoever is at the front is being served; the rest are waiting, and a queue that
+	# stands in a line facing the counter is legible from anywhere in the room.
+	for index: int in range(_customers.size()):
+		var spot: Vector3 = counter_position + Vector3(0.0, 0.0, 1.5 + float(index) * 0.85)
+		_customers[index].position = spot
+		_customers[index].look_at(counter_position + Vector3(0.0, 1.2, 0.0), Vector3.UP)
+		_customers[index].rotation.x = 0.0
+		_customers[index].rotation.z = 0.0
+
+
+## A person, from parts: coat, head, hair, bag. Not a character model, but enough that
+## four people in a queue look like four people rather than four capsules.
+func _build_person(index: int) -> Node3D:
+	const COATS: Array[Color] = [
+		Color(0.24, 0.29, 0.38),
+		Color(0.36, 0.22, 0.22),
+		Color(0.22, 0.31, 0.26),
+		Color(0.33, 0.3, 0.2),
+		Color(0.19, 0.2, 0.24),
+	]
+	const SKIN: Array[Color] = [
+		Color(0.76, 0.6, 0.46),
+		Color(0.51, 0.36, 0.26),
+		Color(0.87, 0.72, 0.6),
+		Color(0.34, 0.24, 0.18),
+	]
+	const HAIR: Array[Color] = [
+		Color(0.12, 0.09, 0.07), Color(0.35, 0.22, 0.11), Color(0.6, 0.55, 0.5)
+	]
+
+	var person := Node3D.new()
+	var height: float = 1.62 + 0.06 * float(index % 5)
+
+	var body := MeshInstance3D.new()
+	var capsule := CapsuleMesh.new()
+	capsule.height = height * 0.72
+	capsule.radius = 0.24
+	body.mesh = capsule
+	body.material_override = Surfaces.textured(
+		Surfaces.fabric(COATS[index % COATS.size()]), Vector3(2.0, 3.0, 1.0), 0.95
+	)
+	body.position = Vector3(0.0, height * 0.42, 0.0)
+	person.add_child(body)
+
+	var head := MeshInstance3D.new()
+	var skull := SphereMesh.new()
+	skull.radius = 0.115
+	skull.height = 0.25
+	head.mesh = skull
+	head.material_override = Surfaces.matte(SKIN[index % SKIN.size()], 0.85)
+	head.position = Vector3(0.0, height * 0.86, 0.0)
+	person.add_child(head)
+
+	var hair := MeshInstance3D.new()
+	var cap := SphereMesh.new()
+	cap.radius = 0.122
+	cap.height = 0.2
+	hair.mesh = cap
+	hair.material_override = Surfaces.matte(HAIR[index % HAIR.size()], 0.95)
+	hair.position = Vector3(0.0, height * 0.885, -0.01)
+	person.add_child(hair)
+
+	# The binder or the shopping they came in with, which is the reason they are here.
+	var carried := MeshInstance3D.new()
+	var bag := BoxMesh.new()
+	bag.size = Vector3(0.22, 0.28, 0.07)
+	carried.mesh = bag
+	carried.material_override = Surfaces.matte(
+		Color(0.55, 0.42, 0.24) if index % 2 == 0 else Color(0.3, 0.33, 0.38), 0.8
+	)
+	carried.position = Vector3(0.26, height * 0.45, 0.06)
+	person.add_child(carried)
+
+	add_child(person)
+	return person
 
 
 func _place_player() -> void:

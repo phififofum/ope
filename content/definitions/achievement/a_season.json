@@ -1,0 +1,12 @@
+{
+  "id": "base:a_season",
+  "type": "achievement",
+  "name": "loc:achievement.a_season",
+  "description": "loc:achievement.a_season.description",
+  "hidden": false,
+  "condition": {
+    "event": "day_ended",
+    "count": 90
+  },
+  "tags": []
+}

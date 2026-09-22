@@ -1,0 +1,14 @@
+{
+  "id": "base:sound_baffles",
+  "type": "upgrade",
+  "name": "loc:upgrade.sound_baffles",
+  "description": "loc:upgrade.sound_baffles.description",
+  "cost": 1380.0,
+  "prerequisites": [],
+  "unlocks": [
+    "sound_baffles"
+  ],
+  "category": "quality_of_life",
+  "costs_space": 1,
+  "removes_step": "shouting over the room"
+}

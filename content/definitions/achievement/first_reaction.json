@@ -1,0 +1,12 @@
+{
+  "id": "base:first_reaction",
+  "type": "achievement",
+  "name": "loc:achievement.first_reaction",
+  "description": "loc:achievement.first_reaction.description",
+  "hidden": false,
+  "condition": {
+    "event": "cat_reacted",
+    "count": 1
+  },
+  "tags": []
+}

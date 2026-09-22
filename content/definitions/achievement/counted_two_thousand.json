@@ -1,0 +1,12 @@
+{
+  "id": "base:counted_two_thousand",
+  "type": "achievement",
+  "name": "loc:achievement.counted_two_thousand",
+  "description": "loc:achievement.counted_two_thousand.description",
+  "hidden": false,
+  "condition": {
+    "event": "component_check_resolved",
+    "count": 2000
+  },
+  "tags": []
+}

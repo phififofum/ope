@@ -1,0 +1,14 @@
+{
+  "id": "base:every_permission",
+  "type": "achievement",
+  "name": "loc:achievement.every_permission",
+  "description": "loc:achievement.every_permission.description",
+  "hidden": true,
+  "condition": {
+    "event": "licence_granted",
+    "count": 25
+  },
+  "tags": [
+    "hidden"
+  ]
+}

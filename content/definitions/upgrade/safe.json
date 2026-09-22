@@ -1,0 +1,14 @@
+{
+  "id": "base:safe",
+  "type": "upgrade",
+  "name": "loc:upgrade.safe",
+  "description": "loc:upgrade.safe.description",
+  "cost": 1650.0,
+  "prerequisites": [],
+  "unlocks": [
+    "safe"
+  ],
+  "category": "security",
+  "costs_space": 1,
+  "removes_step": "banking daily"
+}

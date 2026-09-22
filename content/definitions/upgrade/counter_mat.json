@@ -1,0 +1,14 @@
+{
+  "id": "base:counter_mat",
+  "type": "upgrade",
+  "name": "loc:upgrade.counter_mat",
+  "description": "loc:upgrade.counter_mat.description",
+  "cost": 85.0,
+  "prerequisites": [],
+  "unlocks": [
+    "counter_mat"
+  ],
+  "category": "quality_of_life",
+  "costs_space": 1,
+  "removes_step": "chasing cards across the counter"
+}

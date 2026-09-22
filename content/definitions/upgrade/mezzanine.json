@@ -4,10 +4,13 @@
   "name": "loc:upgrade.mezzanine",
   "description": "loc:upgrade.mezzanine.description",
   "cost": 15400.0,
-  "prerequisites": [],
+  "prerequisites": [
+    "base:back_room_extension"
+  ],
   "unlocks": [
     "mezzanine"
   ],
   "category": "space",
-  "costs_space": 0
+  "costs_space": 0,
+  "removes_step": "storing overflow at home"
 }

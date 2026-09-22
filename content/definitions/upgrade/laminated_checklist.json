@@ -9,5 +9,6 @@
     "laminated_checklist"
   ],
   "category": "quality_of_life",
-  "costs_space": 0
+  "costs_space": 0,
+  "removes_step": "remembering the rules"
 }

@@ -1,0 +1,12 @@
+{
+  "id": "base:case_of_cases",
+  "type": "achievement",
+  "name": "loc:achievement.case_of_cases",
+  "description": "loc:achievement.case_of_cases.description",
+  "hidden": false,
+  "condition": {
+    "event": "pack_opened",
+    "count": 216
+  },
+  "tags": []
+}

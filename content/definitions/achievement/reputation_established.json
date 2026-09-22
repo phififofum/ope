@@ -1,0 +1,12 @@
+{
+  "id": "base:reputation_established",
+  "type": "achievement",
+  "name": "loc:achievement.reputation_established",
+  "description": "loc:achievement.reputation_established.description",
+  "hidden": false,
+  "condition": {
+    "event": "reputation_changed",
+    "count": 5000
+  },
+  "tags": []
+}

@@ -1,0 +1,14 @@
+{
+  "id": "base:water_station",
+  "type": "upgrade",
+  "name": "loc:upgrade.water_station",
+  "description": "loc:upgrade.water_station.description",
+  "cost": 260.0,
+  "prerequisites": [],
+  "unlocks": [
+    "water_station"
+  ],
+  "category": "quality_of_life",
+  "costs_space": 2,
+  "removes_step": "fetching tap water"
+}

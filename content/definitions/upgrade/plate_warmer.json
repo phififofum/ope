@@ -1,0 +1,14 @@
+{
+  "id": "base:plate_warmer",
+  "type": "upgrade",
+  "name": "loc:upgrade.plate_warmer",
+  "description": "loc:upgrade.plate_warmer.description",
+  "cost": 640.0,
+  "prerequisites": [],
+  "unlocks": [
+    "plate_warmer"
+  ],
+  "category": "automation",
+  "costs_space": 1,
+  "removes_step": "plating cold"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "base:counted_a_hundred",
+  "type": "achievement",
+  "name": "loc:achievement.counted_a_hundred",
+  "description": "loc:achievement.counted_a_hundred.description",
+  "hidden": false,
+  "condition": {
+    "event": "component_check_resolved",
+    "count": 100
+  },
+  "tags": []
+}

@@ -24,9 +24,12 @@ where the hard part is knowing what to check.**
 
 > [!IMPORTANT]
 > **This is an early build, not a finished game.** All four loops run, a shift can be
-> played first-person, and a bot plays whole campaigns headlessly — but the art is
-> placeholder geometry, there is no audio, and the content is broad rather than deep.
-> [ROADMAP.md](ROADMAP.md) is the honest status, phase by phase.
+> played first-person, the shop is lit and makes noise, and the back office reaches every
+> licence, upgrade, staff role, cat and deed the content ships. What it does not have is
+> a hand-made world: the room is built from generated materials and primitives rather
+> than modelled, and no human has played it for long enough to say whether it is fun.
+> [ROADMAP.md](ROADMAP.md) is the honest status and [HANDOFF.md](HANDOFF.md) is the
+> ranked list of what needs attention first.
 
 ## Play it
 
@@ -51,6 +54,7 @@ No install, no launcher, no account. One file that already contains everything i
 | Reach for the tool in your other hand | **left mouse** |
 | Approve, decline, partial | `1`, `2`, `3` |
 | The binder of rules | `B` |
+| The back office — licences, equipment, staff, cats, ledger, deeds | `Tab` |
 | Developer console | `F1` |
 
 Cutting a new build for testers is one button — **Actions → Release → Run workflow** — and

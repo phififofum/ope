@@ -1,0 +1,16 @@
+{
+  "id": "base:magnifier_arm",
+  "type": "upgrade",
+  "name": "loc:upgrade.magnifier_arm",
+  "description": "loc:upgrade.magnifier_arm.description",
+  "cost": 540.0,
+  "prerequisites": [
+    "base:task_lamp"
+  ],
+  "unlocks": [
+    "magnifier_arm"
+  ],
+  "category": "equipment",
+  "costs_space": 0,
+  "removes_step": "holding the loupe"
+}

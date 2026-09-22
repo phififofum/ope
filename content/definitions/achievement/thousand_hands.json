@@ -1,0 +1,12 @@
+{
+  "id": "base:thousand_hands",
+  "type": "achievement",
+  "name": "loc:achievement.thousand_hands",
+  "description": "loc:achievement.thousand_hands.description",
+  "hidden": false,
+  "condition": {
+    "event": "verification_resolved",
+    "count": 1000
+  },
+  "tags": []
+}

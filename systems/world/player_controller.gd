@@ -21,6 +21,9 @@ const INTERACT_RANGE: float = 2.4
 var held_artifact: Artifact
 var held_tool_id: String = ""
 var look_sensitivity: float = MOUSE_SENSITIVITY
+## False while a screen is open over the world: the shift keeps running, but walking
+## about with the back office open is not a thing a person can do.
+var accepting_input: bool = true
 var invert_y: bool = false
 var head_bob_enabled: bool = true
 
@@ -65,6 +68,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if not accepting_input:
+		velocity = Vector3.ZERO
+		return
+
 	var input := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction: Vector3 = (transform.basis * Vector3(input.x, 0.0, input.y)).normalized()
 	var speed: float = RUN_SPEED if can_run and Input.is_action_pressed("run") else WALK_SPEED

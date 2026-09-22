@@ -1,0 +1,12 @@
+{
+  "id": "base:first_delivery",
+  "type": "achievement",
+  "name": "loc:achievement.first_delivery",
+  "description": "loc:achievement.first_delivery.description",
+  "hidden": false,
+  "condition": {
+    "event": "delivery_accepted",
+    "count": 1
+  },
+  "tags": []
+}

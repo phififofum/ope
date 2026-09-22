@@ -1,0 +1,12 @@
+{
+  "id": "base:reputation_noticed",
+  "type": "achievement",
+  "name": "loc:achievement.reputation_noticed",
+  "description": "loc:achievement.reputation_noticed.description",
+  "hidden": false,
+  "condition": {
+    "event": "reputation_changed",
+    "count": 500
+  },
+  "tags": []
+}

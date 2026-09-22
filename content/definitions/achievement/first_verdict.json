@@ -1,0 +1,12 @@
+{
+  "id": "base:first_verdict",
+  "type": "achievement",
+  "name": "loc:achievement.first_verdict",
+  "description": "loc:achievement.first_verdict.description",
+  "hidden": false,
+  "condition": {
+    "event": "verification_resolved",
+    "count": 1
+  },
+  "tags": []
+}

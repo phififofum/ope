@@ -1,0 +1,14 @@
+{
+  "id": "base:queue_rail",
+  "type": "upgrade",
+  "name": "loc:upgrade.queue_rail",
+  "description": "loc:upgrade.queue_rail.description",
+  "cost": 380.0,
+  "prerequisites": [],
+  "unlocks": [
+    "queue_rail"
+  ],
+  "category": "quality_of_life",
+  "costs_space": 0,
+  "removes_step": "sorting out who was first"
+}

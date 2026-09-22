@@ -162,3 +162,19 @@ func _remove_tree(path: String) -> void:
 	for sub_name: String in dir.get_directories():
 		_remove_tree(path.path_join(sub_name))
 	DirAccess.remove_absolute(path)
+
+
+func test_every_kind_of_equipment_does_something_when_bought() -> void:
+	# An upgrade whose category the shop does not recognise is money taken for nothing.
+	# Forty-five of these ship; this is the check that they all land somewhere.
+	var categories: Dictionary = {}
+	for upgrade: ContentDefinition in registry.by_type(&"upgrade"):
+		categories[upgrade.get_text("category")] = true
+	for category: String in categories.keys():
+		(
+			assert_bool(Shop.UPGRADE_HELPS.has(category))
+			. override_failure_message(
+				"upgrades of category '%s' ship in content but shorten no task" % category
+			)
+			. is_true()
+		)

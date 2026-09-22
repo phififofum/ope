@@ -1,0 +1,12 @@
+{
+  "id": "base:the_cat_knows",
+  "type": "achievement",
+  "name": "loc:achievement.the_cat_knows",
+  "description": "loc:achievement.the_cat_knows.description",
+  "hidden": false,
+  "condition": {
+    "event": "cat_reacted",
+    "count": 50
+  },
+  "tags": []
+}

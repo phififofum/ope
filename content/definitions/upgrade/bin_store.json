@@ -1,0 +1,14 @@
+{
+  "id": "base:bin_store",
+  "type": "upgrade",
+  "name": "loc:upgrade.bin_store",
+  "description": "loc:upgrade.bin_store.description",
+  "cost": 980.0,
+  "prerequisites": [],
+  "unlocks": [
+    "bin_store"
+  ],
+  "category": "space",
+  "costs_space": 0,
+  "removes_step": "walking the waste out front"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "base:open_a_year",
+  "type": "achievement",
+  "name": "loc:achievement.open_a_year",
+  "description": "loc:achievement.open_a_year.description",
+  "hidden": true,
+  "condition": {
+    "event": "shift_started",
+    "count": 365
+  },
+  "tags": [
+    "hidden"
+  ]
+}

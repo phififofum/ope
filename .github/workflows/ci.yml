@@ -33,7 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
 
-      - uses: actions/setup-python@v7.0.0
+      - uses: actions/setup-python@v7.1.0
         with:
           python-version: "3.12"
 
@@ -71,7 +71,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
 
-      - uses: actions/setup-python@v7.0.0
+      - uses: actions/setup-python@v7.1.0
         with:
           python-version: "3.12"
 
@@ -236,7 +236,7 @@ jobs:
           sudo apt-get install -y -qq xvfb >/dev/null
           GODOT="$HOME/godot/godot" python3 tools/visual_regression.py
 
-      - uses: actions/upload-artifact@v7.0.1
+      - uses: actions/upload-artifact@v7.0.2
         if: always()
         with:
           name: poggywoggy-visual-captures
@@ -244,7 +244,7 @@ jobs:
           retention-days: 7
           if-no-files-found: warn
 
-      - uses: actions/upload-artifact@v7.0.1
+      - uses: actions/upload-artifact@v7.0.2
         with:
           name: poggywoggy-ci-linux
           path: build/linux/
